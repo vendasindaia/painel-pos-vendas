@@ -38,7 +38,23 @@ tr.dest td{background:#fdf8ec}
 .painel .chart{width:100%;height:auto;display:block;overflow:visible}
 .legenda{font-size:11.5px;color:#6b7280;margin:6px 0 0}
 @media print{body{background:#fff;padding:0}.pag{border:0;border-radius:0;max-width:none;padding:0}}
-</style></head><body>
+</style>
+<style>
+/* barra de abas — prefixo tabx para não colidir com o CSS do painel nem com o do roteiro */
+.tabx{display:flex;gap:2px;background:#0b0b0b;padding:0 16px;position:sticky;top:0;z-index:50;
+  overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tabx-bt{appearance:none;border:0;background:transparent;color:rgba(255,255,255,.62);
+  font:500 12.5px/1 "Segoe UI",system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;
+  padding:15px 18px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent}
+.tabx-bt:hover{color:#fff}
+.tabx-bt.on{color:#fff;border-bottom-color:#b08d44}
+.tabx-painel{display:none}
+.tabx-painel.on{display:block}
+.tabx-quadro{width:100%;height:calc(100vh - 46px);border:0;display:block}
+</style>
+</head><body>
+<nav class="tabx"><button class="tabx-bt on" data-t="semana">A semana</button><button class="tabx-bt" data-t="roteiro">Roteiro · Decoração v2</button></nav>
+<div id="tabx-semana" class="tabx-painel on">
 <div class="pag">
   <div class="cab"><h1>Especialistas · as últimas 5 semanas</h1>
     <span class="per">07/09 a 09/10/2026 · a semana atual vai de segunda 05/10 até hoje</span></div>
@@ -236,4 +252,24 @@ tr.dest td{background:#fdf8ec}
   </tbody></table>
   <p class="nota">Cardápio e open bar são cobrados por pessoa: o valor deles é o preço por pessoa vezes os convidados do evento, e <b>70% do valor desta tabela vem dessa conta</b>. A soma das 5 semanas dá R$ 289.956 contra R$ 317.825 efetivamente assinados — a diferença é crédito abatido e taxa de serviço.</p>
 </div>
+</div>
+<div id="tabx-roteiro" class="tabx-painel"><iframe class="tabx-quadro" src="roteiro-decoracao.html" title="Roteiro de Decoração v2" loading="lazy"></iframe></div>
+
+<script>
+  // a aba escolhida fica guardada, para o F5 não jogar a pessoa de volta na primeira
+  (function () {
+    var bts = document.querySelectorAll('.tabx-bt');
+    function abrir(id) {
+      bts.forEach(function (b) { b.classList.toggle('on', b.dataset.t === id) });
+      document.querySelectorAll('.tabx-painel').forEach(function (p) {
+        p.classList.toggle('on', p.id === 'tabx-' + id);
+      });
+      try { localStorage.setItem('tabx-especialistas', id) } catch (e) { /* sem storage, segue */ }
+    }
+    bts.forEach(function (b) { b.addEventListener('click', function () { abrir(b.dataset.t) }) });
+    var salva = null;
+    try { salva = localStorage.getItem('tabx-especialistas') } catch (e) { /* ignora */ }
+    if (salva && document.getElementById('tabx-' + salva)) abrir(salva);
+  })();
+</script>
 </body></html>
