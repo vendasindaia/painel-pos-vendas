@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decoração · Roteiro v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--preto:#0f0e0c;--creme:#f7f2e7;--dourado:#b08d44;--cinza:#8a8378}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#141311;color:var(--creme);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+  header{background:var(--preto);padding:40px 28px 34px;border-bottom:1px solid rgba(176,141,68,.3)}
+  header .in{max-width:1340px;margin:0 auto}
+  .kicker{letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:var(--dourado);
+    font-weight:600;margin-bottom:12px}
+  h1{font-size:clamp(24px,3.2vw,38px);font-weight:300;letter-spacing:-1px;line-height:1.1}
+  header p{color:#a8a195;margin-top:14px;max-width:78ch;font-size:14.5px}
+  header p b{color:var(--creme)}
+  .indice{max-width:1340px;margin:22px auto 0;display:flex;flex-wrap:wrap;gap:7px}
+  .indice a{font-size:11.5px;color:#a8a195;text-decoration:none;background:rgba(255,255,255,.05);
+    padding:5px 10px;border-radius:2px;transition:.15s}
+  .indice a:hover{background:rgba(176,141,68,.22);color:var(--creme)}
+  .indice a b{color:var(--dourado)}
+  main{max-width:1340px;margin:0 auto;padding:34px 28px 90px}
+  .pag{margin-bottom:46px;scroll-margin-top:16px}
+  .cab{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .cab .num{font-size:12px;letter-spacing:.14em;color:var(--dourado);font-weight:600}
+  .cab h2{font-size:18px;font-weight:400;letter-spacing:-.2px}
+  .selo{font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(176,141,68,.2);
+    color:var(--dourado);padding:3px 9px;border-radius:2px;font-weight:600}
+  .selo.on{background:rgba(63,160,95,.18);color:#6fc98d;text-transform:none;letter-spacing:.04em}
+  .selo.off{background:rgba(194,90,90,.18);color:#e09a9a;text-transform:none;letter-spacing:.04em}
+  .selo b{color:inherit}
+  .pag.oculto .palco{opacity:.3;filter:grayscale(.7)}
+  .pag.oculto .cab h2{color:var(--cinza)}
+
+  /* o palco escala 1280x720 para a largura disponível, sem distorcer */
+  .palco{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;
+    background:#0a0a0a;box-shadow:0 10px 36px rgba(0,0,0,.5)}
+  .slide{position:absolute;top:0;left:0;width:1280px;height:720px;transform-origin:top left;
+    font-family:'Montserrat',system-ui,sans-serif}
+  .b{position:absolute}
+  img.b{display:block}
+  .txt{white-space:pre-wrap;overflow:hidden}
+  .midia{background:repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a 10px,#222 10px,#222 20px);
+    display:flex;align-items:center;justify-content:center;color:#6b655c;font-size:13px;
+    text-align:center;letter-spacing:.08em;text-transform:uppercase}
+  .midia small{font-size:10px;text-transform:none;letter-spacing:0;opacity:.7}
+  .falta{background:rgba(194,90,90,.2);color:#e0a0a0;display:flex;align-items:center;
+    justify-content:center;font-size:12px}
+
+  .troca{margin-top:12px;background:rgba(176,141,68,.1);border-left:3px solid var(--dourado);padding:14px 18px}
+  .troca .et{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dourado);
+    font-weight:600;margin-bottom:12px}
+  .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+  .galeria figure{background:rgba(0,0,0,.35);padding:7px;cursor:zoom-in;transition:transform .15s}
+  .galeria figure:hover{transform:translateY(-2px)}
+  .galeria img{width:100%;height:112px;object-fit:cover;display:block;background:#1a1a1a}
+  .galeria figcaption{font-size:10px;color:#a8a195;margin-top:6px;line-height:1.3}
+  .galeria figcaption b{color:var(--dourado);font-size:11.5px}
+  dialog{border:none;padding:0;background:transparent;max-width:94vw;max-height:94vh}
+  dialog::backdrop{background:rgba(10,10,10,.92)}
+  dialog img{max-width:94vw;max-height:88vh;object-fit:contain;display:block}
+  dialog p{color:var(--creme);font-size:13px;text-align:center;margin-top:10px}
+  .notas{margin-top:12px;background:rgba(255,255,255,.04);border-left:3px solid var(--dourado)}
+  .notas summary{padding:10px 16px;cursor:pointer;font-size:12.5px;color:#a8a195;
+    letter-spacing:.04em;user-select:none}
+  .notas summary:hover{color:var(--creme)}
+  .notas[open] summary{border-bottom:1px solid rgba(255,255,255,.08)}
+  .nt{padding:14px 18px}
+  .nt+.nt{border-top:1px solid rgba(255,255,255,.07)}
+  .nt b{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dourado);margin-bottom:8px}
+  .nt pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#c9c2b6;line-height:1.55}
+  .nt.ex pre{color:#e4ddd0;font-style:italic}
+  footer{max-width:1340px;margin:0 auto;padding:24px 28px 60px;border-top:1px solid rgba(255,255,255,.1);
+    font-size:12.5px;color:var(--cinza);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<header><div class="in">
+  <p class="kicker">Sugestão para debater · 09/10/2026</p>
+  <h1>Decoração · v2 (sugestão)</h1>
+  <p>Os 14 slides da <b>versão 2</b>, do jeito que o casal veria. Mesmo casal de exemplo:
+    <b>Marina &amp; Rafael</b>, 180 convidados, pacote Beauty Wedding e <b>sem floral contratado</b>.</p>
+  <p style="margin-top:8px">Saíram os slides que <b>repetem a Boas-vindas e os Primeiros Passos</b> (o medo de
+    fornecedor e a venda do floral do zero) e as <b>cinco telas de catálogo</b> viraram uma. Entraram
+    o pacto da abertura, o pacote item por item, a prova social e <b>o fecho com o valor</b> — que
+    é onde as duas reuniões dos decoradores morreram.</p>
+  <p style="margin-top:8px">Em cada slide, abra <b>"o que o consultor lê"</b>. Nos slides novos, as dicas
+    trazem as <b>pendências técnicas</b> marcadas com ⚠ — variáveis que o dossiê ainda não entrega.</p>
+  <nav class="indice"><a href="#s1"><b>01</b> Capa</a><a href="#s2"><b>02</b> Quem está com vocês hoje</a><a href="#s3"><b>03</b> O combinado de hoje</a><a href="#s4"><b>04</b> A história que vai para o salão</a><a href="#s5"><b>05</b> Três segundos</a><a href="#s6"><b>06</b> O que não pode faltar</a><a href="#s7"><b>07</b> O pacote de vocês, item por item</a><a href="#s8"><b>08</b> A mesa posta</a><a href="#s9"><b>09</b> A cor do casamento de vocês</a><a href="#s10"><b>10</b> O salão na ordem da noite</a><a href="#s11"><b>11</b> Cada convidado no lugar certo</a><a href="#s12"><b>12</b> O first look · prova social</a><a href="#s13"><b>13</b> O que vocês escolheram hoje</a><a href="#s14"><b>14</b> O salão já tem a cara de vocês</a></nav>
+</div></header>
+
+<main>
+  <section class="pag" id="s1">
+    <div class="cab">
+      <span class="num">01 / 14</span>
+      <h2>Capa</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: salão<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(180deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.5) 45%, rgba(10,10,10,0.88) 100%);border-radius:0"></div>
+      <div class="b txt" style="left:0px;top:368px;width:1280px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:center">Reunião de Layout e Decoração</div>
+      <div class="b txt" style="left:90px;top:398px;width:1100px;height:70px;z-index:10;font-size:54px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-2.2px;line-height:1.1;text-align:center">O salão vai contar a história de</div>
+      <div class="b txt" style="left:90px;top:470px;width:1100px;height:84px;z-index:10;font-size:70px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#ffffff;letter-spacing:-2.8px;line-height:1.1;text-align:center">Marina &amp; Rafael</div>
+      <div class="b shape" style="left:610px;top:578px;width:60px;height:1px;z-index:10;background:rgba(255,255,255,0.55);border-radius:0"></div>
+      <div class="b txt" style="left:0px;top:596px;width:1280px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:center">15 de maio de 2027  ·  Espaço Joinville  ·  Joinville</div>
+      <div class="b txt" style="left:0px;top:640px;width:1280px;height:30px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.5;text-align:center">Hoje, o sonho de vocês ganha desenho.</div>
+      <img class="b" style="left:530px;top:44px;width:220px;height:88px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTE ENCONTRO É O PROJETO DO SALÃO. Na Boas-vindas o casal relembrou o que já é dele; hoje ele desenha como o salão vai ficar. Contrato, régua de reuniões, pagamentos, fornecedores e Área do Cliente já foram apresentados: não repita.
+
+ANTES DA REUNIÃO:
+· abra o formulário de Decoração do evento e veja o que já foi respondido (poucos casais respondem antes);
+· confira no contrato o pacote decorativo, o floral e os itens de LED;
+· abra a pasta do evento e as referências que o casal mandou (#);
+· teste o tour 360 do salão.
+
+ABRA COM EMOÇÃO, NÃO COM PAUTA: a frase de efeito é &quot;o salão vai contar a história de vocês&quot;. Diga o nome do casal olhando para eles.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Que alegria receber vocês de novo! Na Boas-vindas a gente relembrou tudo o que já é de vocês. Hoje é o encontro que eu mais gosto: é quando o salão começa a ganhar a cara de vocês. Quando as portas se abrirem no dia 15 de maio de 2027, cada detalhe ali vai contar a história de vocês. Vamos desenhar isso juntos?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s2">
+    <div class="cab">
+      <span class="num">02 / 14</span>
+      <h2>Quem está com vocês hoje</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:136px;width:300px;height:420px;z-index:1;background:#ebe9e3;border-radius:0"></div>
+      <div class="b midia" style="left:96px;top:136px;width:300px;height:420px;z-index:2"><span>consultor_foto<br><small>preenchido no player</small></span></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:456px;top:290px;width:728px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:456px;top:430px;width:728px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:456px;top:474px;width:728px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:456px;top:518px;width:728px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b txt" style="left:456px;top:140px;width:700px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Quem está com vocês hoje</div>
+      <div class="b txt" style="left:456px;top:166px;width:728px;height:64px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.1px;line-height:1.1;text-align:left">Especialista</div>
+      <div class="b txt" style="left:456px;top:236px;width:728px;height:26px;z-index:10;font-size:16px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.5;text-align:left">Especialista do Indaiá · Espaço Joinville</div>
+      <div class="b txt" style="left:456px;top:306px;width:728px;height:48px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.35;text-align:left">Eu conduzo as reuniões presenciais daqui até o dia de vocês, e estou no salão todo fim de semana: conheço o espaço, a equipe que monta e o que funciona em cada canto dele.</div>
+      <div class="b txt" style="left:456px;top:402px;width:728px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">O que eu fiz antes desta conversa</div>
+      <div class="b txt" style="left:456px;top:439px;width:728px;height:34px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.3;text-align:left">Li o contrato de vocês e vi tudo o que já é de vocês na decoração</div>
+      <div class="b txt" style="left:456px;top:483px;width:728px;height:34px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.3;text-align:left">Conversei com quem atendeu vocês até aqui</div>
+      <div class="b txt" style="left:456px;top:527px;width:728px;height:34px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.3;text-align:left">Separei as fotos do Espaço Joinville para a gente desenhar com o salão na frente</div>
+      <div class="b txt" style="left:96px;top:612px;width:1088px;height:60px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">Hoje a gente desenha o salão de vocês, juntos.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTE SLIDE EXISTE PORQUE PODE SER O PRIMEIRO CONTATO. Na régua completa a Gastronomia vem antes, mas quando o prazo aperta o cronograma mantém Layout e Decor separada e junta Gastronomia com a Final — e aí esta é a primeira vez que o casal senta com um especialista. Mesmo na régua completa, quem conduziu a Gastronomia pode não ser você.
+
+SE VOCÊ JÁ FEZ A GASTRONOMIA COM ELES, não repita a apresentação inteira: &quot;a gente já se viu na gastronomia, e hoje eu volto para a parte que eu mais gosto&quot;. Uma frase e siga.
+
+O QUE VENDE AQUI NÃO É O SEU CARGO, É A SUA PRESENÇA NO SALÃO. A frase que importa é a de estar lá todo fim de semana: é isso que diferencia você de um decorador que vê o espaço pela primeira vez no dia do evento. Diga sem se gabar, como quem conta o óbvio.
+
+ANTES DA REUNIÃO, TENHA FEITO MESMO as três linhas da tela. Se você não leu o contrato, não diga que leu — o casal percebe na primeira pergunta.
+
+NÃO FALE DE PRODUTO AINDA. Nada de pacote, flor ou valor neste slide. Aqui é só quem é você e o que vai acontecer na próxima hora e meia.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Antes de começar, deixa eu me apresentar direito.
+
+Eu sou Especialista, especialista aqui do Espaço Joinville. Eu conduzo as reuniões presenciais de vocês daqui até o dia do casamento, e estou aqui no salão todo fim de semana. Conheço o espaço, conheço a equipe que monta, sei o que funciona em cada canto daqui.
+
+Antes desta conversa eu li o contrato de vocês inteiro, vi tudo o que já é de vocês na decoração, conversei com quem atendeu vocês até aqui e separei as fotos do salão para a gente poder desenhar com ele na frente.
+
+Hoje a gente desenha o salão de vocês, juntos.</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s3">
+    <div class="cab">
+      <span class="num">03 / 14</span>
+      <h2>O combinado de hoje</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:322px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:372px;width:200px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:318px;top:372px;width:200px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:540px;top:372px;width:200px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:762px;top:372px;width:200px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:984px;top:372px;width:200px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:580px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:126px;width:640px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Como funciona este encontro</div>
+      <div class="b txt" style="left:96px;top:154px;width:660px;height:132px;z-index:10;font-size:56px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.2px;line-height:1.1;text-align:left">Hoje, o sonho<br>ganha desenho.</div>
+      <div class="b txt" style="left:820px;top:166px;width:364px;height:90px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.7;text-align:left">Na Boas-vindas relembramos o que é de vocês. Hoje, desenhamos como o salão vai ficar.</div>
+      <div class="b txt" style="left:96px;top:392px;width:200px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">01</div>
+      <div class="b txt" style="left:96px;top:420px;width:200px;height:100px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.45;text-align:left">A história que vai para o salão</div>
+      <div class="b txt" style="left:318px;top:392px;width:200px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">02</div>
+      <div class="b txt" style="left:318px;top:420px;width:200px;height:100px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.45;text-align:left">O que não pode faltar</div>
+      <div class="b txt" style="left:540px;top:392px;width:200px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">03</div>
+      <div class="b txt" style="left:540px;top:420px;width:200px;height:100px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.45;text-align:left">A mesa posta e as flores</div>
+      <div class="b txt" style="left:762px;top:392px;width:200px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">04</div>
+      <div class="b txt" style="left:762px;top:420px;width:200px;height:100px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.45;text-align:left">Cada ambiente, na ordem da noite</div>
+      <div class="b txt" style="left:984px;top:392px;width:200px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">05</div>
+      <div class="b txt" style="left:984px;top:420px;width:200px;height:100px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.45;text-align:left">O layout e a montagem</div>
+      <div class="b txt" style="left:96px;top:604px;width:1088px;height:40px;z-index:10;font-size:30px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1.2px;line-height:1.1;text-align:left">Podemos começar pela história de vocês?</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTE É O PACTO DA ABERTURA, e ele vem direto do que funcionou nos decoradores: dizer em voz alta que hoje NÃO é dia de preço compra o tempo do projeto e tira a defesa do casal.
+
+DIGA O CAMINHO E O COMBINADO, nesta ordem: as partes da reunião, e então &quot;os valores eu junto no final, todos de uma vez, para vocês decidirem com tudo na mesa&quot;.
+
+É ESSA FRASE QUE VOCÊ VAI USAR o resto da reunião. Quando perguntarem o preço de um item no meio, você não inventa desculpa: &quot;como eu combinei, eu junto tudo no final&quot;.
+
+NÃO REPITA A BOAS-VINDAS. Contrato, pagamento, fornecedor e Área do Cliente já foram apresentados. Se surgir dúvida, responda em uma frase e volte ao projeto.
+
+PEÇA O ACORDO: &quot;podemos combinar assim?&quot; e espere o sim. Um acordo pequeno no começo facilita o grande no fim.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Deixa eu contar como vai ser a nossa hora e meia aqui.
+
+Primeiro eu quero ouvir vocês: a história de vocês, o que não pode faltar. Depois a gente olha o que já é de vocês no contrato. Aí a gente desenha o salão, ambiente por ambiente, e monta o layout das mesas junto.
+
+E os valores eu junto no final, todos de uma vez, para vocês decidirem com tudo na mesa, sem decidir de pouquinho em pouquinho.
+
+Podemos combinar assim?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s4">
+    <div class="cab">
+      <span class="num">04 / 14</span>
+      <h2>A história que vai para o salão</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#0a0a0a;border-radius:0"></div>
+      <div class="b midia" style="left:96px;top:124px;width:420px;height:540px;z-index:0"><span>filtro: noivos<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:596px;top:300px;width:588px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:596px;top:376px;width:588px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:596px;top:452px;width:588px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:596px;top:528px;width:588px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b txt" style="left:596px;top:130px;width:588px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#b9b9b9;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Antes do desenho</div>
+      <div class="b txt" style="left:596px;top:156px;width:588px;height:110px;z-index:10;font-size:44px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-1.8px;line-height:1.1;text-align:left">Cada detalhe começa<br>na história de vocês.</div>
+      <div class="b txt" style="left:596px;top:322px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#b9b9b9;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">01</div>
+      <div class="b txt" style="left:648px;top:314px;width:536px;height:56px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.4;text-align:left">Um lugar, uma viagem ou uma data que é a cara de vocês</div>
+      <div class="b txt" style="left:596px;top:398px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#b9b9b9;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">02</div>
+      <div class="b txt" style="left:648px;top:390px;width:536px;height:56px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.4;text-align:left">Uma cor, uma flor ou um símbolo com significado</div>
+      <div class="b txt" style="left:596px;top:474px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#b9b9b9;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">03</div>
+      <div class="b txt" style="left:648px;top:466px;width:536px;height:56px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.4;text-align:left">Alguém que precisa estar presente, mesmo em memória</div>
+      <div class="b txt" style="left:596px;top:550px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#b9b9b9;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">04</div>
+      <div class="b txt" style="left:648px;top:542px;width:536px;height:56px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.4;text-align:left">Um objeto de família que merece lugar no salão</div>
+      <div class="b txt" style="left:596px;top:624px;width:588px;height:40px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#b9b9b9;line-height:1.5;text-align:left">É isso que faz o salão ser de vocês, e de mais ninguém.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>na venda falaram de um casamento ao ar livre, com tons de terracota
+
+ESCUTE MAIS DO QUE FALE: este slide é de perguntas. Anote as palavras exatas do casal; elas voltam no resumo do slide &quot;O que não pode faltar&quot;.
+
+NÃO PERGUNTE DE NOVO O QUE A VENDA JÁ CONTOU: mostre que a casa lembra (&quot;vocês contaram que...&quot;) e aprofunde a partir dali.
+
+HOMENAGEM PEDE DELICADEZA: se surgir alguém que faleceu, pergunte se querem um lugar simbólico (uma foto, uma flor, uma cadeira) e siga sem insistir.
+
+OBJETO DE FAMÍLIA: anote o que é e quem traz. A regra de cuidado está no slide da montagem.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Antes de falar de mesa e de flor, eu quero ouvir vocês. Tem algum lugar, uma viagem ou uma data que é a cara de vocês? Uma cor ou uma flor que tenha significado? Tem alguém que precisa estar presente, mesmo que em memória? E algum objeto da família que vocês gostariam de ver no salão?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s5">
+    <div class="cab">
+      <span class="num">05 / 14</span>
+      <h2>Três segundos</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: entrada<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.72) 55%, rgba(10,10,10,0.25) 100%);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:362px;width:620px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:426px;width:620px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:490px;width:620px;height:1px;z-index:3;background:rgba(255,255,255,0.16);border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:150px;width:640px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Quando as portas se abrem</div>
+      <div class="b txt" style="left:96px;top:178px;width:700px;height:96px;z-index:10;font-size:88px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-3.5px;line-height:1.1;text-align:left">Três segundos.</div>
+      <div class="b txt" style="left:96px;top:282px;width:620px;height:30px;z-index:10;font-size:20px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.78);line-height:1.5;text-align:left">É o tempo que o convidado leva para sentir o salão.</div>
+      <div class="b txt" style="left:96px;top:382px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">01</div>
+      <div class="b txt" style="left:144px;top:376px;width:600px;height:32px;z-index:10;font-size:21px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.5;text-align:left">O que vocês querem que o convidado sinta?</div>
+      <div class="b txt" style="left:96px;top:446px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">02</div>
+      <div class="b txt" style="left:144px;top:440px;width:600px;height:32px;z-index:10;font-size:21px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.5;text-align:left">O que ele vê primeiro?</div>
+      <div class="b txt" style="left:96px;top:510px;width:40px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">03</div>
+      <div class="b txt" style="left:144px;top:504px;width:600px;height:32px;z-index:10;font-size:21px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.5;text-align:left">Qual palavra vocês querem ouvir dele?</div>
+      <div class="b txt" style="left:96px;top:590px;width:800px;height:44px;z-index:10;font-size:32px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-1.3px;line-height:1.1;text-align:left">Esses três segundos guiam o projeto inteiro.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>O CONCEITO: a primeira impressão do salão acontece antes de qualquer detalhe ser percebido. É ela que diz onde a decoração concentra força: entrada, altar ou pista.
+
+PEÇA UMA PALAVRA SÓ: acolhedor, elegante, romântico, moderno, festa. Anote. Ela vira o critério para desempatar as decisões daqui para frente (&quot;isso combina com romântico?&quot;).
+
+AINDA NÃO FALE DE ITEM: nada de pista, painel ou arranjo neste slide. É sensação.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Quero propor um exercício. Quando as portas do salão se abrirem, o convidado leva uns três segundos para sentir o ambiente, antes de reparar em qualquer detalhe. O que vocês querem que ele sinta nesse momento? E se ele pudesse resumir o salão numa palavra só, qual palavra vocês gostariam de ouvir?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s6">
+    <div class="cab">
+      <span class="num">06 / 14</span>
+      <h2>O que não pode faltar</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:352px;width:344px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:468px;top:352px;width:344px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:840px;top:352px;width:344px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:126px;width:700px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">As prioridades de vocês</div>
+      <div class="b txt" style="left:96px;top:154px;width:1000px;height:132px;z-index:10;font-size:56px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.2px;line-height:1.1;text-align:left">O que importa de verdade<br>no dia de vocês?</div>
+      <div class="b txt" style="left:96px;top:372px;width:344px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">01 · Inegociável</div>
+      <div class="b txt" style="left:96px;top:402px;width:344px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">O que não pode faltar</div>
+      <div class="b txt" style="left:96px;top:450px;width:330px;height:60px;z-index:10;font-size:16px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">O detalhe que, sem ele, não seria o dia de vocês</div>
+      <div class="b txt" style="left:468px;top:372px;width:344px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">02 · Dispensável</div>
+      <div class="b txt" style="left:468px;top:402px;width:344px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">O que pode ficar de fora</div>
+      <div class="b txt" style="left:468px;top:450px;width:330px;height:60px;z-index:10;font-size:16px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">O que vocês viram por aí, mas não é a cara de vocês</div>
+      <div class="b txt" style="left:840px;top:372px;width:344px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">03 · Prioridade</div>
+      <div class="b txt" style="left:840px;top:402px;width:344px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">Onde o sonho brilha mais</div>
+      <div class="b txt" style="left:840px;top:450px;width:330px;height:60px;z-index:10;font-size:16px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">Os três ambientes que merecem mais atenção</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>O INEGOCIÁVEL É A BÚSSOLA: é nele que o projeto concentra força.
+
+O DISPENSÁVEL PROTEGE O CASAL: saber o que não é a cara deles evita encher o salão de itens que não emocionam.
+
+TRÊS AMBIENTES, NO MÁXIMO: entrada, cerimônia, mesas, mesa do bolo e dos doces, pista ou lounge. Priorizar é o que dá identidade ao salão.
+
+CASAL QUE QUER TUDO: &quot;simples, quando é intencional, é sofisticado&quot;. Menos itens com mais intenção fotografam melhor e emocionam mais.
+
+FECHE COM O RESUMO EM UMA FRASE, EM VOZ ALTA (não vai na tela): junte cor, estilo e o inegociável e pergunte &quot;seria isso?&quot;. Espere o sim antes de seguir. Ex.: &quot;o branco predomina, com pontos de cor nas flores, e o que não pode faltar é o altar. Seria isso?&quot;
+
+A DIREÇÃO DO PROJETO (converse, não mostre):
+· Cores: uma principal (a que domina toalhas e flores), duas de apoio e um toque de destaque (metal, vela, um detalhe). Mais do que isso, o salão perde identidade.
+· Estilo: peça UM (clássico, romântico, contemporâneo, rústico refinado). Estilo não troca o pacote: itens próprios de um pacote (o sousplat do Boho, por exemplo) só vêm com ele. Não prometa o que o pacote do casal não traz.
+· Referências: de 15 a 20 imagens, incluindo o que NÃO querem. Referência de outro salão é direção, não cópia: pé-direito, luz e planta mudam o resultado.
+· Guarde as referências na pasta do evento (#) e registre cores e estilo na ata.
+
+ANOTE AS RESPOSTAS: elas guiam os slides dos ambientes.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Imaginem o salão pronto, no dia do casamento. Qual é o detalhe que, se faltar, não vai ser o casamento de vocês? E o contrário: tem alguma coisa que vocês viram por aí, mas que sinceramente não é a cara de vocês? Se fossem três ambientes para brilhar mais, quais seriam? [ouça] Então, se eu entendi bem, o salão de vocês é [resumo em uma frase]. Seria isso?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s7">
+    <div class="cab">
+      <span class="num">07 / 14</span>
+      <h2>O pacote de vocês, item por item</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:120px;width:760px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">O que já é de vocês</div>
+      <div class="b txt" style="left:96px;top:146px;width:1000px;height:132px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.2px;line-height:1.1;text-align:left">O pacote que vocês<br>já compraram.</div>
+      <div class="b txt" style="left:96px;top:290px;width:1088px;height:34px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.3;text-align:left">Beauty Wedding</div>
+      <div class="b txt" style="left:96px;top:342px;width:1088px;height:220px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#3d3d3d;line-height:1.9;text-align:left">Entrada   ·  túnel de LED, tapete e dois cenários florais permanentes<br>Cerimônia ·  arco decorado e dez floreiras do corredor<br>Mesas     ·  toalhas, sousplat metalizado e guardanapo branco<br>Doces     ·  mesa espelhada, boleira e kit de dez suportes<br>Pista     ·  pista de LED e cortina de LED na testeira<br>Lounge    ·  dois sofás, tapete e mesa de centro</div>
+      <div class="b txt" style="left:96px;top:626px;width:1088px;height:60px;z-index:10;font-size:30px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-0.8px;line-height:1.3;text-align:left">Tudo isso já é de vocês. Hoje a gente decide onde cada peça vai ficar.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>O CASAL NUNCA VIU ESTA LISTA. Ele pagou entre R$ 6 mil e R$ 10 mil pelo pacote e, em todos os roteiros de hoje, só vê o NOME dele na tela. Abrir item por item é o que dá valor ao que já foi vendido.
+
+⚠ PENDÊNCIA TÉCNICA: a variável Entrada   ·  túnel de LED, tapete e dois cenários florais permanentes
+Cerimônia ·  arco decorado e dez floreiras do corredor
+Mesas     ·  toalhas, sousplat metalizado e guardanapo branco
+Doces     ·  mesa espelhada, boleira e kit de dez suportes
+Pista     ·  pista de LED e cortina de LED na testeira
+Lounge    ·  dois sofás, tapete e mesa de centro ainda não existe. Hoje o dossiê entrega Pacote Beauty Wedding · Só Itens (flores não inclusas), que é só o nome do pacote. Precisa de uma variável nova que liste os itens do pacote a partir do contrato.
+
+LEIA EM RITMO, NÃO EM LISTA. Não recite os itens de enfiada: agrupe por ambiente (&quot;na entrada vocês têm…&quot;, &quot;nas mesas…&quot;). Dois minutos, não dez.
+
+ESTE SLIDE EVITA VENDER DE NOVO O QUE ELE JÁ TEM, que é o erro mais caro da reunião.
+
+EMENDE NO SEGUINTE: &quot;e tem uma coisa que o pacote não traz, que é a mesa posta — vamos decidir ela agora&quot;.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Antes de desenhar qualquer coisa, deixa eu mostrar o que já é de vocês. Vocês fecharam o pacote Beauty Wedding, e dentro dele vem tudo isso.
+
+[passe por ambiente, sem recitar]
+
+Tudo isso já está pago e já é de vocês. O que a gente faz hoje é decidir onde cada peça vai ficar no salão.</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s8">
+    <div class="cab">
+      <span class="num">08 / 14</span>
+      <h2>A mesa posta</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:268px;width:1088px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:360px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:452px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:544px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:1024px;top:196px;width:160px;height:36px;z-index:9;background:#0a0a0a;border-radius:0" data-cond="tem_pacote_link"></div>
+      <div class="b txt" style="left:96px;top:120px;width:640px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">O pacote de vocês</div>
+      <div class="b txt" style="left:96px;top:146px;width:640px;height:64px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.1px;line-height:1.1;text-align:left">A mesa posta.</div>
+      <div class="b txt" style="left:96px;top:214px;width:640px;height:26px;z-index:10;font-size:15px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.5;text-align:left">A mesa que recebe cada convidado.</div>
+      <div class="b txt" style="left:784px;top:124px;width:400px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:right" data-cond="pacote_nome">Pacote decorativo</div>
+      <div class="b txt" style="left:684px;top:148px;width:500px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:right">Beauty Wedding</div>
+      <div class="b txt" style="left:96px;top:296px;width:290px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">Guardanapo</div>
+      <div class="b txt" style="left:400px;top:300px;width:340px;height:30px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Branco, do pacote</div>
+      <div class="b txt" style="left:770px;top:300px;width:414px;height:30px;z-index:10;font-size:15px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.5;text-align:left">Linho, porta-guardanapo ou detalhe floral: à parte.</div>
+      <div class="b txt" style="left:96px;top:388px;width:290px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">Sousplat</div>
+      <div class="b txt" style="left:400px;top:392px;width:340px;height:30px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Metalizado ou branco</div>
+      <div class="b txt" style="left:770px;top:392px;width:414px;height:30px;z-index:10;font-size:15px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.5;text-align:left">Com a dobra: pata de vaca ou envelope.</div>
+      <div class="b txt" style="left:96px;top:480px;width:290px;height:36px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1px;line-height:1.1;text-align:left">Toalhas</div>
+      <div class="b txt" style="left:400px;top:484px;width:340px;height:30px;z-index:10;font-size:19px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Quatro cores da casa</div>
+      <div class="b txt" style="left:770px;top:484px;width:414px;height:30px;z-index:10;font-size:15px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.5;text-align:left">A quantidade acompanha o layout das mesas.</div>
+      <div class="b txt" style="left:96px;top:590px;width:1088px;height:40px;z-index:10;font-size:28px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1.1px;line-height:1.1;text-align:left">O que decidirmos hoje vai para o formulário de Decoração.</div>
+      <div class="b txt" style="left:1024px;top:196px;width:160px;height:36px;z-index:11;font-size:11px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:1.6px;line-height:1.2;text-transform:uppercase;text-align:center" data-cond="tem_pacote_link">Ver o pacote  ↗</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>É O FORMULÁRIO DE DECORAÇÃO DA ÁREA DO CLIENTE (4 perguntas). Poucos casais respondem antes desta reunião: preencha junto, na tela de alinhamento.
+
+NÃO OFEREÇA TERCEIRIZAR NADA DA MESA POSTA. Quem quer algo diferente do pacote escolhe entre as opções da casa, contratadas à parte, por aditivo (catálogo em 16/09/2026, confirme o valor): guardanapo de linho R$ 5 por convidado, porta-guardanapo faixa R$ 10, porta-guardanapo tag com cetim R$ 15, detalhe floral no guardanapo R$ 10, sousplat extra R$ 10, toalha extra R$ 35.
+
+GUARDANAPO: o branco do pacote já está contratado. As outras opções entram por aditivo.
+SOUSPLAT: dourado em Itapema e Florianópolis, champanhe em Joinville e Blumenau, ou branco. O Boho só vem no pacote Boho. Dobra: pata de vaca ou envelope.
+TOALHAS: quatro cores da casa. A quantidade sai do layout: confirme depois do slide do layout.
+
+SE O CASAL INSISTIR EM TRAZER DE FORA: não ofereça, mas também não brigue. Lembre que item trazido de fora fica sob os cuidados do casal, sem manutenção nem guarda da casa (contrato, Responsabilidades, alínea d), e mostre a opção equivalente da casa.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Agora vamos para a mesa que recebe cada convidado. O pacote de vocês já traz a mesa posta, então aqui a gente decide o acabamento: o guardanapo branco que já é de vocês, ou uma das opções que dá para contratar à parte, como o de linho, o porta-guardanapo ou um detalhe floral. Depois o sousplat e a dobra, e a cor da toalha entre as quatro da casa. A quantidade a gente fecha depois do layout, combinado?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s9">
+    <div class="cab">
+      <span class="num">09 / 14</span>
+      <h2>A cor do casamento de vocês</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: flores<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.7) 45%, rgba(10,10,10,0.9) 100%);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:370px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:440px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:510px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:132px;width:760px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">A paleta</div>
+      <div class="b txt" style="left:96px;top:158px;width:1000px;height:132px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-2.2px;line-height:1.1;text-align:left">A cor do casamento<br>de vocês.</div>
+      <div class="b txt" style="left:96px;top:310px;width:1088px;height:26px;z-index:10;font-size:16px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.4;text-align:left" data-cond="sem_floral">Nos Primeiros Passos a gente viu os caminhos do floral. Ele ainda está em aberto.</div>
+      <div class="b txt" style="left:96px;top:386px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">Vocês escolhem</div>
+      <div class="b txt" style="left:420px;top:384px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">A cor. A composição é nossa, dentro da paleta combinada.</div>
+      <div class="b txt" style="left:96px;top:456px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">A paleta guia tudo</div>
+      <div class="b txt" style="left:420px;top:454px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">Arranjo, toalha, guardanapo e cenário falam a mesma língua.</div>
+      <div class="b txt" style="left:96px;top:526px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">Fechada hoje</div>
+      <div class="b txt" style="left:420px;top:524px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">A cor entra no projeto e não muda com a estação.</div>
+      <div class="b txt" style="left:96px;top:620px;width:1088px;height:60px;z-index:10;font-size:32px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-0.8px;line-height:1.3;text-align:left">Que cor vocês veem quando imaginam o salão?</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>⚠ NÃO REVENDA O FLORAL AQUI. Os Primeiros Passos já explicaram permanente × natural, os três caminhos e a composição da casa, em quatro slides. Repetir a explicação inteira sinaliza que a casa não lembra do que combinou com eles.
+
+COM FLORAL CONTRATADO: este slide é só para fechar a COR. Uma pergunta e silêncio. A resposta vira o critério de toalha, guardanapo e cenário no resto da reunião.
+
+SEM FLORAL CONTRATADO: retome em UMA frase, sem recomeçar — &quot;nos Primeiros Passos a gente viu os três caminhos; qual deles ficou na cabeça de vocês?&quot;. Se houver interesse, o item entra na tela do fim, junto com todo o resto. Não abra a explicação de novo no meio do projeto.
+
+A COR É A DECISÃO MAIS BARATA E MAIS IMPORTANTE DO DIA. Ela não custa nada e amarra o salão inteiro. Dê tempo a ela.
+
+SE ELES NÃO SOUBEREM RESPONDER, ofereça o atalho: &quot;qual cor aparece nas referências que vocês me mandaram?&quot; ou mostre fotos do acervo do salão.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Agora a cor. E essa é a decisão que amarra o salão inteiro: a flor, a toalha, o guardanapo, o cenário. Tudo conversa com ela.
+
+Que cor vocês veem quando fecham os olhos e imaginam o salão? [silêncio]</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s10">
+    <div class="cab">
+      <span class="num">10 / 14</span>
+      <h2>O salão na ordem da noite</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: salão<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.7) 45%, rgba(10,10,10,0.9) 100%);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:268px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:338px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:408px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:478px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:548px;width:1088px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:132px;width:760px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">O salão na ordem da noite</div>
+      <div class="b txt" style="left:96px;top:158px;width:1000px;height:72px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-2.2px;line-height:1.1;text-align:left">Onde cada coisa fica.</div>
+      <div class="b txt" style="left:96px;top:284px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">01 · A chegada</div>
+      <div class="b txt" style="left:420px;top:282px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">Painel ou letreiro, lembrancinhas e o livro de assinaturas.</div>
+      <div class="b txt" style="left:96px;top:354px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">02 · As mesas</div>
+      <div class="b txt" style="left:420px;top:352px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">A de vocês, as dos convidados e a altura dos arranjos.</div>
+      <div class="b txt" style="left:96px;top:424px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">03 · O bolo e os doces</div>
+      <div class="b txt" style="left:420px;top:422px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">O lugar da mesa e o cenário atrás dela.</div>
+      <div class="b txt" style="left:96px;top:494px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">04 · A pista</div>
+      <div class="b txt" style="left:420px;top:492px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">Pista de LED, jardim de LED e cortina de LED.</div>
+      <div class="b txt" style="left:96px;top:564px;width:300px;height:24px;z-index:10;font-size:13px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase;text-align:left">05 · O lounge</div>
+      <div class="b txt" style="left:420px;top:562px;width:764px;height:30px;z-index:10;font-size:17px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.88);line-height:1.45;text-align:left">Sofás, tapetes e um canto para conversar longe do som.</div>
+      <div class="b txt" style="left:96px;top:630px;width:1088px;height:60px;z-index:10;font-size:28px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-0.8px;line-height:1.3;text-align:left">Vamos passar por cada um e marcar o que é de vocês.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTA TELA SUBSTITUI CINCO. No roteiro v1 eram cinco slides de catálogo em sequência: chegada, mesas, doces, pista e lounge. É a &quot;doença do item a item&quot; que apontei nas duas reuniões da Afeto em Decor — vinte minutos discutindo quantos vidros por banco, e a reunião acabou sem preço.
+
+PERCORRA NA ORDEM EM QUE O CONVIDADO VIVE A NOITE, não na ordem do catálogo. Em cada ambiente, duas coisas só: onde fica, e o que já é deles.
+
+⚠ NENHUM PREÇO AQUI. Se perguntarem, responda que você junta tudo no final — foi o combinado da abertura. A conversa de dinheiro é uma só, na tela do fecho.
+
+FILTRE PELOS TRÊS AMBIENTES PRIORITÁRIOS que eles escolheram no slide do inegociável. Nos outros, passe rápido. Não é lista de compras.
+
+ANOTE O QUE BRILHAR O OLHO. O que eles reagirem aqui é o que volta na tela do fim, com valor.
+
+OS CAMPEÕES DE VENDA, para você saber onde há desejo (jul a set): Pista de LED 71 vezes · Jardim de LED 9 · Lustre Paris 23 · Sofá 67 · Arranjo Suspenso 14.
+
+⚠ PENDÊNCIA TÉCNICA: as etiquetas &quot;Contratado / À parte&quot; por item existiam nos cinco slides do v1 e ainda não foram trazidas para esta tela. Precisa decidir se cabem aqui ou se o especialista marca de viva-voz.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Agora vamos caminhar pelo salão na ordem em que os convidados vão viver a noite.
+
+A chegada, que é a primeira foto. As mesas, onde todo mundo passa a noite. A mesa do bolo e dos doces. A pista. E o lounge, para quem quer conversar longe do som.
+
+Em cada um eu vou marcar o que já é de vocês. [percorra, com atenção aos três que eles priorizaram]</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s11">
+    <div class="cab">
+      <span class="num">11 / 14</span>
+      <h2>Cada convidado no lugar certo</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:330px;width:254px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:374px;top:330px;width:254px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:652px;top:330px;width:254px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:930px;top:330px;width:254px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:560px;width:1088px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:994px;top:200px;width:190px;height:36px;z-index:9;background:#0a0a0a;border-radius:0" data-cond="tem_tour_360"></div>
+      <div class="b shape" style="left:762px;top:200px;width:210px;height:36px;z-index:9;background:transparent;border-radius:0;border:1px solid #0a0a0a" data-cond="espaco_evento_id"></div>
+      <div class="b txt" style="left:96px;top:120px;width:640px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">O layout do salão</div>
+      <div class="b txt" style="left:96px;top:146px;width:700px;height:132px;z-index:10;font-size:56px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.2px;line-height:1.1;text-align:left">Cada convidado<br>no lugar certo.</div>
+      <div class="b txt" style="left:784px;top:130px;width:400px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#0a0a0a;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:right">Espaço Joinville</div>
+      <div class="b txt" style="left:684px;top:156px;width:500px;height:26px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:1.5;text-align:right">180 convidados</div>
+      <div class="b txt" style="left:96px;top:350px;width:254px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">As mesas</div>
+      <div class="b txt" style="left:96px;top:378px;width:254px;height:30px;z-index:10;font-size:20px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Quantidade e formato</div>
+      <div class="b txt" style="left:96px;top:414px;width:240px;height:50px;z-index:10;font-size:14px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">Para o número de convidados de hoje.</div>
+      <div class="b txt" style="left:374px;top:350px;width:254px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">A circulação</div>
+      <div class="b txt" style="left:374px;top:378px;width:254px;height:30px;z-index:10;font-size:20px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Caminhos livres</div>
+      <div class="b txt" style="left:374px;top:414px;width:240px;height:50px;z-index:10;font-size:14px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">Pista, buffet e passagem da equipe.</div>
+      <div class="b txt" style="left:652px;top:350px;width:254px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Quem senta com quem</div>
+      <div class="b txt" style="left:652px;top:378px;width:254px;height:30px;z-index:10;font-size:20px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.5;text-align:left">Família e padrinhos</div>
+      <div class="b txt" style="left:652px;top:414px;width:240px;height:50px;z-index:10;font-size:14px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.55;text-align:left">A lista de convidados guia o mapa.</div>
+      <div class="b txt" style="left:96px;top:590px;width:1088px;height:40px;z-index:10;font-size:30px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-1.2px;line-height:1.1;text-align:left">O mapa do salão de vocês sai pronto daqui.</div>
+      <div class="b txt" style="left:994px;top:200px;width:190px;height:36px;z-index:11;font-size:11px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#ffffff;letter-spacing:1.6px;line-height:1.2;text-transform:uppercase;text-align:center" data-cond="tem_tour_360">Tour 360 do salão  ↗</div>
+      <div class="b txt" style="left:762px;top:200px;width:210px;height:36px;z-index:11;font-size:11px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#0a0a0a;letter-spacing:1.6px;line-height:1.2;text-transform:uppercase;text-align:center" data-cond="espaco_evento_id">Montar o layout  ↗</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>O CROQUI É MONTADO AQUI, NESTA REUNIÃO. Essa é a mudança: a tela não fala mais em prazo, porque anunciar que dá para mexer depois convida o casal a deixar para depois — e aí o layout nunca fecha.
+
+⚠ O PRAZO CONTINUA VALENDO, você é que não abre: pelo contrato (Responsabilidades, alínea a, inciso V), a casa não responde pela montagem do layout de mesas se o croqui não chegar com pelo menos 15 dias de antecedência. Se o casal perguntar se dá para ajustar, a resposta é sim, com prazo — mas quem leva o assunto é ele, não você.
+
+O LAYOUT FECHA A CONTA DA DECORAÇÃO: número e formato das mesas definem toalhas, arranjos e a circulação da equipe. Faça este slide com calma, é o mais importante da reunião.
+
+ABRA O &quot;MONTAR O LAYOUT&quot; E DESENHE COM ELES NA TELA. Sair da reunião com o mapa pronto é o objetivo. Se faltar informação, marque o que falta e combine data para fechar.
+
+TOUR 360: abra para o casal &quot;caminhar&quot; pelo salão e apontar onde imagina cada ambiente. Ajuda muito quem não consegue visualizar pelo mapa.
+
+A LISTA DE CONVIDADOS NUNCA ESTÁ PRONTA, e tudo bem: trabalhe com o número do contrato e deixe o mapa desenhado por mesa, não por nome. Nome é o último passo, e não trava o croqui.
+
+MUDANÇA DE NÚMERO DE CONVIDADOS mexe no layout e pode mexer em toalha e arranjo. Se o casal sinalizar que o número vai mudar, anote e avise a operação — não refaça o mapa na hora.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Agora a planta do salão. Hoje vocês estão com 180 convidados. Vamos pensar juntos: onde fica a mesa de vocês, a pista, o buffet? Quem precisa sentar perto de quem? Eu vou abrir o tour 360 para vocês caminharem pelo salão comigo, e já desenho as mesas na planta aqui na tela. E um combinado importante: o croqui final precisa estar fechado até 15 dias antes, é com ele que a equipe monta tudo.</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s12">
+    <div class="cab">
+      <span class="num">12 / 14</span>
+      <h2>O first look · prova social</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: salão<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.7) 45%, rgba(10,10,10,0.9) 100%);border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:132px;width:1000px;height:72px;z-index:10;font-size:60px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-2.2px;line-height:1.1;text-align:left">O primeiro olhar.</div>
+      <div class="b txt" style="left:96px;top:300px;width:700px;height:90px;z-index:10;font-size:22px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.9);line-height:1.45;text-align:left">A reação de quem entra no salão pronto, minutos antes de todo mundo.</div>
+      <div class="b txt" style="left:96px;top:620px;width:1088px;height:60px;z-index:10;font-size:32px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-0.8px;line-height:1.3;text-align:left">É para esse segundo que a gente trabalha.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTE SLIDE É UMA PAUSA, NÃO UMA FALA SUA. Abra, diga uma frase e rode o vídeo. Fique em silêncio enquanto passa, olhando para o casal e não para a tela.
+
+POR QUE ELE EXISTE: nas três análises dos decoradores, a prova social dentro da reunião foi o que mais mexeu com o cliente. A Afeto roda depoimento de noiva no meio da conversa e funciona. Nós temos acervo melhor e não usamos.
+
+POR QUE AQUI E NÃO NO COMEÇO: ele vem logo antes da tela de valor, de propósito. O casal decide o investimento com a cena na cabeça, não com a planilha.
+
+⚠ PENDÊNCIA DE MATERIAL: o vídeo do first look (a reação ao ver o salão pronto) ainda não existe. Enquanto não houver, use duas ou três fotos do acervo do próprio salão deles e conte a cena de boca.
+
+DEPOIS DO VÍDEO, NÃO EXPLIQUE. Deixe dois segundos de silêncio e vá direto para a tela dos valores. Explicar a emoção é o jeito mais rápido de matá-la.
+
+NUNCA USE DEPOIMENTO SEM NOME E SEM CARA. Prova social sem detalhe lê-se como inventada, mesmo quando é verdadeira.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Antes de a gente falar de valor, quero mostrar uma coisa rápida.
+
+Todo casal entra no salão alguns minutos antes dos convidados, quando está tudo pronto e ainda não tem ninguém. É esse momento.
+
+[rode o vídeo · silêncio] [dois segundos de pausa] [vá direto para os valores]</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s13">
+    <div class="cab">
+      <span class="num">13 / 14</span>
+      <h2>O que vocês escolheram hoje</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:0;background:#f7f6f2;border-radius:0"></div>
+      <div class="b shape" style="left:0px;top:92px;width:1280px;height:1px;z-index:3;background:#dcdcdc;border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:528px;width:1088px;height:1px;z-index:3;background:#0a0a0a;border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:132px;width:1000px;height:72px;z-index:10;font-size:52px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;letter-spacing:-2.2px;line-height:1.1;text-align:left">O que vocês escolheram.</div>
+      <div class="b txt" style="left:96px;top:252px;width:1088px;height:250px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#0a0a0a;line-height:2;text-align:left">Jardim de LED                                    R$ 2.400<br>Lustre Paris                                     R$   520<br>Arranjo suspenso sobre a mesa de doces           R$   840<br>Arranjos baixos · 18 mesas                       R$ 2.700</div>
+      <div class="b txt" style="left:96px;top:548px;width:400px;height:22px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#6b6b6b;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase">Valor de tabela</div>
+      <div class="b txt" style="left:96px;top:572px;width:400px;height:38px;z-index:10;font-size:28px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#6b6b6b;line-height:1.2">R$ 8.120</div>
+      <div class="b txt" style="left:540px;top:548px;width:400px;height:22px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:500;color:#0a0a0a;letter-spacing:2.2px;line-height:1.4;text-transform:uppercase">Fechando hoje</div>
+      <div class="b txt" style="left:540px;top:572px;width:400px;height:38px;z-index:10;font-size:28px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;line-height:1.2">R$ 6.460</div>
+      <div class="b txt" style="left:96px;top:638px;width:1088px;height:40px;z-index:10;font-size:26px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:#0a0a0a;letter-spacing:-0.6px;line-height:1.3">Vocês ganharam R$ 1.660 fechando hoje.</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICMwYTAzMDIgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>ESTE SLIDE É A CORREÇÃO DO ERRO QUE MATOU AS DUAS REUNIÕES DOS DECORADORES. Na reunião da Jéssica Amancio, o orçamento foi montado ao vivo item por item, a chamada estourou o tempo e a reunião terminou SEM NENHUM PREÇO DITO: a proposta foi para o WhatsApp e ela decidiu sozinha, no celular. Nunca deixe o valor sair da sala sem ter sido dito em voz alta.
+
+A ORDEM IMPORTA: valor de tabela PRIMEIRO, valor de hoje DEPOIS, e o desconto total somado no fim, em voz alta, uma vez. Dez preços soltos ao longo da reunião viram dez negociações; junto no fim, é uma decisão só.
+
+DEPOIS DO TOTAL, CALE. Não explique, não justifique, não ofereça parcelamento antes de perguntarem. O primeiro que fala depois do número perde.
+
+O NÚMERO-CONFORTO VEM AQUI, NUNCA ANTES: &quot;esse é o projeto que a gente desenhou, R$ X. Está dentro do que vocês imaginaram?&quot; Se vier abaixo, corte o que ELES escolherem — nunca decida por eles o que sai.
+
+⚠ DESCONTO SÓ SE PEDIREM. Na reunião Karen &amp; Thiago, a Afeto ofereceu 5% sem ninguém pedir, com prazo de um dia, e não fechou. Desconto oferecido no vácuo vira sinal de que o preço era inflado.
+
+⚠ PENDÊNCIA TÉCNICA: Jardim de LED                                    R$ 2.400
+Lustre Paris                                     R$   520
+Arranjo suspenso sobre a mesa de doces           R$   840
+Arranjos baixos · 18 mesas                       R$ 2.700, R$ 8.120, R$ 6.460 e R$ 1.660 ainda não existem no dossiê. Hoje não há como montar esta tela automaticamente — precisa de uma forma de o especialista marcar os itens durante a reunião e o roteiro somar. Enquanto não existir, o slide roda com a lista escrita à mão antes da reunião.
+
+⚠ PENDÊNCIA DE TABELA: o valor do floral continua indefinido. O Pacote Essencial Floral está cadastrado com valor zerado e foi o mais vendido do trimestre.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Então deixa eu juntar tudo o que a gente escolheu hoje.
+
+[leia os itens, sem pressa]
+
+Pela tabela, isso fica em R$ 8.120. Fechando hoje, R$ 6.460.
+
+Vocês ganharam R$ 1.660 fechando hoje. [pausa longa · não fale]
+
+[se precisar retomar] Está dentro do que vocês tinham imaginado?</pre></div>
+    </details>
+  </section>
+  <section class="pag" id="s14">
+    <div class="cab">
+      <span class="num">14 / 14</span>
+      <h2>O salão já tem a cara de vocês</h2>
+      
+    </div>
+    <div class="palco"><div class="slide">
+      <div class="b midia" style="left:0px;top:0px;width:1280px;height:720px;z-index:0"><span>filtro: salão<br><small>foto do evento, no player</small></span></div>
+      <div class="b shape" style="left:0px;top:0px;width:1280px;height:720px;z-index:1;background:linear-gradient(180deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.76) 45%, rgba(10,10,10,0.92) 100%);border-radius:0"></div>
+      <div class="b shape" style="left:96px;top:392px;width:352px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:464px;top:392px;width:352px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b shape" style="left:832px;top:392px;width:352px;height:1px;z-index:3;background:rgba(255,255,255,0.3);border-radius:0"></div>
+      <div class="b txt" style="left:96px;top:138px;width:640px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">Próximos passos</div>
+      <div class="b txt" style="left:96px;top:164px;width:1000px;height:160px;z-index:10;font-size:70px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-2.8px;line-height:1.1;text-align:left">O salão já tem<br>a cara de vocês.</div>
+      <div class="b txt" style="left:96px;top:410px;width:60px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">01</div>
+      <div class="b txt" style="left:96px;top:436px;width:340px;height:60px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.45;text-align:left">O que decidimos hoje vai para o formulário de Decoração</div>
+      <div class="b txt" style="left:464px;top:410px;width:60px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">02</div>
+      <div class="b txt" style="left:464px;top:436px;width:340px;height:60px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.45;text-align:left">O que for contratado à parte entra por aditivo</div>
+      <div class="b txt" style="left:832px;top:410px;width:60px;height:20px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:2.6px;line-height:1.5;text-transform:uppercase;text-align:left">03</div>
+      <div class="b txt" style="left:832px;top:436px;width:340px;height:60px;z-index:10;font-size:18px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;line-height:1.45;text-align:left">O croqui final fecha até 15 dias antes</div>
+      <div class="b txt" style="left:96px;top:556px;width:1088px;height:54px;z-index:10;font-size:38px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:#ffffff;letter-spacing:-1.5px;line-height:1.1;text-align:left">Quando as portas se abrirem, a história será de vocês.</div>
+      <div class="b txt" style="left:96px;top:652px;width:1088px;height:22px;z-index:10;font-size:12px;font-family:'Montserrat',Georgia,serif;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.5;text-align:left">Reunião de Layout e Decoração · conduzida por Especialista</div>
+      <img class="b" style="left:56px;top:26px;width:110px;height:44px;z-index:20;object-fit:contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSIyMDAiIGhlaWdodD0iODAiPjxzdHlsZT4JCS5zMCB7IGZpbGw6ICNmZmZmZmYgfSAJPC9zdHlsZT48ZyBpZD0iQ2FtYWRhIDEiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48ZyBpZD0iLWUtaW5kYWlhLWFtYmllbnRlcyI+PGcgaWQ9IiZsdDtHcm91cCZndDsiPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01IDEzdjM3LjRoLTQuOXYtMzcuNHoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im01Mi41IDEzdjM4LjFoLTAuM2wtMjkuNi0yOS4zaC0wLjJ2MjguNmgtMi41di0zOGgwLjNsMjkuNiAyOS4yaDAuMnYtMjguNnoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsYXNzPSJzMCIgZD0ibTY1LjggNTAuNHYtMzcuNGgxMi4zcTQuNCAwIDguMSAxLjUgMy43IDEuNCA2LjQgMy45IDIuNiAyLjQgNC4xIDUuOSAxLjQgMy40IDEuNCA3LjMgMCA0LjEtMS41IDcuNi0xLjUgMy40LTQuMiA1LjktMi42IDIuNS02LjEgMy45LTMuNSAxLjQtNy41IDEuNHptNC44LTIuM2g1LjlxNC4zIDAgNy40LTEuNSAzLjEtMS41IDUtMy44IDItMi40IDIuOS01LjMgMC45LTIuOSAwLjktNS44IDAtMy4yLTEuMS02LjEtMS0zLTMuMS01LjMtMi0yLjItNS4xLTMuNi0zLTEuMy02LjktMS4zaC01Ljl6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTE3IDE5aDAuNWwxNC42IDMxLjRoNS4xbC0xNy40LTM3LjRoLTIuN2wtMTUuOCAzNy40aDIuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xNzcuOSAxOWgwLjVsMTQuNiAzMS40aDUuMmwtMTcuNC0zNy40aC0yLjdsLTE1LjggMzcuNGgyLjJ6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTUyLjIgMTN2MzcuNGgtNC44di0zNy40eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTE3NS4xIDguNWgyLjFsOC4zLTYuOGgtNnoiPjwvcGF0aD48ZyBpZD0iJmx0O0dyb3VwJmd0OyI+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtNDIuNSA2MmwtNi4zIDE2LjVoLTEuMWwtNi40LTE2LjVoMS40bDUuNiAxNC42IDUuNS0xNC42eiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTEwNC4zIDYydjE2LjNoLTEuMWwtOS45LTEzLjh2MTMuOGgtMS4zdi0xNi4zaDEuMWw5LjggMTMuOXYtMTMuOXoiPjwvcGF0aD48cGF0aCBpZD0iJmx0O0NvbXBvdW5kIFBhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0xMzcuMyA2My4xaC01Ljl2MTUuMmgtMS40di0xNS4yaC01Ljl2LTEuMWgxMy4yeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7Q29tcG91bmQgUGF0aCZndDsiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9InMwIiBkPSJtMTU4LjYgNzcuNnEtMS43LTEuMi0yLjYtMy4xLTAuOS0xLjktMC45LTQuMyAwLTIuMyAwLjktNC4zIDAuOS0xLjkgMi42LTMgMS43LTEuMiA0LjEtMS4yIDIuNCAwIDQuMSAxLjIgMS44IDEuMSAyLjYgMyAwLjkgMiAwLjkgNC4zIDAgMi4zLTAuOSA0LjMtMC44IDEuOS0yLjYgMy4xLTEuNyAxLjEtNC4xIDEuMS0yLjQgMC00LjEtMS4xem03LjUtMXExLjQtMC45IDIuMS0yLjYgMC44LTEuNyAwLjgtMy44IDAtMi4xLTAuOC0zLjgtMC43LTEuNi0yLjEtMi42LTEuNC0xLTMuNC0xLTIgMC0zLjQgMS0xLjQgMS0yLjEgMi42LTAuNyAxLjctMC43IDMuOCAwIDIuMSAwLjcgMy44IDAuNyAxLjcgMi4xIDIuNiAxLjQgMSAzLjQgMSAyIDAgMy40LTF6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtDb21wb3VuZCBQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtMTkxLjUgNzguM3EtMS4yLTAuNC0yLjQtMS4zbDAuOC0xcTEuNyAxLjYgNC44IDEuNiAxLjggMCAzLTEgMS4xLTAuOSAxLjEtMi41IDAtMS0wLjUtMS42LTAuNi0wLjYtMS40LTEtMC44LTAuNC0yLjItMC45LTEuNi0wLjUtMi41LTEtMS0wLjUtMS43LTEuNC0wLjctMC44LTAuNy0yLjIgMC0yLjEgMS40LTMuMiAxLjQtMS4xIDMuNS0xLjEgMS41IDAgMi43IDAuNCAxLjMgMC40IDIuNCAxLjNsLTAuOCAxcS0wLjktMC44LTItMS4yLTEuMS0wLjQtMi4zLTAuNC0xLjUgMC0yLjYgMC44LTEgMC44LTEgMi40IDAgMC45IDAuNiAxLjYgMC41IDAuNiAxLjMgMSAwLjggMC4zIDIuMiAwLjggMS42IDAuNiAyLjYgMS4xIDEgMC40IDEuNyAxLjMgMC42IDAuOSAwLjYgMi4zIDAgMS40LTAuNyAyLjQtMC43IDEuMS0xLjkgMS42LTEuMyAwLjYtMi44IDAuNi0xLjkgMC0zLjItMC40eiI+PC9wYXRoPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im04LjQgNjkuMWgtOC4zdjEuMWg4LjN6Ij48L3BhdGg+PHBhdGggaWQ9IiZsdDtQYXRoJmd0OyIgY2xhc3M9InMwIiBkPSJtOS40IDYyaC05LjN2MS4xaDkuM3oiPjwvcGF0aD48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im0wLjEgNzcuMnYxLjFoOS43di0xLjF6Ij48L3BhdGg+PC9nPjxnIGlkPSImbHQ7R3JvdXAmZ3Q7Ij48cGF0aCBpZD0iJmx0O1BhdGgmZ3Q7IiBjbGFzcz0iczAiIGQ9Im03MC42IDY5LjFoLTguM3YxLjFoOC4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTcxLjYgNjJoLTkuM3YxLjFoOS4zeiI+PC9wYXRoPjxwYXRoIGlkPSImbHQ7UGF0aCZndDsiIGNsYXNzPSJzMCIgZD0ibTYyLjMgNzcuMnYxLjFoOS44di0xLjF6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==" loading="lazy" alt="">
+    </div></div>
+    <details class="notas">
+      <summary>O que o consultor lê neste slide</summary>
+      <div class="nt"><b>Dicas</b><pre>RECAPITULE EM VOZ ALTA: paleta, estilo, as três prioridades, a mesa posta, as flores e o que ficou para aditivo. O casal precisa sair sabendo o que foi decidido e o que ainda falta.
+
+REGISTRE NA ATA: o que foi decidido, o que ficou em aberto (com quem decide e até quando) e cada item de interesse para aditivo.
+
+FORMULÁRIO DE DECORAÇÃO: se não deu para preencher tudo na reunião, diga o que falta e o prazo.
+
+PRÓXIMO ENCONTRO: na Reunião Final repassamos cada detalhe do grande dia.
+
+TERMINE NA EMOÇÃO: a frase do slide fecha o círculo aberto na capa.</pre></div>
+      <div class="nt ex"><b>Como falar</b><pre>Olha o que a gente construiu hoje: a paleta, o estilo, a mesa posta, as flores e o desenho de cada ambiente. O que decidimos vai para o formulário de Decoração, o que vocês quiserem contratar à parte a gente formaliza por aditivo, e o croqui final fecha até 15 dias antes. Quando as portas se abrirem, a história ali vai ser de vocês.</pre></div>
+    </details>
+  </section></main>
+
+<footer>
+  <span>Roteiro 253294ba · v2 SUGESTÃO · desligado · o v1 segue intacto</span>
+  <span>09/10/2026</span>
+</footer>
+
+<dialog id="lupa"><img id="lupaimg" src="" alt=""><p id="lupacap"></p></dialog>
+<script>
+  const lupa = document.getElementById('lupa')
+  document.querySelectorAll('.galeria figure').forEach((f) => {
+    f.addEventListener('click', () => {
+      document.getElementById('lupaimg').src = f.querySelector('img').src
+      document.getElementById('lupacap').textContent = f.querySelector('figcaption').textContent
+      lupa.showModal()
+    })
+  })
+  lupa.addEventListener('click', () => lupa.close())
+
+  // escala o slide de 1280 para a largura real do palco
+  function escalar() {
+    document.querySelectorAll('.palco').forEach((p) => {
+      const s = p.querySelector('.slide')
+      if (s) s.style.transform = 'scale(' + (p.clientWidth / 1280) + ')'
+    })
+  }
+  escalar()
+  addEventListener('resize', escalar)
+  // fontes podem mudar a métrica depois de carregar; reescala quando terminarem
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(escalar)
+</script>
+</body>
+</html>
