@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Especialistas · 5 semanas</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#f4f4f1;--card:#fff;--ink:#0b0b0b;--ink2:#52514e;--mut:#8b8984;--linha:#e3e2db;--up:#006300;--down:#b42b2b;--warn:#8a6d1f;--s1:#2a78d6}
+body{background:var(--bg);color:var(--ink);font:14.5px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:22px 16px 50px}
+.pag{max-width:1120px;margin:0 auto;background:var(--card);border:1px solid rgba(0,0,0,.09);border-radius:14px;padding:26px 30px}
+.cab{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:20px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.per{font-size:12.5px;color:var(--mut)}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);margin:26px 0 8px;font-weight:700}
+h2:first-of-type{margin-top:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:6px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--linha);text-align:left}
+th{color:var(--ink2);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;background:#f7f6f2}
+th.num,td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+th.hoje,td.hoje{background:#fdf8ec}
+tr.total td{background:#f2f1ec;font-weight:700}
+tr.dest td{background:#fdf8ec}
+.up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn)}
+.leg{color:var(--mut);font-size:12.5px}
+.nota{font-size:12.5px;color:var(--mut);margin-top:8px}
+.painel{background:#12151c;border-radius:12px;padding:14px 18px 10px;margin-top:8px}
+.periodos{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;border-bottom:1px solid #232936;padding-bottom:11px}
+.per-bt{font:600 12.5px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:7px 13px;border-radius:7px;
+  border:1px solid #2b3240;background:#171b24;color:#8b93a1;cursor:pointer}
+.per-bt em{font-style:normal;font-weight:400;opacity:.65;font-size:11px}
+.per-bt.on{background:#223049;border-color:#3f6ea8;color:#e8eaed}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid #2b3240;color:#8b93a1;cursor:pointer;user-select:none}
+.chip::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px;opacity:.45}
+.chip.on{color:#e8eaed;border-color:var(--c);background:#1a1f29}
+.chip.on::before{opacity:1}
+.painel .resumo{font-size:12.5px;color:#9aa3b2;margin:0 0 4px}
+.painel .resumo b{color:#e8eaed}
+.painel .chart{width:100%;height:auto;display:block;overflow:visible}
+.legenda{font-size:11.5px;color:#6b7280;margin:6px 0 0}
+@media print{body{background:#fff;padding:0}.pag{border:0;border-radius:0;max-width:none;padding:0}}
+</style></head><body>
+<div class="pag">
+  <div class="cab"><h1>Especialistas · as últimas 5 semanas</h1>
+    <span class="per">07/09 a 09/10/2026 · a semana atual vai de segunda 05/10 até hoje</span></div>
+
+  <h2>1 · Quanto cada um vendeu, semana a semana</h2>
+  <table><thead><tr><th>Especialista</th><th class="num">07 a 13/09</th><th class="num">14 a 20/09</th><th class="num">21 a 27/09</th><th class="num">28/09 a 04/10</th><th class="num hoje">05 a 09/10</th><th class="num">média</th></tr></thead><tbody>
+  <tr><td><b>Eduardo Padilha</b></td>
+      <td class="num">15.996</td><td class="num">11.174</td><td class="num">25.526</td><td class="num">3.941</td><td class="num hoje">239</td>
+      <td class="num leg">14.159</td></tr><tr><td><b>Jessica Neco</b></td>
+      <td class="num">5.276</td><td class="num">14.299</td><td class="num">28.731</td><td class="num">12.862</td><td class="num hoje">8.200</td>
+      <td class="num leg">15.292</td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">16.479</td><td class="num">5.223</td><td class="num">19.517</td><td class="num">—</td><td class="num hoje">1.704</td>
+      <td class="num leg">10.305</td></tr><tr><td><b>Nathan Moreto</b></td>
+      <td class="num">23.828</td><td class="num">14.150</td><td class="num">16.265</td><td class="num">22.236</td><td class="num hoje">20.159</td>
+      <td class="num leg">19.120</td></tr><tr><td><b>Ruam Leal</b></td>
+      <td class="num">11.847</td><td class="num">3.584</td><td class="num">—</td><td class="num">28.728</td><td class="num hoje">5.073</td>
+      <td class="num leg">11.040</td></tr>
+  <tr class="total"><td>Total</td>
+    <td class="num">76.214</td><td class="num">48.428</td><td class="num">90.040</td><td class="num">67.768</td><td class="num hoje">35.375</td>
+    <td class="num">70.612</td></tr>
+  <tr><td class="leg">aditivos assinados</td><td class="num leg">15</td><td class="num leg">17</td><td class="num leg">16</td><td class="num leg">13</td><td class="num leg hoje">8</td><td></td></tr>
+  </tbody></table>
+  <p class="nota">A coluna destacada é a semana em curso, com 5 dias de 7. A média é das 4 semanas fechadas.</p>
+
+  <h2>2 · Desempenho por especialista <span class="leg" style="text-transform:none;letter-spacing:0">· escolha o mês</span></h2>
+  <div class="painel">
+    <div class="periodos"><button class="per-bt on" data-p="0">Outubro/26 <em>em curso</em></button><button class="per-bt" data-p="1">Setembro/26</button><button class="per-bt" data-p="2">Novembro/26</button><button class="per-bt" data-p="3">As 5 semanas</button></div>
+    <div class="chips">
+      <span class="chip on" data-s="valor" style="--c:#4ade80">Valor vendido</span>
+      <span class="chip on" data-s="conv" style="--c:#c084fc">Conversão</span>
+      <span class="chip" data-s="tm" style="--c:#fbbf24">Ticket médio</span>
+      <span class="chip" data-s="porReu" style="--c:#60a5fa">R$ por reunião</span>
+      <span class="chip" data-s="perda" style="--c:#f87171">Perda potencial</span>
+    </div>
+    <p class="resumo" id="resumo"></p>
+    <svg id="combo" viewBox="0 0 1040 400" class="chart"></svg>
+    <p class="legenda">Embaixo de cada nome: reuniões feitas · quantas venderam · canceladas &nbsp;|&nbsp;
+      TM = ticket médio por aditivo &nbsp;|&nbsp; PP = perda potencial, o que renderia se convertesse na
+      conversão média da equipe no período com o ticket médio da pessoa.</p>
+  </div>
+  <script>
+  const PER = [{"rot":"Outubro/26","janela":"01 a 09/10, mês ainda correndo","curso":true,"aberto":"32 reuniões ainda por realizar","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":38608.41,"ads":3,"rf":2,"vend":2,"canc":0,"conv":1,"tm":12869.470000000001,"porReu":19304.205,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":29518.56,"ads":4,"rf":3,"vend":3,"canc":0,"conv":1,"tm":7379.64,"porReu":9839.52,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":14148.54,"ads":3,"rf":5,"vend":3,"canc":9,"conv":0.6,"tm":4716.18,"porReu":2829.708,"perda":2571.3391666666676},{"p":"Eduardo Padilha","nome":"Eduardo","valor":4180.46,"ads":4,"rf":5,"vend":2,"canc":2,"conv":0.4,"tm":1045.115,"porReu":836.092,"perda":8448.685833333335},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":1704.23,"ads":1,"rf":1,"vend":1,"canc":1,"conv":1,"tm":1704.23,"porReu":1704.23,"perda":0}],"valor":88160.20000000001,"ads":15,"rf":16,"conv":0.6875,"tm":5877.346666666667},{"rot":"Setembro/26","janela":"mês fechado","curso":false,"aberto":"7 reuniões do mês sem desfecho lançado","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":125394.87000000001,"ads":15,"rf":14,"vend":12,"canc":5,"conv":0.8571428571428571,"tm":8359.658000000001,"porReu":8956.77642857143,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":75256.95999999999,"ads":23,"rf":29,"vend":23,"canc":16,"conv":0.7931034482758621,"tm":3272.0417391304345,"porReu":2595.067586206896,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":53704.53,"ads":15,"rf":18,"vend":12,"canc":11,"conv":0.6666666666666666,"tm":3580.302,"porReu":2983.585,"perda":9096.370000000006},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":41218.16,"ads":4,"rf":3,"vend":3,"canc":5,"conv":1,"tm":10304.54,"porReu":13739.386666666667,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":22798.43,"ads":9,"rf":6,"vend":4,"canc":3,"conv":0.6666666666666666,"tm":2533.158888888889,"porReu":3799.7383333333332,"perda":3032.1233333333353}],"valor":318372.95,"ads":66,"rf":70,"conv":0.7714285714285715,"tm":4823.832575757576},{"rot":"Novembro/26","janela":"agenda à frente","curso":false,"aberto":"3 reuniões ainda por realizar","dados":[{"p":"Eduardo Padilha","nome":"Eduardo","valor":0,"ads":0,"rf":0,"vend":0,"canc":1,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":0,"ads":0,"rf":0,"vend":0,"canc":1,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Nathan Moreto","nome":"Nathan","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0}],"valor":0,"ads":0,"rf":0,"conv":0,"tm":0},{"rot":"As 5 semanas","janela":"07/09 a 09/10","curso":false,"aberto":"","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":96638.18000000001,"ads":13,"rf":12,"vend":10,"canc":3,"conv":0.8333333333333334,"tm":7433.706153846155,"porReu":8053.181666666667,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":69368.92,"ads":20,"rf":28,"vend":20,"canc":15,"conv":0.7142857142857143,"tm":3468.446,"porReu":2477.4614285714283,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":56876.09,"ads":18,"rf":21,"vend":12,"canc":10,"conv":0.5714285714285714,"tm":3159.7827777777775,"porReu":2708.385238095238,"perda":13912.892545491719},{"p":"Ruam Leal","nome":"Ruam","valor":49231.26000000001,"ads":11,"rf":8,"vend":6,"canc":1,"conv":0.75,"tm":4475.569090909092,"porReu":6153.907500000001,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":42922.39,"ads":5,"rf":4,"vend":4,"canc":5,"conv":1,"tm":8584.478,"porReu":10730.5975,"perda":0}],"valor":315036.84,"ads":67,"rf":73,"conv":0.7123287671232876,"tm":4702.042388059702}];
+  let pAtual = 0;
+  const COR = { valor: '#4ade80', conv: '#c084fc', tm: '#fbbf24', porReu: '#60a5fa', perda: '#f87171' };
+  const PCT = { conv: 1 };
+  const ativos = new Set(['valor', 'conv']);
+  const brl = (v) => (v >= 1000 ? Math.round(v / 1000) + 'K' : Math.round(v));
+  const mil = (v) => Math.round(v).toLocaleString('pt-BR');
+  function desenha() {
+    const P = PER[pAtual], DADOS = P.dados;
+    const W = 1040, H = 400, ML = 62, MR = 54, MT = 30, MB = 72;
+    const pw = W - ML - MR, ph = H - MT - MB, n = DADOS.length;
+    const linhas = [...ativos].filter((k) => k !== 'valor');
+    const maxR = Math.max(1, ...DADOS.map((d) => Math.max(ativos.has('valor') ? d.valor : 0,
+      ...linhas.filter((k) => !PCT[k]).map((k) => d[k]))));
+    const passo = maxR > 60000 ? 20000 : maxR > 20000 ? 10000 : maxR > 8000 ? 4000 : 2000;
+    const topo = Math.ceil(maxR / passo) * passo || maxR;
+    const X = (i) => ML + (pw / n) * (i + 0.5);
+    const Y = (v) => MT + ph - (v / topo) * ph;
+    const Yp = (v) => MT + ph - v * ph;
+    let g = '';
+    for (let k = 0; k <= 4; k++) {
+      const v = (topo / 4) * k;
+      g += '<line x1="' + ML + '" y1="' + Y(v).toFixed(1) + '" x2="' + (W - MR) + '" y2="' + Y(v).toFixed(1) + '" stroke="#232936"/>';
+      g += '<text x="' + (ML - 8) + '" y="' + (Y(v) + 4).toFixed(1) + '" fill="#6b7280" font-size="11" text-anchor="end">' + brl(v) + '</text>';
+      g += '<text x="' + (W - MR + 8) + '" y="' + (Y(v) + 4).toFixed(1) + '" fill="#6b7280" font-size="11">' + (k * 25) + '%</text>';
+    }
+    if (ativos.has('valor')) {
+      const bw = Math.min(70, pw / n * 0.52);
+      DADOS.forEach((d, i) => {
+        g += '<rect x="' + (X(i) - bw / 2).toFixed(1) + '" y="' + Y(d.valor).toFixed(1) + '" width="' + bw.toFixed(1)
+          + '" height="' + (MT + ph - Y(d.valor)).toFixed(1) + '" fill="#4ade80" opacity="0.82" rx="4"/>';
+        g += '<text x="' + X(i).toFixed(1) + '" y="' + (Y(d.valor) - 9).toFixed(1)
+          + '" fill="#4ade80" font-size="15" font-weight="700" text-anchor="middle">' + brl(d.valor) + '</text>';
+      });
+    }
+    for (const k of linhas) {
+      const pts = DADOS.map((d, i) => [X(i), PCT[k] ? Yp(d[k]) : Y(d[k])]);
+      g += '<path d="' + pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+        + '" fill="none" stroke="' + COR[k] + '" stroke-width="2.4"/>';
+      pts.forEach((p, i) => {
+        g += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.6" fill="' + COR[k] + '"/>';
+        const v = PCT[k] ? Math.round(DADOS[i][k] * 100) + '%' : brl(DADOS[i][k]);
+        g += '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] - 9).toFixed(1) + '" fill="' + COR[k]
+          + '" font-size="12" font-weight="700" text-anchor="middle">' + v + '</text>';
+      });
+    }
+    DADOS.forEach((d, i) => {
+      g += '<text x="' + X(i).toFixed(1) + '" y="' + (MT + ph + 20) + '" fill="#e8eaed" font-size="13" font-weight="600" text-anchor="middle">' + d.nome + '</text>';
+      g += '<text x="' + X(i).toFixed(1) + '" y="' + (MT + ph + 36) + '" fill="#6b7280" font-size="11" text-anchor="middle">'
+        + d.rf + ' reuniões · ' + d.vend + ' venderam · ' + d.canc + ' canc.</text>';
+      g += '<text x="' + X(i).toFixed(1) + '" y="' + (MT + ph + 50) + '" fill="#6b7280" font-size="11" text-anchor="middle">TM R$ '
+        + brl(d.tm) + (d.perda ? '  ·  PP −R$ ' + brl(d.perda) : '') + '</text>';
+    });
+    document.getElementById('combo').innerHTML = g;
+    document.getElementById('resumo').innerHTML = '<b>' + P.rot + '</b> · ' + P.janela
+      + ' &nbsp;|&nbsp; equipe: R$ ' + mil(P.valor) + ' em ' + P.ads + ' aditivos · ' + P.rf + ' reuniões feitas · conversão '
+      + Math.round(P.conv * 100) + '% · ticket médio R$ ' + mil(P.tm)
+      + (P.aberto ? ' &nbsp;|&nbsp; ' + P.aberto : '');
+  }
+  document.querySelectorAll('.chip').forEach((el) => el.onclick = () => {
+    const k = el.dataset.s;
+    if (ativos.has(k)) { if (ativos.size === 1) return; ativos.delete(k) } else ativos.add(k);
+    el.classList.toggle('on'); desenha();
+  });
+  document.querySelectorAll('.per-bt').forEach((el) => el.onclick = () => {
+    pAtual = +el.dataset.p;
+    document.querySelectorAll('.per-bt').forEach((b) => b.classList.remove('on'));
+    el.classList.add('on'); desenha();
+  });
+  desenha();
+  </script>
+
+  <h2>3 · Reuniões realizadas e conversão, semana a semana</h2>
+  <table><thead><tr><th>Especialista</th><th class="num">07 a 13/09</th><th class="num">14 a 20/09</th><th class="num">21 a 27/09</th><th class="num">28/09 a 04/10</th><th class="num hoje">05 a 09/10</th><th class="num">no período</th></tr></thead><tbody>
+  <tr><td><b>Eduardo Padilha</b></td>
+      <td class="num">2 de 3 · <span class=""><b>67%</b></span></td><td class="num">4 de 6 · <span class=""><b>67%</b></span></td><td class="num">4 de 7 · <span class=""><b>57%</b></span></td><td class="num">2 de 4 · <span class=""><b>50%</b></span></td><td class="num hoje">0 de 1 · <span class="down"><b>0%</b></span></td>
+      <td class="num">12 de 21 · <b>57%</b></td></tr><tr><td><b>Jessica Neco</b></td>
+      <td class="num">3 de 5 · <span class=""><b>60%</b></span></td><td class="num">5 de 5 · <span class="up"><b>100%</b></span></td><td class="num">7 de 10 · <span class="up"><b>70%</b></span></td><td class="num">3 de 4 · <span class="up"><b>75%</b></span></td><td class="num hoje">2 de 4 · <span class=""><b>50%</b></span></td>
+      <td class="num">20 de 28 · <b>71%</b></td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num">2 de 2 · <span class="up"><b>100%</b></span></td><td class="num">—</td><td class="num">—</td><td class="num hoje">1 de 1 · <span class="up"><b>100%</b></span></td>
+      <td class="num">4 de 4 · <b>100%</b></td></tr><tr><td><b>Nathan Moreto</b></td>
+      <td class="num">2 de 3 · <span class=""><b>67%</b></span></td><td class="num">3 de 4 · <span class="up"><b>75%</b></span></td><td class="num">3 de 3 · <span class="up"><b>100%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num hoje">1 de 1 · <span class="up"><b>100%</b></span></td>
+      <td class="num">10 de 12 · <b>83%</b></td></tr><tr><td><b>Ruam Leal</b></td>
+      <td class="num">1 de 2 · <span class=""><b>50%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num">0 de 1 · <span class="down"><b>0%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num hoje">3 de 3 · <span class="up"><b>100%</b></span></td>
+      <td class="num">6 de 8 · <b>75%</b></td></tr>
+  <tr class="total"><td>Total</td>
+    <td class="num">11 de 16 · 69%</td><td class="num">15 de 18 · 83%</td><td class="num">14 de 21 · 67%</td><td class="num">7 de 10 · 70%</td><td class="num hoje">7 de 10 · 70%</td>
+    <td class="num">54 de 75 · 72%</td></tr>
+  <tr><td class="leg">reuniões canceladas</td><td class="num leg">4</td><td class="num leg">11</td><td class="num leg">17</td><td class="num leg">4</td><td class="num leg hoje">4</td><td></td></tr>
+  </tbody></table>
+  <p class="nota">Conversão = reunião final concluída que gerou aditivo assinado de 3 dias antes a 10 depois dela.</p>
+
+  <h2>4 · A semana de hoje, reunião por reunião</h2>
+  <table><thead><tr><th>Especialista</th><th class="num">reuniões feitas</th><th class="num">venderam</th><th class="num">R$ da semana</th><th class="num">R$ por reunião</th><th class="num">semana passada</th></tr></thead><tbody>
+  <tr><td><b>Eduardo Padilha</b></td>
+      <td class="num">1</td><td class="num">0 de 1</td>
+      <td class="num"><b>239</b></td>
+      <td class="num">239</td>
+      <td class="num leg">3.941</td></tr><tr><td><b>Jessica Neco</b></td>
+      <td class="num">4</td><td class="num">2 de 4</td>
+      <td class="num"><b>8.200</b></td>
+      <td class="num">2.050</td>
+      <td class="num leg">12.862</td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">1</td><td class="num">1 de 1</td>
+      <td class="num"><b>1.704</b></td>
+      <td class="num">1.704</td>
+      <td class="num leg">—</td></tr><tr><td><b>Nathan Moreto</b></td>
+      <td class="num">1</td><td class="num">1 de 1</td>
+      <td class="num"><b>20.159</b></td>
+      <td class="num">20.159</td>
+      <td class="num leg">22.236</td></tr><tr><td><b>Ruam Leal</b></td>
+      <td class="num">3</td><td class="num">3 de 3</td>
+      <td class="num"><b>5.073</b></td>
+      <td class="num">1.691</td>
+      <td class="num leg">28.728</td></tr>
+  <tr class="total"><td>Total</td><td class="num">10</td>
+    <td class="num">7 de 10</td>
+    <td class="num">35.375</td>
+    <td class="num">3.538</td>
+    <td class="num">67.768</td></tr>
+  </tbody></table>
+
+  <h2>5 · Venda por grupo de produto, semana a semana</h2>
+  <table><thead><tr><th>Grupo</th><th class="num">07 a 13/09</th><th class="num">14 a 20/09</th><th class="num">21 a 27/09</th><th class="num">28/09 a 04/10</th><th class="num hoje">05 a 09/10</th><th class="num">média</th><th class="num">tendência</th></tr></thead><tbody>
+  <tr><td><b>Gastronomia</b></td>
+      <td class="num">39.225</td><td class="num">13.265</td><td class="num">39.397</td><td class="num">9.900</td><td class="num hoje">19.744</td>
+      <td class="num leg">25.447</td>
+      <td class="num ">-22%</td></tr><tr><td><b>Bebidas</b></td>
+      <td class="num">22.962</td><td class="num">8.002</td><td class="num">11.104</td><td class="num">48.479</td><td class="num hoje">5.843</td>
+      <td class="num leg">22.637</td>
+      <td class="num down">-74%</td></tr><tr><td><b>Hora extra</b></td>
+      <td class="num">2.750</td><td class="num">4.250</td><td class="num">7.500</td><td class="num">4.500</td><td class="num hoje">3.000</td>
+      <td class="num leg">4.750</td>
+      <td class="num down">-37%</td></tr><tr><td><b>Audiovisual e LED</b></td>
+      <td class="num">4.700</td><td class="num">4.800</td><td class="num">4.000</td><td class="num">3.900</td><td class="num hoje">780</td>
+      <td class="num leg">4.350</td>
+      <td class="num down">-82%</td></tr><tr><td><b>Decoração e mobília</b></td>
+      <td class="num">5.440</td><td class="num">500</td><td class="num">3.860</td><td class="num">1.875</td><td class="num hoje">1.030</td>
+      <td class="num leg">2.919</td>
+      <td class="num down">-65%</td></tr><tr><td><b>Floral</b></td>
+      <td class="num">1.300</td><td class="num">—</td><td class="num">5.500</td><td class="num">900</td><td class="num hoje">1.700</td>
+      <td class="num leg">1.925</td>
+      <td class="num ">-12%</td></tr><tr><td><b>Kids, noiva e hospedagem</b></td>
+      <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">2.700</td><td class="num hoje">3.300</td>
+      <td class="num leg">675</td>
+      <td class="num up">+389%</td></tr><tr><td><b>Serviços e equipe</b></td>
+      <td class="num">—</td><td class="num">1.050</td><td class="num">700</td><td class="num">—</td><td class="num hoje">2.000</td>
+      <td class="num leg">438</td>
+      <td class="num up">+357%</td></tr>
+  <tr class="total"><td>Total</td>
+    <td class="num">76.377</td><td class="num">31.867</td><td class="num">72.061</td><td class="num">72.254</td><td class="num hoje">37.397</td>
+    <td class="num">63.140</td><td></td></tr>
+  <tr><td class="leg">itens vendidos</td><td class="num leg">37</td><td class="num leg">24</td><td class="num leg">34</td><td class="num leg">27</td><td class="num leg hoje">24</td><td></td><td></td></tr>
+  </tbody></table>
+  <p class="nota">Cardápio e open bar são cobrados por pessoa: o valor deles é o preço por pessoa vezes os convidados do evento, e <b>70% do valor desta tabela vem dessa conta</b>. A soma das 5 semanas dá R$ 289.956 contra R$ 317.825 efetivamente assinados — a diferença é crédito abatido e taxa de serviço.</p>
+</div>
+</body></html>
