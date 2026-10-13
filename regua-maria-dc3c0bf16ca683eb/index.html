@@ -4,1338 +4,493 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Régua do Pós · Maria Eduarda</title>
+<title>Boas-vindas · Maria Eduarda</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f6f4ef;--card:#fff;--ink:#1d1c1a;--mut:#6b6762;--line:#e4e0d8;--ok:#1f7a4d;--okbg:#e3f3ea;--warn:#9a6300;--warnbg:#fff1d6;--acc:#1f4e8c}
-body{background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 12px 120px}
-main{max-width:860px;margin:0 auto}
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d1c1a;--mut:#6b6762;--line:#e4e0d8;--ok:#1f7a4d;--okbg:#e3f3ea;--warn:#9a6300;--warnbg:#fff1d6;--info:#1f4e8c;--infobg:#e3ecf8;--acc:#1f4e8c}
+body{background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 12px 110px}
+main{max-width:1400px;margin:0 auto}
 h1{font-size:20px;font-weight:650}
-.lead{color:var(--mut);margin:6px 0 10px;font-size:14px}
-.topo{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
-.topo .linha{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-input[type=text],input[type=search],input[type=date],select{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
-input[type=search]{min-width:200px;flex:1}
-button{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);cursor:pointer}
-button.p{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
+.lead{color:var(--mut);margin:6px 0 10px;font-size:13.5px}
+.topo{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+input[type=search]{min-width:220px}
+button{cursor:pointer}button.p{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
 .prog{font-size:13px;color:var(--mut)}
-.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px}
-.c.ok{opacity:.9}.c.done{border-color:#9fd3b4;background:#f4fbf6}
-header{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
-.cod{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#eeece7;padding:1px 6px;border-radius:6px}
-.mut{color:var(--mut);font-size:13px}
-.st{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--ok)}
-.achado{margin:8px 0;font-size:13.5px;background:#faf9f6;border-left:3px solid var(--line);padding:8px 10px;border-radius:0 8px 8px 0}
-.ev{color:var(--mut);font-size:12.5px;margin-top:3px}.rev{color:var(--warn);font-size:12.5px;margin-top:3px;font-weight:600}
-.form .g{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:8px}
-.form .l{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600;min-width:120px}
-.form label{display:inline-flex;align-items:center;gap:4px;font-size:14px}
-.form label.d{gap:6px;color:var(--mut);font-size:13px}
-.form .obs{flex:1;min-width:220px}
-.conf{font-size:13px;color:var(--acc);border-color:var(--acc)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:7px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600;background:#faf9f6;position:sticky;top:0;z-index:2}
+tr:last-child td{border-bottom:0}
+tr.done td{background:#f4fbf6}
+.mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;white-space:nowrap}
+.sub{font-size:12px;color:var(--mut)}
+.obs{font-size:12.5px;color:#3a3732;max-width:460px}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.realizada{background:var(--okbg);color:var(--ok)}.tag.conferir{background:var(--warnbg);color:var(--warn)}.tag.marcada{background:var(--infobg);color:var(--info)}
+.resp{min-width:300px}.resp select,.resp input{display:block;width:100%;margin-bottom:4px;padding:5px 7px}
 .rodape{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;z-index:6}
-textarea{width:100%;min-height:120px;font:12.5px/1.4 ui-monospace,Consolas,monospace;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;display:none}
-.aviso{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:13px;margin-top:8px}
+textarea{width:100%;min-height:110px;font:12.5px/1.4 ui-monospace,Consolas,monospace;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;display:none}
 </style>
 </head>
 <body>
 <main>
-<h1>Régua do Pós · Maria Eduarda · contratos de agosto a outubro</h1>
-<p class="lead">Blumenau e Joinville · 56 contratos ativos, 38 precisam da sua confirmação. Para cada um, marque o que aconteceu de verdade com a Boas-vindas e a Primeiros Passos. O que você marcar fica salvo neste navegador. No fim, clique em <b>Copiar respostas</b> e cole no WhatsApp de quem te mandou este link. Com isso a agenda de cada cliente é corrigida no sistema.</p>
-<div class="topo"><div class="linha">
+<h1>Boas-vindas · Maria Eduarda · contratos de agosto a outubro</h1>
+<p class="lead">Blumenau e Joinville · 56 contratos. <b>Realizada</b> = temos certeza (gravação ou agenda concluída com prova no chat). <b>Conferir</b> = não conseguimos provar pelo sistema; a observação diz o porquê. Nessas linhas, marque se a reunião aconteceu, a data e, se quiser, uma observação. No fim, clique em <b>Copiar respostas</b> e cole no WhatsApp de quem te mandou o link. O que você marcar fica salvo neste navegador.</p>
+<div class="topo">
 <input type="text" id="quem" placeholder="Seu nome" value="Maria Eduarda">
 <input type="search" id="q" placeholder="Buscar código ou nome">
-<select id="fil"><option value="pend">Só os que precisam de confirmação</option><option value="todos">Todos</option><option value="falta">Só os que ainda não respondi</option></select>
+<select id="fil"><option value="conferir">Só Conferir (19)</option><option value="todos">Todos (56)</option><option value="falta">Só os que ainda não respondi</option></select>
 <span class="prog" id="prog"></span>
-</div></div>
-<section class="c pend" data-cod="E08520" data-busca="e08520 anderson oliveira rodrigues">
-<header><span class="cod">E08520</span> <b>Anderson Oliveira Rodrigues</b> <span class="mut">(47) ...2751 · Casamento · contrato 01/08 (73 dias)</span><span class="st" id="st-E08520"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, atrasada · Depende da BV<div class="ev">contato de boas-vindas no chat 03/08 (Amália), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08520" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08520" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08520" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08520" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08520"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08520"> mandei o link</label>
 </div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08520" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08520" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08520" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08520" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08520"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08520" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08520" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08572" data-busca="e08572 raquel basílio dos santos">
-<header><span class="cod">E08572</span> <b>Raquel Basílio dos</b> <span class="mut">(47) ...2032 · Casamento · contrato 03/08 (71 dias)</span><span class="st" id="st-E08572"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, atrasada · Depende da BV<div class="ev">contato de boas-vindas no chat 06/08 (Amália), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08572" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08572" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08572" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08572" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08572"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08572"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08572" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08572" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08572" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08572" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08572"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08572" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08572" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08591" data-busca="e08591  jessica iara dos santos">
-<header><span class="cod">E08591</span> <b> Jessica Iara</b> <span class="mut">(47) ...7776 · Casamento · contrato 06/08 (68 dias)</span><span class="st" id="st-E08591"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (21/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 21/09 20:30 (Maria Eduarda); gravação 34 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08591" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08591" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08591" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08591" value="2026-09-21"></label>
-<label><input type="checkbox" name="bvgrav-E08591"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08591"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08591" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08591" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08591" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08591" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08591"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08591" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08591" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08586" data-busca="e08586 mara luiza rosa dos santos ">
-<header><span class="cod">E08586</span> <b>Mara Luiza Rosa</b> <span class="mut">(47) ...4523 · Casamento · contrato 09/08 (65 dias)</span><span class="st" id="st-E08586"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, sem gravação (19/08, Polyana) · PP não oferecida, já no prazo<div class="ev">agenda concluída 19/08 15:30 (Polyana Pozzamai); chat: link enviado 19/08 15:34 (Polyana), depois: &quot; [áudio: Oi Mara, bom dia, tudo bem? Passando para&quot;, confirmação 19/08 09:37</div><div class="rev">Revisar: Reunião sem gravação: nas próximas, gravar pelo agendamento. Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08586" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08586" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08586" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08586" value="2026-08-19"></label>
-<label><input type="checkbox" name="bvgrav-E08586"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08586"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08586" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08586" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08586" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08586" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08586"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08586" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08586" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08587" data-busca="e08587 letícia jaciara paiano">
-<header><span class="cod">E08587</span> <b>Letícia Jaciara Paiano</b> <span class="mut">(47) ...5786 · Casamento · contrato 09/08 (65 dias)</span><span class="st" id="st-E08587"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, atrasada · Depende da BV<div class="ev">Pós falou com o cliente (04/08), sem mensagem de boas-vindas nem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08587" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08587" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08587" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08587" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08587"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08587"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08587" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08587" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08587" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08587" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08587"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08587" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08587" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08590" data-busca="e08590  gustavo domingos ">
-<header><span class="cod">E08590</span> <b> Gustavo Domingos</b> <span class="mut">(47) ...3978 · Casamento · contrato 09/08 (65 dias)</span><span class="st" id="st-E08590"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (21/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 21/09 19:30 (Maria Eduarda); gravação 58 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08590" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08590" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08590" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08590" value="2026-09-21"></label>
-<label><input type="checkbox" name="bvgrav-E08590"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08590"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08590" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08590" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08590" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08590" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08590"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08590" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08590" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08592" data-busca="e08592 letícia geisler">
-<header><span class="cod">E08592</span> <b>Letícia Geisler</b> <span class="mut">(47) ...0602 · Casamento · contrato 10/08 (64 dias)</span><span class="st" id="st-E08592"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (14/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 14/09 19:00 (Maria Eduarda); gravação 31 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08592" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08592" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08592" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08592" value="2026-09-14"></label>
-<label><input type="checkbox" name="bvgrav-E08592"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08592"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08592" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08592" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08592" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08592" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08592"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08592" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08592" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08597" data-busca="e08597 gustavo miguel heck carpenedo">
-<header><span class="cod">E08597</span> <b>Gustavo Miguel Heck</b> <span class="mut">(47) ...4619 · Casamento · contrato 12/08 (62 dias)</span><span class="st" id="st-E08597"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada no passado, sem prova de que aconteceu (02/09, Wyllian) · Depende da BV<div class="ev">agenda agendado 02/09 14:00 (Wyllian Moura); conversa sem link, sem entrada e sem remarcação</div><div class="rev">Revisar: Confirmar com Wyllian se a reunião de 02/09 aconteceu; se sim, dar baixa; se não, remarcar.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08597" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08597" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08597" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08597" value="2026-09-02"></label>
-<label><input type="checkbox" name="bvgrav-E08597"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08597"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08597" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08597" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08597" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08597" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08597"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08597" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08597" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08604" data-busca="e08604 cheila cristina mocelin">
-<header><span class="cod">E08604</span> <b>Cheila Cristina Mocelin</b> <span class="mut">(47) ...4236 · Casamento · contrato 13/08 (61 dias)</span><span class="st" id="st-E08604"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Reunião feita pelo chat, sem registro na agenda (26/08, Wyllian) · PP não oferecida, já no prazo<div class="ev">link de reunião enviado 26/08 14:00 por Wyllian; nenhuma reunião ligada ao contrato na agenda</div><div class="rev">Revisar: Criar a reunião de 26/08 na agenda ligada ao contrato e dar baixa. Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08604" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08604" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08604" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08604" value="2026-08-26"></label>
-<label><input type="checkbox" name="bvgrav-E08604"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08604"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08604" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08604" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08604" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08604" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08604"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08604" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08604" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08605" data-busca="e08605 igor barroso de sá oliveira">
-<header><span class="cod">E08605</span> <b>Igor Barroso de</b> <span class="mut">(47) ...4202 · Casamento · contrato 13/08 (61 dias)</span><span class="st" id="st-E08605"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação, agenda sem baixa (04/09, Wyllian) · PP oferecida no chat, sem data (07/10)<div class="ev">gravação de 56 min em 04/09 (WYLLIAN / WYLLIAN); agenda agendado 04/09 09:00 (Wyllian Moura)</div><div class="rev">Revisar: Dar baixa na reunião de 04/09 na agenda (tem gravação). Fechar a data da Primeiros Passos.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08605" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08605" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08605" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08605" value="2026-09-04"></label>
-<label><input type="checkbox" name="bvgrav-E08605"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08605"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08605" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08605" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08605" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08605" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08605"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08605" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08605" data-bv="aconteceu" data-pp="oferecida">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08607" data-busca="e08607 andressa de souza pereira ">
-<header><span class="cod">E08607</span> <b>Andressa de Souza</b> <span class="mut">(47) ...1927 · Casamento · contrato 14/08 (60 dias)</span><span class="st" id="st-E08607"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Reunião feita pelo chat, sem registro na agenda (31/08, Arnaldo) · PP não oferecida, já no prazo<div class="ev">link de reunião enviado 31/08 13:50 por Arnaldo; nenhuma reunião ligada ao contrato na agenda</div><div class="rev">Revisar: Criar a reunião de 31/08 na agenda ligada ao contrato e dar baixa. Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08607" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08607" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08607" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08607" value="2026-08-31"></label>
-<label><input type="checkbox" name="bvgrav-E08607"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08607"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08607" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08607" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08607" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08607" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08607"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08607" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08607" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08610" data-busca="e08610 bruna jaiani pedroso ">
-<header><span class="cod">E08610</span> <b>Bruna Jaiani Pedroso</b> <span class="mut">(47) ...5793 · Casamento · contrato 15/08 (59 dias)</span><span class="st" id="st-E08610"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação, agenda sem baixa (04/09, Wyllian) · PP não oferecida, já no prazo<div class="ev">gravação de 56 min em 04/09 (WYLLIAN / WYLLIAN); agenda agendado 04/09 14:30 (Wyllian Moura)</div><div class="rev">Revisar: Dar baixa na reunião de 04/09 na agenda (tem gravação). Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08610" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08610" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08610" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08610" value="2026-09-04"></label>
-<label><input type="checkbox" name="bvgrav-E08610"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08610"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08610" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08610" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08610" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08610" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08610"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08610" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08610" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08612" data-busca="e08612 vanessa krug">
-<header><span class="cod">E08612</span> <b>Vanessa Krug</b> <span class="mut">(47) ...2372 · Casamento · contrato 15/08 (59 dias)</span><span class="st" id="st-E08612"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (05/10, Maria) · PP marcada (23/10 18:00)<div class="ev">agenda concluída 05/10 20:00 (Maria Eduarda); gravação 50 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08612" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08612" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08612" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08612" value="2026-10-05"></label>
-<label><input type="checkbox" name="bvgrav-E08612"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08612"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08612" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08612" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08612" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08612" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08612"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08612" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08612" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08615" data-busca="e08615 julia gielow teycz">
-<header><span class="cod">E08615</span> <b>Julia Gielow Teycz</b> <span class="mut">(47) ...7019 · Casamento · contrato 16/08 (58 dias)</span><span class="st" id="st-E08615"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita pelo chat, agenda sem baixa (29/08, Wyllian) · PP não oferecida, já no prazo<div class="ev">chat: link enviado 29/08 09:59 (Wyllian), cliente: &quot;Entramos&quot; 29/08; agenda agendado 29/08 10:00 (Wyllian Moura)</div><div class="rev">Revisar: Dar baixa na reunião de 29/08 na agenda (link enviado e cliente entrou). Sem gravação. Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08615" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08615" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08615" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08615" value="2026-08-29"></label>
-<label><input type="checkbox" name="bvgrav-E08615"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08615"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08615" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08615" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08615" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08615" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08615"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08615" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08615" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08619" data-busca="e08619 willian rafael moreira machado">
-<header><span class="cod">E08619</span> <b>Willian Rafael Moreira</b> <span class="mut">(47) ...6449 · Casamento · contrato 17/08 (57 dias)</span><span class="st" id="st-E08619"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita pelo chat, agenda sem baixa (28/08, Wyllian) · PP não oferecida, já no prazo<div class="ev">chat: link enviado 28/08 19:54 (Arnaldo), confirmação 28/08 08:54; agenda agendado 28/08 20:00 (Wyllian Moura)</div><div class="rev">Revisar: Dar baixa na reunião de 28/08 na agenda (link enviado e cliente entrou). Sem gravação. Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08619" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08619" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08619" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08619" value="2026-08-28"></label>
-<label><input type="checkbox" name="bvgrav-E08619"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08619"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08619" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08619" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08619" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08619" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08619"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08619" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08619" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08620" data-busca="e08620 marcela godoy lopes">
-<header><span class="cod">E08620</span> <b>Marcela Godoy Lopes</b> <span class="mut">(47) ...3787 · 15 Anos · contrato 17/08 (57 dias)</span><span class="st" id="st-E08620"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV concluída na agenda, sem prova no chat (27/08, Maria) · Depende da BV<div class="ev">agenda concluída 27/08 19:30 (Maria Eduarda); no chat não há link, entrada do cliente nem gravação</div><div class="rev">Revisar: Confirmar com Maria se a reunião de 27/08 aconteceu de fato (não há link nem gravação).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08620" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08620" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08620" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08620" value="2026-08-27"></label>
-<label><input type="checkbox" name="bvgrav-E08620"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08620"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08620" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08620" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08620" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08620" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08620"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08620" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08620" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08626" data-busca="e08626 brenda vitoria">
-<header><span class="cod">E08626</span> <b>Brenda Vitoria</b> <span class="mut">(47) ...8464 · Casamento · contrato 20/08 (54 dias)</span><span class="st" id="st-E08626"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (24/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 24/09 18:30 (Maria Eduarda); gravação 35 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08626" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08626" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08626" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08626" value="2026-09-24"></label>
-<label><input type="checkbox" name="bvgrav-E08626"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08626"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08626" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08626" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08626" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08626" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08626"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08626" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08626" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08640" data-busca="e08640 sandra mara guedes martins">
-<header><span class="cod">E08640</span> <b>Sandra Mara Guedes</b> <span class="mut">(47) ...4616 · 15 Anos · contrato 22/08 (52 dias)</span><span class="st" id="st-E08640"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (17/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 17/09 19:00 (Maria Eduarda); gravação 30 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08640" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08640" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08640" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08640" value="2026-09-17"></label>
-<label><input type="checkbox" name="bvgrav-E08640"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08640"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08640" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08640" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08640" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08640" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08640"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08640" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08640" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08654" data-busca="e08654 lucas caetano ferreira">
-<header><span class="cod">E08654</span> <b>Lucas Caetano Ferreira</b> <span class="mut">(47) ...7712 · Casamento · contrato 27/08 (47 dias)</span><span class="st" id="st-E08654"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (15/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 15/09 17:30 (Maria Eduarda); gravação 27 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08654" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08654" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08654" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08654" value="2026-09-15"></label>
-<label><input type="checkbox" name="bvgrav-E08654"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08654"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08654" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08654" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08654" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08654" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08654"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08654" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08654" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08657" data-busca="e08657 talita rodrigues evangelista ferreira ">
-<header><span class="cod">E08657</span> <b>Talita Rodrigues Evangelista</b> <span class="mut">(47) ...6258 · 15 Anos · contrato 28/08 (46 dias)</span><span class="st" id="st-E08657"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, atrasada · Depende da BV<div class="ev">contato de boas-vindas no chat 31/08 (Amália), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08657" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08657" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08657" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08657" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08657"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08657"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08657" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08657" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08657" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08657" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08657"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08657" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08657" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08659" data-busca="e08659 paloma pereira dos santos ">
-<header><span class="cod">E08659</span> <b>Paloma Pereira dos</b> <span class="mut">(54) ...3742 · 15 Anos · contrato 28/08 (46 dias)</span><span class="st" id="st-E08659"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (14/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 14/09 15:30 (Maria Eduarda); gravação 28 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08659" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08659" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08659" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08659" value="2026-09-14"></label>
-<label><input type="checkbox" name="bvgrav-E08659"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08659"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08659" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08659" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08659" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08659" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08659"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08659" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08659" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08671" data-busca="e08671 jessica larissa de oliveira">
-<header><span class="cod">E08671</span> <b>Jessica Larissa de</b> <span class="mut">(47) ...5028 · Casamento · contrato 28/08 (46 dias)</span><span class="st" id="st-E08671"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (24/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 24/09 19:30 (Maria Eduarda); gravação 35 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08671" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08671" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08671" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08671" value="2026-09-24"></label>
-<label><input type="checkbox" name="bvgrav-E08671"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08671"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08671" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08671" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08671" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08671" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08671"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08671" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08671" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08661" data-busca="e08661 andressa cristina corrêa">
-<header><span class="cod">E08661</span> <b>Andressa Cristina Corrêa</b> <span class="mut">(47) ...8715 · Casamento · contrato 29/08 (45 dias)</span><span class="st" id="st-E08661"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (30/09, Maria) · PP marcada (13/10 19:00)<div class="ev">agenda concluída 30/09 20:00 (Maria Eduarda); gravação 44 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08661" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08661" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08661" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08661" value="2026-09-30"></label>
-<label><input type="checkbox" name="bvgrav-E08661"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08661"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08661" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08661" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08661" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08661" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08661"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08661" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08661" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08663" data-busca="e08663 andreza sabel">
-<header><span class="cod">E08663</span> <b>Andreza Sabel</b> <span class="mut">(47) ...0306 · Casamento · contrato 29/08 (45 dias)</span><span class="st" id="st-E08663"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (21/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 21/09 18:00 (Maria Eduarda); gravação 58 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08663" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08663" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08663" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08663" value="2026-09-21"></label>
-<label><input type="checkbox" name="bvgrav-E08663"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08663"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08663" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08663" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08663" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08663" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08663"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08663" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08663" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08668" data-busca="e08668 larissa cristina viera  matos">
-<header><span class="cod">E08668</span> <b>Larissa Cristina viera</b> <span class="mut">(47) ...2447 · Casamento · contrato 29/08 (45 dias)</span><span class="st" id="st-E08668"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (30/09, Maria) · PP não oferecida, já no prazo<div class="ev">agenda concluída 30/09 21:30 (Maria Eduarda); gravação 44 min</div><div class="rev">Revisar: Oferecer e marcar a Primeiros Passos (contrato com 45+ dias).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08668" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08668" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08668" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08668" value="2026-09-30"></label>
-<label><input type="checkbox" name="bvgrav-E08668"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08668"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08668" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08668" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08668" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08668" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08668"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08668" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08668" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08664" data-busca="e08664 marbelys rodriguez">
-<header><span class="cod">E08664</span> <b>Marbelys Rodriguez</b> <span class="mut">(47) ...0464 · Casamento · contrato 30/08 (44 dias)</span><span class="st" id="st-E08664"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (07/10, Maria) · PP marcada (27/10 20:00)<div class="ev">agenda concluída 07/10 20:00 (Maria Eduarda); gravação 50 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08664" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08664" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08664" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08664" value="2026-10-07"></label>
-<label><input type="checkbox" name="bvgrav-E08664"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08664"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08664" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08664" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08664" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08664" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08664"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08664" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08664" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08665" data-busca="e08665 amarilis de borba moccelin">
-<header><span class="cod">E08665</span> <b>Amarilis de Borba</b> <span class="mut">(47) ...2049 · Casamento · contrato 30/08 (44 dias)</span><span class="st" id="st-E08665"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, sem gravação (08/09, Maria) · PP não oferecida, ainda no prazo (janela abre em 1 dias)<div class="ev">agenda concluída 08/09 18:00 (Maria Eduarda); chat: depois: &quot;Oie, podemos reagendar a nossa reunião de hoje?&quot;</div><div class="rev">Revisar: Reunião sem gravação: nas próximas, gravar pelo agendamento.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08665" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08665" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08665" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08665" value="2026-09-08"></label>
-<label><input type="checkbox" name="bvgrav-E08665"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08665"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08665" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08665" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08665" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08665" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08665"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08665" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08665" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08683" data-busca="e08683 samira de souza">
-<header><span class="cod">E08683</span> <b>Samira de Souza</b> <span class="mut">(47) ...6900 · Casamento · contrato 05/09 (38 dias)</span><span class="st" id="st-E08683"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação, agenda sem baixa (23/09, Maria) · PP não oferecida, ainda no prazo (janela abre em 7 dias)<div class="ev">gravação de 39 min em 23/09 (Maria Heninng); agenda agendado 23/09 18:00 (Maria Eduarda)</div><div class="rev">Revisar: Dar baixa na reunião de 23/09 na agenda (tem gravação).</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08683" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08683" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08683" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08683" value="2026-09-23"></label>
-<label><input type="checkbox" name="bvgrav-E08683"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08683"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08683" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08683" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08683" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08683" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08683"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08683" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08683" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08682" data-busca="e08682 jaine fernanda teixeira">
-<header><span class="cod">E08682</span> <b>Jaine Fernanda Teixeira</b> <span class="mut">(47) ...4247 · Casamento · contrato 06/09 (37 dias)</span><span class="st" id="st-E08682"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (14/09, Maria) · PP não oferecida, ainda no prazo (janela abre em 8 dias)<div class="ev">agenda concluída 14/09 17:00 (Maria Eduarda); gravação 88 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08682" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08682" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08682" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08682" value="2026-09-14"></label>
-<label><input type="checkbox" name="bvgrav-E08682"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08682"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08682" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08682" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08682" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08682" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08682"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08682" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08682" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08686" data-busca="e08686 elaine choinacki ">
-<header><span class="cod">E08686</span> <b>Elaine Choinacki </b> <span class="mut">(41) ...6399 · Casamento · contrato 07/09 (36 dias)</span><span class="st" id="st-E08686"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (29/09, Maria) · PP não oferecida, ainda no prazo (janela abre em 9 dias)<div class="ev">agenda concluída 29/09 19:00 (Maria Eduarda); gravação 30 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08686" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08686" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08686" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08686" value="2026-09-29"></label>
-<label><input type="checkbox" name="bvgrav-E08686"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08686"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08686" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08686" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08686" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08686" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08686"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08686" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08686" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08692" data-busca="e08692 juliana veber">
-<header><span class="cod">E08692</span> <b>Juliana Veber</b> <span class="mut">(47) ...2729 · Casamento · contrato 10/09 (33 dias)</span><span class="st" id="st-E08692"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (28/09, Maria) · PP oferecida no chat, sem data (07/10)<div class="ev">agenda concluída 28/09 18:30 (Maria Eduarda); gravação 44 min</div><div class="rev">Revisar: Fechar a data da Primeiros Passos.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08692" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08692" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08692" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08692" value="2026-09-28"></label>
-<label><input type="checkbox" name="bvgrav-E08692"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08692"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08692" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08692" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08692" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08692" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08692"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08692" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08692" data-bv="aconteceu" data-pp="oferecida">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08694" data-busca="e08694 francisco ramires pascale">
-<header><span class="cod">E08694</span> <b>Francisco Ramires Pascale</b> <span class="mut">(47) ...6691 · 15 Anos · contrato 11/09 (32 dias)</span><span class="st" id="st-E08694"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (28/09, Maria) · PP não oferecida, ainda no prazo (janela abre em 13 dias)<div class="ev">agenda concluída 28/09 14:00 (Maria Eduarda); gravação 35 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08694" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08694" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08694" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08694" value="2026-09-28"></label>
-<label><input type="checkbox" name="bvgrav-E08694"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08694"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08694" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08694" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08694" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08694" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08694"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08694" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08694" data-bv="aconteceu" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08695" data-busca="e08695 rogério konell">
-<header><span class="cod">E08695</span> <b>Rogério Konell</b> <span class="mut">(47) ...1966 · Casamento · contrato 11/09 (32 dias)</span><span class="st" id="st-E08695"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, atrasada · Depende da BV<div class="ev">contato de boas-vindas no chat 21/09 (Maria), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08695" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08695" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08695" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08695" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08695"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08695"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08695" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08695" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08695" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08695" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08695"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08695" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08695" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08711" data-busca="e08711 mariana oechsler ">
-<header><span class="cod">E08711</span> <b>Mariana Oechsler </b> <span class="mut">(47) ...6412 · Casamento · contrato 12/09 (31 dias)</span><span class="st" id="st-E08711"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV cancelada, sem remarcação (08/10, Maria) · Depende da BV<div class="ev">cancelada 08/10 19:00 (Maria Eduarda)</div><div class="rev">Revisar: Remarcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08711" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08711" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08711" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08711" value="2026-10-08"></label>
-<label><input type="checkbox" name="bvgrav-E08711"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08711"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08711" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08711" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08711" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08711" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08711"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08711" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08711" data-bv="remarcar" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08699" data-busca="e08699 andressa trombaco">
-<header><span class="cod">E08699</span> <b>Andressa Trombaco</b> <span class="mut">(47) ...9337 · Casamento · contrato 13/09 (30 dias)</span><span class="st" id="st-E08699"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, na janela · Depende da BV<div class="ev">Pós falou com o cliente (02/09), sem mensagem de boas-vindas nem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08699" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08699" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08699" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08699" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08699"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08699"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08699" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08699" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08699" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08699" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08699"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08699" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08699" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08703" data-busca="e08703 alessandra erdmann ">
-<header><span class="cod">E08703</span> <b>Alessandra Erdmann </b> <span class="mut">(47) ...6709 · 15 Anos · contrato 15/09 (28 dias)</span><span class="st" id="st-E08703"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, na janela · Depende da BV<div class="ev">contato de boas-vindas no chat 04/09 (Aline), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08703" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08703" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08703" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08703" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08703"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08703"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08703" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08703" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08703" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08703" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08703"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08703" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08703" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08707" data-busca="e08707 kianny zuse dellani ">
-<header><span class="cod">E08707</span> <b>Kianny Zuse Dellani</b> <span class="mut">(47) ...7824 · Casamento · contrato 16/09 (27 dias)</span><span class="st" id="st-E08707"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (07/10, Maria) · PP marcada (26/10 19:00)<div class="ev">agenda concluída 07/10 19:00 (Maria Eduarda); gravação 50 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08707" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08707" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08707" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08707" value="2026-10-07"></label>
-<label><input type="checkbox" name="bvgrav-E08707"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08707"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08707" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08707" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08707" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08707" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08707"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08707" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08707" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08714" data-busca="e08714 luiza lehmkuhl oliveira ">
-<header><span class="cod">E08714</span> <b>Luiza Lehmkuhl Oliveira</b> <span class="mut">(47) ...0680 · Casamento · contrato 19/09 (24 dias)</span><span class="st" id="st-E08714"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (28/10, Maria) · Depende da BV<div class="ev">marcada 28/10 18:30 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08714" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08714" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08714" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08714" value="2026-10-28"></label>
-<label><input type="checkbox" name="bvgrav-E08714"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08714"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08714" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08714" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08714" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08714" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08714"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08714" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08714" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08716" data-busca="e08716 jeferson luiz da costa júnior ">
-<header><span class="cod">E08716</span> <b>Jeferson Luiz da</b> <span class="mut">(47) ...2724 · Casamento · contrato 19/09 (24 dias)</span><span class="st" id="st-E08716"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, na janela · Depende da BV<div class="ev">contato de boas-vindas no chat 25/09 (Maria), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08716" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08716" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08716" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08716" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08716"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08716"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08716" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08716" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08716" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08716" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08716"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08716" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08716" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08719" data-busca="e08719 igor de oliveira farias">
-<header><span class="cod">E08719</span> <b>Igor de Oliveira</b> <span class="mut">(47) ...3759 · Casamento · contrato 19/09 (24 dias)</span><span class="st" id="st-E08719"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (05/10, Maria) · PP marcada (19/10 18:00)<div class="ev">agenda concluída 05/10 18:00 (Maria Eduarda); gravação 42 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08719" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08719" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08719" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08719" value="2026-10-05"></label>
-<label><input type="checkbox" name="bvgrav-E08719"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08719"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08719" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08719" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08719" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08719" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08719"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08719" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08719" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08723" data-busca="e08723 danielle weise">
-<header><span class="cod">E08723</span> <b>Danielle Weise</b> <span class="mut">(47) ...0097 · Casamento · contrato 20/09 (23 dias)</span><span class="st" id="st-E08723"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (01/10, Maria) · PP oferecida no chat, sem data (07/10)<div class="ev">agenda concluída 01/10 18:00 (Maria Eduarda); gravação 30 min</div><div class="rev">Revisar: Fechar a data da Primeiros Passos.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08723" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08723" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08723" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08723" value="2026-10-01"></label>
-<label><input type="checkbox" name="bvgrav-E08723"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08723"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08723" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08723" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08723" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08723" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08723"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08723" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08723" data-bv="aconteceu" data-pp="oferecida">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08728" data-busca="e08728 amanda jaine colli segovia ">
-<header><span class="cod">E08728</span> <b>Amanda Jaine Colli</b> <span class="mut">(47) ...7161 · Casamento · contrato 21/09 (22 dias)</span><span class="st" id="st-E08728"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, na janela · Depende da BV<div class="ev">contato de boas-vindas no chat 18/09 (Pedro), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08728" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08728" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08728" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08728" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08728"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08728"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08728" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08728" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08728" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08728" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08728"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08728" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08728" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08730" data-busca="e08730  isaac westphal klein">
-<header><span class="cod">E08730</span> <b> Isaac Westphal</b> <span class="mut">(47) ...0329 · Casamento · contrato 22/09 (21 dias)</span><span class="st" id="st-E08730"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (07/10, Maria) · PP marcada (20/10 18:15)<div class="ev">agenda concluída 07/10 18:00 (Maria Eduarda); gravação 50 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08730" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08730" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08730" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08730" value="2026-10-07"></label>
-<label><input type="checkbox" name="bvgrav-E08730"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08730"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08730" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08730" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08730" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08730" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08730"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08730" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08730" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08732" data-busca="e08732  adriano cunha">
-<header><span class="cod">E08732</span> <b> Adriano Cunha</b> <span class="mut">(47) ...9291 · 15 Anos · contrato 24/09 (19 dias)</span><span class="st" id="st-E08732"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (30/09, Maria) · PP marcada (13/10 14:00)<div class="ev">agenda concluída 30/09 09:30 (Maria Eduarda); gravação 44 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08732" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08732" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08732" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08732" value="2026-09-30"></label>
-<label><input type="checkbox" name="bvgrav-E08732"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08732"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08732" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08732" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08732" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08732" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08732"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08732" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08732" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08737" data-busca="e08737 paulo marcos ferreira">
-<header><span class="cod">E08737</span> <b>Paulo Marcos Ferreira</b> <span class="mut">(47) ...1080 · 15 Anos · contrato 25/09 (18 dias)</span><span class="st" id="st-E08737"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (14/10, Maria) · Depende da BV<div class="ev">marcada 14/10 19:00 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08737" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08737" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08737" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08737" value="2026-10-14"></label>
-<label><input type="checkbox" name="bvgrav-E08737"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08737"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08737" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08737" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08737" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08737" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08737"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08737" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08737" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08739" data-busca="e08739 rafael da luz ">
-<header><span class="cod">E08739</span> <b>Rafael da Luz</b> <span class="mut">(47) ...2145 · Casamento · contrato 25/09 (18 dias)</span><span class="st" id="st-E08739"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (28/10, Maria) · Depende da BV<div class="ev">marcada 28/10 19:30 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08739" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08739" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08739" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08739" value="2026-10-28"></label>
-<label><input type="checkbox" name="bvgrav-E08739"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08739"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08739" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08739" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08739" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08739" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08739"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08739" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08739" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08744" data-busca="e08744 sara carolina garcia castilho">
-<header><span class="cod">E08744</span> <b>Sara Carolina Garcia</b> <span class="mut">(47) ...8630 · Casamento · contrato 27/09 (16 dias)</span><span class="st" id="st-E08744"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, sem gravação (06/10, Maria) · PP marcada (30/10 20:00)<div class="ev">agenda concluída 06/10 20:00 (Maria Eduarda); chat: link enviado 06/10 19:51 (Maria), confirmação 06/10 15:54</div><div class="rev">Revisar: Reunião sem gravação: nas próximas, gravar pelo agendamento.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08744" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08744" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08744" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08744" value="2026-10-06"></label>
-<label><input type="checkbox" name="bvgrav-E08744"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08744"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08744" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08744" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08744" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08744" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08744"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08744" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08744" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08748" data-busca="e08748 hemilly patrício claudino">
-<header><span class="cod">E08748</span> <b>Hemilly Patrício Claudino</b> <span class="mut">(47) ...0208 · Casamento · contrato 27/09 (16 dias)</span><span class="st" id="st-E08748"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, na janela · Depende da BV<div class="ev">contato de boas-vindas no chat 02/10 (Maria), sem reunião</div><div class="rev">Revisar: Marcar a boas-vindas.</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08748" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08748" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08748" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08748" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08748"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08748"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08748" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08748" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08748" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08748" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08748"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08748" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08748" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08769" data-busca="e08769 fernanda de amorim santos">
-<header><span class="cod">E08769</span> <b>Fernanda de Amorim</b> <span class="mut">(47) ...9962 · Casamento · contrato 05/10 (8 dias)</span><span class="st" id="st-E08769"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, no prazo · Depende da BV<div class="ev">contato de boas-vindas no chat 28/09 (Pedro), sem reunião</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08769" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08769" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08769" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08769" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08769"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08769"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08769" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08769" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08769" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08769" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08769"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08769" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08769" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08772" data-busca="e08772 tamara gomes caetano ">
-<header><span class="cod">E08772</span> <b>Tamara Gomes Caetano</b> <span class="mut">(47) ...1797 · Casamento · contrato 06/10 (7 dias)</span><span class="st" id="st-E08772"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, no prazo · Depende da BV<div class="ev">Pós falou com o cliente (29/09), sem mensagem de boas-vindas nem reunião</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08772" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08772" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08772" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08772" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08772"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08772"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08772" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08772" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08772" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08772" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08772"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08772" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08772" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c pend" data-cod="E08781" data-busca="e08781 amanda gonzaga ">
-<header><span class="cod">E08781</span> <b>Amanda Gonzaga </b> <span class="mut">(47) ...3888 · Casamento · contrato 10/10 (3 dias)</span><span class="st" id="st-E08781"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> Sem BV, no prazo · Depende da BV<div class="ev">contato de boas-vindas no chat 06/10 (Pedro), sem reunião</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08781" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08781" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08781" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08781" value=""></label>
-<label><input type="checkbox" name="bvgrav-E08781"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08781"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08781" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08781" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08781" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08781" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08781"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08781" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08781" data-bv="nao" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08749" data-busca="e08749 rita beatriz silva da silva ">
-<header><span class="cod">E08749</span> <b>Rita Beatriz Silva</b> <span class="mut">(47) ...2034 · Casamento · contrato 27/09 (16 dias)</span><span class="st" id="st-E08749"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV feita, com gravação (05/10, Maria) · PP marcada (21/10 19:00)<div class="ev">agenda concluída 05/10 19:00 (Maria Eduarda); gravação 35 min</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08749" value="aconteceu" data-sug="true"> aconteceu</label>
-<label><input type="radio" name="bv-E08749" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08749" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08749" value="2026-10-05"></label>
-<label><input type="checkbox" name="bvgrav-E08749"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08749"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08749" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08749" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08749" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08749" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08749"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08749" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08749" data-bv="aconteceu" data-pp="marcada">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08752" data-busca="e08752 sabrina francielle setton">
-<header><span class="cod">E08752</span> <b>Sabrina Francielle Setton</b> <span class="mut">(47) ...1119 · Casamento · contrato 28/09 (15 dias)</span><span class="st" id="st-E08752"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (15/10, Maria) · Depende da BV<div class="ev">marcada 15/10 18:00 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08752" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08752" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08752" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08752" value="2026-10-15"></label>
-<label><input type="checkbox" name="bvgrav-E08752"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08752"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08752" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08752" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08752" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08752" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08752"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08752" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08752" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08757" data-busca="e08757 camila da silva finamor ">
-<header><span class="cod">E08757</span> <b>Camila da Silva</b> <span class="mut">(47) ...3891 · Casamento · contrato 29/09 (14 dias)</span><span class="st" id="st-E08757"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (24/10, Maria) · Depende da BV<div class="ev">marcada 24/10 14:00 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08757" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08757" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08757" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08757" value="2026-10-24"></label>
-<label><input type="checkbox" name="bvgrav-E08757"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08757"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08757" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08757" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08757" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08757" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08757"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08757" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08757" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08759" data-busca="e08759 flavia eduarda machado">
-<header><span class="cod">E08759</span> <b>Flavia Eduarda Machado</b> <span class="mut">(47) ...3684 · Casamento · contrato 30/09 (13 dias)</span><span class="st" id="st-E08759"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (15/10, Maria) · Depende da BV<div class="ev">marcada 15/10 20:00 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08759" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08759" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08759" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08759" value="2026-10-15"></label>
-<label><input type="checkbox" name="bvgrav-E08759"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08759"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08759" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08759" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08759" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08759" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08759"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08759" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08759" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
-<section class="c ok" data-cod="E08764" data-busca="e08764 felipe ferreira">
-<header><span class="cod">E08764</span> <b>Felipe Ferreira</b> <span class="mut">(47) ...7037 · Casamento · contrato 03/10 (10 dias)</span><span class="st" id="st-E08764"></span></header>
-<div class="achado"><b>O que o sistema mostra:</b> BV marcada (16/10, Maria) · Depende da BV<div class="ev">marcada 16/10 10:00 (Maria Eduarda)</div></div>
-<div class="form">
-<div class="g"><span class="l">Boas-vindas</span>
-<label><input type="radio" name="bv-E08764" value="aconteceu" data-sug="false"> aconteceu</label>
-<label><input type="radio" name="bv-E08764" value="nao"> não aconteceu ainda</label>
-<label><input type="radio" name="bv-E08764" value="remarcar"> remarcada / vou remarcar</label>
-<label class="d">data <input type="date" name="bvdata-E08764" value="2026-10-16"></label>
-<label><input type="checkbox" name="bvgrav-E08764"> tem gravação</label>
-<label><input type="checkbox" name="bvlink-E08764"> mandei o link</label>
-</div>
-<div class="g"><span class="l">Primeiros Passos</span>
-<label><input type="radio" name="pp-E08764" value="feita"> feita</label>
-<label><input type="radio" name="pp-E08764" value="marcada"> marcada</label>
-<label><input type="radio" name="pp-E08764" value="oferecida"> ofereci, sem data</label>
-<label><input type="radio" name="pp-E08764" value="nao"> ainda não ofereci</label>
-<label class="d">data <input type="date" name="ppdata-E08764"></label>
-</div>
-<div class="g"><span class="l">Observação</span><input type="text" class="obs" name="obs-E08764" placeholder="ex.: fiz por ligação em 20/09; cliente pediu para falar só em novembro"></div>
-<div class="g"><button type="button" class="conf" data-cod="E08764" data-bv="" data-pp="nao">Confirmo o que o sistema mostra</button></div>
-</div>
-</section>
+<table id="t"><thead><tr><th>Código</th><th>Cliente</th><th>Contrato</th><th>Boas-vindas</th><th>Observação (por que não temos certeza)</th><th>Aconteceu? (preencher)</th></tr></thead>
+<tbody><tr class="conferir" data-cod="E08520" data-sit="Conferir" data-busca="e08520 anderson oliveira rodrigues">
+<td class="mono">E08520</td>
+<td>Anderson Oliveira Rodrigues</td>
+<td class="mono">01/08</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 03/08 (Amália), sem reunião</td>
+<td class="resp"><select name="ac-E08520"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08520" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08520" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08572" data-sit="Conferir" data-busca="e08572 raquel basílio dos santos">
+<td class="mono">E08572</td>
+<td>Raquel Basílio dos</td>
+<td class="mono">03/08</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 06/08 (Amália), sem reunião</td>
+<td class="resp"><select name="ac-E08572"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08572" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08572" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08587" data-sit="Conferir" data-busca="e08587 letícia jaciara paiano">
+<td class="mono">E08587</td>
+<td>Letícia Jaciara Paiano</td>
+<td class="mono">09/08</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. Pós falou com o cliente (04/08), sem mensagem de boas-vindas nem reunião</td>
+<td class="resp"><select name="ac-E08587"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08587" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08587" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08597" data-sit="Conferir" data-busca="e08597 gustavo miguel heck carpenedo">
+<td class="mono">E08597</td>
+<td>Gustavo Miguel Heck</td>
+<td class="mono">12/08</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">02/09 · Wyllian</div></td>
+<td class="obs">A reunião ficou como agendada e a data passou; no chat não há link, entrada nem remarcação. agenda agendado 02/09 14:00 (Wyllian Moura); conversa sem link, sem entrada e sem remarcação</td>
+<td class="resp"><select name="ac-E08597"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08597" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08597" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08604" data-sit="Conferir" data-busca="e08604 cheila cristina mocelin">
+<td class="mono">E08604</td>
+<td>Cheila Cristina Mocelin</td>
+<td class="mono">13/08</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">26/08 · Wyllian</div></td>
+<td class="obs">Há link de reunião enviado pelo Pós no chat, mas nenhuma reunião ligada a este contrato na agenda. link de reunião enviado 26/08 14:00 por Wyllian; nenhuma reunião ligada ao contrato na agenda</td>
+<td class="resp"><select name="ac-E08604"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08604" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08604" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08607" data-sit="Conferir" data-busca="e08607 andressa de souza pereira ">
+<td class="mono">E08607</td>
+<td>Andressa de Souza</td>
+<td class="mono">14/08</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">31/08 · Arnaldo</div></td>
+<td class="obs">Há link de reunião enviado pelo Pós no chat, mas nenhuma reunião ligada a este contrato na agenda. link de reunião enviado 31/08 13:50 por Arnaldo; nenhuma reunião ligada ao contrato na agenda</td>
+<td class="resp"><select name="ac-E08607"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08607" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08607" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08619" data-sit="Conferir" data-busca="e08619 willian rafael moreira machado">
+<td class="mono">E08619</td>
+<td>Willian Rafael Moreira</td>
+<td class="mono">17/08</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">28/08 · Wyllian</div></td>
+<td class="obs">Agenda está como agendada e sem baixa. No chat há o link enviado no horário, mas nenhum sinal do cliente depois (entrada, material, resumo) e não há gravação. chat: link enviado 28/08 19:54 (Arnaldo), confirmação 28/08 08:54; agenda agendado 28/08 20:00 (Wyllian Moura)</td>
+<td class="resp"><select name="ac-E08619"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08619" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08619" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08620" data-sit="Conferir" data-busca="e08620 marcela godoy lopes">
+<td class="mono">E08620</td>
+<td>Marcela Godoy Lopes</td>
+<td class="mono">17/08</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">27/08 · Maria</div></td>
+<td class="obs">A agenda diz concluída, mas no chat não há link, nem entrada do cliente, nem gravação. agenda concluída 27/08 19:30 (Maria Eduarda); no chat não há link, entrada do cliente nem gravação</td>
+<td class="resp"><select name="ac-E08620"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08620" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08620" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08657" data-sit="Conferir" data-busca="e08657 talita rodrigues evangelista ferreira ">
+<td class="mono">E08657</td>
+<td>Talita Rodrigues Evangelista</td>
+<td class="mono">28/08</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 31/08 (Amália), sem reunião</td>
+<td class="resp"><select name="ac-E08657"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08657" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08657" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08695" data-sit="Conferir" data-busca="e08695 rogério konell">
+<td class="mono">E08695</td>
+<td>Rogério Konell</td>
+<td class="mono">11/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 21/09 (Maria), sem reunião</td>
+<td class="resp"><select name="ac-E08695"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08695" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08695" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08711" data-sit="Conferir" data-busca="e08711 mariana oechsler ">
+<td class="mono">E08711</td>
+<td>Mariana Oechsler </td>
+<td class="mono">12/09</td>
+<td><span class="tag conferir">Conferir</span><div class="sub">08/10 · Maria</div></td>
+<td class="obs">A reunião foi cancelada na agenda e não há outra marcada. cancelada 08/10 19:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08711"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08711" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08711" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08699" data-sit="Conferir" data-busca="e08699 andressa trombaco">
+<td class="mono">E08699</td>
+<td>Andressa Trombaco</td>
+<td class="mono">13/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. Pós falou com o cliente (02/09), sem mensagem de boas-vindas nem reunião</td>
+<td class="resp"><select name="ac-E08699"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08699" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08699" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08703" data-sit="Conferir" data-busca="e08703 alessandra erdmann ">
+<td class="mono">E08703</td>
+<td>Alessandra Erdmann </td>
+<td class="mono">15/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 04/09 (Aline), sem reunião</td>
+<td class="resp"><select name="ac-E08703"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08703" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08703" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08716" data-sit="Conferir" data-busca="e08716 jeferson luiz da costa júnior ">
+<td class="mono">E08716</td>
+<td>Jeferson Luiz da</td>
+<td class="mono">19/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 25/09 (Maria), sem reunião</td>
+<td class="resp"><select name="ac-E08716"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08716" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08716" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08728" data-sit="Conferir" data-busca="e08728 amanda jaine colli segovia ">
+<td class="mono">E08728</td>
+<td>Amanda Jaine Colli</td>
+<td class="mono">21/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 18/09 (Pedro), sem reunião</td>
+<td class="resp"><select name="ac-E08728"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08728" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08728" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08748" data-sit="Conferir" data-busca="e08748 hemilly patrício claudino">
+<td class="mono">E08748</td>
+<td>Hemilly Patrício Claudino</td>
+<td class="mono">27/09</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 02/10 (Maria), sem reunião</td>
+<td class="resp"><select name="ac-E08748"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08748" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08748" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08769" data-sit="Conferir" data-busca="e08769 fernanda de amorim santos">
+<td class="mono">E08769</td>
+<td>Fernanda de Amorim</td>
+<td class="mono">05/10</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 28/09 (Pedro), sem reunião</td>
+<td class="resp"><select name="ac-E08769"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08769" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08769" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08772" data-sit="Conferir" data-busca="e08772 tamara gomes caetano ">
+<td class="mono">E08772</td>
+<td>Tamara Gomes Caetano</td>
+<td class="mono">06/10</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. Pós falou com o cliente (29/09), sem mensagem de boas-vindas nem reunião</td>
+<td class="resp"><select name="ac-E08772"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08772" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08772" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="conferir" data-cod="E08781" data-sit="Conferir" data-busca="e08781 amanda gonzaga ">
+<td class="mono">E08781</td>
+<td>Amanda Gonzaga </td>
+<td class="mono">10/10</td>
+<td><span class="tag conferir">Conferir</span></td>
+<td class="obs">Nenhuma reunião de boas-vindas ligada ao contrato na agenda e nenhum link de reunião do Pós no chat. contato de boas-vindas no chat 06/10 (Pedro), sem reunião</td>
+<td class="resp"><select name="ac-E08781"><option value="">escolha</option><option value="sim">Sim, aconteceu</option><option value="nao">Não aconteceu</option><option value="remarcada">Remarcada</option></select><input type="date" name="dt-E08781" title="data em que aconteceu ou nova data"><input type="text" name="ob-E08781" placeholder="observação (ex.: fiz por ligação)"></td>
+</tr>
+<tr class="marcada" data-cod="E08714" data-sit="Marcada" data-busca="e08714 luiza lehmkuhl oliveira ">
+<td class="mono">E08714</td>
+<td>Luiza Lehmkuhl Oliveira</td>
+<td class="mono">19/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">28/10 · Maria</div></td>
+<td class="obs">marcada 28/10 18:30 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08714"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08714" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08737" data-sit="Marcada" data-busca="e08737 paulo marcos ferreira">
+<td class="mono">E08737</td>
+<td>Paulo Marcos Ferreira</td>
+<td class="mono">25/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">14/10 · Maria</div></td>
+<td class="obs">marcada 14/10 19:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08737"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08737" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08739" data-sit="Marcada" data-busca="e08739 rafael da luz ">
+<td class="mono">E08739</td>
+<td>Rafael da Luz</td>
+<td class="mono">25/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">28/10 · Maria</div></td>
+<td class="obs">marcada 28/10 19:30 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08739"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08739" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08752" data-sit="Marcada" data-busca="e08752 sabrina francielle setton">
+<td class="mono">E08752</td>
+<td>Sabrina Francielle Setton</td>
+<td class="mono">28/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10 · Maria</div></td>
+<td class="obs">marcada 15/10 18:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08752"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08752" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08757" data-sit="Marcada" data-busca="e08757 camila da silva finamor ">
+<td class="mono">E08757</td>
+<td>Camila da Silva</td>
+<td class="mono">29/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">24/10 · Maria</div></td>
+<td class="obs">marcada 24/10 14:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08757"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08757" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08759" data-sit="Marcada" data-busca="e08759 flavia eduarda machado">
+<td class="mono">E08759</td>
+<td>Flavia Eduarda Machado</td>
+<td class="mono">30/09</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10 · Maria</div></td>
+<td class="obs">marcada 15/10 20:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08759"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08759" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="marcada" data-cod="E08764" data-sit="Marcada" data-busca="e08764 felipe ferreira">
+<td class="mono">E08764</td>
+<td>Felipe Ferreira</td>
+<td class="mono">03/10</td>
+<td><span class="tag marcada">Marcada</span><div class="sub">16/10 · Maria</div></td>
+<td class="obs">marcada 16/10 10:00 (Maria Eduarda)</td>
+<td class="resp"><select name="ac-E08764"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08764" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08591" data-sit="Realizada" data-busca="e08591  jessica iara dos santos">
+<td class="mono">E08591</td>
+<td> Jessica Iara</td>
+<td class="mono">06/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">21/09 · Maria</div></td>
+<td class="obs">agenda concluída 21/09 20:30 (Maria Eduarda); gravação 34 min</td>
+<td class="resp"><select name="ac-E08591"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08591" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08586" data-sit="Realizada" data-busca="e08586 mara luiza rosa dos santos ">
+<td class="mono">E08586</td>
+<td>Mara Luiza Rosa</td>
+<td class="mono">09/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">19/08 · Polyana</div></td>
+<td class="obs">agenda concluída 19/08 15:30 (Polyana Pozzamai); chat: link enviado 19/08 15:34 (Polyana), depois: &quot; [áudio: Oi Mara, bom dia, tudo bem? Passando para&quot;, confirmação 19/08 09:37</td>
+<td class="resp"><select name="ac-E08586"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08586" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08590" data-sit="Realizada" data-busca="e08590  gustavo domingos ">
+<td class="mono">E08590</td>
+<td> Gustavo Domingos</td>
+<td class="mono">09/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">21/09 · Maria</div></td>
+<td class="obs">agenda concluída 21/09 19:30 (Maria Eduarda); gravação 58 min</td>
+<td class="resp"><select name="ac-E08590"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08590" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08592" data-sit="Realizada" data-busca="e08592 letícia geisler">
+<td class="mono">E08592</td>
+<td>Letícia Geisler</td>
+<td class="mono">10/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">14/09 · Maria</div></td>
+<td class="obs">agenda concluída 14/09 19:00 (Maria Eduarda); gravação 31 min</td>
+<td class="resp"><select name="ac-E08592"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08592" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08605" data-sit="Realizada" data-busca="e08605 igor barroso de sá oliveira">
+<td class="mono">E08605</td>
+<td>Igor Barroso de</td>
+<td class="mono">13/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">04/09 · Wyllian</div></td>
+<td class="obs">gravação de 56 min em 04/09 (WYLLIAN / WYLLIAN); agenda agendado 04/09 09:00 (Wyllian Moura) · falta só dar baixa na agenda</td>
+<td class="resp"><select name="ac-E08605"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08605" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08610" data-sit="Realizada" data-busca="e08610 bruna jaiani pedroso ">
+<td class="mono">E08610</td>
+<td>Bruna Jaiani Pedroso</td>
+<td class="mono">15/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">04/09 · Wyllian</div></td>
+<td class="obs">gravação de 56 min em 04/09 (WYLLIAN / WYLLIAN); agenda agendado 04/09 14:30 (Wyllian Moura) · falta só dar baixa na agenda</td>
+<td class="resp"><select name="ac-E08610"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08610" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08612" data-sit="Realizada" data-busca="e08612 vanessa krug">
+<td class="mono">E08612</td>
+<td>Vanessa Krug</td>
+<td class="mono">15/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">05/10 · Maria</div></td>
+<td class="obs">agenda concluída 05/10 20:00 (Maria Eduarda); gravação 50 min</td>
+<td class="resp"><select name="ac-E08612"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08612" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08615" data-sit="Realizada" data-busca="e08615 julia gielow teycz">
+<td class="mono">E08615</td>
+<td>Julia Gielow Teycz</td>
+<td class="mono">16/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">29/08 · Wyllian</div></td>
+<td class="obs">chat: link enviado 29/08 09:59 (Wyllian), cliente: &quot;Entramos&quot; 29/08; agenda agendado 29/08 10:00 (Wyllian Moura) · falta só dar baixa na agenda</td>
+<td class="resp"><select name="ac-E08615"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08615" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08626" data-sit="Realizada" data-busca="e08626 brenda vitoria">
+<td class="mono">E08626</td>
+<td>Brenda Vitoria</td>
+<td class="mono">20/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">24/09 · Maria</div></td>
+<td class="obs">agenda concluída 24/09 18:30 (Maria Eduarda); gravação 35 min</td>
+<td class="resp"><select name="ac-E08626"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08626" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08640" data-sit="Realizada" data-busca="e08640 sandra mara guedes martins">
+<td class="mono">E08640</td>
+<td>Sandra Mara Guedes</td>
+<td class="mono">22/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">17/09 · Maria</div></td>
+<td class="obs">agenda concluída 17/09 19:00 (Maria Eduarda); gravação 30 min</td>
+<td class="resp"><select name="ac-E08640"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08640" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08654" data-sit="Realizada" data-busca="e08654 lucas caetano ferreira">
+<td class="mono">E08654</td>
+<td>Lucas Caetano Ferreira</td>
+<td class="mono">27/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">15/09 · Maria</div></td>
+<td class="obs">agenda concluída 15/09 17:30 (Maria Eduarda); gravação 27 min</td>
+<td class="resp"><select name="ac-E08654"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08654" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08659" data-sit="Realizada" data-busca="e08659 paloma pereira dos santos ">
+<td class="mono">E08659</td>
+<td>Paloma Pereira dos</td>
+<td class="mono">28/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">14/09 · Maria</div></td>
+<td class="obs">agenda concluída 14/09 15:30 (Maria Eduarda); gravação 28 min</td>
+<td class="resp"><select name="ac-E08659"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08659" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08671" data-sit="Realizada" data-busca="e08671 jessica larissa de oliveira">
+<td class="mono">E08671</td>
+<td>Jessica Larissa de</td>
+<td class="mono">28/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">24/09 · Maria</div></td>
+<td class="obs">agenda concluída 24/09 19:30 (Maria Eduarda); gravação 35 min</td>
+<td class="resp"><select name="ac-E08671"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08671" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08661" data-sit="Realizada" data-busca="e08661 andressa cristina corrêa">
+<td class="mono">E08661</td>
+<td>Andressa Cristina Corrêa</td>
+<td class="mono">29/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">30/09 · Maria</div></td>
+<td class="obs">agenda concluída 30/09 20:00 (Maria Eduarda); gravação 44 min</td>
+<td class="resp"><select name="ac-E08661"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08661" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08663" data-sit="Realizada" data-busca="e08663 andreza sabel">
+<td class="mono">E08663</td>
+<td>Andreza Sabel</td>
+<td class="mono">29/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">21/09 · Maria</div></td>
+<td class="obs">agenda concluída 21/09 18:00 (Maria Eduarda); gravação 58 min</td>
+<td class="resp"><select name="ac-E08663"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08663" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08668" data-sit="Realizada" data-busca="e08668 larissa cristina viera  matos">
+<td class="mono">E08668</td>
+<td>Larissa Cristina viera</td>
+<td class="mono">29/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">30/09 · Maria</div></td>
+<td class="obs">agenda concluída 30/09 21:30 (Maria Eduarda); gravação 44 min</td>
+<td class="resp"><select name="ac-E08668"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08668" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08664" data-sit="Realizada" data-busca="e08664 marbelys rodriguez">
+<td class="mono">E08664</td>
+<td>Marbelys Rodriguez</td>
+<td class="mono">30/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">07/10 · Maria</div></td>
+<td class="obs">agenda concluída 07/10 20:00 (Maria Eduarda); gravação 50 min</td>
+<td class="resp"><select name="ac-E08664"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08664" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08665" data-sit="Realizada" data-busca="e08665 amarilis de borba moccelin">
+<td class="mono">E08665</td>
+<td>Amarilis de Borba</td>
+<td class="mono">30/08</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">08/09 · Maria</div></td>
+<td class="obs">agenda concluída 08/09 18:00 (Maria Eduarda); chat: depois: &quot;Oie, podemos reagendar a nossa reunião de hoje?&quot;</td>
+<td class="resp"><select name="ac-E08665"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08665" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08683" data-sit="Realizada" data-busca="e08683 samira de souza">
+<td class="mono">E08683</td>
+<td>Samira de Souza</td>
+<td class="mono">05/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">23/09 · Maria</div></td>
+<td class="obs">gravação de 39 min em 23/09 (Maria Heninng); agenda agendado 23/09 18:00 (Maria Eduarda) · falta só dar baixa na agenda</td>
+<td class="resp"><select name="ac-E08683"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08683" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08682" data-sit="Realizada" data-busca="e08682 jaine fernanda teixeira">
+<td class="mono">E08682</td>
+<td>Jaine Fernanda Teixeira</td>
+<td class="mono">06/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">14/09 · Maria</div></td>
+<td class="obs">agenda concluída 14/09 17:00 (Maria Eduarda); gravação 88 min</td>
+<td class="resp"><select name="ac-E08682"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08682" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08686" data-sit="Realizada" data-busca="e08686 elaine choinacki ">
+<td class="mono">E08686</td>
+<td>Elaine Choinacki </td>
+<td class="mono">07/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">29/09 · Maria</div></td>
+<td class="obs">agenda concluída 29/09 19:00 (Maria Eduarda); gravação 30 min</td>
+<td class="resp"><select name="ac-E08686"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08686" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08692" data-sit="Realizada" data-busca="e08692 juliana veber">
+<td class="mono">E08692</td>
+<td>Juliana Veber</td>
+<td class="mono">10/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">28/09 · Maria</div></td>
+<td class="obs">agenda concluída 28/09 18:30 (Maria Eduarda); gravação 44 min</td>
+<td class="resp"><select name="ac-E08692"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08692" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08694" data-sit="Realizada" data-busca="e08694 francisco ramires pascale">
+<td class="mono">E08694</td>
+<td>Francisco Ramires Pascale</td>
+<td class="mono">11/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">28/09 · Maria</div></td>
+<td class="obs">agenda concluída 28/09 14:00 (Maria Eduarda); gravação 35 min</td>
+<td class="resp"><select name="ac-E08694"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08694" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08707" data-sit="Realizada" data-busca="e08707 kianny zuse dellani ">
+<td class="mono">E08707</td>
+<td>Kianny Zuse Dellani</td>
+<td class="mono">16/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">07/10 · Maria</div></td>
+<td class="obs">agenda concluída 07/10 19:00 (Maria Eduarda); gravação 50 min</td>
+<td class="resp"><select name="ac-E08707"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08707" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08719" data-sit="Realizada" data-busca="e08719 igor de oliveira farias">
+<td class="mono">E08719</td>
+<td>Igor de Oliveira</td>
+<td class="mono">19/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">05/10 · Maria</div></td>
+<td class="obs">agenda concluída 05/10 18:00 (Maria Eduarda); gravação 42 min</td>
+<td class="resp"><select name="ac-E08719"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08719" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08723" data-sit="Realizada" data-busca="e08723 danielle weise">
+<td class="mono">E08723</td>
+<td>Danielle Weise</td>
+<td class="mono">20/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">01/10 · Maria</div></td>
+<td class="obs">agenda concluída 01/10 18:00 (Maria Eduarda); gravação 30 min</td>
+<td class="resp"><select name="ac-E08723"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08723" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08730" data-sit="Realizada" data-busca="e08730  isaac westphal klein">
+<td class="mono">E08730</td>
+<td> Isaac Westphal</td>
+<td class="mono">22/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">07/10 · Maria</div></td>
+<td class="obs">agenda concluída 07/10 18:00 (Maria Eduarda); gravação 50 min</td>
+<td class="resp"><select name="ac-E08730"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08730" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08732" data-sit="Realizada" data-busca="e08732  adriano cunha">
+<td class="mono">E08732</td>
+<td> Adriano Cunha</td>
+<td class="mono">24/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">30/09 · Maria</div></td>
+<td class="obs">agenda concluída 30/09 09:30 (Maria Eduarda); gravação 44 min</td>
+<td class="resp"><select name="ac-E08732"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08732" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08744" data-sit="Realizada" data-busca="e08744 sara carolina garcia castilho">
+<td class="mono">E08744</td>
+<td>Sara Carolina Garcia</td>
+<td class="mono">27/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">06/10 · Maria</div></td>
+<td class="obs">agenda concluída 06/10 20:00 (Maria Eduarda); chat: link enviado 06/10 19:51 (Maria), confirmação 06/10 15:54</td>
+<td class="resp"><select name="ac-E08744"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08744" placeholder="observação, se precisar"></td>
+</tr>
+<tr class="realizada" data-cod="E08749" data-sit="Realizada" data-busca="e08749 rita beatriz silva da silva ">
+<td class="mono">E08749</td>
+<td>Rita Beatriz Silva</td>
+<td class="mono">27/09</td>
+<td><span class="tag realizada">Realizada</span><div class="sub">05/10 · Maria</div></td>
+<td class="obs">agenda concluída 05/10 19:00 (Maria Eduarda); gravação 35 min</td>
+<td class="resp"><select name="ac-E08749"><option value="">ok</option><option value="nao">Corrigir: não aconteceu</option><option value="remarcada">Corrigir: remarcada</option></select><input type="text" name="ob-E08749" placeholder="observação, se precisar"></td>
+</tr></tbody></table>
 <div class="rodape">
 <button class="p" id="copiar">Copiar respostas</button>
 <button id="baixar">Baixar CSV</button>
@@ -1346,22 +501,21 @@ textarea{width:100%;min-height:120px;font:12.5px/1.4 ui-monospace,Consolas,monos
 </main>
 <script>
 (function(){
-var K='regua-pos-maria-v1';var st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){st={}}
+var K='bv-maria-v2';var st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){st={}}
 function save(){try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}}
-var secs=[].slice.call(document.querySelectorAll('section.c'));
-function campos(cod){var g=function(n){return document.querySelector('[name="'+n+'-'+cod+'"]:checked')};var v=function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');return e?e.value:''};var c=function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');return !!(e&&e.checked)};return {bv:g('bv')?g('bv').value:'',bvdata:v('bvdata'),grav:c('bvgrav'),link:c('bvlink'),pp:g('pp')?g('pp').value:'',ppdata:v('ppdata'),obs:v('obs')}}
-function aplicar(cod,d){['bv','pp'].forEach(function(n){if(d[n]){var e=document.querySelector('[name="'+n+'-'+cod+'"][value="'+d[n]+'"]');if(e)e.checked=true}});['bvdata','ppdata','obs'].forEach(function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');if(e&&d[n]!=null&&d[n]!=='')e.value=d[n]});['bvgrav','bvlink'].forEach(function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');if(e)e.checked=!!d[n==='bvgrav'?'grav':'link']})}
-function respondido(d){return !!(d.bv||d.pp)}
-function status(){var n=0;secs.forEach(function(s){var cod=s.dataset.cod;var d=st[cod];var ok=d&&respondido(d);s.classList.toggle('done',!!ok);var e=document.getElementById('st-'+cod);if(e)e.textContent=ok?'respondido':'';if(ok)n++});var t=n+' de '+secs.length+' respondidos';document.getElementById('prog').textContent=t;document.getElementById('prog2').textContent=t}
-function filtrar(){var s=document.getElementById('q').value.trim().toLowerCase(),f=document.getElementById('fil').value;secs.forEach(function(sec){var cod=sec.dataset.cod;var ok=(!s||sec.dataset.busca.indexOf(s)>=0);if(f==='pend')ok=ok&&sec.classList.contains('pend');if(f==='falta')ok=ok&&!(st[cod]&&respondido(st[cod]));sec.style.display=ok?'':'none'})}
-secs.forEach(function(sec){var cod=sec.dataset.cod;if(st[cod])aplicar(cod,st[cod]);sec.addEventListener('change',function(){st[cod]=campos(cod);save();status()});sec.addEventListener('input',function(e){if(e.target.classList.contains('obs')){st[cod]=campos(cod);save()}})});
-document.querySelectorAll('.conf').forEach(function(b){b.addEventListener('click',function(){var cod=b.dataset.cod;var d=campos(cod);if(b.dataset.bv)d.bv=b.dataset.bv;if(b.dataset.pp)d.pp=b.dataset.pp;aplicar(cod,d);st[cod]=campos(cod);save();status()})});
+var trs=[].slice.call(document.querySelectorAll('#t tbody tr'));
+function ler(cod){var v=function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');return e?e.value:''};return {ac:v('ac'),dt:v('dt'),ob:v('ob')}}
+function aplicar(cod,d){['ac','dt','ob'].forEach(function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');if(e&&d[n]!=null)e.value=d[n]})}
+function resp(d){return !!(d&&(d.ac||d.ob))}
+function status(){var n=0,tot=0;trs.forEach(function(tr){var cod=tr.dataset.cod;var ok=resp(st[cod]);tr.classList.toggle('done',ok);if(tr.dataset.sit==='Conferir'){tot++;if(ok)n++}});var t=n+' de '+tot+' para conferir respondidos';document.getElementById('prog').textContent=t;document.getElementById('prog2').textContent=t}
+function filtrar(){var s=document.getElementById('q').value.trim().toLowerCase(),f=document.getElementById('fil').value;trs.forEach(function(tr){var ok=(!s||tr.dataset.busca.indexOf(s)>=0);if(f==='conferir')ok=ok&&tr.dataset.sit==='Conferir';if(f==='falta')ok=ok&&tr.dataset.sit==='Conferir'&&!resp(st[tr.dataset.cod]);tr.style.display=ok?'':'none'})}
+trs.forEach(function(tr){var cod=tr.dataset.cod;if(st[cod])aplicar(cod,st[cod]);tr.addEventListener('change',function(){st[cod]=ler(cod);save();status()});tr.addEventListener('input',function(){st[cod]=ler(cod);save()})});
 document.getElementById('q').addEventListener('input',filtrar);document.getElementById('fil').addEventListener('change',filtrar);
-function texto(){var quem=document.getElementById('quem').value||'Maria Eduarda';var hoje=new Date().toISOString().slice(0,10);var linhas=['REGUA-POS;equipe=Maria Eduarda;quem='+quem+';data='+hoje];secs.forEach(function(sec){var cod=sec.dataset.cod;var d=st[cod];if(!d||!respondido(d))return;linhas.push([cod,'bv='+(d.bv||''),'bvdata='+(d.bvdata||''),'grav='+(d.grav?'sim':'nao'),'link='+(d.link?'sim':'nao'),'pp='+(d.pp||''),'ppdata='+(d.ppdata||''),'obs='+String(d.obs||'').replace(/[;\n]/g,' ')].join(';'))});return linhas.join('\n')}
-function csv(){var quem=document.getElementById('quem').value||'';var l=['equipe;quem;codigo;boas_vindas;bv_data;gravacao;link;primeiros_passos;pp_data;observacao'];secs.forEach(function(sec){var cod=sec.dataset.cod;var d=st[cod];if(!d||!respondido(d))return;l.push(['Maria Eduarda',quem,cod,d.bv||'',d.bvdata||'',d.grav?'sim':'nao',d.link?'sim':'nao',d.pp||'',d.ppdata||'',String(d.obs||'').replace(/"/g,'""')].map(function(v){return '"'+v+'"'}).join(';'))});return '\ufeff'+l.join('\n')}
+function texto(){var quem=document.getElementById('quem').value||'Maria Eduarda';var hoje=new Date().toISOString().slice(0,10);var out=['BOAS-VINDAS;equipe=Maria Eduarda;quem='+quem+';data='+hoje];trs.forEach(function(tr){var cod=tr.dataset.cod;var d=st[cod];if(!resp(d))return;out.push([cod,'aconteceu='+(d.ac||''),'data='+(d.dt||''),'obs='+String(d.ob||'').replace(/[;\n]/g,' ')].join(';'))});return out.join('\n')}
+function csv(){var quem=document.getElementById('quem').value||'';var l=['equipe;quem;codigo;cliente;contrato;situacao_sistema;observacao_sistema;aconteceu;data;observacao'];trs.forEach(function(tr){var cod=tr.dataset.cod;var d=st[cod]||{};var td=tr.querySelectorAll('td');l.push(['Maria Eduarda',quem,cod,td[1].textContent,td[2].textContent,tr.dataset.sit,td[4].textContent,d.ac||'',d.dt||'',String(d.ob||'')].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(';'))});return '\ufeff'+l.join('\n')}
 document.getElementById('copiar').addEventListener('click',function(){var t=texto();var b=this;var done=function(){b.textContent='Copiado! Agora cole no WhatsApp';setTimeout(function(){b.textContent='Copiar respostas'},2500)};var fb=function(){var ta=document.getElementById('saida');ta.style.display='block';ta.value=t;ta.select();try{document.execCommand('copy');done()}catch(e){}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb()});
-document.getElementById('ver').addEventListener('click',function(){var ta=document.getElementById('saida');ta.value=texto();ta.style.display=ta.style.display==='block'?'none':'block';if(ta.style.display==='block')ta.scrollIntoView()});
-document.getElementById('baixar').addEventListener('click',function(){var b=new Blob([csv()],{type:'text/csv;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='regua-pos-maria.csv';a.click()});
+document.getElementById('ver').addEventListener('click',function(){var ta=document.getElementById('saida');ta.value=texto();ta.style.display=ta.style.display==='block'?'none':'block'});
+document.getElementById('baixar').addEventListener('click',function(){var b=new Blob([csv()],{type:'text/csv;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='boas-vindas-maria.csv';a.click()});
 status();filtrar();
 })();
 </script>
