@@ -38,23 +38,7 @@ tr.dest td{background:#fdf8ec}
 .painel .chart{width:100%;height:auto;display:block;overflow:visible}
 .legenda{font-size:11.5px;color:#6b7280;margin:6px 0 0}
 @media print{body{background:#fff;padding:0}.pag{border:0;border-radius:0;max-width:none;padding:0}}
-</style>
-<style>
-/* barra de abas — prefixo tabx para não colidir com o CSS do painel nem com o do roteiro */
-.tabx{display:flex;gap:2px;background:#0b0b0b;padding:0 16px;position:sticky;top:0;z-index:50;
-  overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tabx-bt{appearance:none;border:0;background:transparent;color:rgba(255,255,255,.62);
-  font:500 12.5px/1 "Segoe UI",system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;
-  padding:15px 18px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent}
-.tabx-bt:hover{color:#fff}
-.tabx-bt.on{color:#fff;border-bottom-color:#b08d44}
-.tabx-painel{display:none}
-.tabx-painel.on{display:block}
-.tabx-quadro{width:100%;height:calc(100vh - 46px);border:0;display:block}
-</style>
-</head><body>
-<nav class="tabx"><button class="tabx-bt on" data-t="semana">A semana</button><button class="tabx-bt" data-t="roteiro">Roteiro · Decoração v2</button></nav>
-<div id="tabx-semana" class="tabx-painel on">
+</style></head><body>
 <div class="pag">
   <div class="cab"><h1>Especialistas · as últimas 5 semanas</h1>
     <span class="per">07/09 a 09/10/2026 · a semana atual vai de segunda 05/10 até hoje</span></div>
@@ -64,8 +48,10 @@ tr.dest td{background:#fdf8ec}
   <tr><td><b>Eduardo Padilha</b></td>
       <td class="num">15.996</td><td class="num">11.174</td><td class="num">25.526</td><td class="num">3.941</td><td class="num hoje">239</td>
       <td class="num leg">14.159</td></tr><tr><td><b>Jessica Neco</b></td>
-      <td class="num">5.276</td><td class="num">14.299</td><td class="num">28.731</td><td class="num">12.862</td><td class="num hoje">8.200</td>
-      <td class="num leg">15.292</td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">5.276</td><td class="num">14.299</td><td class="num">28.731</td><td class="num">12.862</td><td class="num hoje">11.265</td>
+      <td class="num leg">15.292</td></tr><tr><td><b>Jhonatan Vaz</b></td>
+      <td class="num">—</td><td class="num">—</td><td class="num">2.506</td><td class="num">2.073</td><td class="num hoje">12.786</td>
+      <td class="num leg">1.145</td></tr><tr><td><b>Luiz Henrique</b></td>
       <td class="num">16.479</td><td class="num">5.223</td><td class="num">19.517</td><td class="num">—</td><td class="num hoje">1.704</td>
       <td class="num leg">10.305</td></tr><tr><td><b>Nathan Moreto</b></td>
       <td class="num">23.828</td><td class="num">14.150</td><td class="num">16.265</td><td class="num">22.236</td><td class="num hoje">20.159</td>
@@ -73,9 +59,9 @@ tr.dest td{background:#fdf8ec}
       <td class="num">11.847</td><td class="num">3.584</td><td class="num">—</td><td class="num">28.728</td><td class="num hoje">5.073</td>
       <td class="num leg">11.040</td></tr>
   <tr class="total"><td>Total</td>
-    <td class="num">76.214</td><td class="num">48.428</td><td class="num">90.040</td><td class="num">67.768</td><td class="num hoje">35.375</td>
-    <td class="num">70.612</td></tr>
-  <tr><td class="leg">aditivos assinados</td><td class="num leg">15</td><td class="num leg">17</td><td class="num leg">16</td><td class="num leg">13</td><td class="num leg hoje">8</td><td></td></tr>
+    <td class="num">73.426</td><td class="num">48.428</td><td class="num">92.546</td><td class="num">69.841</td><td class="num hoje">51.226</td>
+    <td class="num">71.060</td></tr>
+  <tr><td class="leg">aditivos assinados</td><td class="num leg">13</td><td class="num leg">17</td><td class="num leg">17</td><td class="num leg">15</td><td class="num leg hoje">14</td><td></td></tr>
   </tbody></table>
   <p class="nota">A coluna destacada é a semana em curso, com 5 dias de 7. A média é das 4 semanas fechadas.</p>
 
@@ -96,7 +82,7 @@ tr.dest td{background:#fdf8ec}
       conversão média da equipe no período com o ticket médio da pessoa.</p>
   </div>
   <script>
-  const PER = [{"rot":"Outubro/26","janela":"01 a 09/10, mês ainda correndo","curso":true,"aberto":"32 reuniões ainda por realizar","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":38608.41,"ads":3,"rf":2,"vend":2,"canc":0,"conv":1,"tm":12869.470000000001,"porReu":19304.205,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":29518.56,"ads":4,"rf":3,"vend":3,"canc":0,"conv":1,"tm":7379.64,"porReu":9839.52,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":14148.54,"ads":3,"rf":5,"vend":3,"canc":9,"conv":0.6,"tm":4716.18,"porReu":2829.708,"perda":2571.3391666666676},{"p":"Eduardo Padilha","nome":"Eduardo","valor":4180.46,"ads":4,"rf":5,"vend":2,"canc":2,"conv":0.4,"tm":1045.115,"porReu":836.092,"perda":8448.685833333335},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":1704.23,"ads":1,"rf":1,"vend":1,"canc":1,"conv":1,"tm":1704.23,"porReu":1704.23,"perda":0}],"valor":88160.20000000001,"ads":15,"rf":16,"conv":0.6875,"tm":5877.346666666667},{"rot":"Setembro/26","janela":"mês fechado","curso":false,"aberto":"7 reuniões do mês sem desfecho lançado","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":125394.87000000001,"ads":15,"rf":14,"vend":12,"canc":5,"conv":0.8571428571428571,"tm":8359.658000000001,"porReu":8956.77642857143,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":75256.95999999999,"ads":23,"rf":29,"vend":23,"canc":16,"conv":0.7931034482758621,"tm":3272.0417391304345,"porReu":2595.067586206896,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":53704.53,"ads":15,"rf":18,"vend":12,"canc":11,"conv":0.6666666666666666,"tm":3580.302,"porReu":2983.585,"perda":9096.370000000006},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":41218.16,"ads":4,"rf":3,"vend":3,"canc":5,"conv":1,"tm":10304.54,"porReu":13739.386666666667,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":22798.43,"ads":9,"rf":6,"vend":4,"canc":3,"conv":0.6666666666666666,"tm":2533.158888888889,"porReu":3799.7383333333332,"perda":3032.1233333333353}],"valor":318372.95,"ads":66,"rf":70,"conv":0.7714285714285715,"tm":4823.832575757576},{"rot":"Novembro/26","janela":"agenda à frente","curso":false,"aberto":"3 reuniões ainda por realizar","dados":[{"p":"Eduardo Padilha","nome":"Eduardo","valor":0,"ads":0,"rf":0,"vend":0,"canc":1,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":0,"ads":0,"rf":0,"vend":0,"canc":1,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Nathan Moreto","nome":"Nathan","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0}],"valor":0,"ads":0,"rf":0,"conv":0,"tm":0},{"rot":"As 5 semanas","janela":"07/09 a 09/10","curso":false,"aberto":"","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":96638.18000000001,"ads":13,"rf":12,"vend":10,"canc":3,"conv":0.8333333333333334,"tm":7433.706153846155,"porReu":8053.181666666667,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":69368.92,"ads":20,"rf":28,"vend":20,"canc":15,"conv":0.7142857142857143,"tm":3468.446,"porReu":2477.4614285714283,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":56876.09,"ads":18,"rf":21,"vend":12,"canc":10,"conv":0.5714285714285714,"tm":3159.7827777777775,"porReu":2708.385238095238,"perda":13912.892545491719},{"p":"Ruam Leal","nome":"Ruam","valor":49231.26000000001,"ads":11,"rf":8,"vend":6,"canc":1,"conv":0.75,"tm":4475.569090909092,"porReu":6153.907500000001,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":42922.39,"ads":5,"rf":4,"vend":4,"canc":5,"conv":1,"tm":8584.478,"porReu":10730.5975,"perda":0}],"valor":315036.84,"ads":67,"rf":73,"conv":0.7123287671232876,"tm":4702.042388059702}];
+  const PER = [{"rot":"Outubro/26","janela":"01 a 09/10, mês ainda correndo","curso":true,"aberto":"38 reuniões ainda por realizar","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":38608.41,"ads":3,"rf":2,"vend":2,"canc":0,"conv":1,"tm":12869.470000000001,"porReu":19304.205,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":29518.56,"ads":4,"rf":3,"vend":3,"canc":0,"conv":1,"tm":7379.64,"porReu":9839.52,"perda":0},{"p":"Jhonatan Vaz","nome":"Jhonatan","valor":28829.64,"ads":7,"rf":3,"vend":3,"canc":4,"conv":1,"tm":4118.5199999999995,"porReu":9609.88,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":17212.63,"ads":4,"rf":5,"vend":4,"canc":9,"conv":0.8,"tm":4303.1575,"porReu":3442.5260000000003,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":4180.46,"ads":4,"rf":6,"vend":2,"canc":2,"conv":0.3333333333333333,"tm":1045.115,"porReu":696.7433333333333,"perda":13049.340217391305},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":1704.23,"ads":1,"rf":1,"vend":1,"canc":2,"conv":1,"tm":1704.23,"porReu":1704.23,"perda":0}],"valor":120053.93000000001,"ads":23,"rf":20,"conv":0.75,"tm":5219.736086956522},{"rot":"Setembro/26","janela":"mês fechado","curso":false,"aberto":"5 reuniões do mês sem desfecho lançado","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":125394.87000000001,"ads":15,"rf":14,"vend":12,"canc":5,"conv":0.8571428571428571,"tm":8359.658000000001,"porReu":8956.77642857143,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":75256.95999999999,"ads":23,"rf":29,"vend":23,"canc":16,"conv":0.7931034482758621,"tm":3272.0417391304345,"porReu":2595.067586206896,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":53704.53,"ads":15,"rf":18,"vend":12,"canc":11,"conv":0.6666666666666666,"tm":3580.302,"porReu":2983.585,"perda":8920.110478991604},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":41218.16,"ads":4,"rf":3,"vend":3,"canc":5,"conv":1,"tm":10304.54,"porReu":13739.386666666667,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":22798.43,"ads":9,"rf":6,"vend":4,"canc":3,"conv":0.6666666666666666,"tm":2533.158888888889,"porReu":3799.7383333333332,"perda":2973.370159663868},{"p":"Jhonatan Vaz","nome":"Jhonatan","valor":3291.64,"ads":2,"rf":0,"vend":0,"canc":0,"conv":0,"tm":1645.82,"porReu":0,"perda":0}],"valor":321664.59,"ads":68,"rf":70,"conv":0.7714285714285715,"tm":4730.36161764706},{"rot":"Novembro/26","janela":"agenda à frente","curso":false,"aberto":"4 reuniões ainda por realizar","dados":[{"p":"Eduardo Padilha","nome":"Eduardo","valor":0,"ads":0,"rf":0,"vend":0,"canc":3,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":0,"ads":0,"rf":0,"vend":0,"canc":1,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Jhonatan Vaz","nome":"Jhonatan","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Nathan Moreto","nome":"Nathan","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0},{"p":"Ruam Leal","nome":"Ruam","valor":0,"ads":0,"rf":0,"vend":0,"canc":0,"conv":0,"tm":0,"porReu":0,"perda":0}],"valor":0,"ads":0,"rf":0,"conv":0,"tm":0},{"rot":"As 5 semanas","janela":"07/09 a 09/10","curso":false,"aberto":"","dados":[{"p":"Nathan Moreto","nome":"Nathan","valor":96638.18000000001,"ads":13,"rf":12,"vend":10,"canc":3,"conv":0.8333333333333334,"tm":7433.706153846155,"porReu":8053.181666666667,"perda":0},{"p":"Jessica Neco Barbosa","nome":"Jessica","valor":72433.01,"ads":21,"rf":28,"vend":21,"canc":15,"conv":0.75,"tm":3449.1909523809522,"porReu":2586.8932142857143,"perda":0},{"p":"Eduardo Padilha","nome":"Eduardo","valor":56876.09,"ads":18,"rf":22,"vend":12,"canc":10,"conv":0.5454545454545454,"tm":3159.7827777777775,"porReu":2585.276818181818,"perda":17656.101052631588},{"p":"Ruam Leal","nome":"Ruam","valor":49231.26000000001,"ads":11,"rf":8,"vend":6,"canc":1,"conv":0.75,"tm":4475.569090909092,"porReu":6153.907500000001,"perda":0},{"p":"Luiz Henrique Romagna","nome":"Luiz","valor":42922.39,"ads":5,"rf":4,"vend":4,"canc":5,"conv":1,"tm":8584.478,"porReu":10730.5975,"perda":0},{"p":"Jhonatan Vaz","nome":"Jhonatan","valor":17364.989999999998,"ads":8,"rf":3,"vend":3,"canc":4,"conv":1,"tm":2170.6237499999997,"porReu":5788.329999999999,"perda":0}],"valor":335465.92000000004,"ads":76,"rf":77,"conv":0.7272727272727273,"tm":4414.025263157895}];
   let pAtual = 0;
   const COR = { valor: '#4ade80', conv: '#c084fc', tm: '#fbbf24', porReu: '#60a5fa', perda: '#f87171' };
   const PCT = { conv: 1 };
@@ -171,10 +157,12 @@ tr.dest td{background:#fdf8ec}
   <h2>3 · Reuniões realizadas e conversão, semana a semana</h2>
   <table><thead><tr><th>Especialista</th><th class="num">07 a 13/09</th><th class="num">14 a 20/09</th><th class="num">21 a 27/09</th><th class="num">28/09 a 04/10</th><th class="num hoje">05 a 09/10</th><th class="num">no período</th></tr></thead><tbody>
   <tr><td><b>Eduardo Padilha</b></td>
-      <td class="num">2 de 3 · <span class=""><b>67%</b></span></td><td class="num">4 de 6 · <span class=""><b>67%</b></span></td><td class="num">4 de 7 · <span class=""><b>57%</b></span></td><td class="num">2 de 4 · <span class=""><b>50%</b></span></td><td class="num hoje">0 de 1 · <span class="down"><b>0%</b></span></td>
-      <td class="num">12 de 21 · <b>57%</b></td></tr><tr><td><b>Jessica Neco</b></td>
-      <td class="num">3 de 5 · <span class=""><b>60%</b></span></td><td class="num">5 de 5 · <span class="up"><b>100%</b></span></td><td class="num">7 de 10 · <span class="up"><b>70%</b></span></td><td class="num">3 de 4 · <span class="up"><b>75%</b></span></td><td class="num hoje">2 de 4 · <span class=""><b>50%</b></span></td>
-      <td class="num">20 de 28 · <b>71%</b></td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">2 de 3 · <span class=""><b>67%</b></span></td><td class="num">4 de 6 · <span class=""><b>67%</b></span></td><td class="num">4 de 7 · <span class=""><b>57%</b></span></td><td class="num">2 de 4 · <span class=""><b>50%</b></span></td><td class="num hoje">0 de 2 · <span class="down"><b>0%</b></span></td>
+      <td class="num">12 de 22 · <b>55%</b></td></tr><tr><td><b>Jessica Neco</b></td>
+      <td class="num">3 de 5 · <span class=""><b>60%</b></span></td><td class="num">5 de 5 · <span class="up"><b>100%</b></span></td><td class="num">7 de 10 · <span class="up"><b>70%</b></span></td><td class="num">3 de 4 · <span class="up"><b>75%</b></span></td><td class="num hoje">3 de 4 · <span class="up"><b>75%</b></span></td>
+      <td class="num">21 de 28 · <b>75%</b></td></tr><tr><td><b>Jhonatan Vaz</b></td>
+      <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num hoje">3 de 3 · <span class="up"><b>100%</b></span></td>
+      <td class="num">3 de 3 · <b>100%</b></td></tr><tr><td><b>Luiz Henrique</b></td>
       <td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num">2 de 2 · <span class="up"><b>100%</b></span></td><td class="num">—</td><td class="num">—</td><td class="num hoje">1 de 1 · <span class="up"><b>100%</b></span></td>
       <td class="num">4 de 4 · <b>100%</b></td></tr><tr><td><b>Nathan Moreto</b></td>
       <td class="num">2 de 3 · <span class=""><b>67%</b></span></td><td class="num">3 de 4 · <span class="up"><b>75%</b></span></td><td class="num">3 de 3 · <span class="up"><b>100%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num hoje">1 de 1 · <span class="up"><b>100%</b></span></td>
@@ -182,23 +170,27 @@ tr.dest td{background:#fdf8ec}
       <td class="num">1 de 2 · <span class=""><b>50%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num">0 de 1 · <span class="down"><b>0%</b></span></td><td class="num">1 de 1 · <span class="up"><b>100%</b></span></td><td class="num hoje">3 de 3 · <span class="up"><b>100%</b></span></td>
       <td class="num">6 de 8 · <b>75%</b></td></tr>
   <tr class="total"><td>Total</td>
-    <td class="num">11 de 16 · 69%</td><td class="num">15 de 18 · 83%</td><td class="num">14 de 21 · 67%</td><td class="num">7 de 10 · 70%</td><td class="num hoje">7 de 10 · 70%</td>
-    <td class="num">54 de 75 · 72%</td></tr>
-  <tr><td class="leg">reuniões canceladas</td><td class="num leg">4</td><td class="num leg">11</td><td class="num leg">17</td><td class="num leg">4</td><td class="num leg hoje">4</td><td></td></tr>
+    <td class="num">9 de 14 · 64%</td><td class="num">15 de 18 · 83%</td><td class="num">14 de 21 · 67%</td><td class="num">7 de 10 · 70%</td><td class="num hoje">11 de 14 · 79%</td>
+    <td class="num">56 de 77 · 73%</td></tr>
+  <tr><td class="leg">reuniões canceladas</td><td class="num leg">4</td><td class="num leg">9</td><td class="num leg">13</td><td class="num leg">4</td><td class="num leg hoje">8</td><td></td></tr>
   </tbody></table>
   <p class="nota">Conversão = reunião final concluída que gerou aditivo assinado de 3 dias antes a 10 depois dela.</p>
 
   <h2>4 · A semana de hoje, reunião por reunião</h2>
   <table><thead><tr><th>Especialista</th><th class="num">reuniões feitas</th><th class="num">venderam</th><th class="num">R$ da semana</th><th class="num">R$ por reunião</th><th class="num">semana passada</th></tr></thead><tbody>
   <tr><td><b>Eduardo Padilha</b></td>
-      <td class="num">1</td><td class="num">0 de 1</td>
+      <td class="num">2</td><td class="num">0 de 2</td>
       <td class="num"><b>239</b></td>
-      <td class="num">239</td>
+      <td class="num">119</td>
       <td class="num leg">3.941</td></tr><tr><td><b>Jessica Neco</b></td>
-      <td class="num">4</td><td class="num">2 de 4</td>
-      <td class="num"><b>8.200</b></td>
-      <td class="num">2.050</td>
-      <td class="num leg">12.862</td></tr><tr><td><b>Luiz Henrique</b></td>
+      <td class="num">4</td><td class="num">3 de 4</td>
+      <td class="num"><b>11.265</b></td>
+      <td class="num">2.816</td>
+      <td class="num leg">12.862</td></tr><tr><td><b>Jhonatan Vaz</b></td>
+      <td class="num">3</td><td class="num">3 de 3</td>
+      <td class="num"><b>12.786</b></td>
+      <td class="num">4.262</td>
+      <td class="num leg">2.073</td></tr><tr><td><b>Luiz Henrique</b></td>
       <td class="num">1</td><td class="num">1 de 1</td>
       <td class="num"><b>1.704</b></td>
       <td class="num">1.704</td>
@@ -211,65 +203,45 @@ tr.dest td{background:#fdf8ec}
       <td class="num"><b>5.073</b></td>
       <td class="num">1.691</td>
       <td class="num leg">28.728</td></tr>
-  <tr class="total"><td>Total</td><td class="num">10</td>
-    <td class="num">7 de 10</td>
-    <td class="num">35.375</td>
-    <td class="num">3.538</td>
-    <td class="num">67.768</td></tr>
+  <tr class="total"><td>Total</td><td class="num">14</td>
+    <td class="num">11 de 14</td>
+    <td class="num">51.226</td>
+    <td class="num">3.659</td>
+    <td class="num">69.841</td></tr>
   </tbody></table>
 
   <h2>5 · Venda por grupo de produto, semana a semana</h2>
   <table><thead><tr><th>Grupo</th><th class="num">07 a 13/09</th><th class="num">14 a 20/09</th><th class="num">21 a 27/09</th><th class="num">28/09 a 04/10</th><th class="num hoje">05 a 09/10</th><th class="num">média</th><th class="num">tendência</th></tr></thead><tbody>
   <tr><td><b>Gastronomia</b></td>
-      <td class="num">39.225</td><td class="num">13.265</td><td class="num">39.397</td><td class="num">9.900</td><td class="num hoje">19.744</td>
-      <td class="num leg">25.447</td>
-      <td class="num ">-22%</td></tr><tr><td><b>Bebidas</b></td>
-      <td class="num">22.962</td><td class="num">8.002</td><td class="num">11.104</td><td class="num">48.479</td><td class="num hoje">5.843</td>
+      <td class="num">38.225</td><td class="num">13.265</td><td class="num">39.397</td><td class="num">10.620</td><td class="num hoje">23.154</td>
+      <td class="num leg">25.377</td>
+      <td class="num ">-9%</td></tr><tr><td><b>Bebidas</b></td>
+      <td class="num">22.962</td><td class="num">8.002</td><td class="num">11.104</td><td class="num">48.479</td><td class="num hoje">6.350</td>
       <td class="num leg">22.637</td>
-      <td class="num down">-74%</td></tr><tr><td><b>Hora extra</b></td>
-      <td class="num">2.750</td><td class="num">4.250</td><td class="num">7.500</td><td class="num">4.500</td><td class="num hoje">3.000</td>
-      <td class="num leg">4.750</td>
-      <td class="num down">-37%</td></tr><tr><td><b>Audiovisual e LED</b></td>
-      <td class="num">4.700</td><td class="num">4.800</td><td class="num">4.000</td><td class="num">3.900</td><td class="num hoje">780</td>
+      <td class="num down">-72%</td></tr><tr><td><b>Hora extra</b></td>
+      <td class="num">1.250</td><td class="num">4.250</td><td class="num">7.500</td><td class="num">4.500</td><td class="num hoje">3.000</td>
+      <td class="num leg">4.375</td>
+      <td class="num down">-31%</td></tr><tr><td><b>Audiovisual e LED</b></td>
+      <td class="num">4.700</td><td class="num">4.800</td><td class="num">4.000</td><td class="num">3.900</td><td class="num hoje">2.480</td>
       <td class="num leg">4.350</td>
-      <td class="num down">-82%</td></tr><tr><td><b>Decoração e mobília</b></td>
-      <td class="num">5.440</td><td class="num">500</td><td class="num">3.860</td><td class="num">1.875</td><td class="num hoje">1.030</td>
+      <td class="num down">-43%</td></tr><tr><td><b>Decoração e mobília</b></td>
+      <td class="num">5.440</td><td class="num">500</td><td class="num">3.860</td><td class="num">1.875</td><td class="num hoje">2.320</td>
       <td class="num leg">2.919</td>
-      <td class="num down">-65%</td></tr><tr><td><b>Floral</b></td>
-      <td class="num">1.300</td><td class="num">—</td><td class="num">5.500</td><td class="num">900</td><td class="num hoje">1.700</td>
-      <td class="num leg">1.925</td>
-      <td class="num ">-12%</td></tr><tr><td><b>Kids, noiva e hospedagem</b></td>
+      <td class="num ">-21%</td></tr><tr><td><b>Floral</b></td>
+      <td class="num">1.300</td><td class="num">—</td><td class="num">5.500</td><td class="num">1.350</td><td class="num hoje">1.700</td>
+      <td class="num leg">2.038</td>
+      <td class="num ">-17%</td></tr><tr><td><b>Kids, noiva e hospedagem</b></td>
       <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">2.700</td><td class="num hoje">3.300</td>
       <td class="num leg">675</td>
       <td class="num up">+389%</td></tr><tr><td><b>Serviços e equipe</b></td>
-      <td class="num">—</td><td class="num">1.050</td><td class="num">700</td><td class="num">—</td><td class="num hoje">2.000</td>
+      <td class="num">—</td><td class="num">1.050</td><td class="num">700</td><td class="num">—</td><td class="num hoje">4.000</td>
       <td class="num leg">438</td>
-      <td class="num up">+357%</td></tr>
+      <td class="num up">+814%</td></tr>
   <tr class="total"><td>Total</td>
-    <td class="num">76.377</td><td class="num">31.867</td><td class="num">72.061</td><td class="num">72.254</td><td class="num hoje">37.397</td>
-    <td class="num">63.140</td><td></td></tr>
-  <tr><td class="leg">itens vendidos</td><td class="num leg">37</td><td class="num leg">24</td><td class="num leg">34</td><td class="num leg">27</td><td class="num leg hoje">24</td><td></td><td></td></tr>
+    <td class="num">73.877</td><td class="num">31.867</td><td class="num">72.061</td><td class="num">73.424</td><td class="num hoje">46.304</td>
+    <td class="num">62.807</td><td></td></tr>
+  <tr><td class="leg">itens vendidos</td><td class="num leg">35</td><td class="num leg">24</td><td class="num leg">34</td><td class="num leg">29</td><td class="num leg hoje">33</td><td></td><td></td></tr>
   </tbody></table>
-  <p class="nota">Cardápio e open bar são cobrados por pessoa: o valor deles é o preço por pessoa vezes os convidados do evento, e <b>70% do valor desta tabela vem dessa conta</b>. A soma das 5 semanas dá R$ 289.956 contra R$ 317.825 efetivamente assinados — a diferença é crédito abatido e taxa de serviço.</p>
+  <p class="nota">Cardápio e open bar são cobrados por pessoa: o valor deles é o preço por pessoa vezes os convidados do evento, e <b>70% do valor desta tabela vem dessa conta</b>. A soma das 5 semanas dá R$ 297.533 contra R$ 335.466 efetivamente assinados — a diferença é crédito abatido e taxa de serviço.</p>
 </div>
-</div>
-<div id="tabx-roteiro" class="tabx-painel"><iframe class="tabx-quadro" src="roteiro-decoracao.html" title="Roteiro de Decoração v2" loading="lazy"></iframe></div>
-
-<script>
-  // a aba escolhida fica guardada, para o F5 não jogar a pessoa de volta na primeira
-  (function () {
-    var bts = document.querySelectorAll('.tabx-bt');
-    function abrir(id) {
-      bts.forEach(function (b) { b.classList.toggle('on', b.dataset.t === id) });
-      document.querySelectorAll('.tabx-painel').forEach(function (p) {
-        p.classList.toggle('on', p.id === 'tabx-' + id);
-      });
-      try { localStorage.setItem('tabx-especialistas', id) } catch (e) { /* sem storage, segue */ }
-    }
-    bts.forEach(function (b) { b.addEventListener('click', function () { abrir(b.dataset.t) }) });
-    var salva = null;
-    try { salva = localStorage.getItem('tabx-especialistas') } catch (e) { /* ignora */ }
-    if (salva && document.getElementById('tabx-' + salva)) abrir(salva);
-  })();
-</script>
 </body></html>
