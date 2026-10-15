@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisão · boas-vindas sem lançamento</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#0f1115;--card:#171a21;--linha:#262b36;--ink:#e8eaed;--ink2:#9aa3af;--mut:#6b7280;--up:#4ade80;--down:#f87171;--warn:#fbbf24;--s1:#60a5fa}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px 18px 60px}
+.wrap{max-width:1500px;margin:0 auto}
+h1{font-size:20px;margin:0 0 4px}
+.sub{color:var(--mut);font-size:13px;margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:16px 18px;margin:0 0 14px}
+h2{font-size:14px;margin:0 0 4px}
+.nota{font-size:12.5px;color:var(--mut);margin:0 0 10px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--linha);text-align:left;vertical-align:top}
+th{color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;background:var(--card);z-index:1}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.cod{font-weight:600;white-space:nowrap}
+td.prova{color:var(--ink2);font-size:12.5px;max-width:560px}
+td.prova b{color:var(--ink)}
+.leg{color:var(--mut);font-size:12px}
+select{background:#1e222b;color:var(--ink);border:1px solid var(--linha);border-radius:6px;padding:4px 7px;font:inherit;font-size:12.5px}
+select.ok{border-color:var(--up);color:var(--up)}
+select.nao{border-color:var(--down);color:var(--down)}
+.barra{position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:2;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--linha);margin-bottom:12px}
+button{font:inherit;background:#1d4ed8;color:#fff;border:0;border-radius:7px;padding:7px 14px;cursor:pointer}
+button.sec{background:#1e222b;border:1px solid var(--linha);color:var(--ink)}
+.pill{font-size:12px;color:var(--mut)}
+.farol{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+textarea{width:100%;height:160px;background:#0b0d11;color:var(--ink);border:1px solid var(--linha);border-radius:8px;padding:10px;font:12px/1.5 ui-monospace,monospace}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Revisão: reuniões que a conversa mostra e a agenda não registra</h1>
+<p class="sub">107 clientes · contratos de 01/07 a 09/10/2026 · a marcação fica salva neste navegador</p>
+
+<div class="barra">
+  <button onclick="copiar()">Copiar resultado</button>
+  <button class="sec" onclick="limpar()">Limpar marcações</button>
+  <span class="pill" id="contador"></span>
+</div>
+
+<div class="card">
+    <h2><span class="farol" style="background:#4ade80"></span>A · a equipe escreveu que a boas-vindas aconteceu <span class="leg">· 6 clientes</span></h2>
+    <p class="nota">Aqui não há dúvida: alguém do time escreveu "já realizamos a nossa reunião de boas-vindas". Dá para marcar como realizada sem revisar, só confirmando a data.</p>
+    <table><thead><tr><th>Evento</th><th>Cliente</th><th class="num">contrato</th><th class="num">evento</th><th>Quem falou</th><th class="num">meets</th><th>Trecho da conversa</th><th>Qual reunião foi?</th></tr></thead>
+    <tbody><tr data-cod="E08444">
+    <td class="cod">E08444</td>
+    <td>Giani Alerson Lupatini</td>
+    <td class="num">04/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Wyllian, Arnaldo</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>01/10</b> Oi, tudo bem? 💗 Como já realizamos a nossa reunião de boas-vindas, agora vamos para a nossa próxima etapa: a Reunião de Próximos Passos. Nesse encontro, vamos revisar alguns pontos que ainda estão em</td>
+    <td><select data-cod="E08444"><option>Boas-vindas</option><option selected>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08655">
+    <td class="cod">E08655</td>
+    <td>Peterson Oscar Costa</td>
+    <td class="num">15/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Laura, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>24/09</b> Oiee Peterson! Tudo bem? Passando por aqui para dar continuidade ao nosso atendimento! Na semana passada tivemos a nossa reunião de boas-vindas e, hoje, queria conversar por aqui sobre a parte de DJ e</td>
+    <td><select data-cod="E08655"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08667">
+    <td class="cod">E08667</td>
+    <td>Andressa Dutra ferreira Barbosa</td>
+    <td class="num">30/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Aline, Polyana</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>21/09</b> Oiee Andressa! Tudo bem? Passando por aqui para dar continuidade ao nosso atendimento! Na semana passada tivemos a nossa reunião de boas-vindas e, hoje, queria conversar por aqui sobre a parte de DJ e</td>
+    <td><select data-cod="E08667"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08678">
+    <td class="cod">E08678</td>
+    <td>Ione Maria Augusta Silveira Moutinho Bahls</td>
+    <td class="num">05/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>05/10</b> Oi, tudo bem? 💗 Como já realizamos a nossa reunião de boas-vindas, agora vamos para a nossa próxima etapa: a Reunião de Próximos Passos. Nesse encontro, vamos revisar alguns pontos que ainda estão em</td>
+    <td><select data-cod="E08678"><option>Boas-vindas</option><option selected>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08689">
+    <td class="cod">E08689</td>
+    <td>Isadora Rodrigues Bigas</td>
+    <td class="num">06/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>21/09</b> Oiee Isaa! Tudo bem? Passando por aqui para dar continuidade ao nosso atendimento! Na semana passada tivemos a nossa reunião de boas-vindas e, hoje, queria conversar por aqui sobre a parte de DJ e est</td>
+    <td><select data-cod="E08689"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08697">
+    <td class="cod">E08697</td>
+    <td>Ellen Kéroliny Daniel</td>
+    <td class="num">13/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>05/10</b> Oi, tudo bem? 💗 Como já realizamos a nossa reunião de boas-vindas, agora vamos para a nossa próxima etapa: a Reunião de Próximos Passos. Nesse encontro, vamos revisar alguns pontos que ainda estão em</td>
+    <td><select data-cod="E08697"><option>Boas-vindas</option><option selected>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr></tbody></table>
+  </div><div class="card">
+    <h2><span class="farol" style="background:#60a5fa"></span>B · link do Meet + conversa de reunião <span class="leg">· 23 clientes</span></h2>
+    <p class="nota">Houve reunião online — o link foi enviado e há conversa marcando ou confirmando horário. O que falta é dizer QUAL reunião era.</p>
+    <table><thead><tr><th>Evento</th><th>Cliente</th><th class="num">contrato</th><th class="num">evento</th><th>Quem falou</th><th class="num">meets</th><th>Trecho da conversa</th><th>Qual reunião foi?</th></tr></thead>
+    <tbody><tr data-cod="E08458">
+    <td class="cod">E08458</td>
+    <td>Jhonatan Tatsuro Fernandes Tomimatsu</td>
+    <td class="num">09/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Giovanna, Gabriela, Mariane</span></td>
+    <td class="num">7</td>
+    <td class="prova"><b>29/09</b> Posso confirmar nossa reunião online hoje às 15h?🙏</td>
+    <td><select data-cod="E08458"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08460">
+    <td class="cod">E08460</td>
+    <td>Jéssica Melo</td>
+    <td class="num">10/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Cristina, Amália, Ester</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>24/07</b> O que acha de marcamos uma reunião via meet para que possamos te explicar como funciona nossos serviços essenciais? Você teria disponibilidade na segunda-feira?</td>
+    <td><select data-cod="E08460"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08475">
+    <td class="cod">E08475</td>
+    <td>Ellem Cristina Souza Bezerra</td>
+    <td class="num">17/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>01/10</b> Oi! Tudo bem? 🥰 Como precisamos reagendar nossa reunião, vou te encaminhar por aqui o link de acesso à minha agenda. Por ele, você consegue conferir todos os horários disponíveis e agendar diretament</td>
+    <td><select data-cod="E08475"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08481">
+    <td class="cod">E08481</td>
+    <td>Nalim Cristine da Silva Batista</td>
+    <td class="num">19/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>03/09</b> Oii Nalim! Passando para confirmar nosso agendamento da reunião online, para hoje às 17h. Podemos confirmar? Aguardo confirmação!</td>
+    <td><select data-cod="E08481"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08483">
+    <td class="cod">E08483</td>
+    <td>Sabrina Lorenski Ferreira</td>
+    <td class="num">20/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>30/07</b> Sabrina, o que acha de marcarmos uma reunião via meet, na segunda-feira para que possamos apresentar certinho esses serviços?</td>
+    <td><select data-cod="E08483"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08512">
+    <td class="cod">E08512</td>
+    <td>Ângela Rafaela Selbiscikowski</td>
+    <td class="num">21/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda, Graziela</span></td>
+    <td class="num">5</td>
+    <td class="prova"><b>21/08</b> Boa tarde Ângela, tudo bem?? Em breve a decoradora irá entrar em contato para marcar uma reunião com você, tudo bem? Comigo, vamos marcar sua reunião final e também a reunião com o DJ. Para conseguir </td>
+    <td><select data-cod="E08512"><option>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option selected>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08486">
+    <td class="cod">E08486</td>
+    <td>Carla Puel</td>
+    <td class="num">22/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jordana, Jhonatan</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>06/10</b> passando pra confirmar nossa reunião final hoje as 18h30</td>
+    <td><select data-cod="E08486"><option>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option selected>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08507">
+    <td class="cod">E08507</td>
+    <td>Deivid Elias Ricardo</td>
+    <td class="num">28/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Arnaldo</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>29/09</b> Oiii Deivid, tudo bem? Arthur aqui da equipe de assessoria e cerimonial, posso confirmar nossa reunião agendada para hoje às 18h?🙏</td>
+    <td><select data-cod="E08507"><option>Boas-vindas</option><option>Próximos Passos</option><option selected>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08583">
+    <td class="cod">E08583</td>
+    <td>Adalberto Alves</td>
+    <td class="num">08/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo, Polyana, Gabriela</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>08/09</b> Claro, e se quiser conversar com nossa especialista antes de vir visitar o ateliê, podemos agendar uma reunião via Meet para tirar dúvidas.</td>
+    <td><select data-cod="E08583"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08590">
+    <td class="cod">E08590</td>
+    <td>Gustavo Domingos</td>
+    <td class="num">09/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>15/09</b> Olá Khafilayne, tudo bem? Aqui é a Maria Eduarda, estou entrando em contato para agendarmos a nossa reunião de boas-vindas. Me sinaliza assimq ue estiver disponível por gentileza? Aguardo o seu retorn</td>
+    <td><select data-cod="E08590"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08596">
+    <td class="cod">E08596</td>
+    <td>Ana Miriã Laurentino</td>
+    <td class="num">11/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Polyana</span></td>
+    <td class="num">3</td>
+    <td class="prova"><b>12/09</b> *Jhonatan:* Matheus, como tenho mais uma reunião agendada para as 11:40 podemos remarcar a nossa reunião para a próxima semana, verifica o melhor dia e horário pra você e me avisa</td>
+    <td><select data-cod="E08596"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08605">
+    <td class="cod">E08605</td>
+    <td>Igor Barroso de Sá Oliveira</td>
+    <td class="num">13/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>07/10</b> Olá Igor, tudo bem? Aqui é a Maria Eduarda, estou entrando em contato para agendar a nossa reunião extra dos primeiros passos. Me sinaliza assim que estiver disponível por gentileza? Aguardo o seu ret</td>
+    <td><select data-cod="E08605"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08604">
+    <td class="cod">E08604</td>
+    <td>Cheila Cristina Mocelin</td>
+    <td class="num">13/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>12/09</b> Ola Cheila, bom diaaaa. Tudo bem? Perfeito, só estou esperando eles liberarem uns dias que pedi para agendarmos a nossa reunião, e logo mais na semana que vem se tiver tudo ok, ja lhe retorno com as d</td>
+    <td><select data-cod="E08604"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08613">
+    <td class="cod">E08613</td>
+    <td>Beatriz Medeiros Cardoso</td>
+    <td class="num">15/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Laura, Polyana, Gabriela</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>25/08</b> *Polyana:* Podemos confirmar nossa reunião às 14h, via meet?</td>
+    <td><select data-cod="E08613"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08629">
+    <td class="cod">E08629</td>
+    <td>Gabriele Amaro da Silva</td>
+    <td class="num">21/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Laura, Cristina, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>31/08</b> Entrei em contato para marcar a nossa reunião inicial</td>
+    <td><select data-cod="E08629"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08628">
+    <td class="cod">E08628</td>
+    <td>Marilis Gassen Xavier</td>
+    <td class="num">21/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>17/08</b> Não, fica tranquila, a gente pode sim marcar uma reunião online nós duas, te mostro tudo que a gente consegue oferecer e claro, eu falo para todos os meus clientes, o que vocês querem fazer para esse </td>
+    <td><select data-cod="E08628"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08645">
+    <td class="cod">E08645</td>
+    <td>Indústria e Comércio de Confecções Di Mirmay Ltda</td>
+    <td class="num">24/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>03/09</b> Oiii, Ludimila! Tudo bem? Sejam muito bem-vindos à Indaiá Eventos! É um prazer ter vocês conosco! A partir de agora, estarei acompanhando vocês na parte de assessoria e organização do evento, sendo no</td>
+    <td><select data-cod="E08645"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08647">
+    <td class="cod">E08647</td>
+    <td>Fernanda Winkelmann</td>
+    <td class="num">26/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">5</td>
+    <td class="prova"><b>15/09</b> *Polyana:* Fer, vi que o evento de vocês estáa super pertinhoo!! 😍 Para nós agilizar, e conseguimos iniciar o acompanhamento com vocês, precisamos agendar uma reunião online.. Nessa reunião conseguim</td>
+    <td><select data-cod="E08647"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08654">
+    <td class="cod">E08654</td>
+    <td>Lucas Caetano Ferreira</td>
+    <td class="num">27/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Maria</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>08/09</b> Oiee Lucas, tudo certo? Estou retomando nosso atendimento para agendarmos nossa reunião de forma on-line, dia 10/09/2026, eu tenho horário disponível às 10h da manhã ou às 15:30. Qual horário ficaria </td>
+    <td><select data-cod="E08654"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08665">
+    <td class="cod">E08665</td>
+    <td>Amarilis de Borba Moccelin</td>
+    <td class="num">30/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória, Maria</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>07/09</b> Podemos reagendar a nossa reunião? Lembrei que já tinha outro compromisso marcado pra dia 10</td>
+    <td><select data-cod="E08665"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08670">
+    <td class="cod">E08670</td>
+    <td>Ana Karolina Freitas Vieira</td>
+    <td class="num">31/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória, Gabriela, Jhonatan</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>27/08</b> Eu tive um imprevisto e queria ver se seria possível remarcar nossa reunião para segunda à tarde, após as 15 hrs</td>
+    <td><select data-cod="E08670"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08682">
+    <td class="cod">E08682</td>
+    <td>Jaine Fernanda Teixeira</td>
+    <td class="num">06/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória, Maria</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>24/09</b> Olá Jaine, tudo bem? Aqui é a Maria Eduarda, estou entrando em contato com você para enteder se deseja prosseguir com o alinhamento dos serviços que conversamos na nossa reunião de boas-vindas? Aguard</td>
+    <td><select data-cod="E08682"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08698">
+    <td class="cod">E08698</td>
+    <td>Suzana Palmira Eberle Bevilacqua</td>
+    <td class="num">14/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>17/09</b> Oi Suzana, boa tarde, tudo bem? Suzana, referente, né? Então, o nosso primeiro atendimento, eu enviei ele pra vocês algumas informações referente à área do cliente, né? Agora a gente precisa deixar de</td>
+    <td><select data-cod="E08698"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr></tbody></table>
+  </div><div class="card">
+    <h2><span class="farol" style="background:#fbbf24"></span>C · link do Meet, sem contexto na conversa <span class="leg">· 59 clientes</span></h2>
+    <p class="nota">O link foi enviado sem texto que identifique a reunião. Pode ser boas-vindas, próximos passos, cerimonial ou reunião final.</p>
+    <table><thead><tr><th>Evento</th><th>Cliente</th><th class="num">contrato</th><th class="num">evento</th><th>Quem falou</th><th class="num">meets</th><th>Trecho da conversa</th><th>Qual reunião foi?</th></tr></thead>
+    <tbody><tr data-cod="E08450">
+    <td class="cod">E08450</td>
+    <td>Marco Aurélio Soares</td>
+    <td class="num">04/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Henmilli, Carline, Gabriela</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/zxj-rjng-cen</td>
+    <td><select data-cod="E08450"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08443">
+    <td class="cod">E08443</td>
+    <td>Anderson Maycon Ignácio</td>
+    <td class="num">04/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Evelyn, Laura</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>26/08</b> link enviado: meet.google.com/ugp-enxe-rzi</td>
+    <td><select data-cod="E08443"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08454">
+    <td class="cod">E08454</td>
+    <td>Jasminy Gonchoroski da Graça</td>
+    <td class="num">05/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Laura, Gabriela, Ester</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>27/07</b> link enviado: meet.google.com/tdc-dosx-cvi</td>
+    <td><select data-cod="E08454"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08445">
+    <td class="cod">E08445</td>
+    <td>Tiago Cauã Nascimento</td>
+    <td class="num">05/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Wyllian, Arnaldo</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>14/07</b> link enviado: meet.google.com/cjq-xckk-pro</td>
+    <td><select data-cod="E08445"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08446">
+    <td class="cod">E08446</td>
+    <td>Cleyton Ferreira</td>
+    <td class="num">05/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Giulia, Gabriela, Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>24/07</b> link enviado: meet.google.com/ctt-jnsp-xvs</td>
+    <td><select data-cod="E08446"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08448">
+    <td class="cod">E08448</td>
+    <td>Luana Vansin</td>
+    <td class="num">06/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Ester, Jordana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/woo-ovva-reh</td>
+    <td><select data-cod="E08448"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08453">
+    <td class="cod">E08453</td>
+    <td>Maiara Lais Fiamoncini</td>
+    <td class="num">07/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Wyllian, Atenção</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>21/07</b> link enviado: meet.google.com/upa-vqhn-ukn</td>
+    <td><select data-cod="E08453"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08457">
+    <td class="cod">E08457</td>
+    <td>Ana Silvia Teixeira Choma</td>
+    <td class="num">08/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Gabriela, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>08/07</b> link enviado: meet.google.com/eun-svnw-kdj</td>
+    <td><select data-cod="E08457"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08461">
+    <td class="cod">E08461</td>
+    <td>Ana Caroline Morello</td>
+    <td class="num">11/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Amália, Wyllian, Maria</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>27/07</b> link enviado: meet.google.com/frm-qnft-ftb</td>
+    <td><select data-cod="E08461"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08466">
+    <td class="cod">E08466</td>
+    <td>Nestor Kohler Schulte</td>
+    <td class="num">13/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Amália, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>10/08</b> link enviado: meet.google.com/cuj-zhzs-rna</td>
+    <td><select data-cod="E08466"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08468">
+    <td class="cod">E08468</td>
+    <td>Bruna Larissa Moreira</td>
+    <td class="num">13/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Amália, Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>29/07</b> link enviado: meet.google.com/ozx-bhan-tch</td>
+    <td><select data-cod="E08468"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08471">
+    <td class="cod">E08471</td>
+    <td>Andréa Steinhorst Antunes</td>
+    <td class="num">15/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Cristina, Jordana</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>25/08</b> link enviado: meet.google.com/ujj-trfj-har</td>
+    <td><select data-cod="E08471"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08472">
+    <td class="cod">E08472</td>
+    <td>Michelle Wilhelms</td>
+    <td class="num">16/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Arnaldo</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>11/08</b> link enviado: meet.google.com/pbo-ahwu-the</td>
+    <td><select data-cod="E08472"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08479">
+    <td class="cod">E08479</td>
+    <td>Rodrigo Teixeira Guerra</td>
+    <td class="num">18/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Arnaldo</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>07/10</b> link enviado: meet.google.com/juj-oixk-rvf</td>
+    <td><select data-cod="E08479"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08477">
+    <td class="cod">E08477</td>
+    <td>Michelli Bianchini</td>
+    <td class="num">18/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>03/08</b> link enviado: meet.google.com/rkd-xpkm-hzb</td>
+    <td><select data-cod="E08477"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08485">
+    <td class="cod">E08485</td>
+    <td>NEURON CONSULTORIA LTDA</td>
+    <td class="num">20/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>05/08</b> link enviado: meet.google.com/kdi-ojkp-abh</td>
+    <td><select data-cod="E08485"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08482">
+    <td class="cod">E08482</td>
+    <td>RESIDENCIAL BV SPE LTDA</td>
+    <td class="num">21/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>24/07</b> link enviado: meet.google.com/dmn-yqrm-aso</td>
+    <td><select data-cod="E08482"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08487">
+    <td class="cod">E08487</td>
+    <td>Ana Leticia Melo</td>
+    <td class="num">22/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Arnaldo, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/fkk-chkw-wpy</td>
+    <td><select data-cod="E08487"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08492">
+    <td class="cod">E08492</td>
+    <td>Emerson Rodrigo Steffen</td>
+    <td class="num">25/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo, Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>08/08</b> link enviado: meet.google.com/tpa-fxkz-het</td>
+    <td><select data-cod="E08492"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08491">
+    <td class="cod">E08491</td>
+    <td>Mariana Bueno dos Santos da Silva</td>
+    <td class="num">25/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>31/08</b> link enviado: meet.google.com/krj-kdmm-qho</td>
+    <td><select data-cod="E08491"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08504">
+    <td class="cod">E08504</td>
+    <td>Lucas Eduardo Machado Godoy</td>
+    <td class="num">27/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Maria, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>25/08</b> link enviado: meet.google.com/iem-ctaf-yxn</td>
+    <td><select data-cod="E08504"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08508">
+    <td class="cod">E08508</td>
+    <td>Jean José Izing</td>
+    <td class="num">29/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jordana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>28/08</b> link enviado: meet.google.com/kxy-aqfk-ffd</td>
+    <td><select data-cod="E08508"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08511">
+    <td class="cod">E08511</td>
+    <td>Luiza Fernanda Micoski Beppler</td>
+    <td class="num">30/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo, Wyllian</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>18/08</b> link enviado: meet.google.com/spw-cypj-tfx</td>
+    <td><select data-cod="E08511"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08517">
+    <td class="cod">E08517</td>
+    <td>Julia Fernandes Ambrosio</td>
+    <td class="num">31/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">4</td>
+    <td class="prova"><b>05/08</b> link enviado: meet.google.com/hpz-htde-kfn</td>
+    <td><select data-cod="E08517"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08516">
+    <td class="cod">E08516</td>
+    <td>Maria Eduarda Afonso</td>
+    <td class="num">31/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Cristina, Jhonatan, Polyana</span></td>
+    <td class="num">4</td>
+    <td class="prova"><b>12/08</b> link enviado: meet.google.com/xyz-vidp-tmw</td>
+    <td><select data-cod="E08516"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08522">
+    <td class="cod">E08522</td>
+    <td>Cristiano Leoz</td>
+    <td class="num">01/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>09/09</b> link enviado: meet.google.com/ohq-hdmu-pnf</td>
+    <td><select data-cod="E08522"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08527">
+    <td class="cod">E08527</td>
+    <td>Jussara Etelvina Ramos</td>
+    <td class="num">02/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Jonathan, Mariane</span></td>
+    <td class="num">3</td>
+    <td class="prova"><b>11/09</b> link enviado: meet.google.com/rao-qejs-fyu</td>
+    <td><select data-cod="E08527"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08525">
+    <td class="cod">E08525</td>
+    <td>Sandra dos Santos Bonsenhor</td>
+    <td class="num">02/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>30/09</b> link enviado: meet.google.com/gwd-kwcb-byg</td>
+    <td><select data-cod="E08525"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08528">
+    <td class="cod">E08528</td>
+    <td>Victória Berger Porto</td>
+    <td class="num">02/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>19/08</b> link enviado: meet.google.com/iuf-qhxz-rpt</td>
+    <td><select data-cod="E08528"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08652">
+    <td class="cod">E08652</td>
+    <td>Helena Uliano Koch</td>
+    <td class="num">05/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>25/08</b> link enviado: meet.google.com/par-vvgb-ney</td>
+    <td><select data-cod="E08652"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08576">
+    <td class="cod">E08576</td>
+    <td>Darlany Ignácio lopes</td>
+    <td class="num">06/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Polyana, Graziela</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>01/09</b> link enviado: meet.google.com/fud-fizm-stc</td>
+    <td><select data-cod="E08576"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08579">
+    <td class="cod">E08579</td>
+    <td>João Guilherme Bernart Lizarelli de Oliveira</td>
+    <td class="num">07/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Jordana</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>03/09</b> link enviado: meet.google.com/apc-yavp-ryk</td>
+    <td><select data-cod="E08579"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08581">
+    <td class="cod">E08581</td>
+    <td>Maria Aparecida da Silva</td>
+    <td class="num">08/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>25/08</b> link enviado: meet.google.com/occ-skqy-bxc</td>
+    <td><select data-cod="E08581"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08599">
+    <td class="cod">E08599</td>
+    <td>LETICIA EDUARDA RENAUER DA CUNHA</td>
+    <td class="num">08/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Cristina, Polyana, Wyllian</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>08/08</b> link enviado: meet.google.com/xkm-baru-bfk</td>
+    <td><select data-cod="E08599"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08582">
+    <td class="cod">E08582</td>
+    <td>Luiza Mussi Ramalho</td>
+    <td class="num">08/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Mariane, Cristina</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>10/09</b> link enviado: meet.google.com/zok-iysx-fvg</td>
+    <td><select data-cod="E08582"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08586">
+    <td class="cod">E08586</td>
+    <td>Mara Luiza Rosa dos Santos</td>
+    <td class="num">09/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>19/08</b> link enviado: meet.google.com/dyf-cejp-gng</td>
+    <td><select data-cod="E08586"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08592">
+    <td class="cod">E08592</td>
+    <td>Letícia Geisler</td>
+    <td class="num">10/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Mariane, Maria</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>14/09</b> link enviado: meet.google.com/hcz-upti-iwy</td>
+    <td><select data-cod="E08592"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08595">
+    <td class="cod">E08595</td>
+    <td>Rodrigo Haake</td>
+    <td class="num">11/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>04/09</b> link enviado: meet.google.com/sve-mtfr-xvw</td>
+    <td><select data-cod="E08595"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08598">
+    <td class="cod">E08598</td>
+    <td>Bmp Tech Tecnologia E Servicos Ltda</td>
+    <td class="num">12/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>14/08</b> link enviado: meet.google.com/pmd-ecsb-ojz</td>
+    <td><select data-cod="E08598"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08597">
+    <td class="cod">E08597</td>
+    <td>Gustavo Miguel Heck Carpenedo</td>
+    <td class="num">12/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian</span></td>
+    <td class="num">3</td>
+    <td class="prova"><b>12/08</b> link enviado: meet.google.com/qyf-fvgc-kkf</td>
+    <td><select data-cod="E08597"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08607">
+    <td class="cod">E08607</td>
+    <td>Andressa de Souza Pereira</td>
+    <td class="num">14/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian, Arnaldo</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>31/08</b> link enviado: meet.google.com/qgg-dzbe-hpw</td>
+    <td><select data-cod="E08607"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08610">
+    <td class="cod">E08610</td>
+    <td>Bruna Jaiani Pedroso</td>
+    <td class="num">15/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>04/09</b> link enviado: meet.google.com/ghu-wrjd-qvd</td>
+    <td><select data-cod="E08610"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08615">
+    <td class="cod">E08615</td>
+    <td>Julia Gielow Teycz</td>
+    <td class="num">16/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Wyllian</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>29/08</b> link enviado: meet.google.com/axa-xhru-yfq</td>
+    <td><select data-cod="E08615"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08618">
+    <td class="cod">E08618</td>
+    <td>Gabriela milagros Soruco ishii</td>
+    <td class="num">17/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda, Jhonatan, Gabriela</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>19/08</b> link enviado: meet.google.com/aoa-kfmc-dmr</td>
+    <td><select data-cod="E08618"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08619">
+    <td class="cod">E08619</td>
+    <td>Willian Rafael Moreira Machado</td>
+    <td class="num">17/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Laura, Wyllian</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>28/08</b> link enviado: meet.google.com/sxx-zofb-vkr</td>
+    <td><select data-cod="E08619"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08651">
+    <td class="cod">E08651</td>
+    <td>JOINVILLE EM DOBRO LTDA</td>
+    <td class="num">18/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>29/09</b> link enviado: meet.google.com/zmw-kqtk-ycv</td>
+    <td><select data-cod="E08651"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08621">
+    <td class="cod">E08621</td>
+    <td>isabelle atanazio da silva</td>
+    <td class="num">18/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>02/09</b> link enviado: meet.google.com/khc-tzxr-git</td>
+    <td><select data-cod="E08621"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08623">
+    <td class="cod">E08623</td>
+    <td>Bruna Ivanir Moro</td>
+    <td class="num">18/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/ggn-bmby-xzs</td>
+    <td><select data-cod="E08623"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08638">
+    <td class="cod">E08638</td>
+    <td>Carolina Crcek Heidrich</td>
+    <td class="num">21/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>22/08</b> link enviado: meet.google.com/yrd-bfaf-imk</td>
+    <td><select data-cod="E08638"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08640">
+    <td class="cod">E08640</td>
+    <td>Sandra Mara Guedes Martins</td>
+    <td class="num">22/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Aline, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>17/09</b> link enviado: meet.google.com/fqs-poug-mss</td>
+    <td><select data-cod="E08640"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08659">
+    <td class="cod">E08659</td>
+    <td>Paloma Pereira dos Santos</td>
+    <td class="num">28/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Maria</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>14/09</b> link enviado: meet.google.com/whd-unyo-phb</td>
+    <td><select data-cod="E08659"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08663">
+    <td class="cod">E08663</td>
+    <td>Andreza Sabel</td>
+    <td class="num">29/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda</span></td>
+    <td class="num">2</td>
+    <td class="prova"><b>21/09</b> link enviado: meet.google.com/wps-fzzv-ggg</td>
+    <td><select data-cod="E08663"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08666">
+    <td class="cod">E08666</td>
+    <td>Amanda Fernandes de Araújo</td>
+    <td class="num">30/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jordana, Jhonatan</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>10/09</b> link enviado: meet.google.com/sia-skuy-zjr</td>
+    <td><select data-cod="E08666"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08669">
+    <td class="cod">E08669</td>
+    <td>Adriana Carla Dias</td>
+    <td class="num">31/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Polyana</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>07/10</b> link enviado: meet.google.com/afj-bjgb-rdr</td>
+    <td><select data-cod="E08669"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08676">
+    <td class="cod">E08676</td>
+    <td>Ane Jaqueline Corretora</td>
+    <td class="num">02/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Pedro, Jhonatan</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>21/09</b> link enviado: meet.google.com/xxg-iaax-voq</td>
+    <td><select data-cod="E08676"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08683">
+    <td class="cod">E08683</td>
+    <td>Samira de Souza</td>
+    <td class="num">05/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>23/09</b> link enviado: meet.google.com/rrc-kemi-kme</td>
+    <td><select data-cod="E08683"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08700">
+    <td class="cod">E08700</td>
+    <td>Karina Neumann</td>
+    <td class="num">13/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>23/09</b> link enviado: meet.google.com/fsd-tzis-xgv</td>
+    <td><select data-cod="E08700"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08774">
+    <td class="cod">E08774</td>
+    <td>Janeth da Costa</td>
+    <td class="num">07/10</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/nna-aaxr-sit</td>
+    <td><select data-cod="E08774"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08776">
+    <td class="cod">E08776</td>
+    <td>Adriano Garcia</td>
+    <td class="num">07/10</td>
+    <td class="num">—</td>
+    <td><span class="leg">Vitória</span></td>
+    <td class="num">1</td>
+    <td class="prova"><b>06/10</b> link enviado: meet.google.com/svs-cigh-bnh</td>
+    <td><select data-cod="E08776"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr></tbody></table>
+  </div><div class="card">
+    <h2><span class="farol" style="background:#f87171"></span>D · convite de reunião, sem link e sem confirmação <span class="leg">· 19 clientes</span></h2>
+    <p class="nota">Houve convite, mas nada indica que a reunião chegou a acontecer. É o grupo com maior chance de "não aconteceu".</p>
+    <table><thead><tr><th>Evento</th><th>Cliente</th><th class="num">contrato</th><th class="num">evento</th><th>Quem falou</th><th class="num">meets</th><th>Trecho da conversa</th><th>Qual reunião foi?</th></tr></thead>
+    <tbody><tr data-cod="E08476">
+    <td class="cod">E08476</td>
+    <td>Letícia de Souza Cerutti</td>
+    <td class="num">17/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>13/07</b> Preciso ver contigo se conseguimos reagendar nossa reunião para sexta feira. Meu noivo fez uma viagem a trabalho e não vai chegar a tempo.</td>
+    <td><select data-cod="E08476"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08495">
+    <td class="cod">E08495</td>
+    <td>Rafael Leite da Silva</td>
+    <td class="num">25/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>01/10</b> Olá, Ana. Tudo bem? Identifiquei que há uma pendência relacionada ao seu evento. Chegou o momento de agendarmos a nossa Reunião de Cerimonial · Inicial. Esse será o nosso primeiro encontro para nos co</td>
+    <td><select data-cod="E08495"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08494">
+    <td class="cod">E08494</td>
+    <td>Ingrid Da Silva Souza</td>
+    <td class="num">25/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>24/08</b> *Jhonatan:* Podemos marcar nossa reunião para a próxima semana sim</td>
+    <td><select data-cod="E08494"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08493">
+    <td class="cod">E08493</td>
+    <td>Daniela Andressa Brasil de Oliveira</td>
+    <td class="num">25/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Jordana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>17/08</b> *Jhonatan:* Irei verificar com eles essa possibilidade, desmarcamos a nossa reunião então e esperamos vocês realizarem primeiro a reunião com a cerimonialista?</td>
+    <td><select data-cod="E08493"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08499">
+    <td class="cod">E08499</td>
+    <td>Nathielle Lopes Cocolichio</td>
+    <td class="num">26/07</td>
+    <td class="num">—</td>
+    <td><span class="leg">Arnaldo</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>24/08</b> Olá Nathielle, tudo bem? Aqui é o Arnaldo, podemos confirmar nossa reunião hoje às 18:30?</td>
+    <td><select data-cod="E08499"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08523">
+    <td class="cod">E08523</td>
+    <td>Amanda Francine Janing</td>
+    <td class="num">01/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Nós fornecemos, Jhonatan</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>04/09</b> *Jhonatan:* Amanda, se vocês preferirem podemos marcar uma reunião online mesmo, assim alinhamos todos os detalhes</td>
+    <td><select data-cod="E08523"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08600">
+    <td class="cod">E08600</td>
+    <td>Tatiane Weingartner da Silva</td>
+    <td class="num">07/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>10/08</b> Bom dia Tatiane!! Tudo certo com você? Podemos confirmar nossa reunião presencial no Indaia Itapema amanhã as 14hrs? Pode ser?</td>
+    <td><select data-cod="E08600"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08585">
+    <td class="cod">E08585</td>
+    <td>Vitória Gabriela prado</td>
+    <td class="num">08/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>21/09</b> Oiii Vitória! Me chamo Polyana e, a partir de agora, sou eu quem vai acompanhar vocês na organização do evento. Ainda não conseguimos fazer a reunião de boas vindas de vocês, que é onde a gente alinha</td>
+    <td><select data-cod="E08585"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08608">
+    <td class="cod">E08608</td>
+    <td>Jaqueline Arlene Silveira</td>
+    <td class="num">14/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>01/09</b> Cliente fez a alteração do ambiente, saiu do Canto e foi para o Mirante. Já fiz reunião de boas-vindas, apresentei os serviços e ela não quis adicionar.</td>
+    <td><select data-cod="E08608"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08625">
+    <td class="cod">E08625</td>
+    <td>Cleverson Pereira da Silva</td>
+    <td class="num">20/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Jhonatan, Gabriela, Cristina</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>22/09</b> Olá Susan, tudo bem? Aqui é Carol, há alguns dias atrás eu entrei em contato para agendarmos a nossa reunião de alinhamento da decor, feita em formato online e você me disse que estavam viajando. Já r</td>
+    <td><select data-cod="E08625"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08639">
+    <td class="cod">E08639</td>
+    <td>filipe orli de sousa</td>
+    <td class="num">21/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>21/09</b> *Polyana:* Tudo beem Filipe. Siim, a reunião de boas vindas é online. Como está a disponibilidade de vocês para semana que vem?</td>
+    <td><select data-cod="E08639"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08630">
+    <td class="cod">E08630</td>
+    <td>Beatriz de Lourdes chimbolombe</td>
+    <td class="num">21/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Eduarda, Polyana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>17/09</b> Bia, vamos lá então. A gente mudou um pouquinho o processo, né? A gente agora vai ter essa primeira reunião, que é uma reunião de boas-vindas pra vocês, de formato online, tá bom? E aí, mas vocês não </td>
+    <td><select data-cod="E08630"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08633">
+    <td class="cod">E08633</td>
+    <td>Laryssa Victoria de Deus Pereira</td>
+    <td class="num">22/08</td>
+    <td class="num">—</td>
+    <td><span class="leg">Pedro, Gabriela, Jhonatan</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>08/10</b> Olá Laryssa, tudo bem? Aqui é a Jordana. Passando para confirmar nossa reunião hoje as 10h.</td>
+    <td><select data-cod="E08633"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08677">
+    <td class="cod">E08677</td>
+    <td>Karolyne de Souza</td>
+    <td class="num">04/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Aline, Jhonatan, Jordana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>08/10</b> Olá Caroline, tudo bem? Aqui é a Jordana. Vamos agendar nossa reunião inicial? 🥰.</td>
+    <td><select data-cod="E08677"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08688">
+    <td class="cod">E08688</td>
+    <td>André Gama Coelho</td>
+    <td class="num">06/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">—</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>14/09</b> o que vocÊ acha de marcar uma reunião online para hoje?</td>
+    <td><select data-cod="E08688"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08695">
+    <td class="cod">E08695</td>
+    <td>Rogério Konell</td>
+    <td class="num">11/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Pedro</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>28/09</b> Oiee Joanna. Tudo bem? Estou retomando nosso atendimento e preciso agendar com você a nossa reunião de boas-vindas. Posso te passar os próximos passos?.</td>
+    <td><select data-cod="E08695"><option>Boas-vindas</option><option selected>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08711">
+    <td class="cod">E08711</td>
+    <td>Mariana Oechsler</td>
+    <td class="num">12/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Maria</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>01/10</b> Queria ver com você se é possível remarcarmos nossa reunião de hoje para quinta feira que vem</td>
+    <td><select data-cod="E08711"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08703">
+    <td class="cod">E08703</td>
+    <td>Alessandra Erdmann</td>
+    <td class="num">15/09</td>
+    <td class="num">—</td>
+    <td><span class="leg">Aline, Maria</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>06/10</b> Oiee Alessandra. Tudo bem? Estou retomando nosso atendimento pois precisamos *agendar a reunião de boas-vindas* ainda. Qual dia da semana e horário fica melhor para vocês? Aguardo o seu retorno.</td>
+    <td><select data-cod="E08703"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr><tr data-cod="E08777">
+    <td class="cod">E08777</td>
+    <td>Felipe Amaral</td>
+    <td class="num">04/10</td>
+    <td class="num">—</td>
+    <td><span class="leg">Polyana</span></td>
+    <td class="num">—</td>
+    <td class="prova"><b>08/10</b> Você pode trazer todas essas dúvidas para a nossa reunião de boas-vindas também 😊</td>
+    <td><select data-cod="E08777"><option selected>Boas-vindas</option><option>Próximos Passos</option><option>Cerimonial</option><option>Reunião Final</option><option>Decoração</option><option>Outra</option><option>NÃO aconteceu</option><option>a conferir</option></select></td>
+  </tr></tbody></table>
+  </div>
+
+<div class="card">
+  <h2>Resultado para colar</h2>
+  <p class="nota">Clique em "Copiar resultado" e cole aqui no chat ou mande para quem vai lançar no CRM.</p>
+  <textarea id="saida" readonly></textarea>
+</div>
+</div>
+<script>
+const KEY = 'revisao-bv-2026-10';
+const salvo = JSON.parse(localStorage.getItem(KEY) || '{}');
+const selects = [...document.querySelectorAll('select')];
+function pinta(s) {
+  s.className = s.value === 'NÃO aconteceu' ? 'nao' : s.value === 'a conferir' ? '' : 'ok';
+}
+selects.forEach((s) => {
+  const cod = s.dataset.cod;
+  if (salvo[cod]) s.value = salvo[cod];
+  pinta(s);
+  s.onchange = () => { salvo[cod] = s.value; localStorage.setItem(KEY, JSON.stringify(salvo)); pinta(s); conta(); render(); };
+});
+function conta() {
+  const marcados = selects.filter((s) => salvo[s.dataset.cod]).length;
+  document.getElementById('contador').textContent = marcados + ' de ' + selects.length + ' revisados';
+}
+function render() {
+  const linhas = selects.map((s) => {
+    const tr = s.closest('tr');
+    const cod = s.dataset.cod, nome = tr.children[1].textContent.trim();
+    return [cod, nome, s.value, salvo[cod] ? 'revisado' : 'sugestão do sistema'].join('\t');
+  });
+  document.getElementById('saida').value = 'evento\tcliente\treunião\torigem\n' + linhas.join('\n');
+}
+function copiar() { const t = document.getElementById('saida'); t.select(); document.execCommand('copy');
+  const b = document.querySelector('button'); const o = b.textContent; b.textContent = 'copiado'; setTimeout(() => b.textContent = o, 1200); }
+function limpar() { if (!confirm('Apagar todas as marcações deste navegador?')) return;
+  localStorage.removeItem(KEY); location.reload(); }
+conta(); render();
+</script>
+</body>
+</html>
