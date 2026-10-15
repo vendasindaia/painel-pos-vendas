@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Régua de reuniões · teste</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#0b0d11;--card:#141821;--card2:#1a1f29;--linha:#232936;--ink:#e8eaed;--ink2:#9aa3af;--mut:#6b7280;
+ --ok:#4ade80;--ag:#60a5fa;--rev:#fbbf24;--atr:#f87171;--prev:#4b5563;--canc:#f87171}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:22px 18px 60px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--mut);font-size:13px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:18px 20px}
+.topo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--linha);padding-bottom:12px;margin-bottom:14px}
+.cod{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.cli{font-size:13px;color:var(--ink2)}
+.meta{font-size:12px;color:var(--mut);text-align:right;white-space:nowrap}
+h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:0 0 12px;font-weight:600}
+.item{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:start;padding:9px 0;border-bottom:1px solid #1b2029}
+.item:last-child{border-bottom:0}
+.ic{font-size:15px;line-height:1.3}
+.nome{font-weight:600;font-size:13.5px}
+.det{font-size:12px;color:var(--mut);margin-top:1px}
+.quando{font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.tag{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:5px;margin-left:7px;vertical-align:1px}
+.ok{color:var(--ok)}.tag.ok{background:rgba(74,222,128,.14);color:var(--ok)}
+.ok2{color:var(--ok)}.tag.ok2{background:rgba(74,222,128,.10);color:var(--ok)}
+.ag{color:var(--ag)}.tag.ag{background:rgba(96,165,250,.14);color:var(--ag)}
+.rev{color:var(--rev)}.tag.rev{background:rgba(251,191,36,.16);color:var(--rev)}
+.atr{color:var(--atr)}.tag.atr{background:rgba(248,113,113,.16);color:var(--atr)}
+.prev{color:var(--prev)}.tag.prev{background:rgba(107,114,128,.18);color:#9aa3af}
+.canc{color:var(--canc)}.tag.canc{background:rgba(248,113,113,.16);color:var(--canc)}
+.barra{display:flex;gap:3px;margin:14px 0 10px}
+.barra i{flex:1;height:5px;border-radius:3px;background:#242b38}
+.rodape{margin-top:12px;padding-top:12px;border-top:1px solid var(--linha);font-size:12.5px;color:var(--ink2)}
+.rodape b{color:var(--ink)}
+.legenda{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:16px 0 0}
+.nota{font-size:12.5px;color:var(--mut);background:var(--card2);border-radius:10px;padding:12px 15px;margin-top:18px;line-height:1.6}
+</style></head><body><div class="wrap">
+<h1>Régua de reuniões · teste para a aba Jornada</h1>
+<p class="sub">Dados reais de 6 clientes · 09/10/2026 · junta a agenda do CRM, a evidência da conversa e a data-alvo do cronograma</p>
+<div class="grid">
+<div class="card">
+  <div class="topo">
+    <div><div class="cod">E08444</div>
+      <div class="cli">Giani Alerson Lupatini</div></div>
+    <div class="meta">15 Anos · 55 convidados<br>evento em 27/10/2028<br>contrato em 04/07/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--ok2)" title="Boas-vindas: evidência na conversa"></i><i style="background:var(--ag)" title="Primeiros Passos: agendada"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">🟢</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag ok2">evidência na conversa</span>
+      <div class="det">a equipe citou a boas-vindas no passado em 2026-10-01</div></span>
+    <span class="quando ok2"></span>
+  </div><div class="item">
+    <span class="ic">📅</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag ag">agendada</span><span class="tag prev">extra</span>
+      <div class="det">Polyana Pozzamai · 20:00</div></span>
+    <span class="quando ag">20/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 23 dias</div></span>
+    <span class="quando prev">01/11/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 83 dias</div></span>
+    <span class="quando prev">31/12/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 704 dias</div></span>
+    <span class="quando prev">12/09/2028</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>Boas-vindas concluída</b> · próxima: <b>Primeiros Passos</b> Polyana Pozzamai · 20:00</div>
+</div><div class="card">
+  <div class="topo">
+    <div><div class="cod">E08655</div>
+      <div class="cli">Peterson Oscar Costa  / Emily Fernandes Zancanaro</div></div>
+    <div class="meta">Casamento · 70 convidados<br>evento em 20/11/2027<br>contrato em 15/08/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--ok2)" title="Boas-vindas: evidência na conversa"></i><i style="background:var(--ag)" title="Primeiros Passos: agendada"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">🟢</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag ok2">evidência na conversa</span>
+      <div class="det">a equipe citou a boas-vindas no passado em 2026-09-24</div></span>
+    <span class="quando ok2"></span>
+  </div><div class="item">
+    <span class="ic">📅</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag ag">agendada</span><span class="tag prev">extra</span>
+      <div class="det">Polyana Pozzamai · 14:00</div></span>
+    <span class="quando ag">15/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 65 dias</div></span>
+    <span class="quando prev">13/12/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 125 dias</div></span>
+    <span class="quando prev">11/02/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 362 dias</div></span>
+    <span class="quando prev">06/10/2027</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>Boas-vindas concluída</b> · próxima: <b>Primeiros Passos</b> Polyana Pozzamai · 14:00</div>
+</div><div class="card">
+  <div class="topo">
+    <div><div class="cod">E08667</div>
+      <div class="cli">Andressa Dutra ferreira Barbosa  / kalléu limas barbosa</div></div>
+    <div class="meta">15 Anos · 60 convidados<br>evento em 24/01/2031<br>contrato em 30/08/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--ok2)" title="Boas-vindas: evidência na conversa"></i><i style="background:var(--ok)" title="Primeiros Passos: realizada"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">🟢</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag ok2">evidência na conversa</span>
+      <div class="det">a equipe citou a boas-vindas no passado em 2026-09-21</div></span>
+    <span class="quando ok2"></span>
+  </div><div class="item">
+    <span class="ic">✅</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag ok">realizada</span><span class="tag prev">extra</span>
+      <div class="det">Polyana Pozzamai · 16:00</div></span>
+    <span class="quando ok">06/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 80 dias</div></span>
+    <span class="quando prev">28/12/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 140 dias</div></span>
+    <span class="quando prev">26/02/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 1523 dias</div></span>
+    <span class="quando prev">10/12/2030</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>Primeiros Passos concluída</b> · próxima: <b>Layout e Decor</b> em 80 dias</div>
+</div><div class="card">
+  <div class="topo">
+    <div><div class="cod">E08697</div>
+      <div class="cli">Ellen Kéroliny Daniel  / Samuel Costa Soares</div></div>
+    <div class="meta">Casamento · 50 convidados<br>evento em 18/09/2027<br>contrato em 13/09/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--ok2)" title="Boas-vindas: evidência na conversa"></i><i style="background:var(--ag)" title="Primeiros Passos: agendada"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">🟢</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag ok2">evidência na conversa</span>
+      <div class="det">a equipe citou a boas-vindas no passado em 2026-10-05</div></span>
+    <span class="quando ok2"></span>
+  </div><div class="item">
+    <span class="ic">📅</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag ag">agendada</span><span class="tag prev">extra</span>
+      <div class="det">Polyana Pozzamai · 17:00</div></span>
+    <span class="quando ag">13/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 94 dias</div></span>
+    <span class="quando prev">11/01/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 154 dias</div></span>
+    <span class="quando prev">12/03/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 299 dias</div></span>
+    <span class="quando prev">04/08/2027</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>Boas-vindas concluída</b> · próxima: <b>Primeiros Passos</b> Polyana Pozzamai · 17:00</div>
+</div><div class="card">
+  <div class="topo">
+    <div><div class="cod">E08711</div>
+      <div class="cli">Mariana Oechsler  / Lucas de Carvalho Louro</div></div>
+    <div class="meta">Casamento · 30 convidados<br>evento em 17/11/2030<br>contrato em 12/09/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--canc)" title="Boas-vindas: cancelada"></i><i style="background:var(--prev)" title="Primeiros Passos: prevista"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">❌</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag canc">cancelada</span>
+      <div class="det">cancelada, sem remarcação</div></span>
+    <span class="quando canc">08/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag prev">prevista</span><span class="tag prev">extra</span>
+      <div class="det">em 41 dias</div></span>
+    <span class="quando prev">19/11/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 93 dias</div></span>
+    <span class="quando prev">10/01/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 153 dias</div></span>
+    <span class="quando prev">11/03/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 1455 dias</div></span>
+    <span class="quando prev">03/10/2030</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>nenhuma reunião concluída</b> · próxima: <b>Primeiros Passos</b> em 41 dias</div>
+</div><div class="card">
+  <div class="topo">
+    <div><div class="cod">E08756</div>
+      <div class="cli">Geovana Cristina Cipriano  / Luis Antonio de Oliveira Paim </div></div>
+    <div class="meta">Casamento · 50 convidados<br>evento em 15/10/2027<br>contrato em 29/09/2026</div>
+  </div>
+  <h2>Régua de reuniões</h2>
+  <div class="barra"><i style="background:var(--ok)" title="Boas-vindas: realizada"></i><i style="background:var(--ag)" title="Primeiros Passos: agendada"></i><i style="background:var(--prev)" title="Layout e Decor: prevista"></i><i style="background:var(--prev)" title="Gastronomia: prevista"></i><i style="background:var(--prev)" title="Reunião Final: prevista"></i></div>
+  <div class="item">
+    <span class="ic">✅</span>
+    <span><span class="nome">Boas-vindas</span><span class="tag ok">realizada</span>
+      <div class="det">Jordana Toldo · 19:30</div></span>
+    <span class="quando ok">07/10/2026</span>
+  </div><div class="item">
+    <span class="ic">📅</span>
+    <span><span class="nome">Primeiros Passos</span><span class="tag ag">agendada</span><span class="tag prev">extra</span>
+      <div class="det">Jordana Toldo · 19:00</div></span>
+    <span class="quando ag">19/10/2026</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Layout e Decor</span><span class="tag prev">prevista</span>
+      <div class="det">em 110 dias</div></span>
+    <span class="quando prev">27/01/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Gastronomia</span><span class="tag prev">prevista</span>
+      <div class="det">em 170 dias</div></span>
+    <span class="quando prev">28/03/2027</span>
+  </div><div class="item">
+    <span class="ic">⬜</span>
+    <span><span class="nome">Reunião Final</span><span class="tag prev">prevista</span>
+      <div class="det">em 326 dias</div></span>
+    <span class="quando prev">31/08/2027</span>
+  </div>
+  <div class="rodape">Etapa atual: <b>Boas-vindas concluída</b> · próxima: <b>Primeiros Passos</b> Jordana Toldo · 19:00</div>
+</div>
+</div>
+<div class="legenda">
+  <span>✅ realizada (agenda do CRM)</span><span>🟢 evidência na conversa, falta lançar</span>
+  <span>📅 agendada</span><span>❓ a revisar</span><span>⚠️ atrasada</span><span>⬜ prevista pelo cronograma</span><span>❌ cancelada</span>
+</div>
+<div class="nota">
+  <b>De onde vem cada linha.</b> "Realizada" e "agendada" saem da agenda do CRM. "Prevista" é a data-alvo do cronograma (<code>cronograma-reunioes.ts</code>): boas-vindas de 15 a 30 dias do contrato, Primeiros Passos de 45 a 90, Layout e Decor em 120, Gastronomia em 180 e Reunião Final 45 dias antes do evento. "Atrasada" é a prevista cuja data já passou.
+  <br><b>As duas linhas novas</b> são as que resolvem o problema de hoje: <b>🟢 evidência na conversa</b> aparece quando o WhatsApp mostra que a reunião aconteceu e o CRM não registra, e <b>❓ a revisar</b> quando houve reunião online mas a conversa não diz qual era. As duas viram um botão de um clique para o atendente confirmar e o CRM passar a ter o dado.
+</div>
+</div></body></html>
