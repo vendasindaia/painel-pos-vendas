@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock · Pós-Vendas (novo) · Qualidade da venda</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+:root{--bg:#0d1014;--card:#151a21;--card2:#11161c;--line:#232a33;--ink:#e8edf3;--mut:#8b96a5;--verde:#22c55e;--verde2:#16351f;--vermelho:#ef4444;--vermelho2:#3a1c1c;--azul:#3b82f6;--amarelo:#eab308;--roxo:#a78bfa}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:22px 18px 70px}
+.wrap{max-width:1240px;margin:0 auto}
+h1{font-size:22px;margin:0 0 2px}
+.sub{color:var(--mut);margin:0 0 16px;font-size:13.5px}
+.filtros{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.campo{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13px;color:var(--ink);min-width:150px}
+.campo small{display:block;color:var(--mut);font-size:11px;margin-bottom:2px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.chips span{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:5px 11px;font-size:12.5px;color:var(--mut)}
+.chips span.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.abas{display:flex;gap:4px;background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:4px;width:max-content;margin-bottom:16px}
+.abas span{padding:6px 14px;border-radius:7px;font-size:13.5px;color:var(--mut)}
+.abas span.on{background:#2a323c;color:#fff}
+.bloco{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.bloco h2{font-size:16px;margin:0 0 3px}
+.bloco .leg{color:var(--mut);font-size:12.5px;margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center}
+.kpi.ok{border-color:#1f4d31;background:linear-gradient(180deg,var(--verde2),var(--card))}
+.kpi.ruim{border-color:#4d2626;background:linear-gradient(180deg,var(--vermelho2),var(--card))}
+.kpi .rot{color:var(--mut);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.kpi .val{font-size:26px;font-weight:600;margin:4px 0 2px}
+.kpi .nota{color:var(--mut);font-size:11.5px}
+.kpi .val.v{color:var(--verde)}.kpi .val.r{color:var(--vermelho)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--mut);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:600}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.v{color:var(--verde);font-weight:600}.r{color:var(--vermelho);font-weight:600}.a{color:var(--amarelo);font-weight:600}
+.barra{height:7px;border-radius:4px;background:#232a33;overflow:hidden;min-width:90px}
+.barra i{display:block;height:100%;background:var(--verde)}
+.barra i.baixa{background:var(--vermelho)}
+.barra i.media{background:var(--amarelo)}
+.heat td span{display:inline-block;padding:3px 8px;border-radius:5px;font-variant-numeric:tabular-nums}
+.tip{color:var(--mut);font-size:12px;margin-top:10px}
+.nota-mock{background:#12204a;border:1px solid #1d4ed8;border-radius:10px;padding:12px 16px;color:#cfe0ff;font-size:13px;margin-bottom:18px}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.cards{grid-template-columns:repeat(2,1fr)}}
+
+.filtro-prod{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.filtro-prod input,.filtro-prod select{background:var(--card2);border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--ink);font-size:13px}
+.filtro-prod input{min-width:190px}
+.fchip{border:1px solid var(--line);border-radius:7px;padding:5px 10px;font-size:12.5px;color:var(--mut);cursor:pointer;border-left:3px solid var(--c,var(--line))}
+.fchip:hover{color:var(--ink)}
+.fchip.on{background:#1f2630;color:#fff}
+#tprod tbody tr:hover{background:#171d25}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nota-mock"><b>Simulação.</b> Este é um mock da aba <b>Pós-Vendas (novo) › Especialistas</b> com um bloco novo, "Qualidade da venda". Os números são reais, do período 01/09 a 06/10/2026. Nada foi criado no CRM.</div>
+
+<h1>Setores</h1>
+<p class="sub">Desempenho da equipe de Pós-Vendas (novo)</p>
+
+<div class="filtros">
+  <div class="campo"><small>Período</small>01/09/2026 – 06/10/2026</div>
+  <div class="campo"><small>Pessoa</small>Todas as pessoas</div>
+  <div class="campo"><small>Cidade</small>Todas as cidades</div>
+  <div class="campo"><small>Tipo de Evento</small>Todos os tipos</div>
+  <div class="campo"><small>Tipo de Reunião</small>Reunião Final</div>
+</div>
+<div class="chips"><span>Hoje</span><span>Esta semana</span><span>Este mês</span><span>Mês passado</span><span class="on">Últimos 30 dias</span><span>Este Ano</span><span>Meus números</span></div>
+<div class="abas"><span>Geral</span><span>Relacionamento</span><span class="on">Especialistas</span></div>
+
+<div class="cards">
+  <div class="kpi"><div class="rot">Total Vendido</div><div class="val v">R$ 430k</div><div class="nota">83 aditivos</div></div>
+  <div class="kpi"><div class="rot">Por reunião</div><div class="val">R$ 4,8k</div><div class="nota">86 realizadas</div></div>
+  <div class="kpi ok"><div class="rot">Aumento do contrato</div><div class="val v">15,8%</div><div class="nota">referência da casa: 17%</div></div>
+  <div class="kpi ruim"><div class="rot">Reuniões com item</div><div class="val r">65%</div><div class="nota">agosto: 85%</div></div>
+  <div class="kpi ruim"><div class="rot">Cortesias liberadas</div><div class="val r">R$ 40,2k</div><div class="nota">35 itens · 29% dos aditivos</div></div>
+  <div class="kpi ruim"><div class="rot">Venda em convidados</div><div class="val r">21,9%</div><div class="nota">agosto: 6,2%</div></div>
+</div>
+
+<div class="bloco">
+  <h2>Oportunidade por produto</h2>
+  <p class="leg">Quem não tinha o item no contrato e comprou na reunião final, de 01/07 a 06/10. Filtre por família ou busque o produto. O potencial usa o melhor mês do próprio produto como meta, não um número inventado.</p>
+  <div class="filtro-prod">
+    <input id="busca" placeholder="Buscar produto…" />
+    <span class="fchip on" data-f="">Todas</span>
+    <span class="fchip" data-f="Gastronomia" style="--c:#f59e0b">Gastronomia</span>
+    <span class="fchip" data-f="Bebidas" style="--c:#14b8a6">Bebidas</span>
+    <span class="fchip" data-f="Mobílias" style="--c:#fb7185">Mobílias</span>
+    <span class="fchip" data-f="Floral" style="--c:#e879f9">Floral</span>
+    <span class="fchip" data-f="Audiovisual & DJ" style="--c:#a78bfa">Audiovisual & DJ</span>
+    <span class="fchip" data-f="Assessoria & Cerimonial" style="--c:#818cf8">Assessoria & Cerimonial</span>
+    <span class="fchip" data-f="Espaços, Hospedagem & Kids" style="--c:#60a5fa">Espaços, Hospedagem & Kids</span>
+    <select id="ordem"><option value="potencial">Ordenar por potencial</option><option value="vendido">Vendido</option><option value="conv">Conversão</option><option value="sem">Sem o item</option></select>
+  </div>
+  <table id="tprod">
+    <thead><tr><th>Produto</th><th class="num">Vendido</th><th class="num">Ticket</th><th class="num">Comprou</th><th class="num">Já tinha</th><th class="num">Sem o item</th><th>Conversão</th><th class="num">Melhor mês</th><th class="num">Potencial</th><th>Quem vende</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <p class="tip" id="resumo"></p>
+</div>
+<script>
+const PRODUTOS = [{"nome":"Aperitivos","familia":"Gastronomia","vendido":17761,"ticket":2960,"comprou":6,"tinha":5,"sem":192,"conv":3,"porMes":[0,3.8,2.7,11.1],"melhor":11.1,"potencial":45864,"pessoas":"Jessica 13.7k · Kauan 4.1k"},{"nome":"Menu Excellence 2026","familia":"Gastronomia","vendido":107081,"ticket":6299,"comprou":17,"tinha":8,"sem":178,"conv":8.7,"porMes":[0,10.1,12.3,0],"melhor":12.3,"potencial":40162,"pessoas":"Nathan 81.5k · Jessica 18.5k"},{"nome":"Hora Extra com Open Bar","familia":"Espaços, Hospedagem & Kids","vendido":76638,"ticket":1965,"comprou":39,"tinha":14,"sem":150,"conv":20.6,"porMes":[15.6,23.4,18.3,33.3],"melhor":33.3,"potencial":37332,"pessoas":"Nathan 29.5k · Kauan 21k"},{"nome":"Espaço Kids - Classic","familia":"Espaços, Hospedagem & Kids","vendido":8848,"ticket":1770,"comprou":5,"tinha":9,"sem":189,"conv":2.6,"porMes":[0,2.6,2.7,12.5],"melhor":12.5,"potencial":33185,"pessoas":"Jessica 4.3k · Nathan 2.4k"},{"nome":"Painel de Led - 4x2","familia":"Audiovisual & DJ","vendido":4684,"ticket":1561,"comprou":3,"tinha":9,"sem":191,"conv":1.5,"porMes":[0,0,2.7,11.1],"melhor":11.1,"potencial":28491,"pessoas":"Nathan 3.1k · Luiz 1.6k"},{"nome":"Menu Superior II","familia":"Gastronomia","vendido":4052,"ticket":1351,"comprou":3,"tinha":71,"sem":129,"conv":2.3,"porMes":[0,1.8,2.1,16.7],"melhor":16.7,"potencial":25140,"pessoas":"Ruam 2.8k · Kauan 1.2k"},{"nome":"Estacionamento + Valet sem cobrança por carro","familia":"Espaços, Hospedagem & Kids","vendido":3651,"ticket":1217,"comprou":3,"tinha":3,"sem":197,"conv":1.5,"porMes":[2.9,0,1.3,11.1],"melhor":11.1,"potencial":23015,"pessoas":"Jessica 3.7k"},{"nome":"Lanche da Madrugada 1","familia":"Gastronomia","vendido":54374,"ticket":1754,"comprou":31,"tinha":61,"sem":111,"conv":21.8,"porMes":[27.3,29.3,15.1,0],"melhor":29.3,"potencial":14542,"pessoas":"Jessica 21.5k · Kauan 15.6k"},{"nome":"Jardim de Led","familia":"Mobílias","vendido":4037,"ticket":1346,"comprou":3,"tinha":6,"sem":194,"conv":1.5,"porMes":[6.1,0,1.3,0],"melhor":6.1,"potencial":11948,"pessoas":"Kauan 3.7k · Eduardo 0.4k"},{"nome":"Sofá Bege","familia":"Mobílias","vendido":4264,"ticket":426,"comprou":10,"tinha":54,"sem":139,"conv":6.7,"porMes":[5,3.3,8.2,25],"melhor":25,"potencial":10840,"pessoas":"Eduardo 1.8k · Ruam 1.3k"},{"nome":"Open Coffee","familia":"Bebidas","vendido":20842,"ticket":613,"comprou":34,"tinha":46,"sem":123,"conv":21.7,"porMes":[11.5,35.9,11.7,14.3],"melhor":35.9,"potencial":10740,"pessoas":"Nathan 12.3k · Jessica 4.2k"},{"nome":"Estacionamento","familia":"Espaços, Hospedagem & Kids","vendido":1521,"ticket":507,"comprou":3,"tinha":3,"sem":197,"conv":1.5,"porMes":[2.8,1.3,0,11.1],"melhor":11.1,"potencial":9590,"pessoas":"Jessica 1.5k"},{"nome":"Ilha Gourmet","familia":"Gastronomia","vendido":21344,"ticket":2668,"comprou":8,"tinha":14,"sem":181,"conv":4.2,"porMes":[6.1,4.1,4.1,0],"melhor":6.1,"potencial":9017,"pessoas":"Nathan 8.6k · Kauan 7.9k"},{"nome":"Taxa para Terceirizar Café","familia":"Gastronomia","vendido":1305,"ticket":435,"comprou":3,"tinha":2,"sem":198,"conv":1.5,"porMes":[0,1.3,1.3,11.1],"melhor":11.1,"potencial":8277,"pessoas":"Jessica 0.9k · Luiz 0.4k"},{"nome":"Open bar 2","familia":"Bebidas","vendido":189681,"ticket":4411,"comprou":43,"tinha":144,"sem":16,"conv":72.9,"porMes":[80,83.3,60.9,50],"melhor":83.3,"potencial":7353,"pessoas":"Nathan 93.9k · Ruam 40.3k"},{"nome":"Espaço dia da Noiva (NV, JO, SE, CL e BLU) - Pacote 1","familia":"Espaços, Hospedagem & Kids","vendido":8763,"ticket":1461,"comprou":6,"tinha":15,"sem":182,"conv":3.2,"porMes":[5.9,4.2,1.4,0],"melhor":5.9,"potencial":7200,"pessoas":"Jessica 3.8k · Ruam 2.1k"},{"nome":"Welcome Drink","familia":"Bebidas","vendido":7285,"ticket":911,"comprou":8,"tinha":18,"sem":177,"conv":4.3,"porMes":[3,8.7,1.4,0],"melhor":8.7,"potencial":7053,"pessoas":"Ruam 5k · Jessica 1.2k"},{"nome":"Espaço Kids c/ Monitor","familia":"Espaços, Hospedagem & Kids","vendido":3413,"ticket":853,"comprou":4,"tinha":4,"sem":195,"conv":2,"porMes":[5.7,1.3,1.3,0],"melhor":5.7,"potencial":6139,"pessoas":"Nathan 2.6k · Ruam 0.8k"},{"nome":"Pista de LED","familia":"Mobílias","vendido":9143,"ticket":762,"comprou":12,"tinha":98,"sem":93,"conv":11.4,"porMes":[0,11.6,15.8,20],"melhor":20,"potencial":6074,"pessoas":"Nathan 4k · Jessica 3.4k"},{"nome":"Armário de Lembrancinhas","familia":"Mobílias","vendido":1674,"ticket":335,"comprou":5,"tinha":19,"sem":179,"conv":2.7,"porMes":[0,1.4,4.2,12.5],"melhor":12.5,"potencial":5862,"pessoas":"Eduardo 0.8k · Jessica 0.7k"},{"nome":"Sofá Redondo com Arvore Francesa","familia":"Mobílias","vendido":5954,"ticket":992,"comprou":6,"tinha":1,"sem":196,"conv":3,"porMes":[5.6,1.2,3.9,0],"melhor":5.6,"potencial":5115,"pessoas":"Jessica 3.3k · Kauan 1.4k"},{"nome":"Tunel de Led (Mezanino e Esp. Joinville)","familia":"Mobílias","vendido":6328,"ticket":2109,"comprou":3,"tinha":9,"sem":191,"conv":1.5,"porMes":[2.8,2.6,0,0],"melhor":2.8,"potencial":5051,"pessoas":"Kauan 3.7k · Ruam 2.6k"},{"nome":"Open bar Suco De Laranja","familia":"Bebidas","vendido":3611,"ticket":1204,"comprou":3,"tinha":12,"sem":188,"conv":1.6,"porMes":[0,3.8,0,0],"melhor":3.8,"potencial":5045,"pessoas":"Jessica 2.6k · Kauan 1.1k"},{"nome":"Jardim suspenso para doces","familia":"Floral","vendido":2892,"ticket":723,"comprou":4,"tinha":0,"sem":199,"conv":2,"porMes":[0,0,5.2,0],"melhor":5.2,"potencial":4647,"pessoas":"Nathan 1.9k · Luiz 0.5k"},{"nome":"Sofá com arvore francesa","familia":"Mobílias","vendido":6045,"ticket":1008,"comprou":6,"tinha":3,"sem":194,"conv":3,"porMes":[0,5.1,2.6,0],"melhor":5.1,"potencial":4105,"pessoas":"Nathan 6k"},{"nome":"Open de Caipirinha (Básico)","familia":"Bebidas","vendido":6291,"ticket":2097,"comprou":3,"tinha":4,"sem":196,"conv":1.5,"porMes":[0,2.5,1.3,0],"melhor":2.5,"potencial":4079,"pessoas":"Luiz 2.9k · Jessica 2.2k"},{"nome":"Cabine de Fotos - 3 Horas","familia":"Audiovisual & DJ","vendido":5851,"ticket":1950,"comprou":3,"tinha":4,"sem":196,"conv":1.5,"porMes":[0,2.5,1.3,0],"melhor":2.5,"potencial":3794,"pessoas":"Kauan 2.3k · Luiz 1.8k"},{"nome":"Espelho Instagramável","familia":"Mobílias","vendido":3040,"ticket":608,"comprou":5,"tinha":0,"sem":198,"conv":2.5,"porMes":[5.6,2.5,1.3,0],"melhor":5.6,"potencial":3777,"pessoas":"Kauan 1.6k · Eduardo 1.5k"},{"nome":"Área externa (Dias de Semana)","familia":"Espaços, Hospedagem & Kids","vendido":3891,"ticket":1297,"comprou":3,"tinha":0,"sem":200,"conv":1.5,"porMes":[2.8,1.2,1.3,0],"melhor":2.8,"potencial":3429,"pessoas":"Ruam 2.1k · Jessica 1.8k"},{"nome":"Bolo Fake","familia":"Gastronomia","vendido":1960,"ticket":280,"comprou":7,"tinha":15,"sem":181,"conv":3.7,"porMes":[10.3,1.3,4,0],"melhor":10.3,"potencial":3332,"pessoas":"Kauan 0.8k · Nathan 0.7k"},{"nome":"Lustre Paris ( ME / SE )","familia":"Mobílias","vendido":2618,"ticket":655,"comprou":4,"tinha":9,"sem":190,"conv":2.1,"porMes":[2.9,0,4.2,0],"melhor":4.2,"potencial":2659,"pessoas":"Kauan 2.5k · Ruam 0.1k"},{"nome":"Pacote Sense","familia":"Mobílias","vendido":977,"ticket":163,"comprou":6,"tinha":10,"sem":187,"conv":3.1,"porMes":[11.8,2.6,0,0],"melhor":11.8,"potencial":2647,"pessoas":"Kauan 0.7k · Ruam 0.2k"},{"nome":"Arranjos Baixos - Mesa Convidados","familia":"Floral","vendido":2760,"ticket":920,"comprou":3,"tinha":9,"sem":191,"conv":1.5,"porMes":[2.9,0,2.7,0],"melhor":2.9,"potencial":2378,"pessoas":"Kauan 2k · Jessica 0.8k"},{"nome":"Rolha de Chopp (50L)","familia":"Bebidas","vendido":5289,"ticket":1322,"comprou":4,"tinha":2,"sem":197,"conv":2,"porMes":[2.8,1.3,2.6,0],"melhor":2.8,"potencial":2110,"pessoas":"Ruam 4.5k · Eduardo 0.8k"},{"nome":"Estrutura Audiovisual","familia":"Audiovisual & DJ","vendido":2336,"ticket":779,"comprou":3,"tinha":4,"sem":196,"conv":1.5,"porMes":[2.8,1.3,1.3,0],"melhor":2.8,"potencial":1972,"pessoas":"Jessica 1.5k · Luiz 0.4k"},{"nome":"Torre de Espumante","familia":"Bebidas","vendido":5104,"ticket":1276,"comprou":4,"tinha":11,"sem":188,"conv":2.1,"porMes":[2.9,1.3,2.8,0],"melhor":2.9,"potencial":1959,"pessoas":"Luiz 2.1k · Nathan 1.5k"},{"nome":"Tapete de Espelho","familia":"Mobílias","vendido":1973,"ticket":658,"comprou":3,"tinha":29,"sem":171,"conv":1.7,"porMes":[3.2,0,3,0],"melhor":3.2,"potencial":1660,"pessoas":"Nathan 1.5k · Eduardo 0.5k"},{"nome":"Perini Brut - Individual","familia":"Bebidas","vendido":1755,"ticket":585,"comprou":3,"tinha":0,"sem":200,"conv":1.5,"porMes":[2.8,1.2,1.3,0],"melhor":2.8,"potencial":1547,"pessoas":"Jessica 1.2k · Kauan 0.5k"},{"nome":"Arranjo Grande - Mesa de Doces (Permanente)","familia":"Floral","vendido":1808,"ticket":603,"comprou":3,"tinha":4,"sem":196,"conv":1.5,"porMes":[2.8,0,2.6,0],"melhor":2.8,"potencial":1527,"pessoas":"Jessica 1k · Kauan 0.8k"},{"nome":"Rolha de Vinho/Espumante","familia":"Bebidas","vendido":1625,"ticket":542,"comprou":3,"tinha":4,"sem":196,"conv":1.5,"porMes":[2.9,1.3,1.3,0],"melhor":2.9,"potencial":1478,"pessoas":"Nathan 1.6k"},{"nome":"Taxa de Bartender","familia":"Bebidas","vendido":3144,"ticket":629,"comprou":5,"tinha":9,"sem":189,"conv":2.6,"porMes":[2.9,3.8,1.4,0],"melhor":3.8,"potencial":1453,"pessoas":"Ruam 1.4k · Nathan 1.2k"},{"nome":"Arvore Francesa (Branca)","familia":"Floral","vendido":1374,"ticket":458,"comprou":3,"tinha":20,"sem":180,"conv":1.6,"porMes":[3,1.4,1.5,0],"melhor":3,"potencial":1122,"pessoas":"Nathan 1.1k · Jessica 0.3k"},{"nome":"Mesa Espelhada Doces","familia":"Gastronomia","vendido":1421,"ticket":474,"comprou":3,"tinha":9,"sem":191,"conv":1.5,"porMes":[0,1.3,2.7,0],"melhor":2.7,"potencial":1044,"pessoas":"Nathan 1k · Kauan 0.4k"},{"nome":"—","familia":"Outros","vendido":15722,"ticket":749,"comprou":21,"tinha":0,"sem":182,"conv":10.3,"porMes":[11.1,11.1,10.4,0],"melhor":11.1,"potencial":1029,"pessoas":"Jessica 7.8k · Ruam 4.4k"},{"nome":"Cordão de Luzes","familia":"Mobílias","vendido":1394,"ticket":465,"comprou":3,"tinha":53,"sem":147,"conv":2,"porMes":[0,3.5,1.7,0],"melhor":3.5,"potencial":1024,"pessoas":"Kauan 0.8k · Eduardo 0.6k"},{"nome":"Perini Moscatel - Individual","familia":"Bebidas","vendido":1035,"ticket":345,"comprou":3,"tinha":0,"sem":200,"conv":1.5,"porMes":[2.8,2.5,0,0],"melhor":2.8,"potencial":912,"pessoas":"Ruam 0.6k · Nathan 0.4k"},{"nome":"Menu Triangular","familia":"Gastronomia","vendido":804,"ticket":201,"comprou":4,"tinha":1,"sem":198,"conv":2,"porMes":[0,1.2,3.9,0],"melhor":3.9,"potencial":764,"pessoas":"Ruam 0.2k · Kauan 0.2k"},{"nome":"Mesa Espelhada Noivos","familia":"Mobílias","vendido":804,"ticket":268,"comprou":3,"tinha":10,"sem":190,"conv":1.6,"porMes":[2.9,1.3,1.4,0],"melhor":2.9,"potencial":685,"pessoas":"Nathan 0.8k"},{"nome":"Água Saborizada","familia":"Bebidas","vendido":924,"ticket":308,"comprou":3,"tinha":6,"sem":194,"conv":1.5,"porMes":[0,2.5,1.4,0],"melhor":2.5,"potencial":584,"pessoas":"Jessica 0.5k · Luiz 0.4k"},{"nome":"Mesa Bistrô","familia":"Mobílias","vendido":608,"ticket":203,"comprou":3,"tinha":2,"sem":198,"conv":1.5,"porMes":[2.8,1.3,1.3,0],"melhor":2.8,"potencial":525,"pessoas":"Nathan 0.3k · Kauan 0.3k"},{"nome":"Rolha Espumante","familia":"Bebidas","vendido":969,"ticket":194,"comprou":5,"tinha":0,"sem":198,"conv":2.5,"porMes":[2.8,3.7,1.3,0],"melhor":3.7,"potencial":475,"pessoas":"Luiz 0.4k · Kauan 0.3k"}];
+const CORES = {"Gastronomia":"#f59e0b","Bebidas":"#14b8a6","Mobílias":"#fb7185","Floral":"#e879f9","Audiovisual & DJ":"#a78bfa","Assessoria & Cerimonial":"#818cf8","Espaços, Hospedagem & Kids":"#60a5fa","Outros":"#94a3b8"};
+let familiaSel = '', ordem = 'potencial';
+const brl = (n) => 'R$ ' + (n >= 1000 ? (Math.round(n / 100) / 10) + 'k' : Math.round(n));
+function render() {
+  const busca = document.getElementById('busca').value.toLowerCase();
+  const lista = PRODUTOS.filter((p) => (!familiaSel || p.familia === familiaSel) && p.nome.toLowerCase().includes(busca))
+    .sort((a, b) => (ordem === 'conv' ? a.conv - b.conv : b[ordem] - a[ordem]));
+  const corpo = lista.map((p) => {
+    const cor = p.conv >= 25 ? 'var(--verde)' : p.conv >= 10 ? 'var(--amarelo)' : 'var(--vermelho)';
+    return `<tr><td><b>${p.nome}</b><br><small style="color:${CORES[p.familia] || '#94a3b8'}">${p.familia}</small></td>
+      <td class="num v">${brl(p.vendido)}</td><td class="num">${brl(p.ticket)}</td><td class="num">${p.comprou}</td><td class="num">${p.tinha}</td><td class="num">${p.sem}</td>
+      <td><div class="barra"><i style="width:${Math.min(100, p.conv)}%;background:${cor}"></i></div><small style="color:var(--mut)">${p.conv}%</small></td>
+      <td class="num">${p.melhor}%</td><td class="num ${p.potencial > 20000 ? 'a' : ''}">${p.potencial ? '+' + brl(p.potencial) : '—'}</td><td style="color:var(--mut)">${p.pessoas}</td></tr>`;
+  }).join('');
+  document.querySelector('#tprod tbody').innerHTML = corpo || '<tr><td colspan="10" style="color:var(--mut)">Nenhum produto com 3 vendas ou mais nesse filtro.</td></tr>';
+  const pot = lista.reduce((s, p) => s + p.potencial, 0);
+  document.getElementById('resumo').textContent = lista.length + ' produtos · potencial somado de ' + brl(pot) + ' no trimestre, se cada um voltar ao seu melhor mês. Só entram produtos com 3 vendas ou mais no período.';
+}
+document.querySelectorAll('.fchip').forEach((c) => c.onclick = () => { document.querySelectorAll('.fchip').forEach((x) => x.classList.remove('on')); c.classList.add('on'); familiaSel = c.dataset.f; render(); });
+document.getElementById('busca').oninput = render;
+document.getElementById('ordem').onchange = (e) => { ordem = e.target.value; render(); };
+render();
+</script>
+
+<div class="bloco">
+  <h2>Qualidade por Especialista</h2>
+  <p class="leg">A venda sai do dono da reunião final do evento. Cortesia é item lançado a R$ 0,01; corte é item retirado do contrato que não subiu de nível.</p>
+  <table>
+    <thead><tr><th>Pessoa</th><th class="num">Realizadas</th><th class="num">Total vendido</th><th class="num">Por reunião</th><th class="num">Com item</th><th class="num">Aumento do contrato</th><th class="num">Cortesias</th><th class="num">Cortes</th><th class="num">Drinks</th><th class="num">Lanche</th><th class="num">Hora extra</th></tr></thead>
+    <tbody>
+      <tr><td>Jessica Neco</td><td class="num">31</td><td class="num v">R$ 144k</td><td class="num">R$ 4,6k</td><td class="num">61%</td><td class="num">14,2%</td><td class="num r">14</td><td class="num r">3</td><td class="num">3/16</td><td class="num">3/19</td><td class="num">4/31</td></tr>
+      <tr><td>Eduardo Padilha</td><td class="num">22</td><td class="num v">R$ 76k</td><td class="num">R$ 3,5k</td><td class="num">68%</td><td class="num">13,0%</td><td class="num">6</td><td class="num r">2</td><td class="num">2/13</td><td class="num r">0/17</td><td class="num v">5/22</td></tr>
+      <tr><td>Nathan Moreto</td><td class="num">15</td><td class="num v">R$ 112k</td><td class="num v">R$ 7,5k</td><td class="num v">73%</td><td class="num v">21,4%</td><td class="num">8</td><td class="num r">3</td><td class="num">1/8</td><td class="num">2/10</td><td class="num">3/15</td></tr>
+      <tr><td>Ruam Leal</td><td class="num">7</td><td class="num v">R$ 58k</td><td class="num v">R$ 8,3k</td><td class="num">57%</td><td class="num v">19,8%</td><td class="num v">2</td><td class="num">1</td><td class="num r">0/5</td><td class="num">1/5</td><td class="num">1/7</td></tr>
+      <tr><td>Luiz Romagna</td><td class="num">3</td><td class="num">R$ 19k</td><td class="num">R$ 6,3k</td><td class="num">67%</td><td class="num">12,0%</td><td class="num v">1</td><td class="num">1</td><td class="num">0/2</td><td class="num">1/2</td><td class="num">0/3</td></tr>
+      <tr><td>Kauan <small style="color:var(--mut)">(fora da escala)</small></td><td class="num">8</td><td class="num">R$ 13k</td><td class="num">R$ 1,6k</td><td class="num r">38%</td><td class="num r">6,1%</td><td class="num">4</td><td class="num">0</td><td class="num">1/5</td><td class="num">1/8</td><td class="num">3/8</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="bloco">
+  <h2>Venda por família de produto</h2>
+  <p class="leg">Mesma taxonomia do Painel de Links: Gastronomia · Bebidas · Mobílias · Floral · Audiovisual &amp; DJ · Assessoria &amp; Cerimonial · Espaços, Hospedagem &amp; Kids. O segmento (casamento, 15 anos) é filtro, não categoria.</p>
+  <table class="heat">
+    <thead><tr><th>Família</th><th class="num">Julho</th><th class="num">Agosto</th><th class="num">Setembro</th><th class="num">Outubro</th><th class="num">Total</th><th>Quem mais vende</th></tr></thead>
+    <tbody>
+      <tr><td><span style="color:#f59e0b">▦</span> Gastronomia</td><td class="num">R$ 20k</td><td class="num"><span style="background:#1e3a2a">R$ 112k</span></td><td class="num"><span style="background:#14532d">R$ 128k</span></td><td class="num r">R$ 6,7k</td><td class="num v">R$ 266k</td><td>Nathan R$ 128k · Jessica R$ 71k</td></tr>
+      <tr><td><span style="color:#14b8a6">▦</span> Bebidas</td><td class="num">R$ 42k</td><td class="num"><span style="background:#14532d">R$ 194k</span></td><td class="num"><span style="background:#1e3a2a">R$ 73k</span></td><td class="num">R$ 21k</td><td class="num v">R$ 331k</td><td>Nathan R$ 131k · Ruam R$ 70k</td></tr>
+      <tr><td><span style="color:#60a5fa">▦</span> Espaços, Hospedagem &amp; Kids</td><td class="num">R$ 13k</td><td class="num">R$ 54k</td><td class="num">R$ 25k</td><td class="num">R$ 11k</td><td class="num">R$ 103k</td><td>Nathan R$ 35k · Jessica R$ 29k</td></tr>
+      <tr><td><span style="color:#fb7185">▦</span> Mobílias</td><td class="num">R$ 18k</td><td class="num">R$ 51k</td><td class="num">R$ 31k</td><td class="num r">R$ 2,5k</td><td class="num">R$ 102k</td><td>Kauan R$ 35k <small style="color:var(--mut)">(saiu)</small> · Nathan R$ 23k</td></tr>
+      <tr><td><span style="color:#e879f9">▦</span> Floral</td><td class="num">R$ 10k</td><td class="num">R$ 10k</td><td class="num">R$ 16k</td><td class="num r">R$ 0,3k</td><td class="num">R$ 36k</td><td>Kauan R$ 22k <small style="color:var(--mut)">(saiu)</small> · Eduardo R$ 6k</td></tr>
+      <tr><td><span style="color:#a78bfa">▦</span> Audiovisual &amp; DJ</td><td class="num">R$ 3,9k</td><td class="num">R$ 9,1k</td><td class="num">R$ 11k</td><td class="num">R$ 1,7k</td><td class="num">R$ 26k</td><td>Jessica R$ 9,5k · Kauan R$ 8,7k</td></tr>
+      <tr><td><span style="color:#818cf8">▦</span> Assessoria &amp; Cerimonial</td><td class="num">R$ 0</td><td class="num">R$ 3,3k</td><td class="num">R$ 1,7k</td><td class="num r">R$ 0</td><td class="num r">R$ 4,9k</td><td>quase não vendemos</td></tr>
+      <tr><td colspan="7" style="padding:4px"></td></tr>
+      <tr><td><b>Acerto de convidados</b> <small style="color:var(--mut)">(não é produto)</small></td><td class="num">R$ 0,4k</td><td class="num">R$ 29k</td><td class="num"><span style="background:#4d3a12">R$ 77k</span></td><td class="num"><span style="background:#4d3a12">R$ 17k</span></td><td class="num a">R$ 123k</td><td>22% da venda do período</td></tr>
+      <tr><td>Sem item detalhado e outros</td><td class="num">R$ 21k</td><td class="num">R$ 1,7k</td><td class="num">R$ 7,3k</td><td class="num">R$ 0,2k</td><td class="num">R$ 31k</td><td>aditivo só em texto</td></tr>
+    </tbody>
+  </table>
+  <p class="tip">Fronteiras seguidas do painel: Open Coffee entra em Bebidas, os pacotes Beauty e Mini Wedding são Mobílias, a flor é separada da mobília, e a hora extra entra em Espaços por ser tempo de salão. Duas a confirmar com você: garçom e bartender (hoje em Assessoria) e atrações como o personagem na pista (hoje em Outros).</p>
+</div>
+
+<div class="bloco">
+  <h2>Concessões liberadas</h2>
+  <p class="leg">Itens lançados a R$ 0,01 e itens retirados do contrato. O valor é o preço de tabela do catálogo.</p>
+  <table>
+    <thead><tr><th>Item dado de cortesia</th><th class="num">Agosto</th><th class="num">Setembro</th><th class="num">Outubro</th><th class="num">Preço de tabela</th></tr></thead>
+    <tbody>
+      <tr><td>Lustre Paris</td><td class="num r">7×</td><td class="num">2×</td><td class="num v">0</td><td class="num">R$ 3.500</td></tr>
+      <tr><td>Pista de LED</td><td class="num r">7×</td><td class="num">1×</td><td class="num v">0</td><td class="num">R$ 2.700</td></tr>
+      <tr><td>Sofá Bege</td><td class="num r">16×</td><td class="num">6×</td><td class="num v">0</td><td class="num">R$ 750</td></tr>
+      <tr><td>Tapete de Espelho</td><td class="num">2×</td><td class="num">2×</td><td class="num v">0</td><td class="num">R$ 1.600</td></tr>
+      <tr><td><b>Total no mês</b></td><td class="num r">R$ 89,0k</td><td class="num a">R$ 40,2k</td><td class="num v">R$ 0</td><td class="num"></td></tr>
+      <tr><td><b>Cortes de serviço (downsell)</b></td><td class="num r">15 aditivos · R$ 57,5k</td><td class="num a">8 · R$ 33,7k</td><td class="num a">2 · R$ 13,6k</td><td class="num"></td></tr>
+    </tbody>
+  </table>
+  <p class="tip">Em outubro, 83% do valor cortado é um caso só, em que o próprio casal pediu para rebaixar o menu (E06731).</p>
+</div>
+
+<div class="bloco">
+  <h2>O que precisaria existir no banco</h2>
+  <p class="leg">Tudo abaixo já existe hoje, menos dois campos.</p>
+  <table>
+    <thead><tr><th>Card ou coluna</th><th>De onde sai</th><th class="num">Situação</th></tr></thead>
+    <tbody>
+      <tr><td>Total vendido, realizadas, por reunião</td><td>o que o painel novo já calcula</td><td class="num v">pronto</td></tr>
+      <tr><td>Aumento do contrato</td><td>soma dos aditivos de −3 a +10 dias da reunião ÷ LEAST(valor_contrato, valor_total)</td><td class="num v">pronto, falta expor</td></tr>
+      <tr><td>Reuniões com item</td><td>evento_aditivo_itens com valor acima de R$ 1</td><td class="num v">pronto, falta expor</td></tr>
+      <tr><td>Cortesias e cortes</td><td>linhas a R$ 0,01 e linhas negativas, com o preço do catálogo</td><td class="num a">precisa da regra de classificação (já escrita)</td></tr>
+      <tr><td>Cobertura dos 3 produtos</td><td>evento_itens (o que já tem) × itens do aditivo</td><td class="num a">precisa do mapa de produto por família</td></tr>
+      <tr><td>Família do produto</td><td>taxonomia do Painel de Links (<code>vendas/links/catalogo/taxonomia.ts</code> e <code>classificacao.ts</code>)</td><td class="num a">hoje classifica material, não produto: falta a coluna de família em <code>produtos</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+</body>
+</html>
