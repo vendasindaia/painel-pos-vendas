@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Pós-Vendas · proposta</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#0f1115;--card:#171a21;--card2:#1e222b;--linha:#262b36;--ink:#e8eaed;--ink2:#9aa3af;--mut:#6b7280;--up:#4ade80;--down:#f87171;--warn:#fbbf24;--s1:#60a5fa}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px 18px 48px}
+.wrap{max-width:1360px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0 0 18px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:13px}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.g2{grid-template-columns:1.25fr 1fr}
+.g2b{grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:16px 18px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);margin:0 0 12px;font-weight:600}
+.big{font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.med{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums}
+.leg{font-size:12.5px;color:var(--mut);margin-top:3px}
+.up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--linha);text-align:left;white-space:nowrap}
+th{color:var(--mut);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.dest td{background:#1f2430}
+.barra{height:7px;background:#242934;border-radius:5px;overflow:hidden;margin-top:5px}
+.barra i{display:block;height:100%;border-radius:5px}
+.dia{display:grid;grid-template-columns:62px 1fr 92px;gap:10px;align-items:center;padding:5px 0;font-size:12.5px}
+.dia .d{color:var(--ink2)}
+.dia .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.pilha{display:flex;height:16px;border-radius:4px;overflow:hidden;background:#242934}
+.pilha i{display:block;height:100%}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{background:var(--card2);border:1px solid var(--linha);border-radius:999px;padding:4px 11px;font-size:12px;color:var(--ink2);cursor:pointer}
+.chip.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.spark{width:100%;height:auto;display:block}
+text.sl{font:10.5px system-ui;fill:var(--mut)}
+.legenda{display:flex;gap:14px;font-size:12px;color:var(--mut);margin-top:6px}
+.legenda b{font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.alerta{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--linha);font-size:13px}
+.alerta:last-child{border-bottom:0}
+.alerta b{font-variant-numeric:tabular-nums}
+.nota{font-size:12px;color:var(--mut);margin-top:10px;line-height:1.5}
+.rotulo{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.sep{height:1px;background:var(--linha);margin:14px 0}
+@media (max-width:1000px){.g2,.g2b{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Pós-Vendas · painel de venda</h1>
+    <div class="sub">Proposta de tela · números reais apurados em 08/10/2026 · reuniões de cerimonial fora do cenário</div>
+  </div>
+  <div class="sub">aditivos assinados, dinheiro novo · exclui importação da planilha</div>
+</header>
+
+<!-- FAIXA 1: o dia -->
+<div class="grid g4" style="margin-bottom:14px">
+  <div class="card">
+    <h2>Vendeu ontem · 07/10</h2>
+    <div class="big up">R$ 69.562</div>
+    <div class="leg">6 aditivos · melhor dia do mês</div>
+    <div class="barra"><i style="width:100%;background:var(--up)"></i></div>
+  </div>
+  <div class="card">
+    <h2>Relacionamento</h2>
+    <div class="med">R$ 43.959</div>
+    <div class="leg">3 aditivos · 63% do dia</div>
+    <div class="sep"></div>
+    <h2 style="margin-bottom:6px">Especialistas</h2>
+    <div class="med">R$ 10.414</div>
+    <div class="leg">1 aditivo</div>
+  </div>
+  <div class="card">
+    <h2>Mês até agora</h2>
+    <div class="big">R$ 246,0 mil</div>
+    <div class="leg">45 aditivos em 5 dias úteis · R$ 49.192 por dia útil</div>
+    <div class="sep"></div>
+    <div class="rotulo">Projeção do mês</div>
+    <div class="med">R$ 610 a 660 mil</div>
+    <div class="leg">setembro fechou R$ 787 mil</div>
+  </div>
+  <div class="card">
+    <h2>Reuniões de ontem</h2>
+    <div class="big">12 <span class="leg" style="font-size:13px">realizadas</span></div>
+    <div class="leg down">16 canceladas no mesmo dia</div>
+    <div class="sep"></div>
+    <div class="rotulo">Reunião final · outubro</div>
+    <div class="med">12 de 17 fecharam</div>
+    <div class="leg">taxa de 71% · 7 canceladas no mês</div>
+  </div>
+</div>
+
+<!-- FAIXA 2: venda diária + curva -->
+<div class="grid g2" style="margin-bottom:14px">
+  <div class="card">
+    <h2>Venda por dia, por time</h2>
+    <div class="dia"><span class="d">07/10 qua</span>
+        <span class="pilha" title="Relacionamento R$ 43.959 · Especialistas R$ 10.414 · Cadastramento R$ 15.002 · outros R$ 187">
+          <i style="width:63.19345341934031%;background:#60a5fa"></i><i style="width:14.971275186772745%;background:#4ade80"></i><i style="width:21.56638822365318%;background:#fbbf24"></i><i style="width:0.26888317023378205%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 69.562</span></div><div class="dia"><span class="d">06/10 ter</span>
+        <span class="pilha" title="Relacionamento R$ 13.063 · Especialistas R$ 17.220 · Cadastramento R$ 4.206 · outros R$ 420">
+          <i style="width:37.42089432524564%;background:#60a5fa"></i><i style="width:49.32885502305995%;background:#4ade80"></i><i style="width:12.04818241714171%;background:#fbbf24"></i><i style="width:1.202068234552694%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 34.909</span></div><div class="dia"><span class="d">05/10 seg</span>
+        <span class="pilha" title="Relacionamento R$ 18.021 · Especialistas R$ 7.741 · Cadastramento R$ 0 · outros R$ 8.300">
+          <i style="width:52.90655001321159%;background:#60a5fa"></i><i style="width:22.725404421479112%;background:#4ade80"></i><i style="width:0%;background:#fbbf24"></i><i style="width:24.3680455653093%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 34.061</span></div><div class="dia"><span class="d">03/10 sáb</span>
+        <span class="pilha" title="Relacionamento R$ 0 · Especialistas R$ 150 · Cadastramento R$ 0 · outros R$ 0">
+          <i style="width:0%;background:#60a5fa"></i><i style="width:100%;background:#4ade80"></i><i style="width:0%;background:#fbbf24"></i><i style="width:0%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 150</span></div><div class="dia"><span class="d">02/10 sex</span>
+        <span class="pilha" title="Relacionamento R$ 33.730 · Especialistas R$ 24.803 · Cadastramento R$ 373 · outros R$ 0">
+          <i style="width:57.26050266383073%;background:#60a5fa"></i><i style="width:42.10679191529116%;background:#4ade80"></i><i style="width:0.6327054208781245%;background:#fbbf24"></i><i style="width:0%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 58.906</span></div><div class="dia"><span class="d">01/10 qui</span>
+        <span class="pilha" title="Relacionamento R$ 15.573 · Especialistas R$ 27.832 · Cadastramento R$ 0 · outros R$ 4.970">
+          <i style="width:32.19321539594359%;background:#60a5fa"></i><i style="width:57.53379547458781%;background:#4ade80"></i><i style="width:0%;background:#fbbf24"></i><i style="width:10.272989129468597%;background:#6b7280"></i>
+        </span>
+        <span class="v">R$ 48.375</span></div>
+    <div class="legenda">
+      <span><i class="dot" style="background:#60a5fa"></i>Relacionamento</span>
+      <span><i class="dot" style="background:#4ade80"></i>Especialistas</span>
+      <span><i class="dot" style="background:#fbbf24"></i>Cadastramento</span>
+      <span><i class="dot" style="background:#6b7280"></i>outros</span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Acumulado por dia útil · outubro × setembro</h2>
+    <svg viewBox="0 0 560 150" class="spark"><path d="M8.0 120.3 L35.2 115.5 L62.4 112.0 L89.6 104.3 L116.8 84.4 L144.0 76.0 L171.2 63.8 L198.4 60.9 L225.6 55.6 L252.8 52.7 L280.0 51.4 L307.2 49.0 L334.4 44.9 L361.6 39.5 L388.8 37.3 L416.0 33.4 L443.2 24.2 L470.4 17.6 L497.6 17.5 L524.8 15.2 L552.0 13.0" fill="none" stroke="#7b8794" stroke-width="2" stroke-dasharray="4 3"/><path d="M8.0 124.7 L35.2 115.8 L62.4 110.6 L89.6 105.3 L116.8 105.3" fill="none" stroke="#4ade80" stroke-width="2.6"/><circle cx="116.80000000000001" cy="105.3247888292683" r="3.5" fill="#4ade80"/><text x="8" y="146" class="sl">1º dia útil</text><text x="552" y="146" class="sl" text-anchor="end">21º</text><text x="124.80000000000001" y="97.3247888292683" class="sl" fill="#4ade80">outubro</text><text x="544" y="17.008934634146314" class="sl" text-anchor="end">setembro</text></svg>
+    <div class="legenda"><span><i class="dot" style="background:#4ade80"></i>outubro: R$ 176,4 mil no 5º dia útil</span><span><i class="dot" style="background:#7b8794"></i>setembro fechou R$ 787 mil</span></div>
+    <div class="nota">Comparar por dia útil, não por data: os meses têm 21 dias úteis cada. Foi assim que a gente achou que setembro parou no 11/09.</div>
+  </div>
+</div>
+
+<!-- FAIXA 2.5: qualidade do lançamento da agenda -->
+<div class="card" style="margin-bottom:14px;border-color:#4a3a1f">
+  <h2>Qualidade do lançamento da agenda <span style="color:var(--warn);text-transform:none;letter-spacing:0"> · sem isso, nenhum número acima é confiável</span></h2>
+  <div class="grid g4" style="margin-bottom:14px">
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Sem categoria</div><div class="big up">0</div><div class="leg">toda reunião dos dois times tem tipo · problema resolvido</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Sem dono</div><div class="big">1</div><div class="leg">uma boas-vindas sem responsável · fica fora de toda análise por equipe</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Sem cliente vinculado</div><div class="big warn">25</div><div class="leg">inclui 3 reuniões finais e 2 boas-vindas</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Sem desfecho</div><div class="big down">180</div><div class="leg">passou da data e segue "agendado"</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Time · tipo de reunião</th><th class="num">passadas</th><th class="num">realizadas</th><th class="num">canceladas</th><th class="num">sem desfecho</th><th class="num">% cego</th></tr></thead>
+    <tbody>
+    <tr><td>Especialistas · <b>Reunião Final</b></td>
+      <td class="num">262</td><td class="num">155</td><td class="num">76</td>
+      <td class="num warn"><b>31</b></td>
+      <td class="num">12%</td></tr><tr class="dest"><td>Relacionamento · <b>Boas-vindas</b></td>
+      <td class="num">50</td><td class="num">28</td><td class="num">11</td>
+      <td class="num down"><b>11</b></td>
+      <td class="num">22%</td></tr><tr class="dest"><td>Relacionamento · <b>Reunião Final</b></td>
+      <td class="num">16</td><td class="num">2</td><td class="num">8</td>
+      <td class="num down"><b>6</b></td>
+      <td class="num">38%</td></tr><tr class="dest"><td>Relacionamento · <b>Reunião de DJ</b></td>
+      <td class="num">5</td><td class="num">0</td><td class="num">3</td>
+      <td class="num down"><b>2</b></td>
+      <td class="num">40%</td></tr><tr><td>Relacionamento · <b>Primeiros Passos</b></td>
+      <td class="num">4</td><td class="num">2</td><td class="num">2</td>
+      <td class="num up"><b>—</b></td>
+      <td class="num">0%</td></tr><tr><td>Especialistas · <b>Boas-vindas</b></td>
+      <td class="num">4</td><td class="num">0</td><td class="num">4</td>
+      <td class="num up"><b>—</b></td>
+      <td class="num">0%</td></tr><tr><td>Relacionamento · <b>Clientes antigos</b></td>
+      <td class="num">3</td><td class="num">3</td><td class="num">0</td>
+      <td class="num up"><b>—</b></td>
+      <td class="num">0%</td></tr><tr class="dest"><td>Especialistas · <b>Layout e Decor</b></td>
+      <td class="num">1</td><td class="num">0</td><td class="num">0</td>
+      <td class="num down"><b>1</b></td>
+      <td class="num">100%</td></tr>
+      <tr><td><span class="leg">Visitas, ensaios e reunião inicial online (os dois times)</span></td><td class="num">223</td><td class="num">4</td><td class="num">90</td><td class="num down"><b>129</b></td><td class="num">58%</td></tr>
+    </tbody>
+  </table>
+  <div class="sep"></div>
+  <div class="rotulo" style="margin-bottom:8px">Pendência por pessoa · 01/08 a 07/10</div>
+  <table>
+    <thead><tr><th>Pessoa</th><th>Time</th><th class="num">sem desfecho</th><th>o que está pendente</th></tr></thead>
+    <tbody>
+    <tr><td>Jessica Neco Barbosa</td><td><span class="leg">Especialistas</span></td><td class="num down"><b>46</b></td>
+      <td><span class="leg">Visita ao espaço 16 · Ensaio 11 · Visita com fornecedores 10 · Reunião Final 8 · Reunião inicial online 1</span></td></tr><tr><td>Nathan Moreto</td><td><span class="leg">Especialistas</span></td><td class="num down"><b>42</b></td>
+      <td><span class="leg">Visita com fornecedores 13 · Visita ao espaço 11 · Ensaio 9 · Reunião Final 7 · Reunião inicial online 2</span></td></tr><tr><td>Kauan</td><td><span class="leg">Especialistas</span></td><td class="num down"><b>24</b></td>
+      <td><span class="leg">Reunião Final 8 · Visita com fornecedores 8 · Visita ao espaço 6 · Reunião inicial online 1 · Ensaio 1</span></td></tr><tr><td>Jhonatan Vaz</td><td><span class="leg">Relacionamento</span></td><td class="num warn"><b>20</b></td>
+      <td><span class="leg">Boas-vindas 9 · Reunião Final 6 · Visita ao espaço 2 · Ensaio 2 · Visita com fornecedores 1</span></td></tr><tr><td>Ruam Leal</td><td><span class="leg">Especialistas</span></td><td class="num warn"><b>19</b></td>
+      <td><span class="leg">Ensaio 9 · Visita ao espaço 4 · Reunião Final 3 · Visita com fornecedores 2 · Reunião inicial online 1</span></td></tr><tr><td>Luiz Henrique Romagna</td><td><span class="leg">Especialistas</span></td><td class="num warn"><b>14</b></td>
+      <td><span class="leg">Visita ao espaço 5 · Reunião Final 4 · Ensaio 2 · Visita com fornecedores 2 · Reunião inicial online 1</span></td></tr><tr><td>Eduardo Padilha</td><td><span class="leg">Especialistas</span></td><td class="num warn"><b>11</b></td>
+      <td><span class="leg">Visita ao espaço 4 · Visita com fornecedores 3 · Ensaio 2 · Reunião Final 1 · Layout e Decor 1</span></td></tr><tr><td>Arnaldo Oliveira</td><td><span class="leg">Relacionamento</span></td><td class="num "><b>2</b></td>
+      <td><span class="leg">Reunião de DJ 2</span></td></tr><tr><td>Polyana Pozzamai</td><td><span class="leg">Relacionamento</span></td><td class="num "><b>1</b></td>
+      <td><span class="leg">Boas-vindas 1</span></td></tr><tr><td>Maria Eduarda</td><td><span class="leg">Relacionamento</span></td><td class="num "><b>1</b></td>
+      <td><span class="leg">Boas-vindas 1</span></td></tr>
+    </tbody>
+  </table>
+  <div class="nota"><b>O que isso faz com os números de cima:</b> "155 reuniões finais realizadas" é piso, não fato — com as 31 sem desfecho, o real está entre 155 e 186. A conversão da reunião final que hoje aparece como 77% cai para <b>64%</b> se as 31 pendentes tiverem acontecido sem venda. São 13 pontos de incerteza, e é por isso que o desfecho precisa ser lançado antes de o aproveitamento virar meta cobrável.
+  <br><b>O que está limpo:</b> categoria (zero reunião sem tipo nos dois times), <b>Primeiros Passos</b> e <b>Clientes antigos</b> — os dois com 100% de desfecho lançado. O número deles é confiável.
+  <br><b>Visitas, ensaios e reunião inicial online</b> praticamente nunca recebem desfecho (129 de 223). Não atrapalham a venda, mas poluem qualquer contagem de "reunião realizada" que não separe por tipo.
+  <br><b>Cerimonial fora do cenário</b> a seu pedido: as três reuniões de cerimonial saíram de todas as contagens desta tela. Como serviço, o cerimonial continua na tabela de efetividade acima — lá ele mede o que o cliente não tem.</div>
+</div>
+
+<!-- FAIXA 3: oportunidade por tipo de reunião, por time -->
+<div class="card" style="margin-bottom:14px;border-color:#2f3a4f">
+  <h2>Oportunidade e conversão por reunião <span style="color:var(--s1);text-transform:none;letter-spacing:0"> · do que o cliente não tinha, quanto entrou</span></h2>
+  <div class="chips" id="chipsTime"></div>
+  <div class="chips" id="chipsMes"></div>
+  <div class="grid g4" style="margin:4px 0 14px">
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Oportunidade aberta</div><div class="big" id="kOp">—</div><div class="leg" id="kOpL">—</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Colocamos para dentro</div><div class="big up" id="kVd">—</div><div class="leg" id="kVdL">—</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Aproveitamento</div><div class="big" id="kAp">—</div><div class="leg">vendido ÷ oportunidade aberta</div></div>
+    <div class="card" style="background:var(--card2)"><div class="rotulo">Reunião perdida</div><div class="big down" id="kCanc">—</div><div class="leg" id="kCancL">cancelada antes de acontecer</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Tipo de reunião</th><th class="num">marcadas</th><th class="num">realizadas</th><th class="num">canceladas</th><th class="num">oportunidade aberta</th><th class="num">vendido</th><th class="num">aproveitamento</th><th class="num">contrato Básico</th></tr></thead>
+    <tbody id="tReu"></tbody>
+  </table>
+  <div class="sep"></div>
+  <h2>Serviço a serviço, no recorte acima</h2>
+  <table>
+    <thead><tr><th>Serviço que o cliente NÃO tinha</th><th class="num">reuniões com ele em aberto</th><th class="num">vendemos</th><th class="num">efetividade</th><th class="num">ficou na mesa</th></tr></thead>
+    <tbody id="tFam"></tbody>
+  </table>
+  <div class="nota" id="notaOp"></div>
+</div>
+
+<!-- FAIXA 4: onde estamos deixando de vender -->
+<div class="grid g2b" style="margin-bottom:14px">
+  <div class="card">
+    <h2>Onde estamos deixando de vender</h2>
+    <table>
+      <thead><tr><th>Família</th><th class="num">em aberto</th><th class="num">vendeu</th><th class="num">conversão</th><th class="num">deixado na mesa</th></tr></thead>
+      <tbody>
+      <tr><td>DJ e audiovisual</td><td class="num">112</td><td class="num">7</td>
+        <td class="num warn">6%</td>
+        <td class="num">R$ 682,5 mil</td></tr><tr><td>Floral</td><td class="num">121</td><td class="num">17</td>
+        <td class="num warn">14%</td>
+        <td class="num">R$ 565,8 mil</td></tr><tr class="dest"><td>Assessoria e cerimonial</td><td class="num">126</td><td class="num">0</td>
+        <td class="num down">0%</td>
+        <td class="num">R$ 529,2 mil</td></tr><tr><td>Dia da noiva, kids e hospedagem</td><td class="num">144</td><td class="num">9</td>
+        <td class="num warn">6%</td>
+        <td class="num">R$ 270,0 mil</td></tr><tr><td>Lanche da madrugada</td><td class="num">111</td><td class="num">22</td>
+        <td class="num warn">20%</td>
+        <td class="num">R$ 154,5 mil</td></tr><tr><td>Hora extra</td><td class="num">144</td><td class="num">25</td>
+        <td class="num warn">17%</td>
+        <td class="num">R$ 148,8 mil</td></tr><tr><td>Open coffee</td><td class="num">130</td><td class="num">24</td>
+        <td class="num warn">18%</td>
+        <td class="num">R$ 95,4 mil</td></tr><tr><td>Decoração e mobiliário</td><td class="num">2</td><td class="num">1</td>
+        <td class="num up">50%</td>
+        <td class="num">R$ 5,9 mil</td></tr>
+      </tbody>
+    </table>
+    <div class="nota"><b>Assessoria e cerimonial: 126 reuniões finais com o produto em aberto e nenhuma venda.</b> Não é falta de interesse do cliente — é que esse produto só é oferecido na reunião de cerimonial, que é de outro time. Mesma coisa com DJ: 6% de conversão na reunião final contra 31 reuniões de DJ por mês em agosto.</div>
+  </div>
+  <div class="card">
+    <h2>Categoria · agosto × setembro</h2>
+    <div class="chips" id="chips"></div>
+    <table>
+      <thead><tr><th>Categoria</th><th class="num">R$ ago</th><th class="num">R$ set</th><th class="num">caiu</th><th class="num">ticket ago → set</th></tr></thead>
+      <tbody id="tcat"></tbody>
+    </table>
+    <div class="nota">Em Bebidas e Gastronomia o R$ é parcial: cardápio e open bar são cobrados por pessoa e ficam fora. Ali o que vale é a contagem de vendas.</div>
+  </div>
+</div>
+
+<!-- FAIXA 5: dinheiro parado -->
+<div class="grid g2b">
+  <div class="card">
+    <h2>Dinheiro parado · ação de hoje</h2>
+    <div class="alerta"><span>Proposta <b>enviada</b> e o cliente não assinou <span class="leg">desde 01/09</span></span><b class="warn">15 · R$ 104.233</b></div>
+    <div class="alerta"><span>Proposta <b>montada e nunca enviada</b> <span class="leg">criada em outubro</span></span><b class="down">32 · R$ 262.777</b></div>
+    <div class="alerta"><span>Cliente <b>assinou</b> e o aditivo segue em rascunho</span><b class="warn">1 · R$ 1.729</b></div>
+    <div class="nota">O rascunho antigo é depósito, não pipeline: existem 353 aditivos de antes de setembro montados e nunca enviados. O painel deve mostrar só os do mês corrente e os que já foram enviados.</div>
+  </div>
+  <div class="card">
+    <h2>Disciplina de preço</h2>
+    <table>
+      <thead><tr><th>Produto</th><th class="num">piso do Pós</th><th class="num">vendas abaixo</th><th class="num">na mesa</th></tr></thead>
+      <tbody>
+        <tr class="dest"><td>DJ Essencial · Sexta a Domingo</td><td class="num">R$ 6.500</td><td class="num down">20 de 39</td><td class="num">R$ 31.700</td></tr>
+        <tr><td>DJ Essencial · Segunda a Quinta</td><td class="num">R$ 5.000</td><td class="num">1 de 4</td><td class="num">R$ 500</td></tr>
+        <tr><td>Assessoria e cerimonial · Essencial</td><td class="num">R$ 4.200</td><td class="num up">0 de 2 em set</td><td class="num">—</td></tr>
+      </tbody>
+    </table>
+    <div class="nota">Julho a setembro. O piso do DJ não mudou desde 19/06 e metade das vendas saiu abaixo dele. O cerimonial subiu de piso em 11/09 e foi respeitado nas duas vendas seguintes.</div>
+  </div>
+</div>
+
+<p class="nota" style="max-width:900px;margin-top:18px">Esta é uma proposta de tela, não a tela pronta. Tudo que aparece aqui já é calculável com o banco de hoje, sem campo novo — exceto a regra de elegibilidade por tipo de evento e espaço, que é o que falta para o "aproveitamento" virar meta cobrável.</p>
+</div>
+<script>
+const n0 = (v) => Math.round(v).toLocaleString('pt-BR');
+const CUBO = {"cubo":{"Especialistas":{"2026-08":{"Reunião Final":{"m":108,"r":64,"c":21,"op":1049842.55,"vd":317705.8900000001,"bas":16,"fam":{"cerimonial":{"ab":52,"vd":0,"mesa":218400},"dj":{"ab":43,"vd":1,"mesa":273000},"floral":{"ab":45,"vd":5,"mesa":217600},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":42,"vd":11,"mesa":56755.05},"hora":{"ab":55,"vd":10,"mesa":56250},"coffee":{"ab":52,"vd":11,"mesa":36900},"noiva":{"ab":56,"vd":4,"mesa":104000}}}},"todos":{"Reunião Final":{"m":260,"r":155,"c":74,"op":2600470.0000000005,"vd":763374.2300000003,"bas":45,"fam":{"cerimonial":{"ab":123,"vd":0,"mesa":516600},"dj":{"ab":109,"vd":5,"mesa":676000},"floral":{"ab":114,"vd":16,"mesa":533120},"decor":{"ab":2,"vd":1,"mesa":5880},"lanche":{"ab":107,"vd":21,"mesa":151249.45},"hora":{"ab":137,"vd":24,"mesa":141250},"coffee":{"ab":125,"vd":22,"mesa":92700},"noiva":{"ab":137,"vd":9,"mesa":256000}}},"Boas-vindas":{"m":4,"r":0,"c":4,"op":0,"vd":0,"bas":0,"fam":{}},"Layout e Decor":{"m":1,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-09":{"Reunião Final":{"m":133,"r":76,"c":50,"op":1275192.75,"vd":352103.14,"bas":24,"fam":{"cerimonial":{"ab":63,"vd":0,"mesa":264600},"dj":{"ab":54,"vd":3,"mesa":331500},"floral":{"ab":56,"vd":8,"mesa":261120},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":51,"vd":8,"mesa":74505.20000000001},"hora":{"ab":68,"vd":11,"mesa":71250},"coffee":{"ab":60,"vd":8,"mesa":46800},"noiva":{"ab":68,"vd":3,"mesa":130000}}},"Boas-vindas":{"m":4,"r":0,"c":4,"op":0,"vd":0,"bas":0,"fam":{}},"Layout e Decor":{"m":1,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-10":{"Reunião Final":{"m":19,"r":15,"c":3,"op":275434.7,"vd":93565.19999999998,"bas":5,"fam":{"cerimonial":{"ab":8,"vd":0,"mesa":33600},"dj":{"ab":12,"vd":1,"mesa":71500},"floral":{"ab":13,"vd":3,"mesa":54400},"decor":{"ab":2,"vd":1,"mesa":5880},"lanche":{"ab":14,"vd":2,"mesa":19989.2},"hora":{"ab":14,"vd":3,"mesa":13750},"coffee":{"ab":13,"vd":3,"mesa":9000},"noiva":{"ab":13,"vd":2,"mesa":22000}}}}},"Pós inteiro":{"2026-08":{"Reunião Final":{"m":127,"r":69,"c":30,"op":1119177.3,"vd":378281.3300000001,"bas":16,"fam":{"cerimonial":{"ab":54,"vd":0,"mesa":226800},"dj":{"ab":45,"vd":2,"mesa":279500},"floral":{"ab":50,"vd":6,"mesa":239360},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":44,"vd":12,"mesa":57728.55},"hora":{"ab":60,"vd":11,"mesa":61250},"coffee":{"ab":55,"vd":13,"mesa":37800},"noiva":{"ab":61,"vd":4,"mesa":114000}}},"Reunião de DJ":{"m":31,"r":31,"c":0,"op":314437.05,"vd":70247.81,"bas":2,"fam":{"cerimonial":{"ab":12,"vd":0,"mesa":50400},"dj":{"ab":3,"vd":1,"mesa":13000},"floral":{"ab":16,"vd":0,"mesa":87040},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":21,"vd":1,"mesa":47020.049999999996},"hora":{"ab":27,"vd":2,"mesa":31250},"coffee":{"ab":21,"vd":1,"mesa":18000},"noiva":{"ab":25,"vd":3,"mesa":44000}}}},"todos":{"Reunião Final":{"m":295,"r":162,"c":90,"op":2700456.2500000005,"vd":832574.7900000002,"bas":46,"fam":{"cerimonial":{"ab":126,"vd":0,"mesa":529200},"dj":{"ab":112,"vd":7,"mesa":682500},"floral":{"ab":121,"vd":17,"mesa":565760},"decor":{"ab":2,"vd":1,"mesa":5880},"lanche":{"ab":111,"vd":22,"mesa":154494.45},"hora":{"ab":144,"vd":25,"mesa":148750},"coffee":{"ab":130,"vd":24,"mesa":95400},"noiva":{"ab":144,"vd":9,"mesa":270000}}},"Reunião de DJ":{"m":45,"r":31,"c":3,"op":314437.05,"vd":70247.81,"bas":2,"fam":{"cerimonial":{"ab":12,"vd":0,"mesa":50400},"dj":{"ab":3,"vd":1,"mesa":13000},"floral":{"ab":16,"vd":0,"mesa":87040},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":21,"vd":1,"mesa":47020.049999999996},"hora":{"ab":27,"vd":2,"mesa":31250},"coffee":{"ab":21,"vd":1,"mesa":18000},"noiva":{"ab":25,"vd":3,"mesa":44000}}},"Boas-vindas":{"m":56,"r":29,"c":16,"op":446209.7,"vd":0,"bas":4,"fam":{"cerimonial":{"ab":8,"vd":0,"mesa":33600},"dj":{"ab":13,"vd":0,"mesa":84500},"floral":{"ab":29,"vd":0,"mesa":157760},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":27,"vd":0,"mesa":48869.700000000004},"hora":{"ab":28,"vd":0,"mesa":35000},"coffee":{"ab":29,"vd":0,"mesa":26100},"noiva":{"ab":28,"vd":0,"mesa":56000}}},"Primeiros Passos":{"m":5,"r":2,"c":3,"op":27627,"vd":22012.1,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":2,"vd":1,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":1947.0000000000002},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":1,"mesa":2000}}},"Cadastramento":{"m":4,"r":0,"c":2,"op":0,"vd":0,"bas":0,"fam":{}},"Clientes antigos":{"m":4,"r":3,"c":1,"op":65665.2,"vd":4381.91,"bas":2,"fam":{"cerimonial":{"ab":2,"vd":0,"mesa":8400},"dj":{"ab":3,"vd":0,"mesa":19500},"floral":{"ab":3,"vd":0,"mesa":16320},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":2,"vd":0,"mesa":3115.2},"hora":{"ab":3,"vd":0,"mesa":3750},"coffee":{"ab":3,"vd":0,"mesa":2700},"noiva":{"ab":3,"vd":0,"mesa":6000}}},"Layout e Decor":{"m":1,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-09":{"Reunião Final":{"m":142,"r":76,"c":54,"op":1275192.75,"vd":352103.14,"bas":24,"fam":{"cerimonial":{"ab":63,"vd":0,"mesa":264600},"dj":{"ab":54,"vd":3,"mesa":331500},"floral":{"ab":56,"vd":8,"mesa":261120},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":51,"vd":8,"mesa":74505.20000000001},"hora":{"ab":68,"vd":11,"mesa":71250},"coffee":{"ab":60,"vd":8,"mesa":46800},"noiva":{"ab":68,"vd":3,"mesa":130000}}},"Reunião de DJ":{"m":6,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}},"Boas-vindas":{"m":27,"r":12,"c":7,"op":168464.9,"vd":0,"bas":1,"fam":{"cerimonial":{"ab":3,"vd":0,"mesa":12600},"dj":{"ab":4,"vd":0,"mesa":26000},"floral":{"ab":12,"vd":0,"mesa":65280},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":11,"vd":0,"mesa":19534.9},"hora":{"ab":11,"vd":0,"mesa":13750},"coffee":{"ab":12,"vd":0,"mesa":10800},"noiva":{"ab":11,"vd":0,"mesa":22000}}},"Primeiros Passos":{"m":3,"r":1,"c":2,"op":9590,"vd":0,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":0,"vd":0,"mesa":0},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":0,"vd":0,"mesa":0},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}},"Cadastramento":{"m":3,"r":0,"c":1,"op":0,"vd":0,"bas":0,"fam":{}},"Clientes antigos":{"m":1,"r":1,"c":0,"op":22561.5,"vd":0,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":1,"vd":0,"mesa":6500},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":2271.5},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}},"Layout e Decor":{"m":1,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-10":{"Boas-vindas":{"m":29,"r":17,"c":9,"op":277744.8,"vd":0,"bas":3,"fam":{"cerimonial":{"ab":5,"vd":0,"mesa":21000},"dj":{"ab":9,"vd":0,"mesa":58500},"floral":{"ab":17,"vd":0,"mesa":92480},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":16,"vd":0,"mesa":29334.800000000003},"hora":{"ab":17,"vd":0,"mesa":21250},"coffee":{"ab":17,"vd":0,"mesa":15300},"noiva":{"ab":17,"vd":0,"mesa":34000}}},"Reunião Final":{"m":26,"r":17,"c":6,"op":306086.2,"vd":102190.31999999999,"bas":6,"fam":{"cerimonial":{"ab":9,"vd":0,"mesa":37800},"dj":{"ab":13,"vd":2,"mesa":71500},"floral":{"ab":15,"vd":3,"mesa":65280},"decor":{"ab":2,"vd":1,"mesa":5880},"lanche":{"ab":16,"vd":2,"mesa":22260.7},"hora":{"ab":16,"vd":3,"mesa":16250},"coffee":{"ab":15,"vd":3,"mesa":10800},"noiva":{"ab":15,"vd":2,"mesa":26000}}},"Clientes antigos":{"m":3,"r":2,"c":1,"op":43103.7,"vd":4381.91,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":2,"vd":0,"mesa":13000},"floral":{"ab":2,"vd":0,"mesa":10880},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":1,"vd":0,"mesa":843.7},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":0,"mesa":4000}}},"Cadastramento":{"m":1,"r":0,"c":1,"op":0,"vd":0,"bas":0,"fam":{}},"Primeiros Passos":{"m":2,"r":1,"c":1,"op":18037,"vd":22012.1,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":1,"vd":1,"mesa":0},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":1947.0000000000002},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":1,"mesa":0}}},"Reunião de DJ":{"m":8,"r":0,"c":3,"op":0,"vd":0,"bas":0,"fam":{}}}},"Outros":{"2026-08":{"Reunião de DJ":{"m":31,"r":31,"c":0,"op":314437.05,"vd":70247.81,"bas":2,"fam":{"cerimonial":{"ab":12,"vd":0,"mesa":50400},"dj":{"ab":3,"vd":1,"mesa":13000},"floral":{"ab":16,"vd":0,"mesa":87040},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":21,"vd":1,"mesa":47020.049999999996},"hora":{"ab":27,"vd":2,"mesa":31250},"coffee":{"ab":21,"vd":1,"mesa":18000},"noiva":{"ab":25,"vd":3,"mesa":44000}}},"Reunião Final":{"m":16,"r":5,"c":6,"op":69334.75,"vd":60575.439999999995,"bas":0,"fam":{"cerimonial":{"ab":2,"vd":0,"mesa":8400},"dj":{"ab":2,"vd":1,"mesa":6500},"floral":{"ab":5,"vd":1,"mesa":21760},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":2,"vd":1,"mesa":973.5000000000001},"hora":{"ab":5,"vd":1,"mesa":5000},"coffee":{"ab":3,"vd":2,"mesa":900},"noiva":{"ab":5,"vd":0,"mesa":10000}}}},"todos":{"Reunião de DJ":{"m":37,"r":31,"c":0,"op":314437.05,"vd":70247.81,"bas":2,"fam":{"cerimonial":{"ab":12,"vd":0,"mesa":50400},"dj":{"ab":3,"vd":1,"mesa":13000},"floral":{"ab":16,"vd":0,"mesa":87040},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":21,"vd":1,"mesa":47020.049999999996},"hora":{"ab":27,"vd":2,"mesa":31250},"coffee":{"ab":21,"vd":1,"mesa":18000},"noiva":{"ab":25,"vd":3,"mesa":44000}}},"Reunião Final":{"m":18,"r":5,"c":8,"op":69334.75,"vd":60575.439999999995,"bas":0,"fam":{"cerimonial":{"ab":2,"vd":0,"mesa":8400},"dj":{"ab":2,"vd":1,"mesa":6500},"floral":{"ab":5,"vd":1,"mesa":21760},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":2,"vd":1,"mesa":973.5000000000001},"hora":{"ab":5,"vd":1,"mesa":5000},"coffee":{"ab":3,"vd":2,"mesa":900},"noiva":{"ab":5,"vd":0,"mesa":10000}}},"Boas-vindas":{"m":1,"r":1,"c":0,"op":16386,"vd":0,"bas":0,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":0,"vd":0,"mesa":0},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":2596},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}}},"2026-09":{"Reunião de DJ":{"m":6,"r":0,"c":0,"op":0,"vd":0,"bas":0,"fam":{}},"Reunião Final":{"m":2,"r":0,"c":2,"op":0,"vd":0,"bas":0,"fam":{}},"Boas-vindas":{"m":1,"r":1,"c":0,"op":16386,"vd":0,"bas":0,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":0,"vd":0,"mesa":0},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":2596},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}}}},"Relacionamento":{"2026-08":{"Reunião Final":{"m":3,"r":0,"c":3,"op":0,"vd":0,"bas":0,"fam":{}}},"todos":{"Reunião Final":{"m":17,"r":2,"c":8,"op":30651.5,"vd":8625.119999999999,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":2,"vd":0,"mesa":10880},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":2,"vd":0,"mesa":2271.5},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":0,"mesa":4000}}},"Boas-vindas":{"m":51,"r":28,"c":12,"op":429823.7,"vd":0,"bas":4,"fam":{"cerimonial":{"ab":7,"vd":0,"mesa":29400},"dj":{"ab":13,"vd":0,"mesa":84500},"floral":{"ab":28,"vd":0,"mesa":152320},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":26,"vd":0,"mesa":46273.700000000004},"hora":{"ab":27,"vd":0,"mesa":33750},"coffee":{"ab":28,"vd":0,"mesa":25200},"noiva":{"ab":27,"vd":0,"mesa":54000}}},"Primeiros Passos":{"m":5,"r":2,"c":3,"op":27627,"vd":22012.1,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":2,"vd":1,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":1947.0000000000002},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":1,"mesa":2000}}},"Clientes antigos":{"m":4,"r":3,"c":1,"op":65665.2,"vd":4381.91,"bas":2,"fam":{"cerimonial":{"ab":2,"vd":0,"mesa":8400},"dj":{"ab":3,"vd":0,"mesa":19500},"floral":{"ab":3,"vd":0,"mesa":16320},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":2,"vd":0,"mesa":3115.2},"hora":{"ab":3,"vd":0,"mesa":3750},"coffee":{"ab":3,"vd":0,"mesa":2700},"noiva":{"ab":3,"vd":0,"mesa":6000}}},"Reunião de DJ":{"m":8,"r":0,"c":3,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-09":{"Reunião Final":{"m":7,"r":0,"c":2,"op":0,"vd":0,"bas":0,"fam":{}},"Boas-vindas":{"m":22,"r":11,"c":3,"op":152078.9,"vd":0,"bas":1,"fam":{"cerimonial":{"ab":2,"vd":0,"mesa":8400},"dj":{"ab":4,"vd":0,"mesa":26000},"floral":{"ab":11,"vd":0,"mesa":59840},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":10,"vd":0,"mesa":16938.9},"hora":{"ab":10,"vd":0,"mesa":12500},"coffee":{"ab":11,"vd":0,"mesa":9900},"noiva":{"ab":10,"vd":0,"mesa":20000}}},"Primeiros Passos":{"m":3,"r":1,"c":2,"op":9590,"vd":0,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":0,"vd":0,"mesa":0},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":0,"vd":0,"mesa":0},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}},"Clientes antigos":{"m":1,"r":1,"c":0,"op":22561.5,"vd":0,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":1,"vd":0,"mesa":6500},"floral":{"ab":1,"vd":0,"mesa":5440},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":2271.5},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":0,"mesa":2000}}}},"2026-10":{"Boas-vindas":{"m":29,"r":17,"c":9,"op":277744.8,"vd":0,"bas":3,"fam":{"cerimonial":{"ab":5,"vd":0,"mesa":21000},"dj":{"ab":9,"vd":0,"mesa":58500},"floral":{"ab":17,"vd":0,"mesa":92480},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":16,"vd":0,"mesa":29334.800000000003},"hora":{"ab":17,"vd":0,"mesa":21250},"coffee":{"ab":17,"vd":0,"mesa":15300},"noiva":{"ab":17,"vd":0,"mesa":34000}}},"Clientes antigos":{"m":3,"r":2,"c":1,"op":43103.7,"vd":4381.91,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":2,"vd":0,"mesa":13000},"floral":{"ab":2,"vd":0,"mesa":10880},"decor":{"ab":1,"vd":0,"mesa":5880},"lanche":{"ab":1,"vd":0,"mesa":843.7},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":0,"mesa":4000}}},"Reunião Final":{"m":7,"r":2,"c":3,"op":30651.5,"vd":8625.119999999999,"bas":1,"fam":{"cerimonial":{"ab":1,"vd":0,"mesa":4200},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":2,"vd":0,"mesa":10880},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":2,"vd":0,"mesa":2271.5},"hora":{"ab":2,"vd":0,"mesa":2500},"coffee":{"ab":2,"vd":0,"mesa":1800},"noiva":{"ab":2,"vd":0,"mesa":4000}}},"Primeiros Passos":{"m":2,"r":1,"c":1,"op":18037,"vd":22012.1,"bas":0,"fam":{"cerimonial":{"ab":0,"vd":0,"mesa":0},"dj":{"ab":1,"vd":1,"mesa":0},"floral":{"ab":1,"vd":1,"mesa":0},"decor":{"ab":0,"vd":0,"mesa":0},"lanche":{"ab":1,"vd":0,"mesa":1947.0000000000002},"hora":{"ab":1,"vd":0,"mesa":1250},"coffee":{"ab":1,"vd":0,"mesa":900},"noiva":{"ab":1,"vd":1,"mesa":0}}},"Reunião de DJ":{"m":8,"r":0,"c":3,"op":0,"vd":0,"bas":0,"fam":{}}}},"Cadastramento":{"2026-09":{"Cadastramento":{"m":3,"r":0,"c":1,"op":0,"vd":0,"bas":0,"fam":{}}},"todos":{"Cadastramento":{"m":4,"r":0,"c":2,"op":0,"vd":0,"bas":0,"fam":{}}},"2026-10":{"Cadastramento":{"m":1,"r":0,"c":1,"op":0,"vd":0,"bas":0,"fam":{}}}}},"FAM":[{"k":"cerimonial","rot":"Assessoria e cerimonial"},{"k":"dj","rot":"DJ e audiovisual"},{"k":"floral","rot":"Floral"},{"k":"decor","rot":"Decoração e mobiliário"},{"k":"lanche","rot":"Lanche da madrugada"},{"k":"hora","rot":"Hora extra"},{"k":"coffee","rot":"Open coffee"},{"k":"noiva","rot":"Dia da noiva, kids e hospedagem"}]};
+const ORD_TIME = ['Relacionamento', 'Especialistas', 'Cadastramento', 'Pós inteiro'];
+const ORD_MES = [['2026-10', 'outubro'], ['2026-09', 'setembro'], ['2026-08', 'agosto'], ['todos', 'ago a 08/10']];
+let selTime = 'Relacionamento', selMes = 'todos';
+function chip(on, attr, val, rot) { return '<span class="chip ' + (on ? 'on' : '') + '" data-' + attr + '="' + val + '">' + rot + '</span>' }
+function td(cls, v) { return '<td class="num ' + (cls || '') + '">' + v + '</td>' }
+function pintaOp() {
+  document.getElementById('chipsTime').innerHTML = ORD_TIME.filter(function (t) { return CUBO.cubo[t] })
+    .map(function (t) { return chip(t === selTime, 't', t, t) }).join('');
+  document.getElementById('chipsMes').innerHTML = ORD_MES.filter(function (x) { return (CUBO.cubo[selTime] || {})[x[0]] })
+    .map(function (x) { return chip(x[0] === selMes, 'm', x[0], x[1]) }).join('');
+  document.querySelectorAll('#chipsTime .chip').forEach(function (el) { el.onclick = function () { selTime = el.dataset.t; if (!CUBO.cubo[selTime][selMes]) selMes = 'todos'; pintaOp() } });
+  document.querySelectorAll('#chipsMes .chip').forEach(function (el) { el.onclick = function () { selMes = el.dataset.m; pintaOp() } });
+
+  var bloco = (CUBO.cubo[selTime] || {})[selMes] || {};
+  var tipos = Object.keys(bloco).map(function (k) { return [k, bloco[k]] }).sort(function (a, b) { return b[1].op - a[1].op });
+  var T = { m: 0, r: 0, c: 0, op: 0, vd: 0, bas: 0 };
+  document.getElementById('tReu').innerHTML = tipos.map(function (par) {
+    var t = par[0], x = par[1];
+    T.m += x.m; T.r += x.r; T.c += x.c; T.op += x.op; T.vd += x.vd; T.bas += x.bas;
+    var ap = x.op ? x.vd / x.op : null;
+    var cor = ap === null ? '' : ap < 0.15 ? 'down' : ap < 0.4 ? 'warn' : 'up';
+    var dest = (ap !== null && ap < 0.05) ? ' class="dest"' : '';
+    return '<tr' + dest + '><td>' + t + '</td>' + td('', x.m) + td('', x.r) + td(x.c > x.r ? 'down' : '', x.c)
+      + td('', x.op ? 'R$ ' + n0(x.op) : '—') + td('', x.vd ? 'R$ ' + n0(x.vd) : '—')
+      + td(cor, '<b>' + (ap === null ? '—' : Math.round(ap * 100) + '%') + '</b>')
+      + td('', x.r ? x.bas + ' de ' + x.r : '—') + '</tr>';
+  }).join('') + '<tr class="dest"><td><b>Total</b></td>' + td('', T.m) + td('', T.r) + td('', T.c)
+    + td('', 'R$ ' + n0(T.op)) + td('', 'R$ ' + n0(T.vd))
+    + td('', '<b>' + (T.op ? Math.round(T.vd / T.op * 100) : 0) + '%</b>') + td('', T.bas + ' de ' + T.r) + '</tr>';
+
+  var fam = {};
+  tipos.forEach(function (par) { var x = par[1]; Object.keys(x.fam).forEach(function (k) {
+    var f = fam[k] = fam[k] || { ab: 0, vd: 0, mesa: 0 };
+    f.ab += x.fam[k].ab; f.vd += x.fam[k].vd; f.mesa += x.fam[k].mesa }) });
+  document.getElementById('tFam').innerHTML = CUBO.FAM.map(function (f) { return [f, fam[f.k]] })
+    .filter(function (par) { return par[1] && par[1].ab })
+    .sort(function (a, b) { return b[1].mesa - a[1].mesa })
+    .map(function (par) { var f = par[0], x = par[1], c = x.vd / x.ab;
+      return '<tr' + (c === 0 ? ' class="dest"' : '') + '><td>' + f.rot + '</td>' + td('', x.ab) + td('', x.vd)
+        + td(c === 0 ? 'down' : c < 0.2 ? 'warn' : 'up', '<b>' + Math.round(c * 100) + '%</b>')
+        + td('', 'R$ ' + n0(x.mesa)) + '</tr>' }).join('');
+
+  document.getElementById('kOp').textContent = 'R$ ' + n0(T.op);
+  document.getElementById('kOpL').textContent = T.r + ' reuniões realizadas · R$ ' + n0(T.r ? T.op / T.r : 0) + ' por reunião';
+  document.getElementById('kVd').textContent = 'R$ ' + n0(T.vd);
+  document.getElementById('kVdL').textContent = 'R$ ' + n0(T.r ? T.vd / T.r : 0) + ' por reunião realizada';
+  var ap = T.op ? T.vd / T.op : 0;
+  var el = document.getElementById('kAp'); el.textContent = Math.round(ap * 100) + '%';
+  el.className = 'big ' + (ap < 0.15 ? 'down' : ap < 0.4 ? 'warn' : 'up');
+  document.getElementById('kCanc').textContent = T.c + ' de ' + T.m;
+  document.getElementById('kCancL').textContent = 'canceladas antes de acontecer · ' + (T.m ? Math.round(T.c / T.m * 100) : 0) + '% do que foi marcado';
+  document.getElementById('notaOp').innerHTML = '<b>Como ler:</b> a oportunidade é a soma do piso do Pós de cada serviço que o contrato <b>não tinha</b> quando o cliente entrou na reunião. "Vendemos" é o aditivo assinado de 3 dias antes a 10 depois dela. Reunião cancelada não entra na oportunidade — ela aparece na coluna de canceladas, porque oportunidade que nunca foi para a mesa é outro problema.<br><b>Ressalva:</b> serviços que não se aplicam ao evento (dia da noiva num 15 anos, hora extra onde o espaço não permite) inflam o teto. Falta a regra de elegibilidade por tipo de evento e espaço para isso virar meta cobrável.';
+}
+pintaOp();
+const CAT = [{"k":"Audiovisual & DJ","an":41,"sn":11,"av":225600,"sv":34200,"appA":0,"appS":0,"tA":5502.4390243902435,"tS":3109.090909090909},{"k":"Assessoria & Cerimonial","an":16,"sn":5,"av":50575,"sv":11650,"appA":0,"appS":0,"tA":3160.9375,"tS":2330},{"k":"Floral","an":50,"sn":28,"av":212601,"sv":57480,"appA":0,"appS":0,"tA":4252.02,"tS":2052.8571428571427},{"k":"Mobílias & Decoração","an":102,"sn":49,"av":159754.95,"sv":61449,"appA":1,"appS":0,"tA":1581.732178217822,"tS":1254.061224489796},{"k":"Espaços, Hospedagem & Kids","an":52,"sn":32,"av":84030,"sv":47450,"appA":0,"appS":0,"tA":1615.9615384615386,"tS":1482.8125},{"k":"Bebidas","an":122,"sn":72,"av":43089,"sv":14082.5,"appA":66,"appS":45,"tA":769.4464285714286,"tS":521.574074074074},{"k":"Gastronomia","an":112,"sn":71,"av":21580.3,"sv":14321.499999999998,"appA":82,"appS":46,"tA":719.3433333333334,"tS":572.8599999999999},{"k":"Outros","an":11,"sn":7,"av":16630,"sv":10940.5,"appA":0,"appS":1,"tA":1511.8181818181818,"tS":1823.4166666666667}];
+let sel = new Set(CAT.map((c) => c.k));
+const chips = document.getElementById('chips'), tcat = document.getElementById('tcat');
+function pinta() {
+  chips.innerHTML = CAT.map((c) => `<span class="chip ${sel.has(c.k) ? 'on' : ''}" data-k="${c.k}">${c.k}</span>`).join('')
+    + '<span class="chip" data-k="__all">todas</span>';
+  chips.querySelectorAll('.chip').forEach((el) => el.onclick = () => {
+    const k = el.dataset.k;
+    if (k === '__all') sel = new Set(CAT.map((c) => c.k));
+    else if (sel.size === CAT.length) { sel = new Set([k]) }
+    else { sel.has(k) ? sel.delete(k) : sel.add(k); if (!sel.size) sel = new Set(CAT.map((c) => c.k)) }
+    pinta();
+  });
+  const l = CAT.filter((c) => sel.has(c.k));
+  tcat.innerHTML = l.map((c) => {
+    const d = c.av - c.sv, pct = c.av > 0 ? Math.round(d / c.av * 100) : 0;
+    return `<tr><td>${c.k}</td><td class="num">${n0(c.av)}</td><td class="num">${n0(c.sv)}</td>
+      <td class="num down">− ${n0(d)} (${pct}%)</td>
+      <td class="num">${c.tA ? n0(c.tA) : '—'} → ${c.tS ? n0(c.tS) : '—'}</td></tr>`;
+  }).join('') + (() => {
+    const t = l.reduce((s, c) => ({ av: s.av + c.av, sv: s.sv + c.sv }), { av: 0, sv: 0 });
+    return `<tr class="dest"><td><b>selecionadas</b></td><td class="num">${n0(t.av)}</td><td class="num">${n0(t.sv)}</td><td class="num down">− ${n0(t.av - t.sv)}</td><td class="num"></td></tr>`;
+  })();
+}
+pinta();
+</script>
+</body>
+</html>
