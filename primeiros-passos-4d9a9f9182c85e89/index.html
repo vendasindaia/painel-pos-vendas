@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expectativa de venda por reunião</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#0f1115;--card:#171a21;--card2:#1e222b;--linha:#262b36;--ink:#e8eaed;--ink2:#9aa3af;--mut:#6b7280;--up:#4ade80;--down:#f87171;--warn:#fbbf24;--s1:#60a5fa}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px 18px 48px}
+.wrap{max-width:1180px;margin:0 auto}
+header{margin:0 0 18px}
+h1{font-size:20px;margin:0 0 3px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:13px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:16px 18px;margin:0 0 14px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);margin:0 0 12px;font-weight:600}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.g2{grid-template-columns:1fr 1fr}
+.big{font-size:27px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.rotulo{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.leg{font-size:12.5px;color:var(--mut)}
+.up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 9px;border-bottom:1px solid var(--linha);text-align:left;vertical-align:top}
+th{color:var(--mut);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.dest td{background:#1f2430}
+tr.total td{background:#222834}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+text.lbl{font:12px system-ui;fill:var(--mut)}
+text.val{font:13px system-ui;fill:var(--ink);font-weight:600}
+text.dentro{font:15px system-ui;fill:#0f1115;font-weight:700}
+.nota{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.55;background:var(--card2);border-radius:9px;padding:11px 14px}
+.pilha{display:flex;height:30px;border-radius:6px;overflow:hidden;margin:6px 0 4px}
+.pilha i{display:block;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0f1115}
+table.serv th.cen{text-align:center}
+td.cel{text-align:center;font-size:12.5px;white-space:nowrap}
+td.cel.tinha{color:var(--mut)}
+td.cel.vend{color:var(--up);font-weight:600}
+td.cel.nao{color:var(--down);font-weight:600}
+td.cel.abre{color:var(--s1);font-weight:600}
+.bonus{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);font-weight:400}
+.mut{color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Expectativa de venda por reunião · Relacionamento</h1>
+  <div class="sub">Conversão medida sobre OPORTUNIDADE, não sobre "fechou algo" · dados de 09/10/2026</div>
+</header>
+
+<div class="card" style="border-color:#2f3a4f">
+  <h2>A regra <span style="color:var(--s1);text-transform:none;letter-spacing:0"> · cada reunião existe para vender uma coisa</span></h2>
+  <div class="grid g2">
+    <div>
+      <p><b>Primeiros Passos</b> existe para vender três pacotes: <b>DJ e audiovisual</b>, <b>assessoria e cerimonial</b> e <b>floral</b>. A sala da noiva ou da debutante é <b>extra</b>, não entra na meta.</p>
+      <p><b>Boas-vindas</b> não é reunião de venda: a expectativa dela é <b>zero</b>, e cobrar conversão ali é cobrar o que a reunião não se propõe a fazer.</p>
+    </div>
+    <div>
+      <p>A conversão não é "a reunião fechou um aditivo". É <b>quantos dos pacotes em aberto foram vendidos</b>. Se o cliente não tinha nenhum dos três e saiu com um, a reunião converteu <b>33%</b>, não 100%.</p>
+      <p>Contrato que já tem os três <b>sai do divisor</b>: ali não existe oportunidade de núcleo, só upsell.</p>
+    </div>
+  </div>
+</div>
+
+<div class="grid g4">
+  <div class="card"><div class="rotulo">Conversão realizada</div><div class="big up">57%</div><div class="leg">4 de 7 oportunidades nas 5 reuniões já feitas</div></div>
+  <div class="card"><div class="rotulo">Na agenda do mês</div><div class="big">53</div><div class="leg">oportunidades de núcleo em 26 reuniões agendadas</div></div>
+  <div class="card"><div class="rotulo">Valor ao piso do Pós</div><div class="big">R$ 288.640</div><div class="leg">se vender tudo que está em aberto</div></div>
+  <div class="card"><div class="rotulo">Contratos sem oportunidade</div><div class="big up">0</div><div class="leg">nenhum dos 18 já tem os três pacotes</div></div>
+</div>
+
+<div class="card">
+  <h2>Por tipo de reunião</h2>
+  <table><thead><tr><th>Reunião e o que ela existe para vender</th><th class="num">realizadas</th><th class="num">agendadas</th>
+    <th class="num">oportunidades</th><th class="num">vendidas</th><th class="num">conversão</th><th class="num">já tinha tudo</th><th class="num">R$ na agenda</th></tr></thead><tbody>
+    <tr><td><b>Primeiros Passos</b><br><span class="leg">núcleo: DJ · assessoria e cerimonial · floral</span></td>
+      <td class="num">5</td><td class="num">26</td>
+      <td class="num">7</td><td class="num">4</td>
+      <td class="num up"><b>57%</b></td>
+      <td class="num">—</td>
+      <td class="num">R$ 288.640</td></tr>
+    <tr><td><b>Boas-vindas</b><br><span class="leg">não é reunião de venda — expectativa zero</span></td>
+      <td class="num">36</td><td class="num">39</td>
+      <td class="num">—</td><td class="num">—</td>
+      <td class="num "><b>—</b></td>
+      <td class="num">36</td>
+      <td class="num">—</td></tr>
+    <tr><td><b>Clientes antigos</b><br><span class="leg">núcleo: DJ · cerimonial · floral</span></td>
+      <td class="num">4</td><td class="num">2</td>
+      <td class="num">10</td><td class="num">0</td>
+      <td class="num down"><b>0%</b></td>
+      <td class="num">—</td>
+      <td class="num">R$ 28.080</td></tr><tr><td><b>Reunião de DJ</b><br><span class="leg">núcleo: DJ</span></td>
+      <td class="num">0</td><td class="num">5</td>
+      <td class="num">—</td><td class="num">—</td>
+      <td class="num "><b>—</b></td>
+      <td class="num">—</td>
+      <td class="num">R$ 24.500</td></tr>
+  </tbody></table>
+  <div class="nota">"Já tinha tudo" é a reunião em que o contrato chegou com os três pacotes do núcleo — ela não entra no divisor da conversão. Hoje são zero: <b>todo cliente que entra numa Primeiros Passos tem pelo menos um pacote para comprar</b>.</div>
+</div>
+
+<div class="grid g2">
+  <div class="card">
+    <h2>O que está em aberto nas 18 reuniões do mês</h2>
+    <svg viewBox="0 0 760 210" class="chart"><text x="168" y="27" class="lbl" text-anchor="end">DJ e audiovisual</text><rect x="180" y="10" width="490" height="26" fill="#242934" rx="4"/><rect x="180" y="10" width="301.5" height="26" fill="#60a5fa" rx="4"/><text x="491.53846153846155" y="27" class="val">16 de 26</text><text x="168" y="67" class="lbl" text-anchor="end">Assessoria e cerimonial</text><rect x="180" y="50" width="490" height="26" fill="#242934" rx="4"/><rect x="180" y="50" width="207.3" height="26" fill="#60a5fa" rx="4"/><text x="397.30769230769226" y="67" class="val">11 de 26</text><text x="168" y="107" class="lbl" text-anchor="end">Floral</text><rect x="180" y="90" width="490" height="26" fill="#242934" rx="4"/><rect x="180" y="90" width="490.0" height="26" fill="#60a5fa" rx="4"/><text x="680" y="107" class="val">26 de 26</text><text x="168" y="147" class="lbl" text-anchor="end">Sala da noiva (extra)</text><rect x="180" y="130" width="490" height="26" fill="#242934" rx="4"/><rect x="180" y="130" width="490.0" height="26" fill="#6b7280" rx="4"/><text x="680" y="147" class="val">26 de 26</text><text x="180" y="204" class="lbl">em quantas das 26 reuniões agendadas o produto está em aberto</text></svg>
+    <div class="nota"><b>O floral está em aberto em todas as 18.</b> Nenhum dos contratos que vão passar por Primeiros Passos neste mês tem floral contratado — é o produto com mais espaço e, no histórico, o de pior conversão.</div>
+  </div>
+  <div class="card">
+    <h2>Expectativa do mês</h2>
+    <svg viewBox="0 0 760 180" class="chart"><rect x="10" y="10" width="420.0" height="42" fill="#60a5fa" rx="5" opacity="0.85"/><text x="22" y="36" class="dentro">53</text><text x="444" y="31" class="val">53 oportunidades na agenda</text><text x="444" y="46" class="lbl">R$ 288.640 ao piso</text><rect x="10" y="64" width="237.7" height="42" fill="#4ade80" rx="5" opacity="0.85"/><text x="22" y="90" class="dentro">30</text><text x="261.7358490566038" y="85" class="val">expectativa no ritmo de hoje (57%)</text><text x="261.7358490566038" y="100" class="lbl">R$ 164.937</text><rect x="10" y="118" width="142.6" height="42" fill="#fbbf24" rx="5" opacity="0.85"/><text x="22" y="144" class="dentro">18</text><text x="166.64150943396226" y="139" class="val">piso aceitável: 1 de 3 (33%)</text><text x="166.64150943396226" y="154" class="lbl">R$ 96.213</text></svg>
+    <div class="nota">Três cenários sobre as mesmas 53 oportunidades. O do meio usa a conversão que a equipe já provou (57%, em 2 reuniões — amostra pequena). O de baixo é o piso que você descreveu: vender 1 de cada 3.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Quantas oportunidades cada reunião carrega</h2>
+  <div class="pilha">
+    <i style="width:23.1%;background:#60a5fa">6 reuniões</i><i style="width:57.7%;background:#93c5fd">15 reuniões</i><i style="width:19.2%;background:#c7dbfb">5 reuniões</i>
+  </div>
+  <div class="leg">6 reuniões com os <b>três</b> pacotes em aberto · 15 com <b>dois</b> · 5 com <b>um</b></div>
+</div>
+
+<div class="card">
+  <h2>O roteiro de cada reunião agendada <span style="color:var(--s1);text-transform:none;letter-spacing:0"> · o que o atendente tem para oferecer</span></h2>
+  <table class="serv"><thead><tr><th>Data</th><th>Evento</th><th>Atendente</th><th>Evento em</th><th class="cen">DJ</th><th class="cen">Assessoria</th><th class="cen">Floral</th><th class="cen">Sala da noiva<br><span class="bonus">bônus</span></th><th class="cen">Cerimônia externa<br><span class="bonus">bônus</span></th>
+    <th class="num">oport.</th><th class="num">R$ ao piso</th></tr></thead><tbody><tr><td>15/10</td><td>E08633</td>
+      <td>Jordana</td><td><span class="leg">14/10/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">1</td>
+      <td class="num down"><b>R$ 5.440</b></td></tr><tr><td>15/10</td><td>E08655</td>
+      <td>Polyana</td><td><span class="leg">20/11/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>16/10</td><td>E08738</td>
+      <td>Jordana</td><td><span class="leg">03/10/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>16/10</td><td>E08605</td>
+      <td>Maria</td><td><span class="leg">30/05/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>19/10</td><td>E08731</td>
+      <td>Polyana</td><td><span class="leg">10/12/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 9.640</b></td></tr><tr><td>19/10</td><td>E08719</td>
+      <td>Maria</td><td><span class="leg">22/09/28</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">1</td>
+      <td class="num down"><b>R$ 5.440</b></td></tr><tr><td>19/10</td><td>E08756</td>
+      <td>Jordana</td><td><span class="leg">15/10/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 16.140</b></td></tr><tr><td>20/10</td><td>E08730</td>
+      <td>Maria</td><td><span class="leg">28/11/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>20/10</td><td>E08444</td>
+      <td>Polyana</td><td><span class="leg">27/10/28</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>21/10</td><td>E08749</td>
+      <td>Maria</td><td><span class="leg">14/07/28</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 9.640</b></td></tr><tr><td>21/10</td><td>E08692</td>
+      <td>Maria</td><td><span class="leg">16/11/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 14.640</b></td></tr><tr><td>21/10</td><td>E08727</td>
+      <td>Jordana</td><td><span class="leg">01/11/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">1</td>
+      <td class="num down"><b>R$ 5.440</b></td></tr><tr><td>22/10</td><td>E08679</td>
+      <td>Polyana</td><td><span class="leg">05/11/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 9.640</b></td></tr><tr><td>23/10</td><td>E08612</td>
+      <td>Maria</td><td><span class="leg">20/02/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>26/10</td><td>E08707</td>
+      <td>Maria</td><td><span class="leg">19/11/28</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 9.640</b></td></tr><tr><td>26/10</td><td>E08674</td>
+      <td>Jordana</td><td><span class="leg">20/12/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 10.440</b></td></tr><tr><td>27/10</td><td>E08664</td>
+      <td>Maria</td><td><span class="leg">17/12/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 16.140</b></td></tr><tr><td>28/10</td><td>E08721</td>
+      <td>Jordana</td><td><span class="leg">24/10/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 16.140</b></td></tr><tr><td>29/10</td><td>E08722</td>
+      <td>Polyana</td><td><span class="leg">10/09/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>29/10</td><td>E08521</td>
+      <td>Polyana</td><td><span class="leg">19/10/29</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>30/10</td><td>E08744</td>
+      <td>Maria</td><td><span class="leg">26/11/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">1</td>
+      <td class="num down"><b>R$ 5.440</b></td></tr><tr><td>03/11</td><td>E08737</td>
+      <td>Maria</td><td><span class="leg">17/09/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 16.140</b></td></tr><tr><td>04/11</td><td>E08763</td>
+      <td>Polyana</td><td><span class="leg">12/06/27</span></td>
+      <td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">3</td>
+      <td class="num down"><b>R$ 16.140</b></td></tr><tr><td>05/11</td><td>E08634</td>
+      <td>Polyana</td><td><span class="leg">12/10/29</span></td>
+      <td class="cel abre">em aberto</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 11.940</b></td></tr><tr><td>05/11</td><td>E08678</td>
+      <td>Polyana</td><td><span class="leg">24/01/28</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">1</td>
+      <td class="num down"><b>R$ 5.440</b></td></tr><tr><td>09/11</td><td>E08750</td>
+      <td>Jordana</td><td><span class="leg">29/10/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td><td class="cel abre">em aberto</td>
+      <td class="num">2</td>
+      <td class="num down"><b>R$ 9.640</b></td></tr><tr class="total"><td colspan="4"><b>26 reuniões</b></td>
+    <td class="cel"><b class="">16</b><br><span class="leg">em aberto</span></td><td class="cel"><b class="">11</b><br><span class="leg">em aberto</span></td><td class="cel"><b class="">26</b><br><span class="leg">em aberto</span></td><td class="cel"><b class="">26</b><br><span class="leg">em aberto</span></td><td class="cel"><b class="">26</b><br><span class="leg">em aberto</span></td>
+    <td class="num"><b>53</b></td>
+    <td class="num"><b>R$ 288.640</b></td></tr></tbody></table>
+  <div class="nota">Esta é a tabela que o atendente deveria ver <b>antes</b> da reunião: o que o cliente já tem e o que falta. As duas linhas destacadas são as que chegam sem nada dos três — E08756 (19/10, Jordana) e E08664 (27/10, Maria Eduarda), R$ 16.140 de oportunidade cada.</div>
+</div>
+
+<div class="card">
+  <h2>Reuniões já realizadas</h2>
+  <table class="serv"><thead><tr><th>Data</th><th>Evento</th><th>Atendente</th><th>Evento em</th><th class="cen">DJ</th><th class="cen">Assessoria</th><th class="cen">Floral</th><th class="cen">Sala da noiva<br><span class="bonus">bônus</span></th><th class="cen">Cerimônia externa<br><span class="bonus">bônus</span></th>
+    <th class="num">oport.</th><th class="num">conversão</th></tr></thead><tbody><tr><td>22/09</td><td>E08190</td>
+      <td>Maria</td><td><span class="leg">27/09/26</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel nao">não vendeu</td><td class="cel nao">não vendeu</td><td class="cel nao">não vendeu</td>
+      <td class="num">1</td>
+      <td class="num down"><b>0%</b></td></tr><tr><td>06/10</td><td>E08667</td>
+      <td>Polyana</td><td><span class="leg">24/01/31</span></td>
+      <td class="cel vend">vendeu</td><td class="cel tinha">já tinha</td><td class="cel vend">vendeu</td><td class="cel vend">vendeu</td><td class="cel nao">não vendeu</td>
+      <td class="num">2</td>
+      <td class="num up"><b>100%</b></td></tr><tr><td>13/10</td><td>E08661</td>
+      <td>Maria</td><td><span class="leg">28/01/28</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel nao">não vendeu</td><td class="cel vend">vendeu</td><td class="cel nao">não vendeu</td>
+      <td class="num">1</td>
+      <td class="num down"><b>0%</b></td></tr><tr><td>13/10</td><td>E08697</td>
+      <td>Polyana</td><td><span class="leg">18/09/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel tinha">já tinha</td><td class="cel vend">vendeu</td><td class="cel tinha">já tinha</td><td class="cel nao">não vendeu</td>
+      <td class="num">1</td>
+      <td class="num up"><b>100%</b></td></tr><tr><td>14/10</td><td>E08732</td>
+      <td>Maria</td><td><span class="leg">06/11/27</span></td>
+      <td class="cel tinha">já tinha</td><td class="cel vend">vendeu</td><td class="cel nao">não vendeu</td><td class="cel nao">não vendeu</td><td class="cel nao">não vendeu</td>
+      <td class="num">2</td>
+      <td class="num warn"><b>50%</b></td></tr><tr class="total"><td colspan="4"><b>5 reuniões</b></td>
+    <td class="cel"><b class="up">1 de 1</b><br><span class="leg">vendeu</span></td><td class="cel"><b class="up">1 de 1</b><br><span class="leg">vendeu</span></td><td class="cel"><b class="up">2 de 5</b><br><span class="leg">vendeu</span></td><td class="cel"><b class="up">2 de 4</b><br><span class="leg">vendeu</span></td><td class="cel"><b class="down">0 de 5</b><br><span class="leg">vendeu</span></td>
+    <td class="num"><b>7</b></td>
+    <td class="num"><b>57%</b></td></tr></tbody></table>
+  <div class="nota"><b>A conversão sai só do núcleo</b> — DJ, assessoria e floral. Sala da noiva e cerimônia externa aparecem para a gente medir, mas não entram na conta: são venda extra, não o intuito da reunião.
+  <br><b>Amostra de 2 reuniões — os 67% são indício, não estatística.</b> E08667 converteu as duas oportunidades que tinha (DJ e floral, R$ 22.012 assinados). E08190 tinha só o floral em aberto e não vendeu — a reunião foi 5 dias antes do evento, quando floral permanente já não se contrata.</div>
+</div>
+
+<div class="card">
+  <h2>O que falta para isso virar meta</h2>
+  <ol style="margin:0;padding-left:20px">
+    <li style="margin:8px 0"><b>Elegibilidade por tipo de evento.</b> Sala da noiva num casamento é oportunidade; num jantar corporativo não é. Hoje eu conto igual, e por isso deixei a sala da noiva fora do núcleo.</li>
+    <li style="margin:8px 0"><b>Prazo mínimo.</b> O E08190 tinha floral em aberto numa reunião 5 dias antes do evento — oportunidade que não existia de verdade. Uma regra de "só conta se o evento está a mais de X dias" tira esse falso positivo.</li>
+    <li style="margin:8px 0"><b>Registro do que foi oferecido.</b> Hoje eu sei o que foi vendido, não o que foi oferecido. Sem isso, não dá para separar "ofereceu e o cliente não quis" de "não ofereceu" — e são problemas opostos.</li>
+  </ol>
+</div>
+</div>
+</body>
+</html>
