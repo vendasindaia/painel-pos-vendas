@@ -21,11 +21,13 @@ td.mes{font-weight:600;font-size:12.5px}
 .p{display:block;font-size:9.5px;color:var(--mut);font-weight:500}
 td.forte{font-weight:700}
 td.tot{font-weight:700;color:var(--tot);background:#f0fdf4}
+td.canc{color:#b42b2b;background:#fef6f6}
 tr.antiga td.mes{box-shadow:inset 3px 0 0 #cbd5e1}
 tr.nova td.mes{box-shadow:inset 3px 0 0 #7c3aed}
 tr.vazia{opacity:.4}
 tr:hover td{background:#fafaf7}
 tr:hover td.tot{background:#e7f8ee}
+tr:hover td.canc{background:#fdeaea}
 .f-planilha{color:#92400e}.f-rateada{color:#92400e;font-style:italic}
 .f-rateada::after{content:'~';font-size:10px;vertical-align:super;opacity:.7}
 .sis{display:block;font-size:9.5px;color:var(--mut);font-style:normal}
@@ -37,98 +39,112 @@ tr:hover td.tot{background:#e7f8ee}
 <div class="pag">
   <div class="cab"><h1>Venda geral 2026 · bloco do Pós separado por equipe</h1>
     <div class="sub">O que a tela do Dashboard Gerencial vai mostrar depois da atualização · gerado do próprio serviço,
-      planilha lida 15/10/2026, 10:29:46</div></div>
+      planilha lida 15/10/2026, 10:53:36</div></div>
 
   <table><thead>
     <tr><th></th><th class="g gv" colspan="3">VENDA (data de contratação)</th>
-      <th class="g gp" colspan="3">PÓS-VENDAS (data de lançamento)</th><th class="g gt">TOTAL</th></tr>
+      <th class="g gp" colspan="3">PÓS-VENDAS (data de lançamento)</th><th class="g gt" colspan="2">TOTAL</th></tr>
     <tr><th>Mês</th><th class="num">Social</th><th class="num">Corporativo</th><th class="num">Formaturas</th>
       <th class="num" style="color:var(--esp)">Especialistas<br><span style="font-weight:400;text-transform:none;letter-spacing:0">venda operacional</span></th>
       <th class="num" style="color:var(--rel)">Relacionamento<br><span style="font-weight:400;text-transform:none;letter-spacing:0">todo o resto</span></th>
       <th class="num">Pós total</th>
-      <th class="num" style="color:var(--tot)">Total setores</th></tr>
+      <th class="num" style="color:var(--tot)">Total setores</th>
+      <th class="num" style="color:#b42b2b">Cancelados<br><span style="font-weight:400;text-transform:none;letter-spacing:0">contrato + aditivo</span></th></tr>
   </thead><tbody>
 <tr class="antiga">
     <td class="mes">Janeiro 2026<span class="reg">maître × pós</span></td>
     <td class="num f-sistema" title="Valor do sistema — igual à planilha.">4.965.536</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 325.670.">398.601</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ —.">8.900</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 49.385.">45.367<span class="p">3%</span><span class="sis">sistema 49.385</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.480.290.">1.359.841<span class="p">97%</span><span class="sis">sistema 1.480.290</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.405.208 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.405.208</td>
-    <td class="num tot">6.778.245</td></tr>
+    <td class="num tot">6.778.245</td>
+    <td class="num canc" title="Contratos cancelados: R$ 638.496 (15) · Aditivos de cancelamento do Pós: R$ 772.357 (27)">1.410.854<span class="p">21%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Fevereiro 2026<span class="reg">maître × pós</span></td>
     <td class="num f-sistema" title="Valor do sistema — igual à planilha.">4.453.601</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 486.182.">1.067.708</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ —.">26.700</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 139.488.">148.822<span class="p">8%</span><span class="sis">sistema 139.488</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.611.986.">1.719.863<span class="p">92%</span><span class="sis">sistema 1.611.986</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.868.686 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.868.686</td>
-    <td class="num tot">7.416.694</td></tr>
+    <td class="num tot">7.416.694</td>
+    <td class="num canc" title="Contratos cancelados: R$ 462.341 (14) · Aditivos de cancelamento do Pós: R$ 888.899 (34)">1.351.240<span class="p">18%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Março 2026<span class="reg">maître × pós</span></td>
     <td class="num f-sistema" title="Valor do sistema — igual à planilha.">4.342.626</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 168.105.">169.823</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 359.220.">275.400</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 142.560.">142.907<span class="p">9%</span><span class="sis">sistema 142.560</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.378.617.">1.381.974<span class="p">91%</span><span class="sis">sistema 1.378.617</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.524.881 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.524.881</td>
-    <td class="num tot">6.312.730</td></tr>
+    <td class="num tot">6.312.730</td>
+    <td class="num canc" title="Contratos cancelados: R$ 632.482 (16) · Aditivos de cancelamento do Pós: R$ 661.465 (26)">1.293.947<span class="p">20%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Abril 2026<span class="reg">maître × pós</span></td>
     <td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 3.446.567.">3.418.499</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 329.805.">337.925</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 27.910.">64.100</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 279.557.">244.845<span class="p">14%</span><span class="sis">sistema 279.557</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.715.540.">1.502.524<span class="p">86%</span><span class="sis">sistema 1.715.540</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.747.369 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.747.369</td>
-    <td class="num tot">5.567.892</td></tr>
+    <td class="num tot">5.567.892</td>
+    <td class="num canc" title="Contratos cancelados: R$ 524.184 (12) · Aditivos de cancelamento do Pós: R$ 887.666 (27)">1.411.850<span class="p">25%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Maio 2026<span class="reg">maître × pós</span></td>
     <td class="num f-sistema" title="Valor do sistema — igual à planilha.">4.960.460</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 85.971.">97.049</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 119.187.">187.900</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 147.058.">158.833<span class="p">7%</span><span class="sis">sistema 147.058</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.998.742.">2.158.782<span class="p">93%</span><span class="sis">sistema 1.998.742</span></td>
     <td class="num forte" title="Planilha do mês: R$ 2.317.616 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">2.317.616</td>
-    <td class="num tot">7.563.024</td></tr>
+    <td class="num tot">7.563.024</td>
+    <td class="num canc" title="Contratos cancelados: R$ 706.680 (18) · Aditivos de cancelamento do Pós: R$ 682.022 (31)">1.388.701<span class="p">18%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Junho 2026<span class="reg">maître × pós</span></td>
     <td class="num f-sistema" title="Valor do sistema — igual à planilha.">3.903.997</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 711.261.">705.521</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 27.600.">120.300</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 152.972.">147.101<span class="p">8%</span><span class="sis">sistema 152.972</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.725.669.">1.659.442<span class="p">92%</span><span class="sis">sistema 1.725.669</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.806.543 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.806.543</td>
-    <td class="num tot">6.536.361</td></tr>
+    <td class="num tot">6.536.361</td>
+    <td class="num canc" title="Contratos cancelados: R$ 545.901 (13) · Aditivos de cancelamento do Pós: R$ 1.136.446 (39)">1.682.347<span class="p">26%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Julho 2026<span class="reg">maître × pós</span></td>
     <td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 4.681.480.">4.655.471</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 511.597.">422.803</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ —.">66.630</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 163.612.">137.750<span class="p">10%</span><span class="sis">sistema 163.612</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.395.480.">1.174.898<span class="p">90%</span><span class="sis">sistema 1.395.480</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.312.648 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.312.648</td>
-    <td class="num tot">6.457.552</td></tr>
+    <td class="num tot">6.457.552</td>
+    <td class="num canc" title="Contratos cancelados: R$ 303.949 (8) · Aditivos de cancelamento do Pós: R$ 764.396 (28)">1.068.345<span class="p">17%</span></td></tr>
 <tr class="antiga">
     <td class="mes">Agosto 2026<span class="reg">maître × pós</span></td>
     <td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 5.094.063.">4.991.351</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 585.197.">635.697</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ —.">319.300</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 493.803.">548.877<span class="p">25%</span><span class="sis">sistema 493.803</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 1.496.011.">1.662.862<span class="p">75%</span><span class="sis">sistema 1.496.011</span></td>
     <td class="num forte" title="Planilha do mês: R$ 2.211.739 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">2.211.739</td>
-    <td class="num tot">8.158.087</td></tr>
+    <td class="num tot">8.158.087</td>
+    <td class="num canc" title="Contratos cancelados: R$ 497.316 (12) · Aditivos de cancelamento do Pós: R$ 1.024.783 (27)">1.522.099<span class="p">19%</span></td></tr>
 <tr class="nova">
     <td class="mes">Setembro 2026<span class="reg">por time</span></td>
     <td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 4.732.947.">4.531.131</td><td class="num f-sistema" title="Valor do sistema — igual à planilha.">161.327</td><td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ —.">308.279</td>
     <td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 376.775.">592.156<span class="p">44%</span><span class="sis">sistema 376.775</span></td><td class="num f-rateada" title="Exibido: fatia do total da planilha, que fecha de 24/08 a 30/09. No mês civil o sistema calcula R$ 471.271.">740.670<span class="p">56%</span><span class="sis">sistema 471.271</span></td>
     <td class="num forte" title="Planilha do mês: R$ 1.332.826 — ela fecha noutra janela (setembro vai de 24/08 a 30/09).">1.332.826</td>
-    <td class="num tot">6.333.563</td></tr>
+    <td class="num tot">6.333.563</td>
+    <td class="num canc" title="Contratos cancelados: R$ 226.210 (5) · Aditivos de cancelamento do Pós: R$ 741.079 (23)">967.289<span class="p">15%</span></td></tr>
 <tr class="nova">
     <td class="mes">Outubro 2026<span class="reg">por time</span></td>
     <td class="num f-planilha" title="Valor da planilha. O sistema calcula R$ 1.194.874.">1.078.443</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td>
-    <td class="num f-sistema" title="Valor do sistema.">175.921<span class="p">36%</span></td><td class="num f-sistema" title="Valor do sistema.">307.148<span class="p">64%</span></td>
-    <td class="num forte" title="Sem valor na planilha.">483.069</td>
-    <td class="num tot">1.561.512</td></tr>
+    <td class="num f-sistema" title="Valor do sistema.">180.648<span class="p">37%</span></td><td class="num f-sistema" title="Valor do sistema.">307.148<span class="p">63%</span></td>
+    <td class="num forte" title="Sem valor na planilha.">487.797</td>
+    <td class="num tot">1.566.240</td>
+    <td class="num canc" title="Contratos cancelados: R$ — (0) · Aditivos de cancelamento do Pós: R$ 305.748 (11)">305.748<span class="p">20%</span></td></tr>
 <tr class="nova vazia">
     <td class="mes">Novembro 2026<span class="reg">por time</span></td>
     <td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td>
     <td class="num f-sistema" title="Valor do sistema.">—</td><td class="num f-sistema" title="Valor do sistema.">—</td>
     <td class="num forte" title="Sem valor na planilha.">—</td>
-    <td class="num tot">—</td></tr>
+    <td class="num tot">—</td>
+    <td class="num canc" title="Contratos cancelados: R$ — (0) · Aditivos de cancelamento do Pós: R$ — (0)">—</td></tr>
 <tr class="nova vazia">
     <td class="mes">Dezembro 2026<span class="reg">por time</span></td>
     <td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td><td class="num f-sistema" title="Valor do sistema (planilha em branco neste mês).">—</td>
     <td class="num f-sistema" title="Valor do sistema.">—</td><td class="num f-sistema" title="Valor do sistema.">—</td>
     <td class="num forte" title="Sem valor na planilha.">—</td>
-    <td class="num tot">—</td></tr>
+    <td class="num tot">—</td>
+    <td class="num canc" title="Contratos cancelados: R$ — (0) · Aditivos de cancelamento do Pós: R$ — (0)">—</td></tr>
   <tr class="total" style="border-top:2px solid var(--ink)">
     <td class="mes">Ano</td>
     <td class="num">41.301.113</td>
     <td class="num">3.996.453</td>
     <td class="num">1.377.509</td>
-    <td class="num forte">2.342.580<span class="p">15%</span></td>
+    <td class="num forte">2.347.307<span class="p">15%</span></td>
     <td class="num forte">13.668.005<span class="p">85%</span></td>
-    <td class="num forte">16.010.585</td>
-    <td class="num tot">62.685.660</td></tr>
+    <td class="num forte">16.015.312</td>
+    <td class="num tot">62.690.387</td>
+    <td class="num canc">12.402.419</td></tr>
   </tbody></table>
 
   <p class="nota"><b>Uma régua só, o ano inteiro: a venda operacional.</b><br>
