@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quando setembro caiu</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#898781;--grid:#e1e0d9;--ring:rgba(11,11,11,.10);--s1:#2a78d6;--down:#b42b2b;--up:#006300;--warn:#8a6d1f}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;padding:28px 16px 64px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:25px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--ink2);margin:0 0 20px}
+section{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:22px 26px;margin:16px 0}
+h2{font-size:18px;margin:0 0 12px}
+h3{font-size:15.5px;margin:22px 0 2px}
+.historia{border-left:4px solid var(--s1)}.historia p{margin:0 0 11px}.historia p:last-child{margin-bottom:0}
+.chart{width:100%;height:auto;display:block;margin:6px 0 2px;overflow:visible}
+.grid{stroke:var(--grid);stroke-width:1}
+.corte{stroke:var(--down);stroke-width:1.5;stroke-dasharray:5 4}
+text.lbl{font:11.5px system-ui;fill:var(--mut)}
+text.axis{font:12px system-ui;fill:var(--ink2)}
+text.serie{font:12.5px system-ui;font-weight:600}
+text.val{font:11.5px system-ui;font-weight:600;fill:var(--ink2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{background:#f6f5f1;border-radius:10px;padding:14px 16px}
+.card .k{font-size:12.5px;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em}
+.card .v{font-size:21px;font-weight:700;margin:3px 0 1px;font-variant-numeric:tabular-nums}
+.card .d{font-size:13px;color:var(--mut)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:8px}
+th,td{padding:8px 9px;border-bottom:1px solid var(--grid);text-align:left;vertical-align:top}
+th{color:var(--ink2);font-weight:600;background:#f6f5f1}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.destaque td{background:#fdf9ee}
+.mut{color:var(--mut);font-weight:400;font-size:12px}
+.up{color:var(--up);font-weight:600}.down{color:var(--down);font-weight:600}.warn{color:var(--warn);font-weight:600}
+.nota{font-size:13px;color:var(--mut);margin:8px 0 0}
+ol,ul{margin:0;padding-left:22px}li{margin:9px 0}
+.metodo{font-size:13.5px;color:var(--ink2)}
+@media (max-width:600px){section{padding:16px}body{padding:20px 16px 48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Quando setembro caiu</h1>
+<p class="sub">Venda do Pós-Vendas acumulada por dia útil · agosto, setembro e outubro de 2026 · os três meses têm 21 dias úteis</p>
+
+<section class="historia">
+  <h2>A virada tem data: 11 de setembro</h2>
+  <p>Você está certo, o começo foi igual. Até o <b>7º dia útil</b> os dois meses estavam empatados: agosto tinha R$ 466 mil e setembro R$ 451 mil — diferença de 3,3%. Isso foi <b>11 de agosto</b> e <b>10 de setembro</b>.</p>
+  <p>Do 8º dia útil em diante os dois meses foram para lados opostos. Agosto <b>acelerou</b>, de R$ 67 mil para R$ 90 mil por dia útil. Setembro <b>caiu pela metade e um pouco mais</b>, de R$ 64 mil para R$ 24 mil por dia útil. Nos mesmos 14 dias úteis finais, agosto fez R$ 1257 mil e setembro fez R$ 336 mil — <b>quase 4 vezes menos</b>.</p>
+  <p>O dia exato em que setembro parou foi <b>11 de setembro</b>: o mês vinha somando R$ 64 mil por dia útil e, daquele dia até o fim, somou R$ 24 mil. Não houve recuperação em nenhuma semana depois disso.</p>
+  <p>E outubro não repete o começo dos dois: está em R$ 44 mil por dia útil nos 4 primeiros, contra R$ 64 a 67 mil que agosto e setembro faziam no mesmo trecho. <b>Outubro começou 33% abaixo do começo dos dois meses anteriores.</b></p>
+</section>
+
+<section>
+  <h2>As três curvas</h2>
+  <svg viewBox="0 0 920 400" class="chart" role="img" aria-label="Acumulado de venda por dia útil"><line x1="70" y1="354" x2="760" y2="354" class="grid"/><text x="60" y="358" class="lbl" text-anchor="end">0</text><line x1="70" y1="298.3333333333333" x2="760" y2="298.3333333333333" class="grid"/><text x="60" y="302.3333333333333" class="lbl" text-anchor="end">0,3 mi</text><line x1="70" y1="242.66666666666669" x2="760" y2="242.66666666666669" class="grid"/><text x="60" y="246.66666666666669" class="lbl" text-anchor="end">0,6 mi</text><line x1="70" y1="187" x2="760" y2="187" class="grid"/><text x="60" y="191" class="lbl" text-anchor="end">0,9 mi</text><line x1="70" y1="131.33333333333334" x2="760" y2="131.33333333333334" class="grid"/><text x="60" y="135.33333333333334" class="lbl" text-anchor="end">1,2 mi</text><line x1="70" y1="75.66666666666663" x2="760" y2="75.66666666666663" class="grid"/><text x="60" y="79.66666666666663" class="lbl" text-anchor="end">1,5 mi</text><line x1="70" y1="20" x2="760" y2="20" class="grid"/><text x="60" y="24" class="lbl" text-anchor="end">1,8 mi</text><text x="70" y="372" class="lbl" text-anchor="middle">1º</text><text x="139" y="372" class="lbl" text-anchor="middle">3º</text><text x="208" y="372" class="lbl" text-anchor="middle">5º</text><text x="277" y="372" class="lbl" text-anchor="middle">7º</text><text x="346" y="372" class="lbl" text-anchor="middle">9º</text><text x="415" y="372" class="lbl" text-anchor="middle">11º</text><text x="484" y="372" class="lbl" text-anchor="middle">13º</text><text x="553" y="372" class="lbl" text-anchor="middle">15º</text><text x="622" y="372" class="lbl" text-anchor="middle">17º</text><text x="691" y="372" class="lbl" text-anchor="middle">19º</text><text x="760" y="372" class="lbl" text-anchor="middle">21º</text><text x="415" y="394" class="axis" text-anchor="middle">dia útil do mês</text><rect x="277" y="20" width="483" height="334" fill="#b42b2b" opacity="0.045"/><line x1="277" y1="20" x2="277" y2="354" class="corte"/><text x="283" y="34" class="lbl" fill="#b42b2b">a partir daqui os meses se separam</text><path d="M70.0 345.7 L104.5 331.8 L139.0 323.9 L173.5 309.0 L208.0 295.8 L242.5 279.5 L277.0 267.5 L311.5 258.1 L346.0 250.7 L380.5 223.1 L415.0 217.2 L449.5 199.1 L484.0 175.9 L518.5 138.8 L553.0 130.3 L587.5 107.7 L622.0 99.2 L656.5 85.0 L691.0 65.7 L725.5 50.2 L760.0 34.3" fill="none" stroke="#b42b2b" stroke-width="2.6" stroke-linejoin="round"/><circle cx="70.0" cy="345.7" r="2.6" fill="#b42b2b"/><circle cx="104.5" cy="331.8" r="2.6" fill="#b42b2b"/><circle cx="139.0" cy="323.9" r="2.6" fill="#b42b2b"/><circle cx="173.5" cy="309.0" r="2.6" fill="#b42b2b"/><circle cx="208.0" cy="295.8" r="2.6" fill="#b42b2b"/><circle cx="242.5" cy="279.5" r="2.6" fill="#b42b2b"/><circle cx="277.0" cy="267.5" r="2.6" fill="#b42b2b"/><circle cx="311.5" cy="258.1" r="2.6" fill="#b42b2b"/><circle cx="346.0" cy="250.7" r="2.6" fill="#b42b2b"/><circle cx="380.5" cy="223.1" r="2.6" fill="#b42b2b"/><circle cx="415.0" cy="217.2" r="2.6" fill="#b42b2b"/><circle cx="449.5" cy="199.1" r="2.6" fill="#b42b2b"/><circle cx="484.0" cy="175.9" r="2.6" fill="#b42b2b"/><circle cx="518.5" cy="138.8" r="2.6" fill="#b42b2b"/><circle cx="553.0" cy="130.3" r="2.6" fill="#b42b2b"/><circle cx="587.5" cy="107.7" r="2.6" fill="#b42b2b"/><circle cx="622.0" cy="99.2" r="2.6" fill="#b42b2b"/><circle cx="656.5" cy="85.0" r="2.6" fill="#b42b2b"/><circle cx="691.0" cy="65.7" r="2.6" fill="#b42b2b"/><circle cx="725.5" cy="50.2" r="2.6" fill="#b42b2b"/><circle cx="760.0" cy="34.3" r="2.6" fill="#b42b2b"/><text x="769" y="38.30599376666669" class="serie" fill="#b42b2b">agosto · R$ 1.723 mil</text><path d="M70.0 339.7 L104.5 333.7 L139.0 329.5 L173.5 320.0 L208.0 295.6 L242.5 285.3 L277.0 270.4 L311.5 266.7 L346.0 260.3 L380.5 256.7 L415.0 255.1 L449.5 252.1 L484.0 247.1 L518.5 240.5 L553.0 237.8 L587.5 233.0 L622.0 221.7 L656.5 213.6 L691.0 213.5 L725.5 210.7 L760.0 208.0" fill="none" stroke="#2a78d6" stroke-width="2.6" stroke-linejoin="round"/><circle cx="70.0" cy="339.7" r="2.6" fill="#2a78d6"/><circle cx="104.5" cy="333.7" r="2.6" fill="#2a78d6"/><circle cx="139.0" cy="329.5" r="2.6" fill="#2a78d6"/><circle cx="173.5" cy="320.0" r="2.6" fill="#2a78d6"/><circle cx="208.0" cy="295.6" r="2.6" fill="#2a78d6"/><circle cx="242.5" cy="285.3" r="2.6" fill="#2a78d6"/><circle cx="277.0" cy="270.4" r="2.6" fill="#2a78d6"/><circle cx="311.5" cy="266.7" r="2.6" fill="#2a78d6"/><circle cx="346.0" cy="260.3" r="2.6" fill="#2a78d6"/><circle cx="380.5" cy="256.7" r="2.6" fill="#2a78d6"/><circle cx="415.0" cy="255.1" r="2.6" fill="#2a78d6"/><circle cx="449.5" cy="252.1" r="2.6" fill="#2a78d6"/><circle cx="484.0" cy="247.1" r="2.6" fill="#2a78d6"/><circle cx="518.5" cy="240.5" r="2.6" fill="#2a78d6"/><circle cx="553.0" cy="237.8" r="2.6" fill="#2a78d6"/><circle cx="587.5" cy="233.0" r="2.6" fill="#2a78d6"/><circle cx="622.0" cy="221.7" r="2.6" fill="#2a78d6"/><circle cx="656.5" cy="213.6" r="2.6" fill="#2a78d6"/><circle cx="691.0" cy="213.5" r="2.6" fill="#2a78d6"/><circle cx="725.5" cy="210.7" r="2.6" fill="#2a78d6"/><circle cx="760.0" cy="208.0" r="2.6" fill="#2a78d6"/><text x="769" y="211.99071244444443" class="serie" fill="#2a78d6">setembro · R$ 787 mil</text><path d="M70.0 345.0 L104.5 334.1 L139.0 327.7 L173.5 321.3" fill="none" stroke="#006300" stroke-width="2.6" stroke-linejoin="round"/><circle cx="70.0" cy="345.0" r="2.6" fill="#006300"/><circle cx="104.5" cy="334.1" r="2.6" fill="#006300"/><circle cx="139.0" cy="327.7" r="2.6" fill="#006300"/><circle cx="173.5" cy="321.3" r="2.6" fill="#006300"/><text x="182.5" y="325.2678905222222" class="serie" fill="#006300">outubro · R$ 176 mil</text></svg>
+  <p class="nota">Acumulado de dinheiro novo assinado, contado por dia útil para que os três meses fiquem comparáveis (feriados de 07/09 e 12/10 já fora). Agosto e setembro caminham juntos até o 7º ponto; a faixa em vermelho é onde eles se separam. Outubro aparece só até o 4º dia útil, que é o que existe.</p>
+  <div class="cards" style="margin-top:16px">
+    <div class="card"><div class="k">1º ao 7º dia útil</div><div class="v">R$ 466 × 451 mil</div><div class="d">agosto × setembro — empate</div></div>
+    <div class="card"><div class="k">8º ao 21º dia útil</div><div class="v down">R$ 1257 × 336 mil</div><div class="d">agosto × setembro — 3,7× de diferença</div></div>
+    <div class="card"><div class="k">Ritmo por dia útil</div><div class="v">R$ 90 mil × R$ 24 mil</div><div class="d">no trecho final</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>O ritmo, antes e depois da virada</h2>
+  <svg viewBox="0 0 760 230" class="chart" role="img" aria-label="Ritmo por dia útil"><line x1="70" y1="190" x2="740" y2="190" class="grid"/><text x="60" y="194" class="lbl" text-anchor="end">0k</text><line x1="70" y1="153.3684210526316" x2="740" y2="153.3684210526316" class="grid"/><text x="60" y="157.3684210526316" class="lbl" text-anchor="end">20k</text><line x1="70" y1="116.73684210526316" x2="740" y2="116.73684210526316" class="grid"/><text x="60" y="120.73684210526316" class="lbl" text-anchor="end">40k</text><line x1="70" y1="80.10526315789474" x2="740" y2="80.10526315789474" class="grid"/><text x="60" y="84.10526315789474" class="lbl" text-anchor="end">60k</text><line x1="70" y1="43.47368421052633" x2="740" y2="43.47368421052633" class="grid"/><text x="60" y="47.47368421052633" class="lbl" text-anchor="end">80k</text><rect x="105.73333333333333" y="68.03963218045112" width="58.06666666666667" height="121.96036781954888" fill="#b42b2b" opacity="0.45"/><text x="134.76666666666668" y="62.03963218045112" class="val" text-anchor="middle">67k</text><rect x="171.8" y="25.577989609022552" width="58.06666666666667" height="164.42201039097745" fill="#b42b2b"/><text x="200.83333333333334" y="19.577989609022552" class="val" text-anchor="middle">90k</text><text x="181.66666666666669" y="212" class="serie" text-anchor="middle" fill="#b42b2b">agosto</text><rect x="329.0666666666667" y="72.05811639097743" width="58.06666666666667" height="117.94188360902257" fill="#2a78d6" opacity="0.45"/><text x="358.1000000000001" y="66.05811639097743" class="val" text-anchor="middle">64k</text><rect x="395.1333333333334" y="146.02620977443607" width="58.06666666666667" height="43.97379022556393" fill="#2a78d6"/><text x="424.16666666666674" y="140.02620977443607" class="val" text-anchor="middle">24k</text><text x="405.00000000000006" y="212" class="serie" text-anchor="middle" fill="#2a78d6">setembro</text><rect x="552.4000000000001" y="143.84405615037593" width="58.06666666666667" height="46.155943849624066" fill="#006300" opacity="0.45"/><text x="581.4333333333334" y="137.84405615037593" class="val" text-anchor="middle">25k</text><text x="647.5000000000001" y="182" class="lbl" text-anchor="middle">ainda não</text><text x="628.3333333333334" y="212" class="serie" text-anchor="middle" fill="#006300">outubro</text><text x="70" y="228" class="lbl">barra clara: média por dia útil do 1º ao 7º · barra cheia: do 8º ao 21º</text></svg>
+  <p class="nota">Os três meses começam parecidos na barra clara. A barra cheia é o que decide o mês: agosto sobe, setembro desaba. Outubro ainda não tem trecho final.</p>
+</section>
+
+<section>
+  <h2>Ponto a ponto, onde os meses se separaram</h2>
+  <div class="tbl"><table><thead><tr><th>Dia útil</th><th class="num">agosto</th><th class="num">setembro</th><th class="num">outubro</th><th>O que estava acontecendo</th></tr></thead><tbody><tr><td>4º</td><td class="num">R$ 242 mil <span class="mut">(dia 06)</span></td><td class="num">R$ 183 mil <span class="mut">(dia 04)</span></td><td class="num">R$ 176 mil <span class="mut">(dia 06)</span></td><td></td></tr><tr><td>5º</td><td class="num">R$ 314 mil <span class="mut">(dia 07)</span></td><td class="num">R$ 315 mil <span class="mut">(dia 08)</span></td><td class="num">— <span class="mut">(dia 07)</span></td><td>empate técnico</td></tr><tr class="destaque"><td>7º</td><td class="num">R$ 466 mil <span class="mut">(dia 11)</span></td><td class="num">R$ 451 mil <span class="mut">(dia 10)</span></td><td class="num">— <span class="mut">(dia 09)</span></td><td>último ponto de empate — 11/08 e 10/09</td></tr><tr class="destaque"><td>8º</td><td class="num">R$ 517 mil <span class="mut">(dia 12)</span></td><td class="num">R$ 470 mil <span class="mut">(dia 11)</span></td><td class="num">— <span class="mut">(dia 13)</span></td><td>setembro para aqui: 11/09</td></tr><tr><td>10º</td><td class="num">R$ 705 mil <span class="mut">(dia 14)</span></td><td class="num">R$ 525 mil <span class="mut">(dia 15)</span></td><td class="num">— <span class="mut">(dia 15)</span></td><td>agosto acelera</td></tr><tr><td>14º</td><td class="num">R$ 1.160 mil <span class="mut">(dia 20)</span></td><td class="num">R$ 612 mil <span class="mut">(dia 21)</span></td><td class="num">— <span class="mut">(dia 21)</span></td><td>agosto já é o dobro</td></tr><tr><td>17º</td><td class="num">R$ 1.373 mil <span class="mut">(dia 25)</span></td><td class="num">R$ 713 mil <span class="mut">(dia 24)</span></td><td class="num">— <span class="mut">(dia 26)</span></td><td></td></tr><tr><td>21º</td><td class="num">R$ 1.723 mil <span class="mut">(dia 31)</span></td><td class="num">R$ 787 mil <span class="mut">(dia 30)</span></td><td class="num">— <span class="mut">(dia 30)</span></td><td>fim do mês</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Quem parou no trecho final</h2>
+  <div class="tbl"><table><thead><tr><th>Time</th><th class="num">ago · 1º ao 7º</th><th class="num">set · 1º ao 7º</th><th class="num">ago · 8º em diante</th><th class="num">set · 8º em diante</th><th class="num">diferença no trecho final</th></tr></thead><tbody><tr><td><b>Especialistas e maîtres</b></td><td class="num">143</td><td class="num">178</td><td class="num">287</td><td class="num">155</td><td class="num down">− 132</td></tr><tr><td><b>Relacionamento</b></td><td class="num">268</td><td class="num">207</td><td class="num">660</td><td class="num">125</td><td class="num down">− 535</td></tr><tr><td><b>Cadastramento</b></td><td class="num">12</td><td class="num">44</td><td class="num">137</td><td class="num">19</td><td class="num down">− 118</td></tr><tr><td><b>Outros</b></td><td class="num">42</td><td class="num">22</td><td class="num">174</td><td class="num">38</td><td class="num down">− 136</td></tr><tr class="destaque"><td><b>Total</b></td><td class="num">466</td><td class="num">451</td><td class="num">1257</td><td class="num">336</td><td class="num down">− 921</td></tr></tbody></table></div><p class="nota">Valores em R$ mil. O trecho final são os 14 dias úteis do 8º ao 21º nos dois meses.</p>
+  <p style="margin-top:12px">A diferença dos 14 dias úteis finais é de R$ 921 mil, e <b>o Relacionamento responde por R$ 535 mil dela</b>. Repare na primeira metade da tabela: nos 7 primeiros dias úteis o Relacionamento de setembro estava quase igual ao de agosto (R$ 207 mil contra R$ 268 mil). O time não começou mal — ele parou no meio do mês.</p>
+</section>
+
+<section>
+  <h2>O que aconteceu naquela semana</h2>
+  <p>Três coisas aparecem na agenda, e as datas encaixam com a curva:</p>
+  <div class="tbl"><table><thead><tr><th>Semana (segunda)</th><th class="num">Reunião de DJ</th><th class="num">Cerimonial inicial</th><th class="num">Cancelamentos de cerimonial</th></tr></thead><tbody>
+    <tr><td>03/08</td><td class="num">10 feitas</td><td class="num">13 feitas</td><td class="num">0</td></tr>
+    <tr><td>10/08</td><td class="num">6 feitas</td><td class="num">10 feitas</td><td class="num">0</td></tr>
+    <tr><td>17/08</td><td class="num">7 feitas</td><td class="num">11 feitas</td><td class="num">0</td></tr>
+    <tr><td>24/08</td><td class="num">4 feitas</td><td class="num">11 marcadas, 1 concluída</td><td class="num">0</td></tr>
+    <tr class="destaque"><td>31/08</td><td class="num">7 feitas</td><td class="num">10 marcadas, 0 concluídas</td><td class="num down">7</td></tr>
+    <tr class="destaque"><td>07/09</td><td class="num down">zero</td><td class="num">16 marcadas, 0 concluídas</td><td class="num down">10</td></tr>
+    <tr><td>14/09</td><td class="num down">1</td><td class="num">12 marcadas</td><td class="num down">6</td></tr>
+    <tr><td>21/09</td><td class="num down">1</td><td class="num">18 marcadas</td><td class="num down">10</td></tr>
+    <tr><td>28/09</td><td class="num down">1</td><td class="num">27 marcadas, 10 concluídas</td><td class="num down">5</td></tr>
+    <tr><td>05/10</td><td class="num down">2</td><td class="num">27 marcadas, 13 concluídas</td><td class="num down">12</td></tr>
+  </tbody></table></div>
+  <ol style="margin-top:14px">
+    <li><b>A reunião de DJ zerou na semana de 7 de setembro.</b> Vinha de 10, 6, 7, 4 e 7 por semana em agosto e foi para zero, 1, 1, 1. A venda de DJ seguiu a reunião: R$ 201,1 mil em agosto, R$ 23,0 mil em setembro. Essa é a causa mais direta e a mais simples de reverter.</li>
+    <li><b>Os cancelamentos de cerimonial começaram na semana de 31 de agosto</b> e nunca pararam: 7, 10, 6, 10, 5 e 12 por semana. São as reuniões onde a decoração e o floral são vendidos.</li>
+    <li><b>O status "concluído" deixou de ser preenchido a partir da semana de 24 de agosto</b> e só voltou na semana de 28 de setembro. Isso não derruba venda, mas cega o acompanhamento: no meio do mês ninguém conseguia ver que as reuniões não estavam acontecendo.</li>
+  </ol>
+  <p class="nota">Uma coincidência de data que vale registrar sem transformar em causa: o piso do cerimonial subiu para R$ 4.200 no sistema em <b>11/09, às 12h47</b> — o mesmo dia em que a curva de setembro para. O produto passou a sair por R$ 4.600 de média, contra R$ 3.207 em agosto, mas o volume caiu de 15 vendas para 2. Já o DJ não teve nenhuma mudança de preço (a tabela está igual desde 19/06), e caiu do mesmo jeito — então preço não explica o mês, embora possa explicar parte do cerimonial.</p>
+</section>
+
+<section>
+  <h2>O que isso quer dizer para outubro</h2>
+  <ul>
+    <li><b>O mês não se decide no começo.</b> Agosto e setembro tiveram começos iguais e fechamentos que diferem em R$ 936 mil. O que decidiu foi o trecho do 8º dia útil em diante — em outubro, isso começa <b>na próxima segunda, dia 13</b>.</li>
+    <li><b>Outubro já começou abaixo dos dois:</b> R$ 44 mil por dia útil contra R$ 64 a 67 mil. Para empatar com setembro, os 17 dias úteis que faltam precisam render R$ 36 mil por dia; para chegar perto de agosto, R$ 91 mil por dia — que é exatamente o ritmo do trecho final de agosto (R$ 90 mil), e agosto só o alcançou com a onda de DJ e decoração.</li>
+    <li><b>A alavanca é a agenda, não o discurso de venda.</b> Voltar a marcar reunião de DJ e parar de perder cerimonial são as duas coisas que mudaram a curva, e as duas são operacionais.</li>
+  </ul>
+</section>
+
+<section class="metodo">
+  <h2>Como foi medido</h2>
+  <p>Mesma régua dos relatórios anteriores: aditivos com valor acima de zero, lançados no CRM (<code>origem = sistema</code>), tipos pré-evento, consumo final, venda do dia e evento interno, E09999 e arquivados fora, datados pela <b>primeira assinatura do cliente</b> (ou pelo <code>assinado_em</code> quando não há registro de assinatura). Dinheiro = <code>valor_total</code> do aditivo, que é o que o cliente assinou para pagar.</p>
+  <p>A contagem por dia útil exclui sábados, domingos e os feriados de 07/09 e 12/10. Os três meses têm exatamente 21 dias úteis, então as curvas são comparáveis ponto a ponto. Venda feita em fim de semana entra no acumulado do dia útil seguinte.</p>
+  <p>Fica de fora desta série o bolo de aditivos com status aprovado e <b>sem nenhuma data de assinatura</b> — R$ 182 mil em agosto, R$ 75 mil em setembro, R$ 0,8 mil em outubro até agora. São cerca de 9% de cada mês fechado e entram pela aprovação manual, sem data, por isso não cabem numa curva diária.</p>
+</section>
+</div>
+</body>
+</html>
