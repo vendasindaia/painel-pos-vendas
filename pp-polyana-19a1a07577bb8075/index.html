@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Primeiros Passos · Polyana</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d1c1a;--mut:#6b6762;--line:#e4e0d8;--ok:#1f7a4d;--okbg:#e3f3ea;--warn:#9a6300;--warnbg:#fff1d6;--bad:#9b2c2c;--badbg:#fde4e4;--info:#1f4e8c;--infobg:#e3ecf8;--acc:#1f4e8c}
+body{background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 12px 110px}
+main{max-width:1400px;margin:0 auto}
+h1{font-size:20px;font-weight:650}
+.lead{color:var(--mut);margin:6px 0 10px;font-size:13.5px}
+.topo{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+input[type=search]{min-width:220px}
+button{cursor:pointer}button.p{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
+.prog{font-size:13px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:7px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600;background:#faf9f6;position:sticky;top:0;z-index:2}
+tr:last-child td{border-bottom:0}
+tr.done td{background:#f4fbf6}
+.mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;white-space:nowrap}
+.sub{font-size:12px;color:var(--mut)}
+.obs{font-size:12.5px;color:#3a3732;max-width:420px}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.feita{background:var(--okbg);color:var(--ok)}.tag.conferir{background:var(--warnbg);color:var(--warn)}.tag.marcada{background:var(--infobg);color:var(--info)}.tag.pendente{background:var(--badbg);color:var(--bad)}.tag.prazo{background:#eeebe4;color:var(--mut)}
+.resp{min-width:300px}.resp select,.resp input{display:block;width:100%;margin-bottom:4px;padding:5px 7px}
+.rodape{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;z-index:6}
+textarea{width:100%;min-height:110px;font:12.5px/1.4 ui-monospace,Consolas,monospace;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;display:none}
+</style>
+</head>
+<body>
+<main>
+<h1>Primeiros Passos · Polyana · contratos de agosto a outubro</h1>
+<p class="lead">Florianópolis e Nova Veneza · 75 contratos (sem os que estão com o Cancelamento). A Primeiros Passos entra entre 45 e 90 dias depois da assinatura. <b>Pendente</b> = boas-vindas feita e nenhuma Primeiros Passos na agenda. <b>Sem boas-vindas</b> = ainda depende da boas-vindas. Em cada linha, diga como está: marcada (com a data), já aconteceu, ainda não ofereceu, ofereceu e o cliente não respondeu, remarcou ou não quer. No fim, <b>Copiar respostas</b> e colar no WhatsApp. As respostas ficam salvas neste navegador.</p>
+<div class="topo">
+<input type="text" id="quem" placeholder="Seu nome" value="Polyana">
+<input type="search" id="q" placeholder="Buscar código ou nome">
+<select id="fil"><option value="pendente">Só pendentes (17)</option><option value="todos">Todos (75)</option><option value="falta">Só os que ainda não respondi</option></select>
+<span class="prog" id="prog"></span>
+</div>
+<table id="t"><thead><tr><th>Código</th><th>Cliente</th><th>Contrato</th><th>Boas-vindas</th><th>Primeiros Passos</th><th>O que o sistema sabe</th><th>Como está? (preencher)</th></tr></thead>
+<tbody><tr class="pendente" data-cod="E08525" data-cls="pendente" data-busca="e08525 sandra dos santos bonsenhor">
+<td class="mono">E08525</td>
+<td>Sandra dos Santos</td>
+<td class="mono">02/08<div class="sub">74 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">26/08</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 31/10/26</div></td>
+<td class="obs">Janela de 16/09 a 31/10. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 28/08. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08525"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08525"><input type="text" name="ob-E08525" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08528" data-cls="pendente" data-busca="e08528 victória berger porto">
+<td class="mono">E08528</td>
+<td>Victória Berger Porto</td>
+<td class="mono">02/08<div class="sub">74 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">19/08</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 31/10/26</div></td>
+<td class="obs">Janela de 16/09 a 31/10. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 28/08.</td>
+<td class="resp"><select name="ac-E08528"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08528"><input type="text" name="ob-E08528" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08578" data-cls="pendente" data-busca="e08578 isabela duarte">
+<td class="mono">E08578</td>
+<td>Isabela duarte</td>
+<td class="mono">07/08<div class="sub">69 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">28/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 05/11/26</div></td>
+<td class="obs">Janela de 21/09 a 05/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08578"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08578"><input type="text" name="ob-E08578" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08581" data-cls="pendente" data-busca="e08581 maria aparecida da silva">
+<td class="mono">E08581</td>
+<td>Maria Aparecida da</td>
+<td class="mono">08/08<div class="sub">68 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">25/08</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 06/11/26</div></td>
+<td class="obs">Janela de 22/09 a 06/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 25/08.</td>
+<td class="resp"><select name="ac-E08581"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08581"><input type="text" name="ob-E08581" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08596" data-cls="pendente" data-busca="e08596 ana miriã laurentino">
+<td class="mono">E08596</td>
+<td>Ana Miriã Laurentino</td>
+<td class="mono">11/08<div class="sub">65 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">16/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 09/11/26</div></td>
+<td class="obs">Janela de 25/09 a 09/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 25/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08596"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08596"><input type="text" name="ob-E08596" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08608" data-cls="pendente" data-busca="e08608 jaqueline arlene silveira">
+<td class="mono">E08608</td>
+<td>Jaqueline Arlene Silveira</td>
+<td class="mono">14/08<div class="sub">62 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">01/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 12/11/26</div></td>
+<td class="obs">Janela de 28/09 a 12/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 01/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08608"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08608"><input type="text" name="ob-E08608" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08613" data-cls="pendente" data-busca="e08613 beatriz medeiros cardoso">
+<td class="mono">E08613</td>
+<td>Beatriz Medeiros Cardoso</td>
+<td class="mono">15/08<div class="sub">61 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">25/08</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 13/11/26</div></td>
+<td class="obs">Janela de 29/09 a 13/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08613"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08613"><input type="text" name="ob-E08613" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08617" data-cls="pendente" data-busca="e08617 clariene danieli porfirio">
+<td class="mono">E08617</td>
+<td>Clariene Danieli Porfirio</td>
+<td class="mono">16/08<div class="sub">60 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">15/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 14/11/26</div></td>
+<td class="obs">Janela de 30/09 a 14/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08617"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08617"><input type="text" name="ob-E08617" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08628" data-cls="pendente" data-busca="e08628 marilis gassen xavier">
+<td class="mono">E08628</td>
+<td>Marilis Gassen Xavier</td>
+<td class="mono">21/08<div class="sub">55 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">17/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 19/11/26</div></td>
+<td class="obs">Janela de 05/10 a 19/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08628"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08628"><input type="text" name="ob-E08628" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08629" data-cls="pendente" data-busca="e08629 gabriele amaro da silva">
+<td class="mono">E08629</td>
+<td>Gabriele Amaro da</td>
+<td class="mono">21/08<div class="sub">55 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">09/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 19/11/26</div></td>
+<td class="obs">Janela de 05/10 a 19/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08629"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08629"><input type="text" name="ob-E08629" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08635" data-cls="pendente" data-busca="e08635 beatriz gomes barcelar">
+<td class="mono">E08635</td>
+<td>Beatriz Gomes Barcelar</td>
+<td class="mono">22/08<div class="sub">54 dias</div></td>
+<td><span class="tag prazo">Formato antigo</span></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 20/11/26</div></td>
+<td class="obs">Janela de 06/10 a 20/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08635"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08635"><input type="text" name="ob-E08635" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08641" data-cls="pendente" data-busca="e08641 luci de barros">
+<td class="mono">E08641</td>
+<td>Luci de Barros</td>
+<td class="mono">22/08<div class="sub">54 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">07/10</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 20/11/26</div></td>
+<td class="obs">Janela de 06/10 a 20/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08641"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08641"><input type="text" name="ob-E08641" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08647" data-cls="pendente" data-busca="e08647 fernanda winkelmann">
+<td class="mono">E08647</td>
+<td>Fernanda Winkelmann</td>
+<td class="mono">26/08<div class="sub">50 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">18/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 24/11/26</div></td>
+<td class="obs">Janela de 10/10 a 24/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08647"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08647"><input type="text" name="ob-E08647" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08660" data-cls="pendente" data-busca="e08660 kathia nicelli figueredo">
+<td class="mono">E08660</td>
+<td>Kathia Nicelli Figueredo</td>
+<td class="mono">29/08<div class="sub">47 dias</div></td>
+<td><span class="tag prazo">Formato antigo</span></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 27/11/26</div></td>
+<td class="obs">Janela de 13/10 a 27/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08660"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08660"><input type="text" name="ob-E08660" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08669" data-cls="pendente" data-busca="e08669 adriana carla dias">
+<td class="mono">E08669</td>
+<td>Adriana Carla Dias</td>
+<td class="mono">31/08<div class="sub">45 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">08/09</div></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 29/11/26</div></td>
+<td class="obs">Janela de 15/10 a 29/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 07/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08669"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08669"><input type="text" name="ob-E08669" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="pendente" data-cod="E08670" data-cls="pendente" data-busca="e08670 ana karolina freitas vieira">
+<td class="mono">E08670</td>
+<td>Ana Karolina Freitas</td>
+<td class="mono">31/08<div class="sub">45 dias</div></td>
+<td><span class="tag prazo">Formato antigo</span></td>
+<td><span class="tag pendente">Pendente, na janela</span><div class="sub">janela até 29/11/26</div></td>
+<td class="obs">Janela de 15/10 a 29/11. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 02/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08670"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08670"><input type="text" name="ob-E08670" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="conferir" data-cod="E08689" data-cls="conferir" data-busca="e08689 isadora rodrigues bigas">
+<td class="mono">E08689</td>
+<td>Isadora Rodrigues Bigas</td>
+<td class="mono">06/09<div class="sub">39 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">16/09</div></td>
+<td><span class="tag conferir">Oferecida, sem data</span><div class="sub">oferecida em 13/10/26</div></td>
+<td class="obs">Você ofereceu a Primeiros Passos no chat (13/10/26) e a data não fechou. Última resposta do cliente ao Pós: 08/10.</td>
+<td class="resp"><select name="ac-E08689"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08689"><input type="text" name="ob-E08689" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08698" data-cls="prazo" data-busca="e08698 suzana palmira eberle bevilacqua">
+<td class="mono">E08698</td>
+<td>Suzana Palmira Eberle</td>
+<td class="mono">14/09<div class="sub">31 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">06/10</div></td>
+<td><span class="tag prazo">Ainda no prazo</span><div class="sub">janela abre em 14 dias (29/10/26)</div></td>
+<td class="obs">Janela de 29/10 a 13/12. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 06/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08698"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08698"><input type="text" name="ob-E08698" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08753" data-cls="prazo" data-busca="e08753 ingrid wildberger santana lisboa">
+<td class="mono">E08753</td>
+<td>Ingrid Wildberger Santana</td>
+<td class="mono">17/09<div class="sub">28 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">14/10</div></td>
+<td><span class="tag prazo">Ainda no prazo</span><div class="sub">janela abre em 17 dias (01/11/26)</div></td>
+<td class="obs">Janela de 01/11 a 16/12. Nenhuma reunião de Primeiros Passos na agenda e nenhuma oferta no chat. Última resposta do cliente ao Pós: 15/10.</td>
+<td class="resp"><select name="ac-E08753"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08753"><input type="text" name="ob-E08753" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08570" data-cls="prazo" data-busca="e08570 cristina medeiros">
+<td class="mono">E08570</td>
+<td>Cristina medeiros</td>
+<td class="mono">01/08<div class="sub">75 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08570"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08570"><input type="text" name="ob-E08570" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08527" data-cls="prazo" data-busca="e08527 jussara etelvina ramos">
+<td class="mono">E08527</td>
+<td>Jussara Etelvina Ramos</td>
+<td class="mono">02/08<div class="sub">74 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 01/09.</td>
+<td class="resp"><select name="ac-E08527"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08527"><input type="text" name="ob-E08527" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08575" data-cls="prazo" data-busca="e08575 gabriela silvia vieira">
+<td class="mono">E08575</td>
+<td>Gabriela Silvia Vieira</td>
+<td class="mono">06/08<div class="sub">70 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 14/08.</td>
+<td class="resp"><select name="ac-E08575"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08575"><input type="text" name="ob-E08575" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08583" data-cls="prazo" data-busca="e08583 adalberto alves">
+<td class="mono">E08583</td>
+<td>Adalberto Alves</td>
+<td class="mono">08/08<div class="sub">68 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 28/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08583"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08583"><input type="text" name="ob-E08583" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08584" data-cls="prazo" data-busca="e08584 jade carvalho silva e silva">
+<td class="mono">E08584</td>
+<td>Jade Carvalho Silva</td>
+<td class="mono">08/08<div class="sub">68 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 24/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08584"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08584"><input type="text" name="ob-E08584" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08585" data-cls="prazo" data-busca="e08585 vitória gabriela prado">
+<td class="mono">E08585</td>
+<td>Vitória Gabriela prado</td>
+<td class="mono">08/08<div class="sub">68 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 21/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08585"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08585"><input type="text" name="ob-E08585" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08588" data-cls="prazo" data-busca="e08588 aline vitória dos prazeres lima">
+<td class="mono">E08588</td>
+<td>Aline Vitória dos</td>
+<td class="mono">09/08<div class="sub">67 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08588"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08588"><input type="text" name="ob-E08588" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08603" data-cls="prazo" data-busca="e08603 agustina briceño">
+<td class="mono">E08603</td>
+<td>Agustina Briceño</td>
+<td class="mono">12/08<div class="sub">64 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 22/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08603"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08603"><input type="text" name="ob-E08603" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08609" data-cls="prazo" data-busca="e08609 julia de almeida">
+<td class="mono">E08609</td>
+<td>Julia de Almeida</td>
+<td class="mono">15/08<div class="sub">61 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 21/09.</td>
+<td class="resp"><select name="ac-E08609"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08609"><input type="text" name="ob-E08609" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08622" data-cls="prazo" data-busca="e08622 rubia bertelli peres">
+<td class="mono">E08622</td>
+<td>Rubia Bertelli Peres</td>
+<td class="mono">18/08<div class="sub">58 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08622"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08622"><input type="text" name="ob-E08622" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08648" data-cls="prazo" data-busca="e08648 stéphanie claire pianezzer e silva">
+<td class="mono">E08648</td>
+<td>Stéphanie Claire Pianezzer</td>
+<td class="mono">19/08<div class="sub">57 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">20/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 20/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08648"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08648"><input type="text" name="ob-E08648" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08630" data-cls="prazo" data-busca="e08630 beatriz de lourdes chimbolombe">
+<td class="mono">E08630</td>
+<td>Beatriz de Lourdes</td>
+<td class="mono">21/08<div class="sub">55 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">17/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 17/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 07/10.</td>
+<td class="resp"><select name="ac-E08630"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08630"><input type="text" name="ob-E08630" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08639" data-cls="prazo" data-busca="e08639 filipe orli de sousa">
+<td class="mono">E08639</td>
+<td>filipe orli de</td>
+<td class="mono">21/08<div class="sub">55 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 21/09.</td>
+<td class="resp"><select name="ac-E08639"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08639"><input type="text" name="ob-E08639" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08637" data-cls="prazo" data-busca="e08637 celso antonio dos santos">
+<td class="mono">E08637</td>
+<td>Celso Antonio dos</td>
+<td class="mono">23/08<div class="sub">53 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08637"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08637"><input type="text" name="ob-E08637" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08642" data-cls="prazo" data-busca="e08642 maisa savas senna">
+<td class="mono">E08642</td>
+<td>MAISA SAVAS SENNA</td>
+<td class="mono">24/08<div class="sub">52 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">22/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 22/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08642"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08642"><input type="text" name="ob-E08642" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08649" data-cls="prazo" data-busca="e08649 juliana souza ferreira">
+<td class="mono">E08649</td>
+<td>Juliana Souza Ferreira</td>
+<td class="mono">26/08<div class="sub">50 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. O cliente ainda não respondeu ao Pós.</td>
+<td class="resp"><select name="ac-E08649"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08649"><input type="text" name="ob-E08649" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08656" data-cls="prazo" data-busca="e08656 larissa ramos nascimento">
+<td class="mono">E08656</td>
+<td>Larissa Ramos Nascimento</td>
+<td class="mono">28/08<div class="sub">48 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 15/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08656"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08656"><input type="text" name="ob-E08656" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08751" data-cls="prazo" data-busca="e08751 ana karoliny pereira nunes">
+<td class="mono">E08751</td>
+<td>Ana Karoliny Pereira</td>
+<td class="mono">06/09<div class="sub">39 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 06/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08751"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08751"><input type="text" name="ob-E08751" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08704" data-cls="prazo" data-busca="e08704 carolina farias klug">
+<td class="mono">E08704</td>
+<td>Carolina Farias Klug</td>
+<td class="mono">08/09<div class="sub">37 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08704"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08704"><input type="text" name="ob-E08704" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08705" data-cls="prazo" data-busca="e08705 julia grunow borges">
+<td class="mono">E08705</td>
+<td>Julia Grunow Borges</td>
+<td class="mono">16/09<div class="sub">29 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">03/11</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 03/11. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 07/10.</td>
+<td class="resp"><select name="ac-E08705"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08705"><input type="text" name="ob-E08705" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08710" data-cls="prazo" data-busca="e08710 joanna maschio">
+<td class="mono">E08710</td>
+<td>Joanna Maschio</td>
+<td class="mono">17/09<div class="sub">28 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">09/11</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 09/11. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 02/10.</td>
+<td class="resp"><select name="ac-E08710"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08710"><input type="text" name="ob-E08710" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08725" data-cls="prazo" data-busca="e08725 jeisiely cardoso cordeiro.">
+<td class="mono">E08725</td>
+<td>Jeisiely Cardoso Cordeiro.</td>
+<td class="mono">17/09<div class="sub">28 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. O cliente ainda não respondeu ao Pós.</td>
+<td class="resp"><select name="ac-E08725"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08725"><input type="text" name="ob-E08725" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08726" data-cls="prazo" data-busca="e08726 jeisiely cardoso cordeiro.">
+<td class="mono">E08726</td>
+<td>Jeisiely Cardoso Cordeiro.</td>
+<td class="mono">17/09<div class="sub">28 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. O cliente ainda não respondeu ao Pós.</td>
+<td class="resp"><select name="ac-E08726"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08726"><input type="text" name="ob-E08726" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08715" data-cls="prazo" data-busca="e08715 brenda lalesk de souza almeida">
+<td class="mono">E08715</td>
+<td>Brenda Lalesk de</td>
+<td class="mono">19/09<div class="sub">26 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 15/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 01/10.</td>
+<td class="resp"><select name="ac-E08715"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08715"><input type="text" name="ob-E08715" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08717" data-cls="prazo" data-busca="e08717 mayara camilly fernandes alcântara da silva">
+<td class="mono">E08717</td>
+<td>Mayara Camilly Fernandes</td>
+<td class="mono">19/09<div class="sub">26 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 07/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08717"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08717"><input type="text" name="ob-E08717" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08718" data-cls="prazo" data-busca="e08718 gabriella dias bastos">
+<td class="mono">E08718</td>
+<td>Gabriella Dias Bastos</td>
+<td class="mono">19/09<div class="sub">26 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">20/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 20/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 30/09. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08718"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08718"><input type="text" name="ob-E08718" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08720" data-cls="prazo" data-busca="e08720 maria eduarda makowiecki figueredo">
+<td class="mono">E08720</td>
+<td>Maria Eduarda Makowiecki</td>
+<td class="mono">19/09<div class="sub">26 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">22/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 22/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 08/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08720"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08720"><input type="text" name="ob-E08720" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08712" data-cls="prazo" data-busca="e08712 paloma fidélis ghyzi">
+<td class="mono">E08712</td>
+<td>Paloma Fidélis Ghyzi</td>
+<td class="mono">20/09<div class="sub">25 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">29/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 29/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 06/10.</td>
+<td class="resp"><select name="ac-E08712"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08712"><input type="text" name="ob-E08712" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08724" data-cls="prazo" data-busca="e08724 carlos eduardo vieira de mello">
+<td class="mono">E08724</td>
+<td>Carlos Eduardo Vieira</td>
+<td class="mono">20/09<div class="sub">25 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 07/10.</td>
+<td class="resp"><select name="ac-E08724"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08724"><input type="text" name="ob-E08724" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08735" data-cls="prazo" data-busca="e08735 tamiris adriana de paiva costa">
+<td class="mono">E08735</td>
+<td>Tamiris Adriana de</td>
+<td class="mono">25/09<div class="sub">20 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">27/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 27/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08735"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08735"><input type="text" name="ob-E08735" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08736" data-cls="prazo" data-busca="e08736 samantha lemos michels">
+<td class="mono">E08736</td>
+<td>Samantha Lemos Michels</td>
+<td class="mono">25/09<div class="sub">20 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">21/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 21/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 06/10.</td>
+<td class="resp"><select name="ac-E08736"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08736"><input type="text" name="ob-E08736" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08747" data-cls="prazo" data-busca="e08747 isadora freire anderson">
+<td class="mono">E08747</td>
+<td>Isadora Freire Anderson</td>
+<td class="mono">25/09<div class="sub">20 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 15/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 05/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08747"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08747"><input type="text" name="ob-E08747" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08754" data-cls="prazo" data-busca="e08754 jefferson norte romualdo">
+<td class="mono">E08754</td>
+<td>Jefferson Norte Romualdo</td>
+<td class="mono">25/09<div class="sub">20 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">27/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 27/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 05/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08754"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08754"><input type="text" name="ob-E08754" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08740" data-cls="prazo" data-busca="e08740 maristela da luz nazari">
+<td class="mono">E08740</td>
+<td>Maristela da Luz</td>
+<td class="mono">26/09<div class="sub">19 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">17/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 17/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 05/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08740"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08740"><input type="text" name="ob-E08740" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08742" data-cls="prazo" data-busca="e08742 vinícius rossetti cavanholi">
+<td class="mono">E08742</td>
+<td>Vinícius Rossetti Cavanholi</td>
+<td class="mono">26/09<div class="sub">19 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08742"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08742"><input type="text" name="ob-E08742" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08743" data-cls="prazo" data-busca="e08743 bruna pacheco silveira">
+<td class="mono">E08743</td>
+<td>Bruna Pacheco Silveira</td>
+<td class="mono">27/09<div class="sub">18 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">16/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 16/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 07/10.</td>
+<td class="resp"><select name="ac-E08743"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08743"><input type="text" name="ob-E08743" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08765" data-cls="prazo" data-busca="e08765 yasmin dos santos paiva">
+<td class="mono">E08765</td>
+<td>Yasmin dos Santos</td>
+<td class="mono">03/10<div class="sub">12 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">17/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 17/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 06/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08765"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08765"><input type="text" name="ob-E08765" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08768" data-cls="prazo" data-busca="e08768 erizan fernandes soares">
+<td class="mono">E08768</td>
+<td>Erizan Fernandes Soares</td>
+<td class="mono">03/10<div class="sub">12 dias</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">19/10</div></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Boas-vindas marcada para 19/10. Já ofereça a Primeiros Passos nela. Última resposta do cliente ao Pós: 06/10.</td>
+<td class="resp"><select name="ac-E08768"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08768"><input type="text" name="ob-E08768" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08766" data-cls="prazo" data-busca="e08766 talisson alex vieira">
+<td class="mono">E08766</td>
+<td>Talisson Alex Vieira</td>
+<td class="mono">04/10<div class="sub">11 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. O cliente ainda não respondeu ao Pós.</td>
+<td class="resp"><select name="ac-E08766"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08766"><input type="text" name="ob-E08766" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08777" data-cls="prazo" data-busca="e08777 felipe amaral">
+<td class="mono">E08777</td>
+<td>Felipe Amaral</td>
+<td class="mono">04/10<div class="sub">11 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08777"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08777"><input type="text" name="ob-E08777" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08773" data-cls="prazo" data-busca="e08773 ana beatriz araujo rodrigues">
+<td class="mono">E08773</td>
+<td>Ana Beatriz Araujo</td>
+<td class="mono">07/10<div class="sub">8 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08773"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08773"><input type="text" name="ob-E08773" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08774" data-cls="prazo" data-busca="e08774 janeth da costa">
+<td class="mono">E08774</td>
+<td>Janeth da Costa</td>
+<td class="mono">07/10<div class="sub">8 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08774"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08774"><input type="text" name="ob-E08774" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08782" data-cls="prazo" data-busca="e08782 alexia moraes">
+<td class="mono">E08782</td>
+<td>Alexia Moraes</td>
+<td class="mono">10/10<div class="sub">5 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08782"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08782"><input type="text" name="ob-E08782" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08783" data-cls="prazo" data-busca="e08783 marcella marques nascimento">
+<td class="mono">E08783</td>
+<td>Marcella Marques Nascimento</td>
+<td class="mono">11/10<div class="sub">4 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 15/10.</td>
+<td class="resp"><select name="ac-E08783"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08783"><input type="text" name="ob-E08783" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08784" data-cls="prazo" data-busca="e08784 izauro de araujo">
+<td class="mono">E08784</td>
+<td>Izauro de Araujo</td>
+<td class="mono">12/10<div class="sub">3 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Sem conversa com o Pós no chat.</td>
+<td class="resp"><select name="ac-E08784"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08784"><input type="text" name="ob-E08784" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="prazo" data-cod="E08786" data-cls="prazo" data-busca="e08786 ana paula magalhães da silva">
+<td class="mono">E08786</td>
+<td>Ana Paula Magalhães</td>
+<td class="mono">12/10<div class="sub">3 dias</div></td>
+<td><span class="tag conferir">Pendente</span></td>
+<td><span class="tag prazo">Sem boas-vindas</span></td>
+<td class="obs">Primeiros Passos só depois da boas-vindas. Última resposta do cliente ao Pós: 15/10.</td>
+<td class="resp"><select name="ac-E08786"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08786"><input type="text" name="ob-E08786" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08521" data-cls="marcada" data-busca="e08521 maria isabel  couto felipe">
+<td class="mono">E08521</td>
+<td>Maria Isabel Couto</td>
+<td class="mono">01/08<div class="sub">75 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">13/10</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">29/10 · 20:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 13/10.</td>
+<td class="resp"><select name="ac-E08521"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08521"><input type="text" name="ob-E08521" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08655" data-cls="marcada" data-busca="e08655 peterson oscar costa">
+<td class="mono">E08655</td>
+<td>Peterson Oscar Costa</td>
+<td class="mono">15/08<div class="sub">61 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">18/09</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">15/10 · 14:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08655"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08655"><input type="text" name="ob-E08655" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08634" data-cls="marcada" data-busca="e08634 samara de farias">
+<td class="mono">E08634</td>
+<td>Samara de Farias</td>
+<td class="mono">22/08<div class="sub">54 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">06/10</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">05/11 · 20:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 06/10.</td>
+<td class="resp"><select name="ac-E08634"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08634"><input type="text" name="ob-E08634" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08678" data-cls="marcada" data-busca="e08678 ione maria augusta silveira moutinho bahls">
+<td class="mono">E08678</td>
+<td>Ione Maria Augusta</td>
+<td class="mono">05/09<div class="sub">40 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">17/09</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">05/11 · 18:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 06/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08678"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08678"><input type="text" name="ob-E08678" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08679" data-cls="marcada" data-busca="e08679 ariane fischer brand de azevedo">
+<td class="mono">E08679</td>
+<td>Ariane Fischer Brand</td>
+<td class="mono">05/09<div class="sub">40 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">29/09</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">22/10 · 20:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 06/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08679"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08679"><input type="text" name="ob-E08679" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08722" data-cls="marcada" data-busca="e08722 renata da mota">
+<td class="mono">E08722</td>
+<td>Renata da Mota</td>
+<td class="mono">20/09<div class="sub">25 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">07/10</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">29/10 · 15:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 07/10.</td>
+<td class="resp"><select name="ac-E08722"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08722"><input type="text" name="ob-E08722" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08731" data-cls="marcada" data-busca="e08731 lúcio lopes diniz">
+<td class="mono">E08731</td>
+<td>Lúcio Lopes Diniz</td>
+<td class="mono">22/09<div class="sub">23 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">05/10</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">19/10 · 15:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 05/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><select name="ac-E08731"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08731"><input type="text" name="ob-E08731" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="marcada" data-cod="E08763" data-cls="marcada" data-busca="e08763 rafael garcia eymael">
+<td class="mono">E08763</td>
+<td>Rafael Garcia Eymael</td>
+<td class="mono">02/10<div class="sub">13 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">14/10</div></td>
+<td><span class="tag marcada">Marcada</span><div class="sub">04/11 · 10:00 Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><select name="ac-E08763"><option value="">escolha</option><option value="marcada">Marcada (põe a data)</option><option value="feita">Já aconteceu (põe a data)</option><option value="nao_ofereci">Ainda não ofereci</option><option value="sem_resposta">Ofereci e o cliente não respondeu</option><option value="remarcar">Cliente remarcou / sem data</option><option value="recusou">Cliente não quer</option></select><input type="date" name="dt-E08763"><input type="text" name="ob-E08763" placeholder="observação (opcional)"></td>
+</tr>
+<tr class="feita" data-cod="E08667" data-cls="feita" data-busca="e08667 andressa dutra ferreira barbosa">
+<td class="mono">E08667</td>
+<td>Andressa Dutra ferreira</td>
+<td class="mono">30/08<div class="sub">46 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">17/09</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">06/10 · Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 07/10. Sua última mensagem está sem resposta.</td>
+<td class="resp"><span class="sub">já feita</span></td>
+</tr>
+<tr class="feita" data-cod="E08697" data-cls="feita" data-busca="e08697 ellen kéroliny daniel">
+<td class="mono">E08697</td>
+<td>Ellen Kéroliny Daniel</td>
+<td class="mono">13/09<div class="sub">32 dias</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">29/09</div></td>
+<td><span class="tag feita">Feita</span><div class="sub">13/10 · Polyana Pozzamai</div></td>
+<td class="obs">Última resposta do cliente ao Pós: 14/10.</td>
+<td class="resp"><span class="sub">já feita</span></td>
+</tr></tbody></table>
+<div class="rodape">
+<button class="p" id="copiar">Copiar respostas</button>
+<button id="baixar">Baixar CSV</button>
+<button id="ver">Ver texto</button>
+<span class="prog" id="prog2"></span>
+</div>
+<textarea id="saida" readonly></textarea>
+</main>
+<script>
+(function(){
+var K='pp-polyana-v1';var st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){st={}}
+function save(){try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}}
+var trs=[].slice.call(document.querySelectorAll('#t tbody tr'));
+function ler(cod){var v=function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');return e?e.value:''};return {ac:v('ac'),dt:v('dt'),ob:v('ob')}}
+function aplicar(cod,d){['ac','dt','ob'].forEach(function(n){var e=document.querySelector('[name="'+n+'-'+cod+'"]');if(e&&d[n]!=null)e.value=d[n]})}
+function resp(d){return !!(d&&(d.ac||d.ob))}
+function status(){var n=0,tot=0;trs.forEach(function(tr){var cod=tr.dataset.cod;var ok=resp(st[cod]);tr.classList.toggle('done',ok);if(tr.dataset.cls==='pendente'||tr.dataset.cls==='conferir'){tot++;if(ok)n++}});var t=n+' de '+tot+' pendentes respondidos';document.getElementById('prog').textContent=t;document.getElementById('prog2').textContent=t}
+function filtrar(){var s=document.getElementById('q').value.trim().toLowerCase(),f=document.getElementById('fil').value;trs.forEach(function(tr){var ok=(!s||tr.dataset.busca.indexOf(s)>=0);if(f==='pendente')ok=ok&&(tr.dataset.cls==='pendente'||tr.dataset.cls==='conferir');if(f==='falta')ok=ok&&tr.dataset.cls!=='feita'&&!resp(st[tr.dataset.cod]);tr.style.display=ok?'':'none'})}
+trs.forEach(function(tr){var cod=tr.dataset.cod;if(st[cod])aplicar(cod,st[cod]);tr.addEventListener('change',function(){st[cod]=ler(cod);save();status()});tr.addEventListener('input',function(){st[cod]=ler(cod);save()})});
+document.getElementById('q').addEventListener('input',filtrar);document.getElementById('fil').addEventListener('change',filtrar);
+function texto(){var quem=document.getElementById('quem').value||'Polyana';var hoje=new Date().toISOString().slice(0,10);var out=['PRIMEIROS-PASSOS;equipe=Polyana;quem='+quem+';data='+hoje];trs.forEach(function(tr){var cod=tr.dataset.cod;var d=st[cod];if(!resp(d))return;out.push(cod+';pp='+(d.ac||'')+';data='+(d.dt||'')+';obs='+String(d.ob||'').replace(/[\r\n;]+/g,' ').trim())});return out.join('\n')}
+function csv(){var quem=document.getElementById('quem').value||'';var l=['equipe;quem;codigo;cliente;contrato;boas_vindas;primeiros_passos_sistema;observacao_sistema;resposta;data;observacao'];trs.forEach(function(tr){var cod=tr.dataset.cod;var d=st[cod]||{};var td=tr.querySelectorAll('td');var c=function(i){return '"'+String(td[i].textContent||'').replace(/\s+/g,' ').trim().replace(/"/g,'""')+'"'};l.push(['Polyana',quem,cod,c(1),c(2),c(3),c(4),c(5),d.ac||'',d.dt||'',String(d.ob||'').replace(/[\r\n]+/g,' ')].map(function(x){return /^"/.test(x)?x:'"'+String(x).replace(/"/g,'""')+'"'}).join(';'))});return '\ufeff'+l.join('\n')}
+document.getElementById('copiar').addEventListener('click',function(){var t=texto();var b=this;var done=function(){b.textContent='Copiado! Agora cole no WhatsApp';setTimeout(function(){b.textContent='Copiar respostas'},2500)};var fb=function(){var ta=document.getElementById('saida');ta.value=t;ta.style.display='block';ta.select();try{document.execCommand('copy');done()}catch(e){}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb()});
+document.getElementById('ver').addEventListener('click',function(){var ta=document.getElementById('saida');ta.value=texto();ta.style.display=ta.style.display==='block'?'none':'block'});
+document.getElementById('baixar').addEventListener('click',function(){var b=new Blob([csv()],{type:'text/csv;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='primeiros-passos-polyana.csv';a.click()});
+status();filtrar();
+})();
+</script>
+</body>
+</html>
