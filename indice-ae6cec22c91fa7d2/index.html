@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dashboard do Pós · todas as telas</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+:root{--bg:#f4f4f1;--card:#fff;--ink:#0b0b0b;--ink2:#52514e;--mut:#8b8984;--linha:#e3e2db;
+  --pronta:#047857;--proposta:#7c3aed;--teste:#b45309}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px 16px 60px}
+.pag{max-width:1080px;margin:0 auto}
+.cab{background:var(--card);border:1px solid rgba(0,0,0,.09);border-radius:14px;padding:24px 28px;margin-bottom:18px}
+h1{font-size:22px;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--ink2);font-size:14px;margin:0}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);margin:26px 0 10px;font-weight:700}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.tela{background:var(--card);border:1px solid rgba(0,0,0,.09);border-radius:12px;padding:16px 18px 14px;display:flex;flex-direction:column}
+.tela header{display:flex;gap:11px;align-items:flex-start;margin-bottom:8px}
+.num{flex:0 0 26px;height:26px;border-radius:7px;background:#111;color:#fff;font-size:13px;font-weight:700;
+  display:grid;place-items:center;margin-top:2px}
+h3{font-size:15.5px;margin:0 0 2px;line-height:1.3}
+.estado{font-size:11px;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.e-pronta{color:var(--pronta)}.e-proposta{color:var(--proposta)}.e-teste{color:var(--teste)}
+.perg{font-size:13.5px;color:var(--ink2);margin:0 0 10px}
+.nums{list-style:none;margin:0 0 10px;padding:0;font-size:13px}
+.nums li{padding:3px 0 3px 14px;position:relative;font-variant-numeric:tabular-nums}
+.nums li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:#047857}
+.dec{background:#f7f6f2;border-radius:8px;padding:9px 11px;font-size:12.5px;color:var(--ink2);margin-bottom:12px}
+.dec b{display:block;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.dec ul{margin:0;padding-left:16px}.dec li{margin:3px 0}
+.abrir{margin-top:auto;display:inline-block;background:#111;color:#fff;text-decoration:none;font-size:13px;font-weight:600;
+  padding:8px 14px;border-radius:8px;text-align:center}
+.abrir:hover{background:#333}
+.dt{font-size:11px;color:var(--mut);text-align:center;margin-top:6px}
+.apoio{background:var(--card);border:1px solid rgba(0,0,0,.09);border-radius:12px;padding:6px 18px}
+.apoio a{display:flex;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--linha);
+  text-decoration:none;color:var(--ink);font-size:14px}
+.apoio a:last-child{border-bottom:0}
+.apoio span{color:var(--ink2);font-size:12.5px}
+.apoio a:hover{color:#7c3aed}
+.pend{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:14px 18px;font-size:13.5px}
+.pend ol{margin:6px 0 0;padding-left:20px}.pend li{margin:5px 0}
+.rodape{color:var(--mut);font-size:12px;margin-top:22px;text-align:center}
+</style></head><body>
+<div class="pag">
+  <div class="cab">
+    <h1>Dashboard do Pós-Vendas · todas as telas</h1>
+    <p class="sub">Tudo que montamos até aqui, com os números atualizados em 15/10/2026. Cada tela tem um número —
+      me diga o número e a correção, que eu ajusto. As telas 1 e 2 já estão rodando; as outras são o desenho
+      aprovado esperando virar tela do CRM.</p>
+  </div>
+
+  <h2>As telas do dashboard</h2>
+  <div class="grade">
+  <article class="tela pronta">
+    <header><span class="num">1</span>
+      <div><h3>Venda geral com o Pós por equipe</h3><span class="estado e-pronta">já virou código, esperando subir</span></div></header>
+    <p class="perg">Quanto cada setor vendeu no mês, com o Pós repartido entre Especialistas, Relacionamento e Outros.</p>
+    <ul class="nums"><li>Outubro: Pós R$ 469.008</li><li>Especialistas R$ 192.958 · Relacionamento R$ 212.486 · Outros R$ 63.564</li><li>Total setores do ano: R$ 62,7 mi</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>Até agosto a divisão é a antiga (maître = Especialistas); de setembro é por time — confirmar se é isso mesmo em definitivo.</li><li>A aba "Pós-Vendas" do Gerencial e o dashboard do Pós ainda somam SEM juros: alinhar ou deixar diferente?</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/venda-geral-921bad07094c184d/" target="_blank" rel="noopener">Abrir a tela 1</a>
+    <span class="dt">dados de 14/10/2026</span>
+  </article>
+  <article class="tela pronta">
+    <header><span class="num">2</span>
+      <div><h3>Especialistas semana a semana</h3><span class="estado e-pronta">em uso nas reuniões de equipe</span></div></header>
+    <p class="perg">Quanto cada especialista vendeu por semana, quantas reuniões finais fez e quanto converteu.</p>
+    <ul class="nums"><li>Outubro: R$ 183.881 em 29 aditivos · 24 reuniões · conversão 79%</li><li>Nathan R$ 90.194 · Ruam R$ 29.580 · Jhonatan R$ 28.830 · Jessica R$ 27.783</li><li>Janela rolante: sempre as 5 últimas semanas</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>Quem entra vem do cadastro de Especialistas — manter assim (hoje são 6).</li><li>Vale fixar meta por especialista na própria tela?</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/especialistas-ebd8487d02339efc/" target="_blank" rel="noopener">Abrir a tela 2</a>
+    <span class="dt">dados de 14/10/2026</span>
+  </article>
+  <article class="tela proposta">
+    <header><span class="num">3</span>
+      <div><h3>Relacionamento por time e por mês</h3><span class="estado e-proposta">desenho aprovado, falta virar tela</span></div></header>
+    <p class="perg">Quanto cada time do Relacionamento vendeu, quanta oportunidade tinha em mãos e quanto aproveitou.</p>
+    <ul class="nums"><li>Oportunidade em mãos: R$ 2.700.456</li><li>Vendido: R$ 832.575</li><li>Aproveitamento: 30,8%</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>A oportunidade considera todo contrato sem o item — falta a regra de elegibilidade (tipo de evento e espaço) para virar meta cobrável.</li><li>Cerimonial entra ou fica fora do cálculo?</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/relacionamento-1764c9852b99447c/" target="_blank" rel="noopener">Abrir a tela 3</a>
+    <span class="dt">dados de 15/10/2026</span>
+  </article>
+  <article class="tela proposta">
+    <header><span class="num">4</span>
+      <div><h3>Primeiros Passos: expectativa por reunião</h3><span class="estado e-proposta">desenho aprovado, falta virar tela</span></div></header>
+    <p class="perg">Cada reunião de Primeiros Passos carrega DJ, floral e cerimonial em aberto. Quanto disso virou venda.</p>
+    <ul class="nums"><li>5 reuniões realizadas no período</li><li>26 já agendadas à frente</li><li>53 oportunidades em aberto nelas</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>Boas-vindas tem expectativa ZERO de venda — confirmado; manter fora da conversão.</li><li>Cerimônia externa conta como bônus, fora da taxa de conversão.</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/primeiros-passos-4d9a9f9182c85e89/" target="_blank" rel="noopener">Abrir a tela 4</a>
+    <span class="dt">dados de 15/10/2026</span>
+  </article>
+  <article class="tela teste">
+    <header><span class="num">5</span>
+      <div><h3>Régua de reuniões do cliente</h3><span class="estado e-teste">teste local com 6 clientes reais</span></div></header>
+    <p class="perg">Na ficha do cliente, quais reuniões da jornada já aconteceram e quais faltam.</p>
+    <ul class="nums"><li>Boas-vindas → Primeiros Passos → Layout e Decor → Gastronomia → Reunião Final</li><li>Dados de 09/10 (leitura das conversas do WhatsApp)</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>Entra na aba Jornada da ficha do cliente — confirmar a posição.</li><li>72 clientes tiveram reunião online que a conversa não nomeia: contar como boas-vindas quando cai entre 15 e 30 dias do contrato?</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/regua-reunioes-c11e016542250c9b/" target="_blank" rel="noopener">Abrir a tela 5</a>
+    <span class="dt">dados de 09/10/2026</span>
+  </article>
+  <article class="tela proposta">
+    <header><span class="num">6</span>
+      <div><h3>Qualidade da venda dos Especialistas</h3><span class="estado e-proposta">mock, ainda sem decisão</span></div></header>
+    <p class="perg">Além do valor: cortesias, descontos e o que ficou fora da venda.</p>
+    <ul class="nums"><li>Mock de 06/10 — números do período de junho a outubro</li></ul>
+    <div class="dec"><b>Falta decidir</b><ul><li>Vale virar aba do dashboard ou fica como relatório mensal?</li></ul></div>
+    <a class="abrir" href="https://vendasindaia.github.io/painel-pos-vendas/qualidade-especialistas-e3c0410b63d37519/" target="_blank" rel="noopener">Abrir a tela 6</a>
+    <span class="dt">dados de 06/10/2026</span>
+  </article></div>
+
+  <h2>Análises que embasaram (retratos do período, não atualizam)</h2>
+  <div class="apoio">
+    <a href="https://vendasindaia.github.io/painel-pos-vendas/qualidade-produtos-a3b2d9233db70ce3/" target="_blank" rel="noopener"><b>Qualidade do Pós e produtos vendidos</b><span>A tabela completa de produtos por família, com ticket médio, agosto × setembro.</span></a><a href="https://vendasindaia.github.io/painel-pos-vendas/quando-caiu-5f54d3086d14640e/" target="_blank" rel="noopener"><b>Quando setembro caiu</b><span>Curvas acumuladas dia a dia mostrando a virada em 11/09.</span></a><a href="https://vendasindaia.github.io/painel-pos-vendas/apresentacao-gabriel-b7bcfa7adc8fcc48/" target="_blank" rel="noopener"><b>Apresentação da venda para o Gabriel</b><span>Os 9 slides com o que baixou na venda de agosto para setembro.</span></a><a href="https://vendasindaia.github.io/painel-pos-vendas/revisao-boas-vindas-7f757ff73bf27faf/" target="_blank" rel="noopener"><b>Revisão das boas-vindas</b><span>Os 107 clientes em que a boas-vindas precisa de conferência da equipe.</span></a>
+  </div>
+
+  <h2>Pendente de decisão sua</h2>
+  <div class="pend"><ol><li>Subir para a dev e abrir a PR: 6 commits do bloco do Pós no Gerencial (backend e frontend).</li><li>Notificação de aditivo não mostra o encargo do cartão (caso E07670: avisou R$ 22.425, cliente paga R$ 27.522). Correção desenhada, falta seu ok.</li><li>Taxa de cartão nem sempre é repassada ao cliente: em 13/10 foram R$ 3.798 absorvidos num único dia. Falta falar com o Nathan.</li></ol></div>
+
+  <p class="rodape">Página privada, fora de buscadores. Quem tem o link abre — não precisa de login.</p>
+</div></body></html>
