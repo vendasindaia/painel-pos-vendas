@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Simulação · Dashboard Gerencial</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#0e0e11;color:#e8eaed;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px 18px 48px}
+.topo{max-width:1560px;margin:0 auto 14px}
+h1{font-size:24px;margin:0 0 4px;font-weight:600;letter-spacing:-.01em}
+.sub{color:#9aa0a6;font-size:13.5px;margin:0 0 16px}
+.barra{display:flex;align-items:center;gap:14px;background:#17171c;border:1px solid #26262e;border-radius:10px;padding:9px 12px;margin-bottom:14px}
+.abas{display:flex;background:#0e0e11;border-radius:7px;padding:3px}
+.aba{padding:6px 15px;border-radius:5px;font-size:13.5px;color:#9aa0a6;cursor:default}
+.aba.on{background:#2b2b33;color:#fff;font-weight:600}
+.ano{display:flex;align-items:center;gap:8px;color:#9aa0a6;font-size:13.5px}
+.ano b{background:#0e0e11;border:1px solid #30303a;border-radius:6px;padding:5px 14px;color:#e8eaed;font-weight:500}
+.aviso{margin-left:auto;font-size:12.5px;color:#f0b429;background:#2a2410;border:1px solid #5c4a12;border-radius:7px;padding:6px 12px}
+.quadro{max-width:1560px;margin:0 auto;background:#17171c;border:1px solid #26262e;border-radius:10px;overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:9px 10px;text-align:center;white-space:nowrap;border-bottom:1px solid #22222a}
+thead .g{color:#fff;font-weight:600;font-size:12.5px;letter-spacing:.03em;padding:7px 10px}
+.g.gv{background:#2563eb}.g.gp{background:#7c3aed}.g.gt{background:#059669}.g.gf{background:#d97706}.g.gj{background:#4b5563}
+thead .c{background:#1c1c22;color:#9aa0a6;font-weight:600;font-size:12px;padding:8px 10px}
+.c.esp{color:#c4b5fd}.c.rel{color:#99f6e4}.c.tt{color:#6ee7b7}.c.cc{color:#fca5a5}
+.c sub{display:block;font-weight:400;font-size:10px;color:#6b7280;margin-top:2px}
+td.mes{text-align:left;font-weight:600;color:#e8eaed;padding-left:14px}
+td.num{font-variant-numeric:tabular-nums}
+td .v{display:block;font-size:13px}
+td .p{display:block;font-size:10px;color:#6b7280;margin-top:1px}
+.pt{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:5px;vertical-align:1px}
+.pt.sistema{background:#10b981}.pt.planilha{background:#f59e0b}
+td.fim,th.fim{border-right:1px solid #2e2e38}
+td.tot{color:#6ee7b7;font-weight:600;background:#0f1f19}
+td.canc{color:#fca5a5;background:#1f1214}
+td.mut{color:#9aa0a6}
+td.meta{color:#6ee7b7;font-weight:600}
+tr.off td{opacity:.35}
+tbody tr:hover td{background:#1d1d24}
+tbody tr:hover td.tot{background:#133026}
+tbody tr:hover td.canc{background:#2b181b}
+tfoot td{background:#1c1c22;font-weight:600;border-top:2px solid #2e2e38;border-bottom:0}
+.nova{position:relative}
+thead .c.cc::after{content:'NOVA';display:block;font-size:8.5px;color:#0e0e11;background:#fca5a5;border-radius:3px;
+  padding:1px 4px;margin:3px auto 0;width:fit-content;letter-spacing:.04em}
+.leg{max-width:1560px;margin:12px auto 0;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#9aa0a6}
+.leg i{margin-right:5px}
+.nota{max-width:1560px;margin:14px auto 0;background:#17171c;border:1px solid #26262e;border-left:3px solid #fca5a5;
+  border-radius:8px;padding:12px 16px;font-size:13px;color:#b9bdc4;line-height:1.65}
+.nota b{color:#e8eaed}
+</style></head><body>
+<div class="topo">
+  <h1>Dashboard Gerencial</h1>
+  <p class="sub">Venda de todos os setores, projeções e meta · sistema onde já bate com a planilha de controle, planilha onde ainda falta dado</p>
+  <div class="barra">
+    <div class="abas"><span class="aba on">Geral</span><span class="aba">Vendas</span><span class="aba">Pós-Vendas</span></div>
+    <div class="ano">Ano <span>‹</span> <b>2026</b> <span>›</span></div>
+    <span class="aviso">simulação · a coluna Cancelados ainda não está no ar</span>
+  </div>
+</div>
+
+<div class="quadro">
+  <table>
+    <thead>
+      <tr><th></th>
+        <th class="g gv" colspan="3">VENDA <span style="font-weight:400;opacity:.85">(Data Contratação)</span></th>
+        <th class="g gp" colspan="2">PÓS-VENDAS <span style="font-weight:400;opacity:.85">(Data Lançamento)</span></th>
+        <th class="g gt" colspan="2">TOTAL</th>
+        <th class="g gf" colspan="2">FORMATURA</th>
+        <th class="g gj" colspan="3">PROJEÇÃO</th></tr>
+      <tr><th class="c" style="text-align:left;padding-left:14px">Mês</th>
+        <th class="c">Social</th><th class="c">Corporativo</th><th class="c fim">Formaturas</th>
+        <th class="c esp">Especialistas<sub>venda operacional</sub></th>
+        <th class="c rel fim">Relacionamento<sub>todo o resto</sub></th>
+        <th class="c tt">Total Setores</th>
+        <th class="c cc">Cancelados<sub>contrato + aditivo</sub></th>
+        <th class="c">Adesões</th><th class="c fim">Contratos</th>
+        <th class="c">Pós Venda</th><th class="c">Comercial</th><th class="c">Projeção de Meta</th></tr>
+    </thead>
+    <tbody>
+<tr class="">
+    <td class="mes">Janeiro 2026</td>
+    <td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 4.965.536<i class="pt sistema"></i></span>
+  <span class="p">73%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 325.670 (diferença de R$ 72.931).">
+  <span class="v">R$ 398.601<i class="pt planilha"></i></span>
+  <span class="p">6%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula - (diferença de R$ 8.900).">
+  <span class="v">R$ 8.900<i class="pt planilha"></i></span>
+  <span class="p">0%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 49.385 (diferença de R$ 4.018).">
+  <span class="v">R$ 45.367<i class="pt planilha"></i></span>
+  <span class="p">1%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.480.290 (diferença de R$ 120.449).">
+  <span class="v">R$ 1.359.841<i class="pt planilha"></i></span>
+  <span class="p">20%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 6.778.245</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 638.496 (15) · Aditivos de cancelamento do Pós: R$ 772.357 (27)">
+      <span class="v">R$ 1.410.854</span><span class="p">21%</span></td>
+    <td class="num mut">1</td>
+    <td class="num mut fim">0</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 6.778.245</td></tr>
+<tr class="">
+    <td class="mes">Fevereiro 2026</td>
+    <td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 4.453.601<i class="pt sistema"></i></span>
+  <span class="p">60%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 486.182 (diferença de R$ 581.526).">
+  <span class="v">R$ 1.067.708<i class="pt planilha"></i></span>
+  <span class="p">14%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula - (diferença de R$ 26.700).">
+  <span class="v">R$ 26.700<i class="pt planilha"></i></span>
+  <span class="p">0%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 139.488 (diferença de R$ 9.335).">
+  <span class="v">R$ 148.822<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.611.986 (diferença de R$ 107.877).">
+  <span class="v">R$ 1.719.863<i class="pt planilha"></i></span>
+  <span class="p">23%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 7.416.694</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 462.341 (14) · Aditivos de cancelamento do Pós: R$ 888.899 (34)">
+      <span class="v">R$ 1.351.240</span><span class="p">18%</span></td>
+    <td class="num mut">3</td>
+    <td class="num mut fim">0</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 7.416.694</td></tr>
+<tr class="">
+    <td class="mes">Março 2026</td>
+    <td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 4.342.626<i class="pt sistema"></i></span>
+  <span class="p">69%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 168.105 (diferença de R$ 1.718).">
+  <span class="v">R$ 169.823<i class="pt planilha"></i></span>
+  <span class="p">3%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 359.220 (diferença de R$ 83.820).">
+  <span class="v">R$ 275.400<i class="pt planilha"></i></span>
+  <span class="p">4%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 142.560 (diferença de R$ 347).">
+  <span class="v">R$ 142.907<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.378.617 (diferença de R$ 3.356).">
+  <span class="v">R$ 1.381.974<i class="pt planilha"></i></span>
+  <span class="p">22%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 6.312.730</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 632.482 (16) · Aditivos de cancelamento do Pós: R$ 661.465 (26)">
+      <span class="v">R$ 1.293.947</span><span class="p">20%</span></td>
+    <td class="num mut">36</td>
+    <td class="num mut fim">2</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 6.312.730</td></tr>
+<tr class="">
+    <td class="mes">Abril 2026</td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 3.446.567 (diferença de R$ 28.069).">
+  <span class="v">R$ 3.418.499<i class="pt planilha"></i></span>
+  <span class="p">61%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 329.805 (diferença de R$ 8.120).">
+  <span class="v">R$ 337.925<i class="pt planilha"></i></span>
+  <span class="p">6%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 27.910 (diferença de R$ 36.190).">
+  <span class="v">R$ 64.100<i class="pt planilha"></i></span>
+  <span class="p">1%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 279.557 (diferença de R$ 34.712).">
+  <span class="v">R$ 244.845<i class="pt planilha"></i></span>
+  <span class="p">4%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.715.540 (diferença de R$ 213.016).">
+  <span class="v">R$ 1.502.524<i class="pt planilha"></i></span>
+  <span class="p">27%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 5.567.892</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 524.184 (12) · Aditivos de cancelamento do Pós: R$ 887.666 (27)">
+      <span class="v">R$ 1.411.850</span><span class="p">25%</span></td>
+    <td class="num mut">9</td>
+    <td class="num mut fim">2</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 5.567.892</td></tr>
+<tr class="">
+    <td class="mes">Maio 2026</td>
+    <td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 4.960.460<i class="pt sistema"></i></span>
+  <span class="p">66%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 85.971 (diferença de R$ 11.078).">
+  <span class="v">R$ 97.049<i class="pt planilha"></i></span>
+  <span class="p">1%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 119.187 (diferença de R$ 68.713).">
+  <span class="v">R$ 187.900<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 147.058 (diferença de R$ 11.775).">
+  <span class="v">R$ 158.833<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.998.742 (diferença de R$ 160.040).">
+  <span class="v">R$ 2.158.782<i class="pt planilha"></i></span>
+  <span class="p">29%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 7.563.024</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 706.680 (18) · Aditivos de cancelamento do Pós: R$ 682.022 (31)">
+      <span class="v">R$ 1.388.701</span><span class="p">18%</span></td>
+    <td class="num mut">31</td>
+    <td class="num mut fim">1</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 7.563.024</td></tr>
+<tr class="">
+    <td class="mes">Junho 2026</td>
+    <td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 3.903.997<i class="pt sistema"></i></span>
+  <span class="p">60%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 711.261 (diferença de R$ 5.740).">
+  <span class="v">R$ 705.521<i class="pt planilha"></i></span>
+  <span class="p">11%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 27.600 (diferença de R$ 92.700).">
+  <span class="v">R$ 120.300<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 152.972 (diferença de R$ 5.871).">
+  <span class="v">R$ 147.101<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.725.669 (diferença de R$ 66.228).">
+  <span class="v">R$ 1.659.442<i class="pt planilha"></i></span>
+  <span class="p">25%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 6.536.361</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 545.901 (13) · Aditivos de cancelamento do Pós: R$ 1.136.446 (39)">
+      <span class="v">R$ 1.682.347</span><span class="p">26%</span></td>
+    <td class="num mut">17</td>
+    <td class="num mut fim">1</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 6.536.361</td></tr>
+<tr class="">
+    <td class="mes">Julho 2026</td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 4.681.480 (diferença de R$ 26.010).">
+  <span class="v">R$ 4.655.471<i class="pt planilha"></i></span>
+  <span class="p">72%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 511.597 (diferença de R$ 88.795).">
+  <span class="v">R$ 422.803<i class="pt planilha"></i></span>
+  <span class="p">7%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula - (diferença de R$ 66.630).">
+  <span class="v">R$ 66.630<i class="pt planilha"></i></span>
+  <span class="p">1%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 163.612 (diferença de R$ 25.862).">
+  <span class="v">R$ 137.750<i class="pt planilha"></i></span>
+  <span class="p">2%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.395.480 (diferença de R$ 220.582).">
+  <span class="v">R$ 1.174.898<i class="pt planilha"></i></span>
+  <span class="p">18%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 6.457.552</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 303.949 (8) · Aditivos de cancelamento do Pós: R$ 764.396 (28)">
+      <span class="v">R$ 1.068.345</span><span class="p">17%</span></td>
+    <td class="num mut">0</td>
+    <td class="num mut fim">0</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 6.457.552</td></tr>
+<tr class="">
+    <td class="mes">Agosto 2026</td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 5.094.063 (diferença de R$ 102.712).">
+  <span class="v">R$ 4.991.351<i class="pt planilha"></i></span>
+  <span class="p">61%</span></td><td class="num " title="Fonte: planilha. O sistema calcula R$ 585.197 (diferença de R$ 50.500).">
+  <span class="v">R$ 635.697<i class="pt planilha"></i></span>
+  <span class="p">8%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula - (diferença de R$ 319.300).">
+  <span class="v">R$ 319.300<i class="pt planilha"></i></span>
+  <span class="p">4%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 493.803 (diferença de R$ 55.074).">
+  <span class="v">R$ 548.877<i class="pt planilha"></i></span>
+  <span class="p">7%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 1.496.011 (diferença de R$ 166.851).">
+  <span class="v">R$ 1.662.862<i class="pt planilha"></i></span>
+  <span class="p">20%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 8.158.087</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 497.316 (12) · Aditivos de cancelamento do Pós: R$ 1.024.783 (27)">
+      <span class="v">R$ 1.522.099</span><span class="p">19%</span></td>
+    <td class="num mut">37</td>
+    <td class="num mut fim">0</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 8.158.087</td></tr>
+<tr class="">
+    <td class="mes">Setembro 2026</td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 4.732.947 (diferença de R$ 201.816).">
+  <span class="v">R$ 4.531.131<i class="pt planilha"></i></span>
+  <span class="p">72%</span></td><td class="num " title="Fonte: sistema — igual à planilha.">
+  <span class="v">R$ 161.327<i class="pt sistema"></i></span>
+  <span class="p">3%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula - (diferença de R$ 308.279).">
+  <span class="v">R$ 308.279<i class="pt planilha"></i></span>
+  <span class="p">5%</span></td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 376.775 (diferença de R$ 215.381).">
+  <span class="v">R$ 592.156<i class="pt planilha"></i></span>
+  <span class="p">9%</span></td><td class="num fim" title="Fonte: planilha. O sistema calcula R$ 471.271 (diferença de R$ 269.399).">
+  <span class="v">R$ 740.670<i class="pt planilha"></i></span>
+  <span class="p">12%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 6.333.563</td>
+    <td class="num canc nova" title="Contratos cancelados: R$ 226.210 (5) · Aditivos de cancelamento do Pós: R$ 741.079 (23)">
+      <span class="v">R$ 967.289</span><span class="p">15%</span></td>
+    <td class="num mut">0</td>
+    <td class="num mut fim">0</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">R$ 6.333.563</td></tr>
+<tr class="">
+    <td class="mes">Outubro 2026</td>
+    <td class="num " title="Fonte: planilha. O sistema calcula R$ 1.194.874 (diferença de R$ 116.431).">
+  <span class="v">R$ 1.078.443<i class="pt planilha"></i></span>
+  <span class="p">69%</span></td><td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td>
+    <td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">R$ 180.648<i class="pt sistema"></i></span>
+  <span class="p">12%</span></td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">R$ 307.148<i class="pt sistema"></i></span>
+  <span class="p">20%</span></td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">R$ 1.566.240</td>
+    <td class="num canc nova" title="Contratos cancelados: - (0) · Aditivos de cancelamento do Pós: R$ 305.748 (11)">
+      <span class="v">R$ 305.748</span><span class="p">20%</span></td>
+    <td class="num mut">-</td>
+    <td class="num mut fim">-</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">-</td></tr>
+<tr class="off">
+    <td class="mes">Novembro 2026</td>
+    <td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td>
+    <td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">-</td>
+    <td class="num canc nova" title="Contratos cancelados: - (0) · Aditivos de cancelamento do Pós: - (0)">
+      <span class="v">-</span></td>
+    <td class="num mut">-</td>
+    <td class="num mut fim">-</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">-</td></tr>
+<tr class="off">
+    <td class="mes">Dezembro 2026</td>
+    <td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td>
+    <td class="num " title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td><td class="num fim" title="Fonte: sistema (planilha em branco neste mês).">
+  <span class="v">-</span>
+  </td>
+    <td class="num tot" title="Soma dos três setores de venda + o total do Pós">-</td>
+    <td class="num canc nova" title="Contratos cancelados: - (0) · Aditivos de cancelamento do Pós: - (0)">
+      <span class="v">-</span></td>
+    <td class="num mut">-</td>
+    <td class="num mut fim">-</td>
+    <td class="num mut">-</td>
+    <td class="num mut">-</td>
+    <td class="num meta">-</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td class="mes">Total</td>
+        <td class="num"><span class="v">R$ 41.301.113</span><span class="p">66%</span></td><td class="num"><span class="v">R$ 3.996.453</span><span class="p">6%</span></td>
+        <td class="num fim"><span class="v">R$ 1.377.509</span><span class="p">2%</span></td>
+        <td class="num"><span class="v">R$ 2.347.307</span><span class="p">4%</span></td>
+        <td class="num fim"><span class="v">R$ 13.668.005</span><span class="p">22%</span></td>
+        <td class="num tot">R$ 62.690.387</td>
+        <td class="num canc">R$ 12.402.419</td>
+        <td class="num mut">134</td>
+        <td class="num mut fim">6</td>
+        <td class="num mut">-</td>
+        <td class="num mut">-</td>
+        <td class="num meta">R$ 61.124.148</td></tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="leg">
+  <span><i class="pt sistema"></i>sistema (igual à planilha, ou mês que ela ainda não tem)</span>
+  <span><i class="pt planilha"></i>planilha (o sistema ainda difere — passe o mouse)</span>
+  <span style="margin-left:auto">simulação gerada em 15/10/2026, 11:21:53</span>
+</div>
+
+<div class="nota">
+  <b>O que muda em relação ao que está no ar agora:</b> entra a coluna <b>Cancelados</b>, dentro do bloco TOTAL,
+  ao lado do Total Setores. Ela soma o <b>contrato assinado no mês que hoje está cancelado</b> com o
+  <b>aditivo de cancelamento do Pós lançado no mês</b> — passe o mouse em qualquer valor para ver a quebra entre os dois
+  e a quantidade. Embaixo do número vai o percentual sobre a venda do mês.<br>
+  <b>Ela não desconta do Total Setores</b>: é leitura ao lado da venda, então nenhum número que já está no ar muda de valor.
+</div>
+</body></html>
